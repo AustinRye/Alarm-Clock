@@ -13,7 +13,7 @@ module Alarm_On
     
     reg r_Alarm_On = 0;
     
-    always @(i_Clk) begin
+    always @(posedge i_Clk) begin
         if (i_Alarm_On)
             r_Alarm_On <= ~r_Alarm_On;
         else

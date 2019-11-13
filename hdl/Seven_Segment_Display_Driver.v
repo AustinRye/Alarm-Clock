@@ -8,6 +8,7 @@ module Seven_Segment_Display_Driver
     #(
         parameter CLK_IN = 1,
         parameter SEGMENT_NUM = 4,
+        parameter SEGMENT_NUM_USED = 4,
         parameter DISPLAY_REFRESH = 500
     ) (
         input i_Clk,
@@ -29,15 +30,16 @@ module Seven_Segment_Display_Driver
     );
     
     wire [3:0] w_BCD_Num_Sel;
-    wire [3:0] w_Anodes;
+    wire [7:0] w_Anodes;
     Seven_Segment_Display_Refresh
     #(
-        .SEGMENT_NUM    (SEGMENT_NUM)
+        .SEGMENT_NUM        (SEGMENT_NUM),
+        .SEGMENT_NUM_USED   (SEGMENT_NUM_USED)
     ) U_Seven_Segment_Display_Refresh (
-        .i_Refresh_Clk  (w_Clk_Display_Refresh),
-        .i_BCD_Num      (i_BCD_Num),
-        .o_BCD_Num_Sel  (w_BCD_Num_Sel),
-        .o_Anodes       (w_Anodes)
+        .i_Refresh_Clk      (w_Clk_Display_Refresh),
+        .i_BCD_Num          (i_BCD_Num),
+        .o_BCD_Num_Sel      (w_BCD_Num_Sel),
+        .o_Anodes           (w_Anodes)
     );
     
     wire [6:0] w_Segments;

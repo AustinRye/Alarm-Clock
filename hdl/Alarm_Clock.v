@@ -14,7 +14,7 @@ module Alarm_Clock
         input i_Hours_Inc,
         input i_Alarm_Enable,
         output [6:0] o_Segments,
-        output [3:0] o_Anodes,
+        output [7:0] o_Anodes,
         output o_Alarm_Enabled,
         output o_Alarm_On,
         output o_PM
@@ -28,6 +28,9 @@ module Alarm_Clock
 //        output [15:0] o_Display_Time
     );
 
+    //////////////////////////////////////////////////////////////////////////////
+    // Clock Dividers and Pulses
+    //////////////////////////////////////////////////////////////////////////////
     wire w_Clk_5MHz;
     Clock_Divider
     #(
@@ -77,6 +80,17 @@ module Alarm_Clock
         .o_Pulse        (w_Clk_1Hz_Pulse)
     );
     
+    wire w_Clk_0_5Hz;
+    Clock_Divider
+    #(
+        .CLK_IN         (2500000),
+        .CLK_OUT        (1)
+    ) U_Clock_Divider_5MHz_To_0_5Hz (
+        .i_Clk          (w_Clk_5MHz),
+        .i_Reset        (i_Reset),
+        .o_Clk          (w_Clk_0_5Hz)
+    );
+    
     wire w_Minutes_Inc;
     Debounce U_Debounce_Minutes
     (
@@ -108,13 +122,16 @@ module Alarm_Clock
         .i_Signal       (w_Hours_Inc),
         .o_Pulse        (w_Hours_Inc_Pulse)
     );
-
+    
+    //////////////////////////////////////////////////////////////////////////////
+    // Time and Alarm Counters
+    //////////////////////////////////////////////////////////////////////////////
     wire [15:0] w_Time;
     wire w_Time_PM;
     Time
     #(
         .START_MINUTES  (0),
-        .START_HOURS    (1)
+        .START_HOURS    (0)
     ) U_Time (
         .i_Clk_5MHz     (w_Clk_5MHz),
         .i_Clk_1Hz_Pulse(w_Clk_1Hz_Pulse),
@@ -130,7 +147,7 @@ module Alarm_Clock
     Alarm_Time
     #(
         .START_MINUTES  (0),
-        .START_HOURS    (1)
+        .START_HOURS    (0)
     ) U_Alarm_Time (
         .i_Clk_5MHz     (w_Clk_5MHz),
         .i_Reset        (i_Reset),
@@ -140,6 +157,9 @@ module Alarm_Clock
         .o_PM           (w_Alarm_PM)
     );
     
+    //////////////////////////////////////////////////////////////////////////////
+    // Master Controller
+    //////////////////////////////////////////////////////////////////////////////
     wire w_Display_Sel;
     wire w_Turn_Alarm_On;
     wire w_Alarm_Enabled;
@@ -158,14 +178,20 @@ module Alarm_Clock
         .o_Alarm_Enabled    (w_Alarm_Enabled)
     );
     
+    //////////////////////////////////////////////////////////////////////////////
+    // Alarm On Controller
+    //////////////////////////////////////////////////////////////////////////////
     wire w_Alarm_On;
     Alarm_On U_Alarm_On
     (
-        .i_Clk          (w_Clk_1Hz),
+        .i_Clk          (w_Clk_0_5Hz),
         .i_Alarm_On     (w_Turn_Alarm_On),
         .o_Alarm_On     (w_Alarm_On)
     );
     
+    //////////////////////////////////////////////////////////////////////////////
+    // Seven Segment Display Controllers
+    //////////////////////////////////////////////////////////////////////////////
     wire [15:0] w_Display_Time;
     wire w_Display_PM;
     Seven_Segment_PM_MUX
@@ -183,25 +209,26 @@ module Alarm_Clock
     );
     
     wire [6:0] w_Segments;
-    wire [3:0] w_Anodes;
+    wire [7:0] w_Anodes;
     Seven_Segment_Display_Driver
     #(
-        .CLK_IN         (5000000),
-        .SEGMENT_NUM    (4),
-        .DISPLAY_REFRESH(500)
+        .CLK_IN             (5000000),
+        .SEGMENT_NUM        (8),
+        .SEGMENT_NUM_USED   (4),
+        .DISPLAY_REFRESH    (500)
     ) U_Seven_Segment_Display_Driver (
-        .i_Clk          (w_Clk_5MHz),
-        .i_Reset        (i_Reset),
-        .i_BCD_Num      (w_Display_Time),
-        .o_Segments     (w_Segments),
-        .o_Anodes       (w_Anodes)
+        .i_Clk              (w_Clk_5MHz),
+        .i_Reset            (i_Reset),
+        .i_BCD_Num          (w_Display_Time),
+        .o_Segments         (w_Segments),
+        .o_Anodes           (w_Anodes)
     );
     
     assign o_PM = w_Display_PM;
     assign o_Segments = w_Segments;
     assign o_Anodes = w_Anodes;
     assign o_Alarm_Enabled = w_Alarm_Enabled;
-    assign o_Alarm_On = w_Turn_Alarm_On;
+    assign o_Alarm_On = w_Alarm_On;
     
 //    assign o_Clk_5MHz = w_Clk_5MHz;
 //    assign o_Clk_1Hz = w_Clk_1Hz;

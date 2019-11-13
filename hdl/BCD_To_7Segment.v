@@ -25,7 +25,7 @@ module BCD_To_7Segment
             4'b0111 : r_Hex_Encoding <= 7'b0001111;
             4'b1000 : r_Hex_Encoding <= 7'b0000000;
             4'b1001 : r_Hex_Encoding <= 7'b0000100;
-            default : r_Hex_Encoding <= 7'b0000001;
+            default : r_Hex_Encoding <= 7'b1111111;
         endcase
     end
     

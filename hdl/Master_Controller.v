@@ -22,7 +22,7 @@ module Master_Controller
     reg r_Display_Sel = 0;
     reg r_Alarm_On;
     
-    always @(i_Clk) begin
+    always @(posedge i_Clk) begin
         if (~i_Change_Time & i_Change_Alarm)
             r_Display_Sel <= 1;
         else

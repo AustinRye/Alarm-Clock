@@ -35,7 +35,7 @@ module Time
         .BIT_WIDTH      (17),
         .MAX_COUNT      (86400),
         .START_MINUTES  (START_MINUTES),
-        .START_HOURS    (START_HOURS-1)
+        .START_HOURS    (START_HOURS)
     ) U_Time_Counter (
         .i_Clk          (i_Clk_5MHz),
         .i_Reset        (i_Reset),
@@ -51,10 +51,14 @@ module Time
     wire [3:0] w_Minutes_2nd_Digit = w_Minutes % 10;
     
     wire [4:0] w_Hours = w_Minutes / 60;
-    wire [3:0] w_Hours_1st_Digit = w_Hours >= 4'd12 ? (w_Hours - 11) / 10 : (w_Hours + 1) / 10;
-    wire [3:0] w_Hours_2nd_Digit = w_Hours >= 4'd12 ? (w_Hours - 11) % 10 : (w_Hours + 1) % 10;
+    wire [3:0] w_Hours_1st_Digit = w_Hours == 4'd00 ? 4'd01
+                                 : w_Hours <= 4'd12 ? w_Hours / 10
+                                 : (w_Hours - 12) / 10;
+    wire [3:0] w_Hours_2nd_Digit = w_Hours == 4'd00 ? 4'd02
+                                 : w_Hours <= 4'd12 ? w_Hours % 10
+                                 : (w_Hours - 12) % 10;
     
-    wire w_PM = (w_Hours >= 8'd11) & (w_Hours <= 8'd22) ? 1'b1 : 1'b0;
+    wire w_PM = w_Hours >= 8'd12 ? 1'b1 : 1'b0;
     
     assign o_Time = {w_Hours_1st_Digit, w_Hours_2nd_Digit, w_Minutes_1st_Digit, w_Minutes_2nd_Digit};
     assign o_PM = w_PM;
