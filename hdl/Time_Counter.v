@@ -14,16 +14,16 @@ module Time_Counter
         input i_Clk,
         input i_Reset,
         input i_Enable,
-        input i_Seconds_Inc,
+        input i_Fraction_Seconds_Inc,
         input i_Minutes_Inc,
         input i_Hours_Inc,
         output [BIT_WIDTH-1:0] o_Count
     );
     
-    reg [BIT_WIDTH-1:0] r_Count = START_MINUTES*60 + START_HOURS*3600;
-    wire [11:0] w_Count_Add;
+    reg [BIT_WIDTH-1:0] r_Count = START_MINUTES*6000 + START_HOURS*360000;
+    wire [18:0] w_Count_Add;
     
-    assign w_Count_Add = (i_Seconds_Inc * 1) + (i_Minutes_Inc * 60) + (i_Hours_Inc * 3600);
+    assign w_Count_Add = (i_Fraction_Seconds_Inc * 1) + (i_Minutes_Inc * 6000) + (i_Hours_Inc * 360000);
     
     always @(posedge i_Clk or posedge i_Reset) begin
         if (i_Reset)

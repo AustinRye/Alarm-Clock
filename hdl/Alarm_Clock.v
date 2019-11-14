@@ -61,6 +61,25 @@ module Alarm_Clock
         .o_Pulse        (w_Clk_1KHz_Pulse)
     );
     
+    wire w_Clk_100Hz;
+    Clock_Divider
+    #(
+        .CLK_IN         (5000000),
+        .CLK_OUT        (100)
+    ) U_Clock_Divider_5MHz_To_100Hz (
+        .i_Clk          (w_Clk_5MHz),
+        .i_Reset        (i_Reset),
+        .o_Clk          (w_Clk_100Hz)
+    );
+    
+    wire w_Clk_100Hz_Pulse;
+    Pulse_Generator U_100Hz_Pulse_Generator
+    (
+        .i_Clk          (w_Clk_5MHz),
+        .i_Signal       (w_Clk_100Hz),
+        .o_Pulse        (w_Clk_100Hz_Pulse)
+    );
+    
     wire w_Clk_1Hz;
     Clock_Divider
     #(
@@ -70,25 +89,6 @@ module Alarm_Clock
         .i_Clk          (w_Clk_5MHz),
         .i_Reset        (i_Reset),
         .o_Clk          (w_Clk_1Hz)
-    );
-    
-    wire w_Clk_1Hz_Pulse;
-    Pulse_Generator U_1Hz_Pulse_Generator
-    (
-        .i_Clk          (w_Clk_5MHz),
-        .i_Signal       (w_Clk_1Hz),
-        .o_Pulse        (w_Clk_1Hz_Pulse)
-    );
-    
-    wire w_Clk_0_5Hz;
-    Clock_Divider
-    #(
-        .CLK_IN         (2500000),
-        .CLK_OUT        (1)
-    ) U_Clock_Divider_5MHz_To_0_5Hz (
-        .i_Clk          (w_Clk_5MHz),
-        .i_Reset        (i_Reset),
-        .o_Clk          (w_Clk_0_5Hz)
     );
     
     wire w_Minutes_Inc;
@@ -126,23 +126,23 @@ module Alarm_Clock
     //////////////////////////////////////////////////////////////////////////////
     // Time and Alarm Counters
     //////////////////////////////////////////////////////////////////////////////
-    wire [15:0] w_Time;
+    wire [31:0] w_Time;
     wire w_Time_PM;
     Time
     #(
-        .START_MINUTES  (0),
-        .START_HOURS    (0)
+        .START_MINUTES      (0),
+        .START_HOURS        (0)
     ) U_Time (
-        .i_Clk_5MHz     (w_Clk_5MHz),
-        .i_Clk_1Hz_Pulse(w_Clk_1Hz_Pulse),
-        .i_Reset        (i_Reset),
-        .i_Minutes_Inc  (i_Change_Time & w_Minutes_Inc_Pulse),
-        .i_Hours_Inc    (i_Change_Time & w_Hours_Inc_Pulse),
-        .o_Time         (w_Time),
-        .o_PM           (w_Time_PM)
+        .i_Clk_5MHz         (w_Clk_5MHz),
+        .i_Clk_100Hz_Pulse  (w_Clk_100Hz_Pulse),
+        .i_Reset            (i_Reset),
+        .i_Minutes_Inc      (i_Change_Time & w_Minutes_Inc_Pulse),
+        .i_Hours_Inc        (i_Change_Time & w_Hours_Inc_Pulse),
+        .o_Time             (w_Time),
+        .o_PM               (w_Time_PM)
     );
     
-    wire [15:0] w_Alarm_Time;
+    wire [31:0] w_Alarm_Time;
     wire w_Alarm_PM;
     Alarm_Time
     #(
@@ -184,7 +184,7 @@ module Alarm_Clock
     wire w_Alarm_On;
     Alarm_On U_Alarm_On
     (
-        .i_Clk          (w_Clk_0_5Hz),
+        .i_Clk          (w_Clk_1Hz),
         .i_Alarm_On     (w_Turn_Alarm_On),
         .o_Alarm_On     (w_Alarm_On)
     );
@@ -192,11 +192,11 @@ module Alarm_Clock
     //////////////////////////////////////////////////////////////////////////////
     // Seven Segment Display Controllers
     //////////////////////////////////////////////////////////////////////////////
-    wire [15:0] w_Display_Time;
+    wire [31:0] w_Display_Time;
     wire w_Display_PM;
     Seven_Segment_PM_MUX
     #(
-        .DECIMAL_DIGITS     (4)
+        .DECIMAL_DIGITS     (8)
     ) U_Seven_Segment_PM_MUX (
         .i_Clk              (w_Clk_5MHz),
         .i_Display_Sel      (w_Display_Sel),
@@ -214,7 +214,7 @@ module Alarm_Clock
     #(
         .CLK_IN             (5000000),
         .SEGMENT_NUM        (8),
-        .SEGMENT_NUM_USED   (4),
+        .SEGMENT_NUM_USED   (8),
         .DISPLAY_REFRESH    (500)
     ) U_Seven_Segment_Display_Driver (
         .i_Clk              (w_Clk_5MHz),

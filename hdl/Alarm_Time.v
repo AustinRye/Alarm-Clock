@@ -13,7 +13,7 @@ module Alarm_Time
         input i_Reset,
         input i_Minutes_Inc,
         input i_Hours_Inc,
-        output [15:0] o_Alarm_Time,
+        output [31:0] o_Alarm_Time,
         output o_PM
         
 //        ,
@@ -28,22 +28,29 @@ module Alarm_Time
 //        output [3:0] o_Hours_2nd_Digit
     );
     
-    wire [16:0] w_Seconds;
+    wire [23:0] w_Fraction_Seconds;
     Time_Counter
     #(
-        .BIT_WIDTH      (17),
-        .MAX_COUNT      (86400),
-        .START_MINUTES  (START_MINUTES),
-        .START_HOURS    (START_HOURS)
+        .BIT_WIDTH              (24),
+        .MAX_COUNT              (8640000),
+        .START_MINUTES          (START_MINUTES),
+        .START_HOURS            (START_HOURS)
     ) U_Alarm_Time_Counter (
-        .i_Clk          (i_Clk_5MHz),
-        .i_Reset        (i_Reset),
-        .i_Enable       (1'b1),
-        .i_Seconds_Inc  (1'b0),
-        .i_Minutes_Inc  (i_Minutes_Inc),
-        .i_Hours_Inc    (i_Hours_Inc),
-        .o_Count        (w_Seconds)
+        .i_Clk                  (i_Clk_5MHz),
+        .i_Reset                (i_Reset),
+        .i_Enable               (1'b1),
+        .i_Fraction_Seconds_Inc (1'b0),
+        .i_Minutes_Inc          (i_Minutes_Inc),
+        .i_Hours_Inc            (i_Hours_Inc),
+        .o_Count                (w_Fraction_Seconds)
     );
+    
+    wire [3:0] w_Fraction_Seconds_1st_Digit = w_Fraction_Seconds / 10;
+    wire [3:0] w_Fraction_Seconds_2nd_Digit = w_Fraction_Seconds % 10;
+    
+    wire [16:0] w_Seconds = w_Fraction_Seconds / 100;
+    wire [3:0] w_Seconds_1st_Digit = (w_Seconds / 10) - 6 * (w_Seconds / 60);
+    wire [3:0] w_Seconds_2nd_Digit = w_Seconds % 10;
 
     wire [10:0] w_Minutes = w_Seconds / 60;
     wire [3:0] w_Minutes_1st_Digit = (w_Minutes / 10) - 6 * (w_Minutes / 60);
@@ -59,7 +66,8 @@ module Alarm_Time
     
     wire w_PM = w_Hours >= 8'd12 ? 1'b1 : 1'b0;
     
-    assign o_Alarm_Time = {w_Hours_1st_Digit, w_Hours_2nd_Digit, w_Minutes_1st_Digit, w_Minutes_2nd_Digit};
+    assign o_Alarm_Time = {w_Hours_1st_Digit, w_Hours_2nd_Digit, w_Minutes_1st_Digit, w_Minutes_2nd_Digit,
+                           w_Seconds_1st_Digit, w_Seconds_2nd_Digit, w_Fraction_Seconds_1st_Digit, w_Fraction_Seconds_2nd_Digit};
     assign o_PM = w_PM;
     
 //    assign o_Seconds = w_Seconds;
