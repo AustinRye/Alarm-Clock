@@ -38,7 +38,7 @@ module Alarm_Clock
        .CLK_OUT        (5000000)
     ) U_Clock_Divider_100MHz_To_5MHz (
        .i_Clk          (i_Clk_100MHz),
-       .i_Reset        (i_Reset),
+       .i_Reset        (1'b0),
        .o_Clk          (w_Clk_5MHz)
     );
     
@@ -49,7 +49,7 @@ module Alarm_Clock
         .CLK_OUT        (1000)
     ) U_Clock_Divider_5MHz_To_1KHz (
         .i_Clk          (w_Clk_5MHz),
-        .i_Reset        (i_Reset),
+        .i_Reset        (1'b0),
         .o_Clk          (w_Clk_1KHz)
     );
     
@@ -68,7 +68,7 @@ module Alarm_Clock
         .CLK_OUT        (1)
     ) U_Clock_Divider_5MHz_To_1Hz (
         .i_Clk          (w_Clk_5MHz),
-        .i_Reset        (i_Reset),
+        .i_Reset        (1'b0),
         .o_Clk          (w_Clk_1Hz)
     );
     
@@ -87,7 +87,7 @@ module Alarm_Clock
         .CLK_OUT        (1)
     ) U_Clock_Divider_5MHz_To_0_5Hz (
         .i_Clk          (w_Clk_5MHz),
-        .i_Reset        (i_Reset),
+        .i_Reset        (1'b0),
         .o_Clk          (w_Clk_0_5Hz)
     );
     
@@ -124,9 +124,41 @@ module Alarm_Clock
     );
     
     //////////////////////////////////////////////////////////////////////////////
+    // Master Controller
+    //////////////////////////////////////////////////////////////////////////////
+    
+    wire [15:0] w_Time;
+    wire [15:0] w_Alarm_Time;
+    wire w_Time_Minutes_Inc;
+    wire w_Time_Hours_Inc;
+    wire w_Alarm_Minutes_Inc;
+    wire w_Alarm_Hours_Inc;
+    wire w_Display_Sel;
+    wire w_Turn_Alarm_On;
+    wire w_Alarm_Enabled;
+    Master_Controller U_Master_Controller
+    (
+        .i_Clk              (w_Clk_5MHz),
+        .i_Change_Time      (i_Change_Time),
+        .i_Change_Alarm     (i_Change_Alarm),
+        .i_Minutes_Inc      (w_Minutes_Inc_Pulse),
+        .i_Hours_Inc        (w_Hours_Inc_Pulse),
+        .i_Alarm_Enable     (i_Alarm_Enable),
+        .i_Time             (w_Time),
+        .i_Alarm_Time       (w_Alarm_Time),
+        .o_Time_Minutes_Inc (w_Time_Minutes_Inc),
+        .o_Time_Hours_Inc   (w_Time_Hours_Inc),
+        .o_Alarm_Minutes_Inc(w_Alarm_Minutes_Inc),
+        .o_Alarm_Hours_Inc  (w_Alarm_Hours_Inc),
+        .o_Display_Sel      (w_Display_Sel),
+        .o_Alarm_On         (w_Turn_Alarm_On),
+        .o_Alarm_Enabled    (w_Alarm_Enabled)
+    );
+    
+    //////////////////////////////////////////////////////////////////////////////
     // Time and Alarm Counters
     //////////////////////////////////////////////////////////////////////////////
-    wire [15:0] w_Time;
+    
     wire w_Time_PM;
     Time
     #(
@@ -136,13 +168,12 @@ module Alarm_Clock
         .i_Clk_5MHz     (w_Clk_5MHz),
         .i_Clk_1Hz_Pulse(w_Clk_1Hz_Pulse),
         .i_Reset        (i_Reset),
-        .i_Minutes_Inc  (i_Change_Time & w_Minutes_Inc_Pulse),
-        .i_Hours_Inc    (i_Change_Time & w_Hours_Inc_Pulse),
+        .i_Minutes_Inc  (w_Time_Minutes_Inc),
+        .i_Hours_Inc    (w_Time_Hours_Inc),
         .o_Time         (w_Time),
         .o_PM           (w_Time_PM)
     );
     
-    wire [15:0] w_Alarm_Time;
     wire w_Alarm_PM;
     Alarm_Time
     #(
@@ -151,31 +182,10 @@ module Alarm_Clock
     ) U_Alarm_Time (
         .i_Clk_5MHz     (w_Clk_5MHz),
         .i_Reset        (i_Reset),
-        .i_Minutes_Inc  (i_Change_Alarm & w_Minutes_Inc_Pulse),
-        .i_Hours_Inc    (i_Change_Alarm & w_Hours_Inc_Pulse),
+        .i_Minutes_Inc  (w_Alarm_Minutes_Inc),
+        .i_Hours_Inc    (w_Alarm_Hours_Inc),
         .o_Alarm_Time   (w_Alarm_Time),
         .o_PM           (w_Alarm_PM)
-    );
-    
-    //////////////////////////////////////////////////////////////////////////////
-    // Master Controller
-    //////////////////////////////////////////////////////////////////////////////
-    wire w_Display_Sel;
-    wire w_Turn_Alarm_On;
-    wire w_Alarm_Enabled;
-    Master_Controller U_Master_Controller
-    (
-        .i_Clk              (w_Clk_5MHz),
-        .i_Change_Time      (i_Change_Time),
-        .i_Change_Alarm     (i_Change_Alarm),
-        .i_Minutes_Inc      (i_Minutes_Inc),
-        .i_Hours_Inc        (i_Hours_Inc),
-        .i_Alarm_Enable     (i_Alarm_Enable),
-        .i_Time             (w_Time),
-        .i_Alarm_Time       (w_Alarm_Time),
-        .o_Display_Sel      (w_Display_Sel),
-        .o_Alarm_On         (w_Turn_Alarm_On),
-        .o_Alarm_Enabled    (w_Alarm_Enabled)
     );
     
     //////////////////////////////////////////////////////////////////////////////

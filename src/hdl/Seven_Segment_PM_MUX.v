@@ -18,8 +18,7 @@ module Seven_Segment_PM_MUX
         output o_Display_PM
     );
     
-    localparam TIME = 0;
-    localparam ALARM_TIME = 1;
+    parameter TIME = 0, ALARM_TIME = 1;
     
     reg [4*DECIMAL_DIGITS-1:0] r_Display_Time = 0;
     reg r_Display_PM = 0;

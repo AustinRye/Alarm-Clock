@@ -14,13 +14,13 @@ module Time_TB ();
     wire [15:0] w_Time;
     wire w_PM;
     
-//    wire [16:0] w_Seconds;
-//    wire [16:0] w_Minutes;
-//    wire [16:0] w_Hours;
-//    wire [3:0] w_Minutes_1st_Digit;
-//    wire [3:0] w_Minutes_2nd_Digit;
-//    wire [3:0] w_Hours_1st_Digit;
-//    wire [3:0] w_Hours_2nd_Digit;
+    wire [5:0] w_Seconds;
+    wire [5:0] w_Minutes;
+    wire [4:0] w_Hours;
+    wire [3:0] w_Minutes_1st_Digit;
+    wire [3:0] w_Minutes_2nd_Digit;
+    wire [3:0] w_Hours_1st_Digit;
+    wire [3:0] w_Hours_2nd_Digit;
     
     Time
     #(
@@ -35,16 +35,16 @@ module Time_TB ();
         .o_Time         (w_Time),
         .o_PM           (w_PM)
         
-//        ,
-//        .o_Seconds(w_Seconds),
-//        .o_Minutes(w_Minutes),
-//        .o_Hours(w_Hours)
+        ,
+        .o_Seconds(w_Seconds),
+        .o_Minutes(w_Minutes),
+        .o_Hours(w_Hours)
 
-//        ,
-//        .o_Minutes_1st_Digit(w_Minutes_1st_Digit),
-//        .o_Minutes_2nd_Digit(w_Minutes_2nd_Digit),
-//        .o_Hours_1st_Digit(w_Hours_1st_Digit),
-//        .o_Hours_2nd_Digit(w_Hours_2nd_Digit)
+        ,
+        .o_Minutes_1st_Digit(w_Minutes_1st_Digit),
+        .o_Minutes_2nd_Digit(w_Minutes_2nd_Digit),
+        .o_Hours_1st_Digit(w_Hours_1st_Digit),
+        .o_Hours_2nd_Digit(w_Hours_2nd_Digit)
     );
     
 //    initial begin
