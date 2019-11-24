@@ -45,7 +45,7 @@ module Alarm_Time
         .o_Count                (w_Fraction_Seconds)
     );
     
-    wire [3:0] w_Fraction_Seconds_1st_Digit = w_Fraction_Seconds / 10;
+    wire [3:0] w_Fraction_Seconds_1st_Digit = (w_Fraction_Seconds / 10) - 10 * (w_Fraction_Seconds / 100);
     wire [3:0] w_Fraction_Seconds_2nd_Digit = w_Fraction_Seconds % 10;
     
     wire [16:0] w_Seconds = w_Fraction_Seconds / 100;

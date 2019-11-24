@@ -128,6 +128,7 @@ module Alarm_Clock
     //////////////////////////////////////////////////////////////////////////////
     wire [31:0] w_Time;
     wire [31:0] w_Alarm_Time;
+    wire w_Enable_Count;
     wire w_Time_Minutes_Inc;
     wire w_Time_Hours_Inc;
     wire w_Alarm_Minutes_Inc;
@@ -145,6 +146,7 @@ module Alarm_Clock
         .i_Alarm_Enable     (i_Alarm_Enable),
         .i_Time             (w_Time),
         .i_Alarm_Time       (w_Alarm_Time),
+        .o_Enable_Count     (w_Enable_Count),
         .o_Time_Minutes_Inc (w_Time_Minutes_Inc),
         .o_Time_Hours_Inc   (w_Time_Hours_Inc),
         .o_Alarm_Minutes_Inc(w_Alarm_Minutes_Inc),
@@ -166,6 +168,7 @@ module Alarm_Clock
         .i_Clk_5MHz         (w_Clk_5MHz),
         .i_Clk_100Hz_Pulse  (w_Clk_100Hz_Pulse),
         .i_Reset            (i_Reset),
+        .i_Enable_Count     (w_Enable_Count),
         .i_Minutes_Inc      (w_Time_Minutes_Inc),
         .i_Hours_Inc        (w_Time_Hours_Inc),
         .o_Time             (w_Time),

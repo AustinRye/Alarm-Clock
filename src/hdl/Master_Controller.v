@@ -15,6 +15,7 @@ module Master_Controller
         input i_Alarm_Enable,
         input [31:0] i_Time,
         input [31:0] i_Alarm_Time,
+        output o_Enable_Count,
         output o_Time_Minutes_Inc,
         output o_Time_Hours_Inc,
         output o_Alarm_Minutes_Inc,
@@ -28,11 +29,12 @@ module Master_Controller
     // Time FSM
     //////////////////////////////////////////////////////////////////////////////
     
-    reg r_Display_Sel;
+    reg r_Enable_Count;
     reg r_Time_Minutes_Inc;
     reg r_Time_Hours_Inc;
     reg r_Alarm_Minutes_Inc;
     reg r_Alarm_Hours_Inc;
+    reg r_Display_Sel;
     
     reg [1:0] r_Time_State, r_Time_Next_State;
     parameter RESET = 0, RUN = 1, SET = 2;
@@ -77,21 +79,22 @@ module Master_Controller
     end
     
     always @(r_Time_State) begin
+        r_Enable_Count <= 1;
+        r_Time_Minutes_Inc <= 0;
+        r_Time_Hours_Inc <= 0;
+        r_Alarm_Minutes_Inc <= 0;
+        r_Alarm_Hours_Inc <= 0;
+        r_Display_Sel <= 0;
+        
         case (r_Time_State)
             SET:
                 begin
-                    r_Display_Sel <= (~i_Change_Time & i_Change_Alarm) ? 1 : 0;
+                    r_Enable_Count <= 0;
                     r_Time_Minutes_Inc <= (i_Change_Time & i_Minutes_Inc) ? 1 : 0;
                     r_Time_Hours_Inc <= (i_Change_Time & i_Hours_Inc) ? 1 : 0;
                     r_Alarm_Minutes_Inc <= (i_Change_Alarm & i_Minutes_Inc) ? 1 : 0;
                     r_Alarm_Hours_Inc <= (i_Change_Alarm & i_Hours_Inc) ? 1 : 0;
-                end
-            default:
-                begin
-                    r_Time_Minutes_Inc <= 0;
-                    r_Time_Hours_Inc <= 0;
-                    r_Alarm_Minutes_Inc <= 0;
-                    r_Alarm_Hours_Inc <= 0;
+                    r_Display_Sel <= (~i_Change_Time & i_Change_Alarm) ? 1 : 0;
                 end
         endcase
     end
@@ -152,6 +155,7 @@ module Master_Controller
         endcase
     end
     
+    assign o_Enable_Count = r_Enable_Count;
     assign o_Time_Minutes_Inc = r_Time_Minutes_Inc;
     assign o_Time_Hours_Inc = r_Time_Hours_Inc;
     assign o_Alarm_Minutes_Inc = r_Alarm_Minutes_Inc;

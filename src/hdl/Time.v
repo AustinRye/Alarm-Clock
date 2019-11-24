@@ -12,6 +12,7 @@ module Time
         input i_Clk_5MHz,
         input i_Clk_100Hz_Pulse,
         input i_Reset,
+        input i_Enable_Count,
         input i_Minutes_Inc,
         input i_Hours_Inc,
         output [31:0] o_Time,
@@ -29,6 +30,8 @@ module Time
 //        output [3:0] o_Hours_2nd_Digit
     );
     
+    wire w_Fraction_Seconds_Inc = i_Enable_Count & i_Clk_100Hz_Pulse;
+    
     wire [23:0] w_Fraction_Seconds;
     Time_Counter
     #(
@@ -40,7 +43,7 @@ module Time
         .i_Clk                  (i_Clk_5MHz),
         .i_Reset                (i_Reset),
         .i_Enable               (1'b1),
-        .i_Fraction_Seconds_Inc (i_Clk_100Hz_Pulse),
+        .i_Fraction_Seconds_Inc (w_Fraction_Seconds_Inc),
         .i_Minutes_Inc          (i_Minutes_Inc),
         .i_Hours_Inc            (i_Hours_Inc),
         .o_Count                (w_Fraction_Seconds)
