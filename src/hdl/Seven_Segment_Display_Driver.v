@@ -25,7 +25,7 @@ module Seven_Segment_Display_Driver
         .CLK_OUT    (DISPLAY_REFRESH)
     ) U_Clock_Divider_Display_Refresh (
         .i_Clk      (i_Clk),
-        .i_Reset    (i_Reset),
+        .i_Reset    (1'b0),
         .o_Clk      (w_Clk_Display_Refresh)
     );
     
@@ -37,6 +37,7 @@ module Seven_Segment_Display_Driver
         .SEGMENT_NUM_USED   (SEGMENT_NUM_USED)
     ) U_Seven_Segment_Display_Refresh (
         .i_Refresh_Clk      (w_Clk_Display_Refresh),
+        .i_Reset            (i_Reset),
         .i_BCD_Num          (i_BCD_Num),
         .o_BCD_Num_Sel      (w_BCD_Num_Sel),
         .o_Anodes           (w_Anodes)
