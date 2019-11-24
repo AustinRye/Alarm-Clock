@@ -30,7 +30,7 @@ module Time_Counter
             r_Count <= 0;
         else if (i_Enable) begin
             if (r_Count + w_Count_Add > MAX_COUNT)
-                r_Count <= r_Count + w_Count_Add - MAX_COUNT - 1;
+                r_Count <= r_Count + w_Count_Add - MAX_COUNT;
             else
                 r_Count <= r_Count + w_Count_Add;
         end
