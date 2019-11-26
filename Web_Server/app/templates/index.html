@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" type="text/css"
+        href="{{ url_for('static', filename='bootstrap-4.3.1-dist/css/bootstrap.min.css') }}">
+    <script src="{{ url_for('static', filename='bootstrap-4.3.1-dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='jquery-3.4.1.min.js') }}"></script>
+
+    <title>Alarm Clock</title>
+</head>
+
+<body>
+    <div class="container">
+        <button id="reset" type="button" class="btn btn-danger">Reset</button>
+        <button id="changeTime" type="button" class="btn btn-primary">Change Time</button>
+        <button id="changeAlarm" type="button" class="btn btn-primary">Change Alarm</button>
+        <button id="minutesInc" type="button" class="btn btn-secondary">Minutes Inc</button>
+        <button id="minutesDec" type="button" class="btn btn-secondary">Minutes Dec</button>
+        <button id="hoursInc" type="button" class="btn btn-secondary">Hours Inc</button>
+        <button id="hoursDec" type="button" class="btn btn-secondary">Hours Dec</button>
+        <button id="alarmEnable" type="button" class="btn btn-success">Alarm Enable</button>
+    </div>
+</body>
+
+<script>
+    $("#reset").on('mousedown touchstart', function () {
+        $.post("reset?reset=1");
+    });
+    $("#reset").on('mouseup touchstop', function () {
+        $.post("reset?reset=0");
+    });
+    $("#changeTime").mousedown(function () {
+        if ($(this).hasClass("active")) {
+            $(this).removeClass('active');
+            $.post("changeTime?changeTime=0");
+        } else {
+            $(this).addClass('active');
+            $.post("changeTime?changeTime=1");
+        }
+    });
+    $("#changeAlarm").mousedown(function () {
+        if ($(this).hasClass("active")) {
+            $(this).removeClass('active');
+            $.post("changeAlarm?changeAlarm=0");
+        } else {
+            $(this).addClass('active');
+            $.post("changeAlarm?changeAlarm=1");
+        }
+    });
+    $('#minutesInc').on('mousedown touchstart', function () {
+        $.post("minutesInc?minutesInc=1");
+    });
+    $('#minutesInc').on('mouseup touchstop', function () {
+        $.post("minutesInc?minutesInc=0");
+    });
+    $('#minutesDec').on('mousedown touchstart', function () {
+        $.post("minutesDec?minutesDec=1");
+    });
+    $('#minutesDec').on('mouseup touchstop', function () {
+        $.post("minutesDec?minutesDec=0");
+    });
+    $("#hoursInc").on('mousedown touchstart', function () {
+        $.post("hoursInc?hoursInc=1");
+    });
+    $("#hoursInc").on('mouseup touchstop', function () {
+        $.post("hoursInc?hoursInc=0");
+    });
+    $("#hoursDec").on('mousedown touchstart', function () {
+        $.post("hoursDec?hoursDec=1");
+    });
+    $("#hoursDec").on('mouseup touchstop', function () {
+        $.post("hoursDec?hoursDec=0");
+    });
+    $("#alarmEnable").mousedown(function () {
+        if ($(this).hasClass("active")) {
+            $(this).removeClass('active');
+            $.post("alarmEnable?alarmEnable=0");
+        } else {
+            $(this).addClass('active');
+            $.post("alarmEnable?alarmEnable=1");
+        }
+    });
+</script>
+
+</html>

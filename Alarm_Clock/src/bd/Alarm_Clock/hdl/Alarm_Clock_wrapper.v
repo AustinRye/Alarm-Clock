@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
-//Date        : Sun Nov 24 18:10:01 2019
+//Date        : Tue Nov 26 14:38:23 2019
 //Host        : LAPTOP-CKAMQSCQ running 64-bit major release  (build 9200)
 //Command     : generate_target Alarm_Clock_wrapper.bd
 //Design      : Alarm_Clock_wrapper
@@ -35,7 +35,9 @@ module Alarm_Clock_wrapper
     i_Alarm_Enable,
     i_Change_Alarm,
     i_Change_Time,
+    i_Hours_Dec,
     i_Hours_Inc,
+    i_Minutes_Dec,
     i_Minutes_Inc,
     i_Reset,
     o_Alarm_Enabled,
@@ -72,7 +74,9 @@ module Alarm_Clock_wrapper
   input i_Alarm_Enable;
   input i_Change_Alarm;
   input i_Change_Time;
+  input i_Hours_Dec;
   input i_Hours_Inc;
+  input i_Minutes_Dec;
   input i_Minutes_Inc;
   input i_Reset;
   output o_Alarm_Enabled;
@@ -113,7 +117,9 @@ module Alarm_Clock_wrapper
   wire i_Alarm_Enable;
   wire i_Change_Alarm;
   wire i_Change_Time;
+  wire i_Hours_Dec;
   wire i_Hours_Inc;
+  wire i_Minutes_Dec;
   wire i_Minutes_Inc;
   wire i_Reset;
   wire o_Alarm_Enabled;
@@ -154,7 +160,9 @@ module Alarm_Clock_wrapper
         .i_Alarm_Enable(i_Alarm_Enable),
         .i_Change_Alarm(i_Change_Alarm),
         .i_Change_Time(i_Change_Time),
+        .i_Hours_Dec(i_Hours_Dec),
         .i_Hours_Inc(i_Hours_Inc),
+        .i_Minutes_Dec(i_Minutes_Dec),
         .i_Minutes_Inc(i_Minutes_Inc),
         .i_Reset(i_Reset),
         .o_Alarm_Enabled(o_Alarm_Enabled),

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0xB6E8DB6326C1806" bd:device="xc7a100tcsg324-1" bd:isValidated="true" bd:synthFlowMode="Hierarchical" bd:tool_version="2016.3" bd:top="Alarm_Clock" bd:version="1.00.a">
+<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0xF659A75A6E401900" bd:device="xc7a100tcsg324-1" bd:isValidated="true" bd:synthFlowMode="Hierarchical" bd:tool_version="2016.3" bd:top="Alarm_Clock" bd:version="1.00.a">
 
   <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
     <spirit:vendor>xilinx.com</spirit:vendor>
@@ -392,6 +392,18 @@
             <spirit:direction>out</spirit:direction>
           </spirit:wire>
         </spirit:port>
+        <spirit:port>
+          <spirit:name>i_Minutes_Dec</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>i_Hours_Dec</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
       </spirit:ports>
     </spirit:model>
   </spirit:component>
@@ -410,11 +422,25 @@
           <spirit:configurableElementValue spirit:referenceId="C_D_AXI">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_D_LMB">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_I_LMB">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="G_TEMPLATE_LIST">2</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_USE_MSR_INSTR">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_USE_PCMP_INSTR">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_USE_BARREL">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_USE_DIV">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_USE_HW_MUL">2</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_USE_FPU">2</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_DEBUG_ENABLED">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_USE_ICACHE">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_CACHE_BYTE_SIZE">16384</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_CACHE_BYTE_SIZE">32768</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_ICACHE_LINE_LEN">8</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_ICACHE_VICTIMS">8</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_ICACHE_STREAMS">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_USE_DCACHE">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_DCACHE_BYTE_SIZE">16384</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_DCACHE_BYTE_SIZE">32768</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_DCACHE_LINE_LEN">8</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_DCACHE_USE_WRITEBACK">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_DCACHE_VICTIMS">8</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_USE_BRANCH_TARGET_CACHE">1</spirit:configurableElementValue>
         </spirit:configurableElementValues>
         <bd:hdl_attributes/>
       </spirit:componentInstance>
@@ -811,6 +837,16 @@
         <spirit:name>Alarm_Clock_0_o_PM</spirit:name>
         <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="o_PM"/>
         <spirit:externalPortReference spirit:portRef="o_PM"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>i_Minutes_Dec_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="i_Minutes_Dec"/>
+        <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="i_Minutes_Dec"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>i_Hours_Dec_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="i_Hours_Dec"/>
+        <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="i_Hours_Dec"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>

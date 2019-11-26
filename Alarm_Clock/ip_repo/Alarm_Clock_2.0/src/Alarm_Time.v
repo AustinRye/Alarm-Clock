@@ -12,7 +12,9 @@ module Alarm_Time
         input i_Clk_5MHz,
         input i_Reset,
         input i_Minutes_Inc,
+        input i_Minutes_Dec,
         input i_Hours_Inc,
+        input i_Hours_Dec,
         output [31:0] o_Alarm_Time,
         output o_PM,
         
@@ -43,7 +45,9 @@ module Alarm_Time
         .i_Enable               (1'b1),
         .i_Fraction_Seconds_Inc (1'b0),
         .i_Minutes_Inc          (i_Minutes_Inc),
+        .i_Minutes_Dec          (i_Minutes_Dec),
         .i_Hours_Inc            (i_Hours_Inc),
+        .i_Hours_Dec            (i_Hours_Dec),
         .o_Count                (w_Fraction_Seconds)
     );
     

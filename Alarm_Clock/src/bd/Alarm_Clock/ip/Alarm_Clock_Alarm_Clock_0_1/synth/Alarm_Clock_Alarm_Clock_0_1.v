@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:user:Alarm_Clock:2.0
-// IP Revision: 20
+// IP Revision: 21
 
 (* X_CORE_INFO = "Alarm_Clock_v2_0,Vivado 2016.3" *)
 (* CHECK_LICENSE_TYPE = "Alarm_Clock_Alarm_Clock_0_1,Alarm_Clock_v2_0,{}" *)
-(* CORE_GENERATION_INFO = "Alarm_Clock_Alarm_Clock_0_1,Alarm_Clock_v2_0,{x_ipProduct=Vivado 2016.3,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=Alarm_Clock,x_ipVersion=2.0,x_ipCoreRevision=20,x_ipLanguage=VERILOG,x_ipSimLanguage=VERILOG,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
+(* CORE_GENERATION_INFO = "Alarm_Clock_Alarm_Clock_0_1,Alarm_Clock_v2_0,{x_ipProduct=Vivado 2016.3,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=Alarm_Clock,x_ipVersion=2.0,x_ipCoreRevision=21,x_ipLanguage=VERILOG,x_ipSimLanguage=VERILOG,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module Alarm_Clock_Alarm_Clock_0_1 (
   i_Clk_100MHz,
@@ -60,7 +60,9 @@ module Alarm_Clock_Alarm_Clock_0_1 (
   i_Change_Time,
   i_Change_Alarm,
   i_Minutes_Inc,
+  i_Minutes_Dec,
   i_Hours_Inc,
+  i_Hours_Dec,
   i_Alarm_Enable,
   o_Segments,
   o_Anodes,
@@ -96,7 +98,9 @@ input wire i_Reset;
 input wire i_Change_Time;
 input wire i_Change_Alarm;
 input wire i_Minutes_Inc;
+input wire i_Minutes_Dec;
 input wire i_Hours_Inc;
+input wire i_Hours_Dec;
 input wire i_Alarm_Enable;
 output wire [6 : 0] o_Segments;
 output wire [7 : 0] o_Anodes;
@@ -141,9 +145,9 @@ output wire [1 : 0] s00_axi_rresp;
 output wire s00_axi_rvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI RREADY" *)
 input wire s00_axi_rready;
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 S00_AXI_CLK CLK" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 S00_AXI_CLK CLK, xilinx.com:signal:clock:1.0 s00_axi_aclk CLK" *)
 input wire s00_axi_aclk;
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 S00_AXI_RST RST" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 S00_AXI_RST RST, xilinx.com:signal:reset:1.0 s00_axi_aresetn RST" *)
 input wire s00_axi_aresetn;
 
   Alarm_Clock_v2_0 #(
@@ -155,7 +159,9 @@ input wire s00_axi_aresetn;
     .i_Change_Time(i_Change_Time),
     .i_Change_Alarm(i_Change_Alarm),
     .i_Minutes_Inc(i_Minutes_Inc),
+    .i_Minutes_Dec(i_Minutes_Dec),
     .i_Hours_Inc(i_Hours_Inc),
+    .i_Hours_Dec(i_Hours_Dec),
     .i_Alarm_Enable(i_Alarm_Enable),
     .o_Segments(o_Segments),
     .o_Anodes(o_Anodes),

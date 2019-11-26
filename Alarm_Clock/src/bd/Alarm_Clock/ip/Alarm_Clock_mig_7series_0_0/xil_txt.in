@@ -9,13 +9,13 @@ SET_PREFERENCE package csg324
 SET_PREFERENCE verilogsim true
 SET_PREFERENCE vhdlsim false
 SET_PREFERENCE designentry Verilog
-SET_PREFERENCE outputdirectory d:/School/ELEC_3500/Lab_9/Alarm_Clock_v3/Alarm_Clock/src/bd/Alarm_Clock/ip/Alarm_Clock_mig_7series_0_0/_tmp/
-SET_PREFERENCE subworkingdirectory d:/School/ELEC_3500/Lab_9/Alarm_Clock_v3/Alarm_Clock/src/bd/Alarm_Clock/ip/Alarm_Clock_mig_7series_0_0/_tmp/
+SET_PREFERENCE outputdirectory d:/School/ELEC_3500/Lab_9/Alarm-Clock_v3/Alarm_Clock/src/bd/Alarm_Clock/ip/Alarm_Clock_mig_7series_0_0/_tmp/
+SET_PREFERENCE subworkingdirectory d:/School/ELEC_3500/Lab_9/Alarm-Clock_v3/Alarm_Clock/src/bd/Alarm_Clock/ip/Alarm_Clock_mig_7series_0_0/_tmp/
 SET_PREFERENCE flowvendor Other
 SET_PREFERENCE tool vivado
 SET_PREFERENCE compnamestatus 0
 SET_PARAMETER component_name Alarm_Clock_mig_7series_0_0
-SET_PARAMETER xml_input_file D:/School/ELEC_3500/Lab_9/Alarm_Clock_v3/Alarm_Clock/src/bd/Alarm_Clock/ip/Alarm_Clock_mig_7series_0_0/board.prj
+SET_PARAMETER xml_input_file D:/School/ELEC_3500/Lab_9/Alarm-Clock_v3/Alarm_Clock/src/bd/Alarm_Clock/ip/Alarm_Clock_mig_7series_0_0/board.prj
 SET_PARAMETER data_dir_path c:/Xilinx/Vivado/2016.3/data/ip/xilinx/mig_7series_v4_0
 SET_CORE_NAME Memory Interface Generator (MIG 7 Series)
 SET_CORE_VERSION 2.3

@@ -1,24 +1,24 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Module Name: Time
+// Module Name: Alarm_Time
 // Description: 
 //////////////////////////////////////////////////////////////////////////////////
 
-module Time
+module Alarm_Time
     #(
         parameter START_MINUTES = 0,
         parameter START_HOURS = 0
     ) (
         input i_Clk_5MHz,
-        input i_Clk_100Hz_Pulse,
         input i_Reset,
-        input i_Enable_Count,
         input i_Minutes_Inc,
+        input i_Minutes_Dec,
         input i_Hours_Inc,
-        output [31:0] o_Time,
+        input i_Hours_Dec,
+        output [31:0] o_Alarm_Time,
         output o_PM,
         
-        output [23:0] o_Time_Stamp
+        output [23:0] o_Alarm_Time_Stamp
         
 //        ,
 //        output [16:0] o_Seconds,
@@ -32,8 +32,6 @@ module Time
 //        output [3:0] o_Hours_2nd_Digit
     );
     
-    wire w_Fraction_Seconds_Inc = i_Enable_Count & i_Clk_100Hz_Pulse;
-    
     wire [23:0] w_Fraction_Seconds;
     Time_Counter
     #(
@@ -41,13 +39,15 @@ module Time
         .MAX_COUNT              (8640000),
         .START_MINUTES          (START_MINUTES),
         .START_HOURS            (START_HOURS)
-    ) U_Time_Counter (
+    ) U_Alarm_Time_Counter (
         .i_Clk                  (i_Clk_5MHz),
         .i_Reset                (i_Reset),
         .i_Enable               (1'b1),
-        .i_Fraction_Seconds_Inc (w_Fraction_Seconds_Inc),
+        .i_Fraction_Seconds_Inc (1'b0),
         .i_Minutes_Inc          (i_Minutes_Inc),
+        .i_Minutes_Dec          (i_Minutes_Dec),
         .i_Hours_Inc            (i_Hours_Inc),
+        .i_Hours_Dec            (i_Hours_Dec),
         .o_Count                (w_Fraction_Seconds)
     );
     
@@ -72,11 +72,11 @@ module Time
     
     wire w_PM = w_Hours >= 8'd12 ? 1'b1 : 1'b0;
     
-    assign o_Time = {w_Hours_1st_Digit, w_Hours_2nd_Digit, w_Minutes_1st_Digit, w_Minutes_2nd_Digit,
-                     w_Seconds_1st_Digit, w_Seconds_2nd_Digit, w_Fraction_Seconds_1st_Digit, w_Fraction_Seconds_2nd_Digit};
+    assign o_Alarm_Time = {w_Hours_1st_Digit, w_Hours_2nd_Digit, w_Minutes_1st_Digit, w_Minutes_2nd_Digit,
+                           w_Seconds_1st_Digit, w_Seconds_2nd_Digit, w_Fraction_Seconds_1st_Digit, w_Fraction_Seconds_2nd_Digit};
     assign o_PM = w_PM;
     
-    assign o_Time_Stamp = w_Fraction_Seconds;
+    assign o_Alarm_Time_Stamp = w_Fraction_Seconds;
     
 //    assign o_Seconds = w_Seconds;
 //    assign o_Minutes = w_Minutes;

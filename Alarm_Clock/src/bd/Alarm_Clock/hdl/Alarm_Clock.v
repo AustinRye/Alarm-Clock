@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
-//Date        : Sun Nov 24 18:10:00 2019
+//Date        : Tue Nov 26 14:38:23 2019
 //Host        : LAPTOP-CKAMQSCQ running 64-bit major release  (build 9200)
 //Command     : generate_target Alarm_Clock.bd
 //Design      : Alarm_Clock
@@ -38,7 +38,9 @@ module Alarm_Clock
     i_Alarm_Enable,
     i_Change_Alarm,
     i_Change_Time,
+    i_Hours_Dec,
     i_Hours_Inc,
+    i_Minutes_Dec,
     i_Minutes_Inc,
     i_Reset,
     o_Alarm_Enabled,
@@ -77,7 +79,9 @@ module Alarm_Clock
   input i_Alarm_Enable;
   input i_Change_Alarm;
   input i_Change_Time;
+  input i_Hours_Dec;
   input i_Hours_Inc;
+  input i_Minutes_Dec;
   input i_Minutes_Inc;
   input i_Reset;
   output o_Alarm_Enabled;
@@ -155,7 +159,9 @@ module Alarm_Clock
   wire i_Alarm_Enable_1;
   wire i_Change_Alarm_1;
   wire i_Change_Time_1;
+  wire i_Hours_Dec_1;
   wire i_Hours_Inc_1;
+  wire i_Minutes_Dec_1;
   wire i_Minutes_Inc_1;
   wire i_Reset_1;
   wire mdm_1_debug_sys_rst;
@@ -398,7 +404,9 @@ module Alarm_Clock
   assign i_Alarm_Enable_1 = i_Alarm_Enable;
   assign i_Change_Alarm_1 = i_Change_Alarm;
   assign i_Change_Time_1 = i_Change_Time;
+  assign i_Hours_Dec_1 = i_Hours_Dec;
   assign i_Hours_Inc_1 = i_Hours_Inc;
+  assign i_Minutes_Dec_1 = i_Minutes_Dec;
   assign i_Minutes_Inc_1 = i_Minutes_Inc;
   assign i_Reset_1 = i_Reset;
   assign mii_to_rmii_0_RMII_PHY_M_CRS_DV = eth_rmii_crs_dv;
@@ -417,7 +425,9 @@ module Alarm_Clock
         .i_Change_Alarm(i_Change_Alarm_1),
         .i_Change_Time(i_Change_Time_1),
         .i_Clk_100MHz(microblaze_0_Clk),
+        .i_Hours_Dec(i_Hours_Dec_1),
         .i_Hours_Inc(i_Hours_Inc_1),
+        .i_Minutes_Dec(i_Minutes_Dec_1),
         .i_Minutes_Inc(i_Minutes_Inc_1),
         .i_Reset(i_Reset_1),
         .o_Alarm_Enabled(Alarm_Clock_0_o_Alarm_Enabled),

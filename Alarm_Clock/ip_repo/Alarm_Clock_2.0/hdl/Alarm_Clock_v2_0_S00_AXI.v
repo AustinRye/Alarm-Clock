@@ -20,7 +20,9 @@
         input i_Change_Time,
         input i_Change_Alarm,
         input i_Minutes_Inc,
+        input i_Minutes_Dec,
         input i_Hours_Inc,
+        input i_Hours_Dec,
         input i_Alarm_Enable,
         output [6:0] o_Segments,
         output [7:0] o_Anodes,
@@ -413,7 +415,9 @@
     wire w_Change_Time_Control;
     wire w_Change_Alarm_Control;
     wire w_Minutes_Inc_Control;
+    wire w_Minutes_Dec_Control;
     wire w_Hours_Inc_Control;
+    wire w_Hours_Dec_Control;
     wire w_Alarm_Enable_Control;
     
     wire [23:0] w_Time_Stamp;
@@ -425,7 +429,9 @@
         .i_Change_Time      (w_Change_Time_Control),
         .i_Change_Alarm     (w_Change_Alarm_Control),
         .i_Minutes_Inc      (w_Minutes_Inc_Control),
+        .i_Minutes_Dec      (w_Minutes_Dec_Control),
         .i_Hours_Inc        (w_Hours_Inc_Control),
+        .i_Hours_Dec        (w_Hours_Dec_Control),
         .i_Alarm_Enable     (w_Alarm_Enable_Control),
         .o_Segments         (o_Segments),
         .o_Anodes           (o_Anodes),
@@ -440,8 +446,10 @@
     assign w_Change_Time_Control = i_Change_Time | slv_reg2[1];
     assign w_Change_Alarm_Control = i_Change_Alarm | slv_reg2[2];
     assign w_Minutes_Inc_Control = i_Minutes_Inc | slv_reg2[3];
-    assign w_Hours_Inc_Control = i_Hours_Inc | slv_reg2[4];
-    assign w_Alarm_Enable_Control = i_Alarm_Enable | slv_reg2[5];
+    assign w_Minutes_Dec_Control = i_Minutes_Dec | slv_reg2[4];
+    assign w_Hours_Inc_Control = i_Hours_Inc | slv_reg2[5];
+    assign w_Hours_Dec_Control = i_Hours_Dec | slv_reg2[6];
+    assign w_Alarm_Enable_Control = i_Alarm_Enable | slv_reg2[7];
     
     always @(w_Time_Stamp or w_Alarm_Time_Stamp) begin
         slv_reg0 <= w_Time_Stamp;

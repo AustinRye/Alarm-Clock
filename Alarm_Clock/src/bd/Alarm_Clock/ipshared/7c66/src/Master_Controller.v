@@ -10,16 +10,22 @@ module Master_Controller
         input i_Reset,
         input i_Change_Time,
         input i_Change_Alarm,
-        input i_Hours_Inc,
         input i_Minutes_Inc,
+        input i_Minutes_Dec,
+        input i_Hours_Inc,
+        input i_Hours_Dec,
         input i_Alarm_Enable,
         input [31:0] i_Time,
         input [31:0] i_Alarm_Time,
         output o_Enable_Count,
         output o_Time_Minutes_Inc,
+        output o_Time_Minutes_Dec,
         output o_Time_Hours_Inc,
+        output o_Time_Hours_Dec,
         output o_Alarm_Minutes_Inc,
+        output o_Alarm_Minutes_Dec,
         output o_Alarm_Hours_Inc,
+        output o_Alarm_Hours_Dec,
         output o_Display_Sel,
         output o_Alarm_On,
         output o_Alarm_Enabled
@@ -31,9 +37,13 @@ module Master_Controller
     
     reg r_Enable_Count;
     reg r_Time_Minutes_Inc;
+    reg r_Time_Minutes_Dec;
     reg r_Time_Hours_Inc;
+    reg r_Time_Hours_Dec;
     reg r_Alarm_Minutes_Inc;
+    reg r_Alarm_Minutes_Dec;
     reg r_Alarm_Hours_Inc;
+    reg r_Alarm_Hours_Dec;
     reg r_Display_Sel;
     
     reg [1:0] r_Time_State, r_Time_Next_State;
@@ -81,9 +91,13 @@ module Master_Controller
     always @(r_Time_State) begin
         r_Enable_Count <= 1;
         r_Time_Minutes_Inc <= 0;
+        r_Time_Minutes_Dec <= 0;
         r_Time_Hours_Inc <= 0;
+        r_Time_Hours_Dec <= 0;
         r_Alarm_Minutes_Inc <= 0;
+        r_Alarm_Minutes_Dec <= 0;
         r_Alarm_Hours_Inc <= 0;
+        r_Alarm_Hours_Dec <= 0;
         r_Display_Sel <= 0;
         
         case (r_Time_State)
@@ -91,9 +105,13 @@ module Master_Controller
                 begin
                     r_Enable_Count <= 0;
                     r_Time_Minutes_Inc <= (i_Change_Time & i_Minutes_Inc) ? 1 : 0;
+                    r_Time_Minutes_Dec <= (i_Change_Time & i_Minutes_Dec) ? 1 : 0;
                     r_Time_Hours_Inc <= (i_Change_Time & i_Hours_Inc) ? 1 : 0;
+                    r_Time_Hours_Dec <= (i_Change_Time & i_Hours_Dec) ? 1 : 0;
                     r_Alarm_Minutes_Inc <= (i_Change_Alarm & i_Minutes_Inc) ? 1 : 0;
+                    r_Alarm_Minutes_Dec <= (i_Change_Alarm & i_Minutes_Dec) ? 1 : 0;
                     r_Alarm_Hours_Inc <= (i_Change_Alarm & i_Hours_Inc) ? 1 : 0;
+                    r_Alarm_Hours_Dec <= (i_Change_Alarm & i_Hours_Dec) ? 1 : 0;
                     r_Display_Sel <= (~i_Change_Time & i_Change_Alarm) ? 1 : 0;
                 end
         endcase
@@ -157,9 +175,13 @@ module Master_Controller
     
     assign o_Enable_Count = r_Enable_Count;
     assign o_Time_Minutes_Inc = r_Time_Minutes_Inc;
+    assign o_Time_Minutes_Dec = r_Time_Minutes_Dec;
     assign o_Time_Hours_Inc = r_Time_Hours_Inc;
+    assign o_Time_Hours_Dec = r_Time_Hours_Dec;
     assign o_Alarm_Minutes_Inc = r_Alarm_Minutes_Inc;
+    assign o_Alarm_Minutes_Dec = r_Alarm_Minutes_Dec;
     assign o_Alarm_Hours_Inc = r_Alarm_Hours_Inc;
+    assign o_Alarm_Hours_Dec = r_Alarm_Hours_Dec;
     assign o_Display_Sel = r_Display_Sel;
     assign o_Alarm_On = r_Alarm_On;
     assign o_Alarm_Enabled = i_Alarm_Enable;
