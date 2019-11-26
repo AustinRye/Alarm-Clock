@@ -16,23 +16,29 @@ module Time_Counter
         input i_Enable,
         input i_Fraction_Seconds_Inc,
         input i_Minutes_Inc,
+        input i_Minutes_Dec,
         input i_Hours_Inc,
+        input i_Hours_Dec,
         output [BIT_WIDTH-1:0] o_Count
     );
     
     reg [BIT_WIDTH-1:0] r_Count = START_MINUTES*6000 + START_HOURS*360000;
-    wire [18:0] w_Count_Add;
+    wire [18:0] w_Count_Inc;
+    wire [18:0] w_Count_Dec;
     
-    assign w_Count_Add = (i_Fraction_Seconds_Inc * 1) + (i_Minutes_Inc * 6000) + (i_Hours_Inc * 360000);
+    assign w_Count_Inc = (i_Fraction_Seconds_Inc * 1) + (i_Minutes_Inc * 6000) + (i_Hours_Inc * 360000);
+    assign w_Count_Dec = (i_Minutes_Dec * 6000) + (i_Hours_Dec * 360000);
     
     always @(posedge i_Clk or posedge i_Reset) begin
         if (i_Reset)
             r_Count <= 0;
         else if (i_Enable) begin
-            if (r_Count + w_Count_Add > MAX_COUNT)
-                r_Count <= r_Count + w_Count_Add - MAX_COUNT - 1;
+            if (r_Count + w_Count_Inc > MAX_COUNT + w_Count_Dec)
+                r_Count <= r_Count + w_Count_Inc - w_Count_Dec - MAX_COUNT;
+            else if (w_Count_Dec > r_Count + w_Count_Inc)
+                r_Count <= MAX_COUNT + r_Count + w_Count_Inc - w_Count_Dec;
             else
-                r_Count <= r_Count + w_Count_Add;
+                r_Count <= r_Count + w_Count_Inc - w_Count_Dec;
         end
     end
     

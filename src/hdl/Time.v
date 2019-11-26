@@ -14,7 +14,9 @@ module Time
         input i_Reset,
         input i_Enable_Count,
         input i_Minutes_Inc,
+        input i_Minutes_Dec,
         input i_Hours_Inc,
+        input i_Hours_Dec,
         output [31:0] o_Time,
         output o_PM
         
@@ -45,7 +47,9 @@ module Time
         .i_Enable               (1'b1),
         .i_Fraction_Seconds_Inc (w_Fraction_Seconds_Inc),
         .i_Minutes_Inc          (i_Minutes_Inc),
+        .i_Minutes_Dec          (i_Minutes_Dec),
         .i_Hours_Inc            (i_Hours_Inc),
+        .i_Hours_Dec            (i_Hours_Dec),
         .o_Count                (w_Fraction_Seconds)
     );
     

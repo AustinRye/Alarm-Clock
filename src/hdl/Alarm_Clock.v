@@ -11,7 +11,9 @@ module Alarm_Clock
         input i_Change_Time,
         input i_Change_Alarm,
         input i_Minutes_Inc,
+        input i_Minutes_Dec,
         input i_Hours_Inc,
+        input i_Hours_Dec,
         input i_Alarm_Enable,
         output [6:0] o_Segments,
         output [7:0] o_Anodes,
@@ -29,7 +31,7 @@ module Alarm_Clock
     );
 
     //////////////////////////////////////////////////////////////////////////////
-    // Clock Dividers and Pulses
+    // Clock Dividers
     //////////////////////////////////////////////////////////////////////////////
     wire w_Clk_5MHz;
     Clock_Divider
@@ -53,14 +55,6 @@ module Alarm_Clock
         .o_Clk          (w_Clk_1KHz)
     );
     
-    wire w_Clk_1KHz_Pulse;
-    Pulse_Generator U_1KHz_Pulse_Generator
-    (
-        .i_Clk          (w_Clk_5MHz),
-        .i_Signal       (w_Clk_1KHz),
-        .o_Pulse        (w_Clk_1KHz_Pulse)
-    );
-    
     wire w_Clk_100Hz;
     Clock_Divider
     #(
@@ -70,14 +64,6 @@ module Alarm_Clock
         .i_Clk          (w_Clk_5MHz),
         .i_Reset        (1'b0),
         .o_Clk          (w_Clk_100Hz)
-    );
-    
-    wire w_Clk_100Hz_Pulse;
-    Pulse_Generator U_100Hz_Pulse_Generator
-    (
-        .i_Clk          (w_Clk_5MHz),
-        .i_Signal       (w_Clk_100Hz),
-        .o_Pulse        (w_Clk_100Hz_Pulse)
     );
     
     wire w_Clk_1Hz;
@@ -91,12 +77,58 @@ module Alarm_Clock
         .o_Clk          (w_Clk_1Hz)
     );
     
+    //////////////////////////////////////////////////////////////////////////////
+    // Debouncers
+    //////////////////////////////////////////////////////////////////////////////
     wire w_Minutes_Inc;
-    Debounce U_Debounce_Minutes
+    Debounce U_Debounce_Minutes_Inc
     (
         .i_Sample_Rate  (w_Clk_1KHz_Pulse),
         .i_Signal       (i_Minutes_Inc),
         .o_Signal       (w_Minutes_Inc)
+    );
+    
+    wire w_Minutes_Dec;
+    Debounce U_Debounce_Minutes_Dec
+    (
+        .i_Sample_Rate  (w_Clk_1KHz_Pulse),
+        .i_Signal       (i_Minutes_Dec),
+        .o_Signal       (w_Minutes_Dec)
+    );
+    
+    wire w_Hours_Inc;
+    Debounce U_Debounce_Hours_Inc
+    (
+        .i_Sample_Rate  (w_Clk_1KHz_Pulse),
+        .i_Signal       (i_Hours_Inc),
+        .o_Signal       (w_Hours_Inc)
+    );
+    
+    wire w_Hours_Dec;
+    Debounce U_Debounce_Hours_Dec
+    (
+        .i_Sample_Rate  (w_Clk_1KHz_Pulse),
+        .i_Signal       (i_Hours_Dec),
+        .o_Signal       (w_Hours_Dec)
+    );
+    
+    //////////////////////////////////////////////////////////////////////////////
+    // Pulses
+    //////////////////////////////////////////////////////////////////////////////
+    wire w_Clk_1KHz_Pulse;
+    Pulse_Generator U_1KHz_Pulse_Generator
+    (
+        .i_Clk          (w_Clk_5MHz),
+        .i_Signal       (w_Clk_1KHz),
+        .o_Pulse        (w_Clk_1KHz_Pulse)
+    );
+    
+    wire w_Clk_100Hz_Pulse;
+    Pulse_Generator U_100Hz_Pulse_Generator
+    (
+        .i_Clk          (w_Clk_5MHz),
+        .i_Signal       (w_Clk_100Hz),
+        .o_Pulse        (w_Clk_100Hz_Pulse)
     );
     
     wire w_Minutes_Inc_Pulse;
@@ -107,12 +139,12 @@ module Alarm_Clock
         .o_Pulse        (w_Minutes_Inc_Pulse)
     );
     
-    wire w_Hours_Inc;
-    Debounce U_Debounce_Hours
+    wire w_Minutes_Dec_Pulse;
+    Pulse_Generator U_Minutes_Dec_Pulse_Generator
     (
-        .i_Sample_Rate  (w_Clk_1KHz_Pulse),
-        .i_Signal       (i_Hours_Inc),
-        .o_Signal       (w_Hours_Inc)
+        .i_Clk          (w_Clk_5MHz),
+        .i_Signal       (w_Minutes_Dec),
+        .o_Pulse        (w_Minutes_Dec_Pulse)
     );
     
     wire w_Hours_Inc_Pulse;
@@ -123,6 +155,14 @@ module Alarm_Clock
         .o_Pulse        (w_Hours_Inc_Pulse)
     );
     
+    wire w_Hours_Dec_Pulse;
+    Pulse_Generator U_Hours_Dec_Pulse_Generator
+    (
+        .i_Clk          (w_Clk_5MHz),
+        .i_Signal       (w_Hours_Dec),
+        .o_Pulse        (w_Hours_Dec_Pulse)
+    );
+    
     //////////////////////////////////////////////////////////////////////////////
     // Master Controller
     //////////////////////////////////////////////////////////////////////////////
@@ -130,9 +170,13 @@ module Alarm_Clock
     wire [31:0] w_Alarm_Time;
     wire w_Enable_Count;
     wire w_Time_Minutes_Inc;
+    wire w_Time_Minutes_Dec;
     wire w_Time_Hours_Inc;
+    wire w_Time_Hours_Dec;
     wire w_Alarm_Minutes_Inc;
+    wire w_Alarm_Minutes_Dec;
     wire w_Alarm_Hours_Inc;
+    wire w_Alarm_Hours_Dec;
     wire w_Display_Sel;
     wire w_Turn_Alarm_On;
     wire w_Alarm_Enabled;
@@ -142,19 +186,30 @@ module Alarm_Clock
         .i_Change_Time      (i_Change_Time),
         .i_Change_Alarm     (i_Change_Alarm),
         .i_Minutes_Inc      (w_Minutes_Inc_Pulse),
+        .i_Minutes_Dec      (w_Minutes_Dec_Pulse),
         .i_Hours_Inc        (w_Hours_Inc_Pulse),
+        .i_Hours_Dec        (w_Hours_Dec_Pulse),
         .i_Alarm_Enable     (i_Alarm_Enable),
         .i_Time             (w_Time),
         .i_Alarm_Time       (w_Alarm_Time),
         .o_Enable_Count     (w_Enable_Count),
         .o_Time_Minutes_Inc (w_Time_Minutes_Inc),
+        .o_Time_Minutes_Dec (w_Time_Minutes_Dec),
         .o_Time_Hours_Inc   (w_Time_Hours_Inc),
+        .o_Time_Hours_Dec   (w_Time_Hours_Dec),
         .o_Alarm_Minutes_Inc(w_Alarm_Minutes_Inc),
+        .o_Alarm_Minutes_Dec(w_Alarm_Minutes_Dec),
         .o_Alarm_Hours_Inc  (w_Alarm_Hours_Inc),
+        .o_Alarm_Hours_Dec  (w_Alarm_Hours_Dec),
         .o_Display_Sel      (w_Display_Sel),
         .o_Alarm_On         (w_Turn_Alarm_On),
         .o_Alarm_Enabled    (w_Alarm_Enabled)
     );
+    
+    //////////////////////////////////////////////////////////////////////////////
+    // Rotary Encoder
+    //////////////////////////////////////////////////////////////////////////////
+    
     
     //////////////////////////////////////////////////////////////////////////////
     // Time and Alarm Counters
@@ -170,7 +225,9 @@ module Alarm_Clock
         .i_Reset            (i_Reset),
         .i_Enable_Count     (w_Enable_Count),
         .i_Minutes_Inc      (w_Time_Minutes_Inc),
+        .i_Minutes_Dec      (w_Time_Minutes_Dec),
         .i_Hours_Inc        (w_Time_Hours_Inc),
+        .i_Hours_Dec        (w_Time_Hours_Dec),
         .o_Time             (w_Time),
         .o_PM               (w_Time_PM)
     );
@@ -184,7 +241,9 @@ module Alarm_Clock
         .i_Clk_5MHz         (w_Clk_5MHz),
         .i_Reset            (i_Reset),
         .i_Minutes_Inc      (w_Alarm_Minutes_Inc),
+        .i_Minutes_Dec      (w_Alarm_Minutes_Dec),
         .i_Hours_Inc        (w_Alarm_Hours_Inc),
+        .i_Hours_Dec        (w_Alarm_Hours_Dec),
         .o_Alarm_Time       (w_Alarm_Time),
         .o_PM               (w_Alarm_PM)
     );
