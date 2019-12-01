@@ -10,10 +10,10 @@ module Alarm_Clock
         input i_Reset,
         input i_Change_Time,
         input i_Change_Alarm,
-        input i_Minutes_Inc,
-        input i_Minutes_Dec,
-        input i_Hours_Inc,
-        input i_Hours_Dec,
+        input i_Encoder_Enable,
+        input i_Encoder_Change_Mode,
+        input i_Encoder_A,
+        input i_Encoder_B,
         input i_Alarm_Enable,
         output [6:0] o_Segments,
         output [7:0] o_Anodes,
@@ -80,36 +80,28 @@ module Alarm_Clock
     //////////////////////////////////////////////////////////////////////////////
     // Debouncers
     //////////////////////////////////////////////////////////////////////////////
-    wire w_Minutes_Inc;
-    Debounce U_Debounce_Minutes_Inc
+    wire w_Encoder_Change_Mode_Debounced;
+    Debounce U_Debounce_Encoder_Change_Mode
     (
         .i_Sample_Rate  (w_Clk_1KHz_Pulse),
-        .i_Signal       (i_Minutes_Inc),
-        .o_Signal       (w_Minutes_Inc)
+        .i_Signal       (i_Encoder_Change_Mode),
+        .o_Signal       (w_Encoder_Change_Mode_Debounced)
     );
     
-    wire w_Minutes_Dec;
-    Debounce U_Debounce_Minutes_Dec
+    wire w_Encoder_A_Debounced;
+    Debounce U_Debounce_Encoder_A
     (
         .i_Sample_Rate  (w_Clk_1KHz_Pulse),
-        .i_Signal       (i_Minutes_Dec),
-        .o_Signal       (w_Minutes_Dec)
+        .i_Signal       (i_Encoder_A),
+        .o_Signal       (w_Encoder_A_Debounced)
     );
     
-    wire w_Hours_Inc;
-    Debounce U_Debounce_Hours_Inc
+    wire w_Encoder_B_Debounced;
+    Debounce U_Debounce_Encoder_B
     (
         .i_Sample_Rate  (w_Clk_1KHz_Pulse),
-        .i_Signal       (i_Hours_Inc),
-        .o_Signal       (w_Hours_Inc)
-    );
-    
-    wire w_Hours_Dec;
-    Debounce U_Debounce_Hours_Dec
-    (
-        .i_Sample_Rate  (w_Clk_1KHz_Pulse),
-        .i_Signal       (i_Hours_Dec),
-        .o_Signal       (w_Hours_Dec)
+        .i_Signal       (i_Encoder_B),
+        .o_Signal       (w_Encoder_B_Debounced)
     );
     
     //////////////////////////////////////////////////////////////////////////////
@@ -131,36 +123,63 @@ module Alarm_Clock
         .o_Pulse        (w_Clk_100Hz_Pulse)
     );
     
-    wire w_Minutes_Inc_Pulse;
-    Pulse_Generator U_Minutes_Inc_Pulse_Generator
+    wire w_Encoder_Change_Mode_Pulse;
+    Pulse_Generator U_Encoder_Change_Mode_Pulse_Generator
     (
         .i_Clk          (w_Clk_5MHz),
-        .i_Signal       (w_Minutes_Inc),
-        .o_Pulse        (w_Minutes_Inc_Pulse)
+        .i_Signal       (w_Encoder_Change_Mode_Debounced),
+        .o_Pulse        (w_Encoder_Change_Mode_Pulse)
     );
     
-    wire w_Minutes_Dec_Pulse;
-    Pulse_Generator U_Minutes_Dec_Pulse_Generator
+    wire w_Encoder_A_Pulse;
+    Pulse_Generator U_Encoder_A_Pulse_Generator
     (
         .i_Clk          (w_Clk_5MHz),
-        .i_Signal       (w_Minutes_Dec),
-        .o_Pulse        (w_Minutes_Dec_Pulse)
+        .i_Signal       (w_Encoder_A_Debounced),
+        .o_Pulse        (w_Encoder_A_Pulse)
     );
     
-    wire w_Hours_Inc_Pulse;
-    Pulse_Generator U_Hours_Inc_Pulse_Generator
-    (
-        .i_Clk          (w_Clk_5MHz),
-        .i_Signal       (w_Hours_Inc),
-        .o_Pulse        (w_Hours_Inc_Pulse)
-    );
-    
-    wire w_Hours_Dec_Pulse;
-    Pulse_Generator U_Hours_Dec_Pulse_Generator
-    (
-        .i_Clk          (w_Clk_5MHz),
-        .i_Signal       (w_Hours_Dec),
-        .o_Pulse        (w_Hours_Dec_Pulse)
+    //////////////////////////////////////////////////////////////////////////////
+    // Rotary Encoder
+    //////////////////////////////////////////////////////////////////////////////
+    wire w_Blink_Enable;
+    wire [3:0] w_Blink_Segment_Num;
+    wire w_Seconds_1st_Digit_Inc;
+    wire w_Seconds_1st_Digit_Dec;
+    wire w_Seconds_2nd_Digit_Inc;
+    wire w_Seconds_2nd_Digit_Dec;
+    wire w_Minutes_1st_Digit_Inc;
+    wire w_Minutes_1st_Digit_Dec;
+    wire w_Minutes_2nd_Digit_Inc;
+    wire w_Minutes_2nd_Digit_Dec;
+    wire w_Hours_1st_Digit_Inc;
+    wire w_Hours_1st_Digit_Dec;
+    wire w_Hours_2nd_Digit_Inc;
+    wire w_Hours_2nd_Digit_Dec;
+    Rotary_Encoder
+    #(
+        .DECIMAL_DIGITS         (8)
+    ) U_Rotary_Encoder (
+        .i_Clk                  (w_Clk_5MHz),
+        .i_Reset                (i_Reset),
+        .i_Encoder_Enable       (i_Encoder_Enable),
+        .i_Encoder_Change_Mode  (w_Encoder_Change_Mode_Pulse),
+        .i_Encoder_A_Pulse      (w_Encoder_A_Pulse),
+        .i_Encoder_B_Debounced  (w_Encoder_B_Debounced),
+        .o_Seconds_1st_Digit_Inc(w_Seconds_1st_Digit_Inc),
+        .o_Seconds_1st_Digit_Dec(w_Seconds_1st_Digit_Dec),
+        .o_Seconds_2nd_Digit_Inc(w_Seconds_2nd_Digit_Inc),
+        .o_Seconds_2nd_Digit_Dec(w_Seconds_2nd_Digit_Dec),
+        .o_Minutes_1st_Digit_Inc(w_Minutes_1st_Digit_Inc),
+        .o_Minutes_1st_Digit_Dec(w_Minutes_1st_Digit_Dec),
+        .o_Minutes_2nd_Digit_Inc(w_Minutes_2nd_Digit_Inc),
+        .o_Minutes_2nd_Digit_Dec(w_Minutes_2nd_Digit_Dec),
+        .o_Hours_1st_Digit_Inc  (w_Hours_1st_Digit_Inc),
+        .o_Hours_1st_Digit_Dec  (w_Hours_1st_Digit_Dec),
+        .o_Hours_2nd_Digit_Inc  (w_Hours_2nd_Digit_Inc),
+        .o_Hours_2nd_Digit_Dec  (w_Hours_2nd_Digit_Dec),
+        .o_Blink_Enable         (w_Blink_Enable),
+        .o_Blink_Segment_Num    (w_Blink_Segment_Num)
     );
     
     //////////////////////////////////////////////////////////////////////////////
@@ -169,47 +188,83 @@ module Alarm_Clock
     wire [31:0] w_Time;
     wire [31:0] w_Alarm_Time;
     wire w_Enable_Count;
-    wire w_Time_Minutes_Inc;
-    wire w_Time_Minutes_Dec;
-    wire w_Time_Hours_Inc;
-    wire w_Time_Hours_Dec;
-    wire w_Alarm_Minutes_Inc;
-    wire w_Alarm_Minutes_Dec;
-    wire w_Alarm_Hours_Inc;
-    wire w_Alarm_Hours_Dec;
+    wire w_Time_Seconds_1st_Digit_Inc;
+    wire w_Time_Seconds_1st_Digit_Dec;
+    wire w_Time_Seconds_2nd_Digit_Inc;
+    wire w_Time_Seconds_2nd_Digit_Dec;
+    wire w_Time_Minutes_1st_Digit_Inc;
+    wire w_Time_Minutes_1st_Digit_Dec;
+    wire w_Time_Minutes_2nd_Digit_Inc;
+    wire w_Time_Minutes_2nd_Digit_Dec;
+    wire w_Time_Hours_1st_Digit_Inc;
+    wire w_Time_Hours_1st_Digit_Dec;
+    wire w_Time_Hours_2nd_Digit_Inc;
+    wire w_Time_Hours_2nd_Digit_Dec;
+    wire w_Alarm_Seconds_1st_Digit_Inc;
+    wire w_Alarm_Seconds_1st_Digit_Dec;
+    wire w_Alarm_Seconds_2nd_Digit_Inc;
+    wire w_Alarm_Seconds_2nd_Digit_Dec;
+    wire w_Alarm_Minutes_1st_Digit_Inc;
+    wire w_Alarm_Minutes_1st_Digit_Dec;
+    wire w_Alarm_Minutes_2nd_Digit_Inc;
+    wire w_Alarm_Minutes_2nd_Digit_Dec;
+    wire w_Alarm_Hours_1st_Digit_Inc;
+    wire w_Alarm_Hours_1st_Digit_Dec;
+    wire w_Alarm_Hours_2nd_Digit_Inc;
+    wire w_Alarm_Hours_2nd_Digit_Dec;
     wire w_Display_Sel;
     wire w_Turn_Alarm_On;
     wire w_Alarm_Enabled;
     Master_Controller U_Master_Controller
     (
-        .i_Clk              (w_Clk_5MHz),
-        .i_Change_Time      (i_Change_Time),
-        .i_Change_Alarm     (i_Change_Alarm),
-        .i_Minutes_Inc      (w_Minutes_Inc_Pulse),
-        .i_Minutes_Dec      (w_Minutes_Dec_Pulse),
-        .i_Hours_Inc        (w_Hours_Inc_Pulse),
-        .i_Hours_Dec        (w_Hours_Dec_Pulse),
-        .i_Alarm_Enable     (i_Alarm_Enable),
-        .i_Time             (w_Time),
-        .i_Alarm_Time       (w_Alarm_Time),
-        .o_Enable_Count     (w_Enable_Count),
-        .o_Time_Minutes_Inc (w_Time_Minutes_Inc),
-        .o_Time_Minutes_Dec (w_Time_Minutes_Dec),
-        .o_Time_Hours_Inc   (w_Time_Hours_Inc),
-        .o_Time_Hours_Dec   (w_Time_Hours_Dec),
-        .o_Alarm_Minutes_Inc(w_Alarm_Minutes_Inc),
-        .o_Alarm_Minutes_Dec(w_Alarm_Minutes_Dec),
-        .o_Alarm_Hours_Inc  (w_Alarm_Hours_Inc),
-        .o_Alarm_Hours_Dec  (w_Alarm_Hours_Dec),
-        .o_Display_Sel      (w_Display_Sel),
-        .o_Alarm_On         (w_Turn_Alarm_On),
-        .o_Alarm_Enabled    (w_Alarm_Enabled)
+        .i_Clk                          (w_Clk_5MHz),
+        .i_Reset                        (i_Reset),
+        .i_Change_Alarm                 (i_Change_Alarm),
+        .i_Encoder_Enable               (i_Encoder_Enable),
+        .i_Seconds_1st_Digit_Inc        (w_Seconds_1st_Digit_Inc),
+        .i_Seconds_1st_Digit_Dec        (w_Seconds_1st_Digit_Dec),
+        .i_Seconds_2nd_Digit_Inc        (w_Seconds_2nd_Digit_Inc),
+        .i_Seconds_2nd_Digit_Dec        (w_Seconds_2nd_Digit_Dec),
+        .i_Minutes_1st_Digit_Inc        (w_Minutes_1st_Digit_Inc),
+        .i_Minutes_1st_Digit_Dec        (w_Minutes_1st_Digit_Dec),
+        .i_Minutes_2nd_Digit_Inc        (w_Minutes_2nd_Digit_Inc),
+        .i_Minutes_2nd_Digit_Dec        (w_Minutes_2nd_Digit_Dec),
+        .i_Hours_1st_Digit_Inc          (w_Hours_1st_Digit_Inc),
+        .i_Hours_1st_Digit_Dec          (w_Hours_1st_Digit_Dec),
+        .i_Hours_2nd_Digit_Inc          (w_Hours_2nd_Digit_Inc),
+        .i_Hours_2nd_Digit_Dec          (w_Hours_2nd_Digit_Dec),
+        .i_Alarm_Enable                 (i_Alarm_Enable),
+        .i_Time                         (w_Time),
+        .i_Alarm_Time                   (w_Alarm_Time),
+        .o_Enable_Count                 (w_Enable_Count),
+        .o_Time_Seconds_1st_Digit_Inc   (w_Time_Seconds_1st_Digit_Inc),
+        .o_Time_Seconds_1st_Digit_Dec   (w_Time_Seconds_1st_Digit_Dec),
+        .o_Time_Seconds_2nd_Digit_Inc   (w_Time_Seconds_2nd_Digit_Inc),
+        .o_Time_Seconds_2nd_Digit_Dec   (w_Time_Seconds_2nd_Digit_Dec),
+        .o_Time_Minutes_1st_Digit_Inc   (w_Time_Minutes_1st_Digit_Inc),
+        .o_Time_Minutes_1st_Digit_Dec   (w_Time_Minutes_1st_Digit_Dec),
+        .o_Time_Minutes_2nd_Digit_Inc   (w_Time_Minutes_2nd_Digit_Inc),
+        .o_Time_Minutes_2nd_Digit_Dec   (w_Time_Minutes_2nd_Digit_Dec),
+        .o_Time_Hours_1st_Digit_Inc     (w_Time_Hours_1st_Digit_Inc),
+        .o_Time_Hours_1st_Digit_Dec     (w_Time_Hours_1st_Digit_Dec),
+        .o_Time_Hours_2nd_Digit_Inc     (w_Time_Hours_2nd_Digit_Inc),
+        .o_Time_Hours_2nd_Digit_Dec     (w_Time_Hours_2nd_Digit_Dec),
+        .o_Alarm_Seconds_1st_Digit_Inc  (w_Alarm_Seconds_1st_Digit_Inc),
+        .o_Alarm_Seconds_1st_Digit_Dec  (w_Alarm_Seconds_1st_Digit_Dec),
+        .o_Alarm_Seconds_2nd_Digit_Inc  (w_Alarm_Seconds_2nd_Digit_Inc),
+        .o_Alarm_Seconds_2nd_Digit_Dec  (w_Alarm_Seconds_2nd_Digit_Dec),
+        .o_Alarm_Minutes_1st_Digit_Inc  (w_Alarm_Minutes_1st_Digit_Inc),
+        .o_Alarm_Minutes_1st_Digit_Dec  (w_Alarm_Minutes_1st_Digit_Dec),
+        .o_Alarm_Minutes_2nd_Digit_Inc  (w_Alarm_Minutes_2nd_Digit_Inc),
+        .o_Alarm_Minutes_2nd_Digit_Dec  (w_Alarm_Minutes_2nd_Digit_Dec),
+        .o_Alarm_Hours_1st_Digit_Inc    (w_Alarm_Hours_1st_Digit_Inc),
+        .o_Alarm_Hours_1st_Digit_Dec    (w_Alarm_Hours_1st_Digit_Dec),
+        .o_Alarm_Hours_2nd_Digit_Inc    (w_Alarm_Hours_2nd_Digit_Inc),
+        .o_Alarm_Hours_2nd_Digit_Dec    (w_Alarm_Hours_2nd_Digit_Dec),
+        .o_Display_Sel                  (w_Display_Sel),
+        .o_Alarm_On                     (w_Turn_Alarm_On),
+        .o_Alarm_Enabled                (w_Alarm_Enabled)
     );
-    
-    //////////////////////////////////////////////////////////////////////////////
-    // Rotary Encoder
-    //////////////////////////////////////////////////////////////////////////////
-    
     
     //////////////////////////////////////////////////////////////////////////////
     // Time and Alarm Counters
@@ -217,35 +272,51 @@ module Alarm_Clock
     wire w_Time_PM;
     Time
     #(
-        .START_MINUTES      (0),
-        .START_HOURS        (0)
+        .START_MINUTES          (0),
+        .START_HOURS            (0)
     ) U_Time (
-        .i_Clk_5MHz         (w_Clk_5MHz),
-        .i_Clk_100Hz_Pulse  (w_Clk_100Hz_Pulse),
-        .i_Reset            (i_Reset),
-        .i_Enable_Count     (w_Enable_Count),
-        .i_Minutes_Inc      (w_Time_Minutes_Inc),
-        .i_Minutes_Dec      (w_Time_Minutes_Dec),
-        .i_Hours_Inc        (w_Time_Hours_Inc),
-        .i_Hours_Dec        (w_Time_Hours_Dec),
-        .o_Time             (w_Time),
-        .o_PM               (w_Time_PM)
+        .i_Clk_5MHz             (w_Clk_5MHz),
+        .i_Clk_100Hz_Pulse      (w_Clk_100Hz_Pulse),
+        .i_Reset                (i_Reset),
+        .i_Enable_Count         (w_Enable_Count),
+        .i_Seconds_1st_Digit_Inc(w_Time_Seconds_1st_Digit_Inc),
+        .i_Seconds_1st_Digit_Dec(w_Time_Seconds_1st_Digit_Dec),
+        .i_Seconds_2nd_Digit_Inc(w_Time_Seconds_2nd_Digit_Inc),
+        .i_Seconds_2nd_Digit_Dec(w_Time_Seconds_2nd_Digit_Dec),
+        .i_Minutes_1st_Digit_Inc(w_Time_Minutes_1st_Digit_Inc),
+        .i_Minutes_1st_Digit_Dec(w_Time_Minutes_1st_Digit_Dec),
+        .i_Minutes_2nd_Digit_Inc(w_Time_Minutes_2nd_Digit_Inc),
+        .i_Minutes_2nd_Digit_Dec(w_Time_Minutes_2nd_Digit_Dec),
+        .i_Hours_1st_Digit_Inc  (w_Time_Hours_1st_Digit_Inc),
+        .i_Hours_1st_Digit_Dec  (w_Time_Hours_1st_Digit_Dec),
+        .i_Hours_2nd_Digit_Inc  (w_Time_Hours_2nd_Digit_Inc),
+        .i_Hours_2nd_Digit_Dec  (w_Time_Hours_2nd_Digit_Dec),
+        .o_Time                 (w_Time),
+        .o_PM                   (w_Time_PM)
     );
     
     wire w_Alarm_PM;
     Alarm_Time
     #(
-        .START_MINUTES      (0),
-        .START_HOURS        (0)
+        .START_MINUTES          (0),
+        .START_HOURS            (0)
     ) U_Alarm_Time (
-        .i_Clk_5MHz         (w_Clk_5MHz),
-        .i_Reset            (i_Reset),
-        .i_Minutes_Inc      (w_Alarm_Minutes_Inc),
-        .i_Minutes_Dec      (w_Alarm_Minutes_Dec),
-        .i_Hours_Inc        (w_Alarm_Hours_Inc),
-        .i_Hours_Dec        (w_Alarm_Hours_Dec),
-        .o_Alarm_Time       (w_Alarm_Time),
-        .o_PM               (w_Alarm_PM)
+        .i_Clk_5MHz             (w_Clk_5MHz),
+        .i_Reset                (i_Reset),
+        .i_Seconds_1st_Digit_Inc(w_Alarm_Seconds_1st_Digit_Inc),
+        .i_Seconds_1st_Digit_Dec(w_Alarm_Seconds_1st_Digit_Dec),
+        .i_Seconds_2nd_Digit_Inc(w_Alarm_Seconds_2nd_Digit_Inc),
+        .i_Seconds_2nd_Digit_Dec(w_Alarm_Seconds_2nd_Digit_Dec),
+        .i_Minutes_1st_Digit_Inc(w_Alarm_Minutes_1st_Digit_Inc),
+        .i_Minutes_1st_Digit_Dec(w_Alarm_Minutes_1st_Digit_Dec),
+        .i_Minutes_2nd_Digit_Inc(w_Alarm_Minutes_2nd_Digit_Inc),
+        .i_Minutes_2nd_Digit_Dec(w_Alarm_Minutes_2nd_Digit_Dec),
+        .i_Hours_1st_Digit_Inc  (w_Alarm_Hours_1st_Digit_Inc),
+        .i_Hours_1st_Digit_Dec  (w_Alarm_Hours_1st_Digit_Dec),
+        .i_Hours_2nd_Digit_Inc  (w_Alarm_Hours_2nd_Digit_Inc),
+        .i_Hours_2nd_Digit_Dec  (w_Alarm_Hours_2nd_Digit_Dec),
+        .o_Alarm_Time           (w_Alarm_Time),
+        .o_PM                   (w_Alarm_PM)
     );
     
     //////////////////////////////////////////////////////////////////////////////
@@ -278,6 +349,19 @@ module Alarm_Clock
         .o_Display_PM       (w_Display_PM)
     );
     
+    wire [31:0] w_Display_Time_Blink;
+    Seven_Segment_Digit_Blinker
+    #(
+        .DECIMAL_DIGITS         (8)
+    ) U_Seven_Segment_Digit_Blinker (
+        .i_Clk                  (w_Clk_5MHz),
+        .i_Blink_Enable         (w_Blink_Enable),
+        .i_Blink_Rate           (w_Clk_1Hz),
+        .i_Blink_Segment_Num    (w_Blink_Segment_Num),
+        .i_BCD_Num              (w_Display_Time),
+        .o_BCD_Num              (w_Display_Time_Blink)
+    );
+    
     wire [6:0] w_Segments;
     wire [7:0] w_Anodes;
     Seven_Segment_Display_Driver
@@ -289,7 +373,7 @@ module Alarm_Clock
     ) U_Seven_Segment_Display_Driver (
         .i_Clk              (w_Clk_5MHz),
         .i_Reset            (i_Reset),
-        .i_BCD_Num          (w_Display_Time),
+        .i_BCD_Num          (w_Display_Time_Blink),
         .o_Segments         (w_Segments),
         .o_Anodes           (w_Anodes)
     );
