@@ -8,7 +8,6 @@ module Alarm_Clock
     (
         input i_Clk_100MHz,
         input i_Reset,
-        input i_Change_Time,
         input i_Change_Alarm,
         input i_Encoder_Enable,
         input i_Encoder_Change_Mode,
@@ -19,6 +18,8 @@ module Alarm_Clock
         output [7:0] o_Anodes,
         output o_Alarm_Enabled,
         output o_Alarm_On,
+        output o_AUD_SD,
+        output o_AUD_PWM,
         output o_PM
         
 //        ,
@@ -33,6 +34,17 @@ module Alarm_Clock
     //////////////////////////////////////////////////////////////////////////////
     // Clock Dividers
     //////////////////////////////////////////////////////////////////////////////
+    wire w_Clk_25MHz;
+    Clock_Divider
+    #(
+       .CLK_IN         (100000000),
+       .CLK_OUT        (25000000)
+    ) U_Clock_Divider_100MHz_To_25MHz (
+       .i_Clk          (i_Clk_100MHz),
+       .i_Reset        (1'b0),
+       .o_Clk          (w_Clk_25MHz)
+    );
+    
     wire w_Clk_5MHz;
     Clock_Divider
     #(
@@ -64,6 +76,17 @@ module Alarm_Clock
         .i_Clk          (w_Clk_5MHz),
         .i_Reset        (1'b0),
         .o_Clk          (w_Clk_100Hz)
+    );
+    
+    wire w_Clk_10Hz;
+    Clock_Divider
+    #(
+        .CLK_IN         (5000000),
+        .CLK_OUT        (10)
+    ) U_Clock_Divider_5MHz_To_10Hz (
+        .i_Clk          (w_Clk_5MHz),
+        .i_Reset        (1'b0),
+        .o_Clk          (w_Clk_10Hz)
     );
     
     wire w_Clk_1Hz;
@@ -330,6 +353,17 @@ module Alarm_Clock
         .o_Alarm_On     (w_Alarm_On)
     );
     
+    wire w_AUD_SD;
+    wire w_AUD_PWM;
+    Alarm_Sound U_Alarm_Sound
+    (
+        .i_Clk_25MHz    (w_Clk_25MHz),
+        .i_Clk_10Hz     (w_Clk_10Hz),
+        .i_Sound_Enable (w_Turn_Alarm_On),
+        .o_AUD_SD       (w_AUD_SD),
+        .o_AUD_PWM      (w_AUD_PWM)
+    );
+    
     //////////////////////////////////////////////////////////////////////////////
     // Seven Segment Display Controllers
     //////////////////////////////////////////////////////////////////////////////
@@ -383,6 +417,8 @@ module Alarm_Clock
     assign o_Anodes = w_Anodes;
     assign o_Alarm_Enabled = w_Alarm_Enabled;
     assign o_Alarm_On = w_Alarm_On;
+    assign o_AUD_SD = w_AUD_SD;
+    assign o_AUD_PWM = w_AUD_PWM;
     
 //    assign o_Clk_5MHz = w_Clk_5MHz;
 //    assign o_Clk_1Hz = w_Clk_1Hz;
