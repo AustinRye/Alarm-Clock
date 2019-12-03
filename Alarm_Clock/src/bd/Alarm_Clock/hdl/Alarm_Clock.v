@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
-//Date        : Tue Nov 26 14:38:23 2019
+//Date        : Tue Dec 03 13:32:15 2019
 //Host        : LAPTOP-CKAMQSCQ running 64-bit major release  (build 9200)
 //Command     : generate_target Alarm_Clock.bd
 //Design      : Alarm_Clock
@@ -37,12 +37,13 @@ module Alarm_Clock
     eth_rmii_txd,
     i_Alarm_Enable,
     i_Change_Alarm,
-    i_Change_Time,
-    i_Hours_Dec,
-    i_Hours_Inc,
-    i_Minutes_Dec,
-    i_Minutes_Inc,
+    i_Encoder_A,
+    i_Encoder_B,
+    i_Encoder_Change_Mode,
+    i_Encoder_Enable,
     i_Reset,
+    o_AUD_PWM,
+    o_AUD_SD,
     o_Alarm_Enabled,
     o_Alarm_On,
     o_Anodes,
@@ -78,12 +79,13 @@ module Alarm_Clock
   output [1:0]eth_rmii_txd;
   input i_Alarm_Enable;
   input i_Change_Alarm;
-  input i_Change_Time;
-  input i_Hours_Dec;
-  input i_Hours_Inc;
-  input i_Minutes_Dec;
-  input i_Minutes_Inc;
+  input i_Encoder_A;
+  input i_Encoder_B;
+  input i_Encoder_Change_Mode;
+  input i_Encoder_Enable;
   input i_Reset;
+  output o_AUD_PWM;
+  output o_AUD_SD;
   output o_Alarm_Enabled;
   output o_Alarm_On;
   output [7:0]o_Anodes;
@@ -94,6 +96,8 @@ module Alarm_Clock
   input usb_uart_rxd;
   output usb_uart_txd;
 
+  wire Alarm_Clock_0_o_AUD_PWM;
+  wire Alarm_Clock_0_o_AUD_SD;
   wire Alarm_Clock_0_o_Alarm_Enabled;
   wire Alarm_Clock_0_o_Alarm_On;
   wire [7:0]Alarm_Clock_0_o_Anodes;
@@ -158,11 +162,10 @@ module Alarm_Clock
   wire clk_wiz_1_locked;
   wire i_Alarm_Enable_1;
   wire i_Change_Alarm_1;
-  wire i_Change_Time_1;
-  wire i_Hours_Dec_1;
-  wire i_Hours_Inc_1;
-  wire i_Minutes_Dec_1;
-  wire i_Minutes_Inc_1;
+  wire i_Encoder_A_1;
+  wire i_Encoder_B_1;
+  wire i_Encoder_Change_Mode_1;
+  wire i_Encoder_Enable_1;
   wire i_Reset_1;
   wire mdm_1_debug_sys_rst;
   wire microblaze_0_Clk;
@@ -403,15 +406,16 @@ module Alarm_Clock
   assign eth_rmii_txd[1:0] = mii_to_rmii_0_RMII_PHY_M_TXD;
   assign i_Alarm_Enable_1 = i_Alarm_Enable;
   assign i_Change_Alarm_1 = i_Change_Alarm;
-  assign i_Change_Time_1 = i_Change_Time;
-  assign i_Hours_Dec_1 = i_Hours_Dec;
-  assign i_Hours_Inc_1 = i_Hours_Inc;
-  assign i_Minutes_Dec_1 = i_Minutes_Dec;
-  assign i_Minutes_Inc_1 = i_Minutes_Inc;
+  assign i_Encoder_A_1 = i_Encoder_A;
+  assign i_Encoder_B_1 = i_Encoder_B;
+  assign i_Encoder_Change_Mode_1 = i_Encoder_Change_Mode;
+  assign i_Encoder_Enable_1 = i_Encoder_Enable;
   assign i_Reset_1 = i_Reset;
   assign mii_to_rmii_0_RMII_PHY_M_CRS_DV = eth_rmii_crs_dv;
   assign mii_to_rmii_0_RMII_PHY_M_RXD = eth_rmii_rxd[1:0];
   assign mii_to_rmii_0_RMII_PHY_M_RX_ER = eth_rmii_rx_er;
+  assign o_AUD_PWM = Alarm_Clock_0_o_AUD_PWM;
+  assign o_AUD_SD = Alarm_Clock_0_o_AUD_SD;
   assign o_Alarm_Enabled = Alarm_Clock_0_o_Alarm_Enabled;
   assign o_Alarm_On = Alarm_Clock_0_o_Alarm_On;
   assign o_Anodes[7:0] = Alarm_Clock_0_o_Anodes;
@@ -423,13 +427,14 @@ module Alarm_Clock
   Alarm_Clock_Alarm_Clock_0_1 Alarm_Clock_0
        (.i_Alarm_Enable(i_Alarm_Enable_1),
         .i_Change_Alarm(i_Change_Alarm_1),
-        .i_Change_Time(i_Change_Time_1),
         .i_Clk_100MHz(microblaze_0_Clk),
-        .i_Hours_Dec(i_Hours_Dec_1),
-        .i_Hours_Inc(i_Hours_Inc_1),
-        .i_Minutes_Dec(i_Minutes_Dec_1),
-        .i_Minutes_Inc(i_Minutes_Inc_1),
+        .i_Encoder_A(i_Encoder_A_1),
+        .i_Encoder_B(i_Encoder_B_1),
+        .i_Encoder_Change_Mode(i_Encoder_Change_Mode_1),
+        .i_Encoder_Enable(i_Encoder_Enable_1),
         .i_Reset(i_Reset_1),
+        .o_AUD_PWM(Alarm_Clock_0_o_AUD_PWM),
+        .o_AUD_SD(Alarm_Clock_0_o_AUD_SD),
         .o_Alarm_Enabled(Alarm_Clock_0_o_Alarm_Enabled),
         .o_Alarm_On(Alarm_Clock_0_o_Alarm_On),
         .o_Anodes(Alarm_Clock_0_o_Anodes),

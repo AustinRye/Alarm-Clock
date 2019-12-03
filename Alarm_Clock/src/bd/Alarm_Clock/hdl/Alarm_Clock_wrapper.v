@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
-//Date        : Tue Nov 26 14:38:23 2019
+//Date        : Tue Dec 03 13:32:15 2019
 //Host        : LAPTOP-CKAMQSCQ running 64-bit major release  (build 9200)
 //Command     : generate_target Alarm_Clock_wrapper.bd
 //Design      : Alarm_Clock_wrapper
@@ -34,12 +34,13 @@ module Alarm_Clock_wrapper
     eth_rmii_txd,
     i_Alarm_Enable,
     i_Change_Alarm,
-    i_Change_Time,
-    i_Hours_Dec,
-    i_Hours_Inc,
-    i_Minutes_Dec,
-    i_Minutes_Inc,
+    i_Encoder_A,
+    i_Encoder_B,
+    i_Encoder_Change_Mode,
+    i_Encoder_Enable,
     i_Reset,
+    o_AUD_PWM,
+    o_AUD_SD,
     o_Alarm_Enabled,
     o_Alarm_On,
     o_Anodes,
@@ -73,12 +74,13 @@ module Alarm_Clock_wrapper
   output [1:0]eth_rmii_txd;
   input i_Alarm_Enable;
   input i_Change_Alarm;
-  input i_Change_Time;
-  input i_Hours_Dec;
-  input i_Hours_Inc;
-  input i_Minutes_Dec;
-  input i_Minutes_Inc;
+  input i_Encoder_A;
+  input i_Encoder_B;
+  input i_Encoder_Change_Mode;
+  input i_Encoder_Enable;
   input i_Reset;
+  output o_AUD_PWM;
+  output o_AUD_SD;
   output o_Alarm_Enabled;
   output o_Alarm_On;
   output [7:0]o_Anodes;
@@ -116,12 +118,13 @@ module Alarm_Clock_wrapper
   wire [1:0]eth_rmii_txd;
   wire i_Alarm_Enable;
   wire i_Change_Alarm;
-  wire i_Change_Time;
-  wire i_Hours_Dec;
-  wire i_Hours_Inc;
-  wire i_Minutes_Dec;
-  wire i_Minutes_Inc;
+  wire i_Encoder_A;
+  wire i_Encoder_B;
+  wire i_Encoder_Change_Mode;
+  wire i_Encoder_Enable;
   wire i_Reset;
+  wire o_AUD_PWM;
+  wire o_AUD_SD;
   wire o_Alarm_Enabled;
   wire o_Alarm_On;
   wire [7:0]o_Anodes;
@@ -159,12 +162,13 @@ module Alarm_Clock_wrapper
         .eth_rmii_txd(eth_rmii_txd),
         .i_Alarm_Enable(i_Alarm_Enable),
         .i_Change_Alarm(i_Change_Alarm),
-        .i_Change_Time(i_Change_Time),
-        .i_Hours_Dec(i_Hours_Dec),
-        .i_Hours_Inc(i_Hours_Inc),
-        .i_Minutes_Dec(i_Minutes_Dec),
-        .i_Minutes_Inc(i_Minutes_Inc),
+        .i_Encoder_A(i_Encoder_A),
+        .i_Encoder_B(i_Encoder_B),
+        .i_Encoder_Change_Mode(i_Encoder_Change_Mode),
+        .i_Encoder_Enable(i_Encoder_Enable),
         .i_Reset(i_Reset),
+        .o_AUD_PWM(o_AUD_PWM),
+        .o_AUD_SD(o_AUD_SD),
         .o_Alarm_Enabled(o_Alarm_Enabled),
         .o_Alarm_On(o_Alarm_On),
         .o_Anodes(o_Anodes),

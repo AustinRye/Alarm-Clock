@@ -17,17 +17,18 @@
 		// Users to add ports here
         input i_Clk_100MHz,
         input i_Reset,
-        input i_Change_Time,
         input i_Change_Alarm,
-        input i_Minutes_Inc,
-        input i_Minutes_Dec,
-        input i_Hours_Inc,
-        input i_Hours_Dec,
+        input i_Encoder_Enable,
+        input i_Encoder_Change_Mode,
+        input i_Encoder_A,
+        input i_Encoder_B,
         input i_Alarm_Enable,
         output [6:0] o_Segments,
         output [7:0] o_Anodes,
         output o_Alarm_Enabled,
         output o_Alarm_On,
+        output o_AUD_SD,
+        output o_AUD_PWM,
         output o_PM,
 		// User ports ends
 		// Do not modify the ports beyond this line
@@ -235,7 +236,7 @@
 	    begin
 //	      slv_reg0 <= 0;
 //	      slv_reg1 <= 0;
-	      slv_reg2 <= 0;
+//	      slv_reg2 <= 0;
 	      slv_reg3 <= 0;
 	    end 
 	  else begin
@@ -261,7 +262,7 @@
 	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
 	                // Respective byte enables are asserted as per write strobes 
 	                // Slave register 2
-	                slv_reg2[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+//	                slv_reg2[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
 	              end  
 	          2'h3:
 	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
@@ -273,7 +274,7 @@
 	          default : begin
 //	                      slv_reg0 <= slv_reg0;
 //	                      slv_reg1 <= slv_reg1;
-	                      slv_reg2 <= slv_reg2;
+//	                      slv_reg2 <= slv_reg2;
 	                      slv_reg3 <= slv_reg3;
 	                    end
 	        endcase
@@ -412,48 +413,77 @@
 
 	// Add user logic here
 	wire w_Reset_Control;
-    wire w_Change_Time_Control;
     wire w_Change_Alarm_Control;
-    wire w_Minutes_Inc_Control;
-    wire w_Minutes_Dec_Control;
-    wire w_Hours_Inc_Control;
-    wire w_Hours_Dec_Control;
     wire w_Alarm_Enable_Control;
+    wire w_Seconds_1st_Digit_Inc;
+    wire w_Seconds_1st_Digit_Dec;
+    wire w_Seconds_2nd_Digit_Inc;
+    wire w_Seconds_2nd_Digit_Dec;
+    wire w_Minutes_1st_Digit_Inc;
+    wire w_Minutes_1st_Digit_Dec;
+    wire w_Minutes_2nd_Digit_Inc;
+    wire w_Minutes_2nd_Digit_Dec;
+    wire w_Hours_1st_Digit_Inc;
+    wire w_Hours_1st_Digit_Dec;
+    wire w_Hours_2nd_Digit_Inc;
+    wire w_Hours_2nd_Digit_Dec;
     
     wire [23:0] w_Time_Stamp;
     wire [23:0] w_Alarm_Time_Stamp;
     Alarm_Clock U_Alarm_Clock
     (
-        .i_Clk_100MHz       (i_Clk_100MHz),
-        .i_Reset            (w_Reset_Control),
-        .i_Change_Time      (w_Change_Time_Control),
-        .i_Change_Alarm     (w_Change_Alarm_Control),
-        .i_Minutes_Inc      (w_Minutes_Inc_Control),
-        .i_Minutes_Dec      (w_Minutes_Dec_Control),
-        .i_Hours_Inc        (w_Hours_Inc_Control),
-        .i_Hours_Dec        (w_Hours_Dec_Control),
-        .i_Alarm_Enable     (w_Alarm_Enable_Control),
-        .o_Segments         (o_Segments),
-        .o_Anodes           (o_Anodes),
-        .o_Alarm_Enabled    (o_Alarm_Enabled),
-        .o_Alarm_On         (o_Alarm_On),
-        .o_PM               (o_PM),
-        .o_Time_Stamp       (w_Time_Stamp),
-        .o_Alarm_Time_Stamp (w_Alarm_Time_Stamp)
+        .i_Clk_100MHz           (i_Clk_100MHz),
+        .i_Reset                (w_Reset_Control),
+        .i_Change_Alarm         (w_Change_Alarm_Control),
+        .i_Encoder_Enable       (w_Encoder_Enable_Control),
+        .i_Encoder_Change_Mode  (i_Encoder_Change_Mode),
+        .i_Encoder_A            (i_Encoder_A),
+        .i_Encoder_B            (i_Encoder_B),
+        .i_Alarm_Enable         (w_Alarm_Enable_Control),
+        .o_Segments             (o_Segments),
+        .o_Anodes               (o_Anodes),
+        .o_Alarm_Enabled        (o_Alarm_Enabled),
+        .o_Alarm_On             (o_Alarm_On),
+        .o_AUD_SD               (o_AUD_SD),
+        .o_AUD_PWM              (o_AUD_PWM),
+        .o_PM                   (o_PM),
+        .i_Seconds_1st_Digit_Inc(w_Seconds_1st_Digit_Inc),
+        .i_Seconds_1st_Digit_Dec(w_Seconds_1st_Digit_Dec),
+        .i_Seconds_2nd_Digit_Inc(w_Seconds_2nd_Digit_Inc),
+        .i_Seconds_2nd_Digit_Dec(w_Seconds_2nd_Digit_Dec),
+        .i_Minutes_1st_Digit_Inc(w_Minutes_1st_Digit_Inc),
+        .i_Minutes_1st_Digit_Dec(w_Minutes_1st_Digit_Dec),
+        .i_Minutes_2nd_Digit_Inc(w_Minutes_2nd_Digit_Inc),
+        .i_Minutes_2nd_Digit_Dec(w_Minutes_2nd_Digit_Dec),
+        .i_Hours_1st_Digit_Inc  (w_Hours_1st_Digit_Inc),
+        .i_Hours_1st_Digit_Dec  (w_Hours_1st_Digit_Dec),
+        .i_Hours_2nd_Digit_Inc  (w_Hours_2nd_Digit_Inc),
+        .i_Hours_2nd_Digit_Dec  (w_Hours_2nd_Digit_Dec),
+        .o_Time_Stamp           (w_Time_Stamp),
+        .o_Alarm_Time_Stamp     (w_Alarm_Time_Stamp)
     );
     
-    assign w_Reset_Control = i_Reset | slv_reg2[0];
-    assign w_Change_Time_Control = i_Change_Time | slv_reg2[1];
-    assign w_Change_Alarm_Control = i_Change_Alarm | slv_reg2[2];
-    assign w_Minutes_Inc_Control = i_Minutes_Inc | slv_reg2[3];
-    assign w_Minutes_Dec_Control = i_Minutes_Dec | slv_reg2[4];
-    assign w_Hours_Inc_Control = i_Hours_Inc | slv_reg2[5];
-    assign w_Hours_Dec_Control = i_Hours_Dec | slv_reg2[6];
-    assign w_Alarm_Enable_Control = i_Alarm_Enable | slv_reg2[7];
+    assign w_Reset_Control = i_Reset | slv_reg3[0];
+    assign w_Change_Alarm_Control = i_Change_Alarm | slv_reg3[1];
+    assign w_Encoder_Enable_Control = i_Encoder_Enable | slv_reg3[2];
+    assign w_Alarm_Enable_Control = i_Alarm_Enable | slv_reg3[3];
+    assign w_Seconds_1st_Digit_Inc = slv_reg3[4];
+    assign w_Seconds_1st_Digit_Dec = slv_reg3[5];
+    assign w_Seconds_2nd_Digit_Inc = slv_reg3[6];
+    assign w_Seconds_2nd_Digit_Dec = slv_reg3[7];
+    assign w_Minutes_1st_Digit_Inc = slv_reg3[8];
+    assign w_Minutes_1st_Digit_Dec = slv_reg3[9];
+    assign w_Minutes_2nd_Digit_Inc = slv_reg3[10];
+    assign w_Minutes_2nd_Digit_Dec = slv_reg3[11];
+    assign w_Hours_1st_Digit_Inc = slv_reg3[12];
+    assign w_Hours_1st_Digit_Dec = slv_reg3[13];
+    assign w_Hours_2nd_Digit_Inc = slv_reg3[14];
+    assign w_Hours_2nd_Digit_Dec = slv_reg3[15];
     
-    always @(w_Time_Stamp or w_Alarm_Time_Stamp) begin
+    always @(w_Time_Stamp or w_Alarm_Time_Stamp or o_Alarm_On) begin
         slv_reg0 <= w_Time_Stamp;
         slv_reg1 <= w_Alarm_Time_Stamp;
+        slv_reg2 <= {o_Alarm_Enabled, o_Alarm_On};
     end
 	// User logic ends
 

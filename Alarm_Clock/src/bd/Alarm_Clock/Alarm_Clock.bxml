@@ -2,9 +2,9 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="Alarm_Clock" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1574797146"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1574797146"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1574797146"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1575397980"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1575397980"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1575397980"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\Alarm_Clock_microblaze_0_0\Alarm_Clock_microblaze_0_0.xci" Type="IP">
         <Instance HierarchyPath="microblaze_0"/>

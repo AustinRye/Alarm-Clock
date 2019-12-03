@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:user:Alarm_Clock:2.0
-// IP Revision: 21
+// IP Revision: 33
 
 `timescale 1ns/1ps
 
@@ -56,17 +56,18 @@
 module Alarm_Clock_Alarm_Clock_0_1 (
   i_Clk_100MHz,
   i_Reset,
-  i_Change_Time,
   i_Change_Alarm,
-  i_Minutes_Inc,
-  i_Minutes_Dec,
-  i_Hours_Inc,
-  i_Hours_Dec,
+  i_Encoder_Enable,
+  i_Encoder_Change_Mode,
+  i_Encoder_A,
+  i_Encoder_B,
   i_Alarm_Enable,
   o_Segments,
   o_Anodes,
   o_Alarm_Enabled,
   o_Alarm_On,
+  o_AUD_SD,
+  o_AUD_PWM,
   o_PM,
   s00_axi_awaddr,
   s00_axi_awprot,
@@ -94,17 +95,18 @@ module Alarm_Clock_Alarm_Clock_0_1 (
 input wire i_Clk_100MHz;
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 i_Reset RST" *)
 input wire i_Reset;
-input wire i_Change_Time;
 input wire i_Change_Alarm;
-input wire i_Minutes_Inc;
-input wire i_Minutes_Dec;
-input wire i_Hours_Inc;
-input wire i_Hours_Dec;
+input wire i_Encoder_Enable;
+input wire i_Encoder_Change_Mode;
+input wire i_Encoder_A;
+input wire i_Encoder_B;
 input wire i_Alarm_Enable;
 output wire [6 : 0] o_Segments;
 output wire [7 : 0] o_Anodes;
 output wire o_Alarm_Enabled;
 output wire o_Alarm_On;
+output wire o_AUD_SD;
+output wire o_AUD_PWM;
 output wire o_PM;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI AWADDR" *)
 input wire [3 : 0] s00_axi_awaddr;
@@ -155,17 +157,18 @@ input wire s00_axi_aresetn;
   ) inst (
     .i_Clk_100MHz(i_Clk_100MHz),
     .i_Reset(i_Reset),
-    .i_Change_Time(i_Change_Time),
     .i_Change_Alarm(i_Change_Alarm),
-    .i_Minutes_Inc(i_Minutes_Inc),
-    .i_Minutes_Dec(i_Minutes_Dec),
-    .i_Hours_Inc(i_Hours_Inc),
-    .i_Hours_Dec(i_Hours_Dec),
+    .i_Encoder_Enable(i_Encoder_Enable),
+    .i_Encoder_Change_Mode(i_Encoder_Change_Mode),
+    .i_Encoder_A(i_Encoder_A),
+    .i_Encoder_B(i_Encoder_B),
     .i_Alarm_Enable(i_Alarm_Enable),
     .o_Segments(o_Segments),
     .o_Anodes(o_Anodes),
     .o_Alarm_Enabled(o_Alarm_Enabled),
     .o_Alarm_On(o_Alarm_On),
+    .o_AUD_SD(o_AUD_SD),
+    .o_AUD_PWM(o_AUD_PWM),
     .o_PM(o_PM),
     .s00_axi_awaddr(s00_axi_awaddr),
     .s00_axi_awprot(s00_axi_awprot),

@@ -71,7 +71,7 @@ err_t recv_callback(void *arg, struct tcp_pcb *tpcb,
 		int offset;
 
 		// Receiving Packet
-		offset = 2;
+		offset = 3;
 		int payload = atoi(p->payload);
 		Xil_Out32(alarm_clock_mem_addr + 4 * offset, payload);
 
@@ -80,9 +80,8 @@ err_t recv_callback(void *arg, struct tcp_pcb *tpcb,
 		xil_printf("\n---End Receive Packet---\n");
 
 		// Transmitting Packet
-		offset = 0;
-		char time_stamp[23];
-		sprintf(time_stamp, "%d", (int)Xil_In32(alarm_clock_mem_addr + 4 * offset));
+		char time_stamp[47];
+		sprintf(time_stamp, "%d-%d-%d", (int)Xil_In32(alarm_clock_mem_addr + 4 * 0), (int)Xil_In32(alarm_clock_mem_addr + 4 * 1), (int)Xil_In32(alarm_clock_mem_addr + 4 * 2));
 
 		xil_printf("\n---Start Transmit Packet---\n");
 		xil_printf(time_stamp);

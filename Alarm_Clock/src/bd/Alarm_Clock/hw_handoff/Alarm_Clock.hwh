@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Nov 26 14:39:05 2019" VIVADOVERSION="2016.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 03 13:32:57 2019" VIVADOVERSION="2016.3">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="Alarm_Clock" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -52,24 +52,9 @@
         <CONNECTION INSTANCE="Alarm_Clock_0" PORT="i_Reset"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="i_Change_Time" SIGIS="undef" SIGNAME="External_Ports_i_Change_Time">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="Alarm_Clock_0" PORT="i_Change_Time"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="I" NAME="i_Change_Alarm" SIGIS="undef" SIGNAME="External_Ports_i_Change_Alarm">
       <CONNECTIONS>
         <CONNECTION INSTANCE="Alarm_Clock_0" PORT="i_Change_Alarm"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="i_Minutes_Inc" SIGIS="undef" SIGNAME="External_Ports_i_Minutes_Inc">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="Alarm_Clock_0" PORT="i_Minutes_Inc"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="i_Hours_Inc" SIGIS="undef" SIGNAME="External_Ports_i_Hours_Inc">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="Alarm_Clock_0" PORT="i_Hours_Inc"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="i_Alarm_Enable" SIGIS="undef" SIGNAME="External_Ports_i_Alarm_Enable">
@@ -102,14 +87,34 @@
         <CONNECTION INSTANCE="Alarm_Clock_0" PORT="o_PM"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="i_Minutes_Dec" SIGIS="undef" SIGNAME="External_Ports_i_Minutes_Dec">
+    <PORT DIR="I" NAME="i_Encoder_B" SIGIS="undef" SIGNAME="External_Ports_i_Encoder_B">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="Alarm_Clock_0" PORT="i_Minutes_Dec"/>
+        <CONNECTION INSTANCE="Alarm_Clock_0" PORT="i_Encoder_B"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="i_Hours_Dec" SIGIS="undef" SIGNAME="External_Ports_i_Hours_Dec">
+    <PORT DIR="I" NAME="i_Encoder_A" SIGIS="undef" SIGNAME="External_Ports_i_Encoder_A">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="Alarm_Clock_0" PORT="i_Hours_Dec"/>
+        <CONNECTION INSTANCE="Alarm_Clock_0" PORT="i_Encoder_A"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="i_Encoder_Change_Mode" SIGIS="undef" SIGNAME="External_Ports_i_Encoder_Change_Mode">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Alarm_Clock_0" PORT="i_Encoder_Change_Mode"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="i_Encoder_Enable" SIGIS="undef" SIGNAME="External_Ports_i_Encoder_Enable">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Alarm_Clock_0" PORT="i_Encoder_Enable"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="o_AUD_SD" SIGIS="undef" SIGNAME="Alarm_Clock_0_o_AUD_SD">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Alarm_Clock_0" PORT="o_AUD_SD"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="o_AUD_PWM" SIGIS="undef" SIGNAME="Alarm_Clock_0_o_AUD_PWM">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Alarm_Clock_0" PORT="o_AUD_PWM"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -196,34 +201,29 @@
             <CONNECTION INSTANCE="External_Ports" PORT="i_Reset"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="i_Change_Time" SIGIS="undef" SIGNAME="External_Ports_i_Change_Time">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="i_Change_Time"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="I" NAME="i_Change_Alarm" SIGIS="undef" SIGNAME="External_Ports_i_Change_Alarm">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="i_Change_Alarm"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="i_Minutes_Inc" SIGIS="undef" SIGNAME="External_Ports_i_Minutes_Inc">
+        <PORT DIR="I" NAME="i_Encoder_Enable" SIGIS="undef" SIGNAME="External_Ports_i_Encoder_Enable">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="i_Minutes_Inc"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="i_Encoder_Enable"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="i_Minutes_Dec" SIGIS="undef" SIGNAME="External_Ports_i_Minutes_Dec">
+        <PORT DIR="I" NAME="i_Encoder_Change_Mode" SIGIS="undef" SIGNAME="External_Ports_i_Encoder_Change_Mode">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="i_Minutes_Dec"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="i_Encoder_Change_Mode"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="i_Hours_Inc" SIGIS="undef" SIGNAME="External_Ports_i_Hours_Inc">
+        <PORT DIR="I" NAME="i_Encoder_A" SIGIS="undef" SIGNAME="External_Ports_i_Encoder_A">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="i_Hours_Inc"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="i_Encoder_A"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="i_Hours_Dec" SIGIS="undef" SIGNAME="External_Ports_i_Hours_Dec">
+        <PORT DIR="I" NAME="i_Encoder_B" SIGIS="undef" SIGNAME="External_Ports_i_Encoder_B">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="i_Hours_Dec"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="i_Encoder_B"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="i_Alarm_Enable" SIGIS="undef" SIGNAME="External_Ports_i_Alarm_Enable">
@@ -249,6 +249,16 @@
         <PORT DIR="O" NAME="o_Alarm_On" SIGIS="undef" SIGNAME="Alarm_Clock_0_o_Alarm_On">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="o_Alarm_On"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_AUD_SD" SIGIS="undef" SIGNAME="Alarm_Clock_0_o_AUD_SD">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="o_AUD_SD"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_AUD_PWM" SIGIS="undef" SIGNAME="Alarm_Clock_0_o_AUD_PWM">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="o_AUD_PWM"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="o_PM" SIGIS="undef" SIGNAME="Alarm_Clock_0_o_PM">

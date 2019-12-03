@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0xF659A75A6E401900" bd:device="xc7a100tcsg324-1" bd:isValidated="true" bd:synthFlowMode="Hierarchical" bd:tool_version="2016.3" bd:top="Alarm_Clock" bd:version="1.00.a">
+<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0x60C2869655F7A5A7" bd:device="xc7a100tcsg324-1" bd:isValidated="true" bd:synthFlowMode="Hierarchical" bd:tool_version="2016.3" bd:top="Alarm_Clock" bd:version="1.00.a">
 
   <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
     <spirit:vendor>xilinx.com</spirit:vendor>
@@ -325,25 +325,7 @@
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>i_Change_Time</spirit:name>
-          <spirit:wire>
-            <spirit:direction>in</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
           <spirit:name>i_Change_Alarm</spirit:name>
-          <spirit:wire>
-            <spirit:direction>in</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
-          <spirit:name>i_Minutes_Inc</spirit:name>
-          <spirit:wire>
-            <spirit:direction>in</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
-          <spirit:name>i_Hours_Inc</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
           </spirit:wire>
@@ -393,15 +375,39 @@
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>i_Minutes_Dec</spirit:name>
+          <spirit:name>i_Encoder_B</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>i_Hours_Dec</spirit:name>
+          <spirit:name>i_Encoder_A</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>i_Encoder_Change_Mode</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>i_Encoder_Enable</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>o_AUD_SD</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>o_AUD_PWM</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
           </spirit:wire>
         </spirit:port>
       </spirit:ports>
@@ -789,24 +795,9 @@
         <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="i_Reset"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>i_Change_Time_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="i_Change_Time"/>
-        <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="i_Change_Time"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
         <spirit:name>i_Change_Alarm_1</spirit:name>
         <spirit:externalPortReference spirit:portRef="i_Change_Alarm"/>
         <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="i_Change_Alarm"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>i_Minutes_Inc_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="i_Minutes_Inc"/>
-        <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="i_Minutes_Inc"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>i_Hours_Inc_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="i_Hours_Inc"/>
-        <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="i_Hours_Inc"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>i_Alarm_Enable_1</spirit:name>
@@ -839,14 +830,34 @@
         <spirit:externalPortReference spirit:portRef="o_PM"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>i_Minutes_Dec_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="i_Minutes_Dec"/>
-        <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="i_Minutes_Dec"/>
+        <spirit:name>i_Encoder_B_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="i_Encoder_B"/>
+        <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="i_Encoder_B"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>i_Hours_Dec_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="i_Hours_Dec"/>
-        <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="i_Hours_Dec"/>
+        <spirit:name>i_Encoder_A_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="i_Encoder_A"/>
+        <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="i_Encoder_A"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>i_Encoder_Change_Mode_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="i_Encoder_Change_Mode"/>
+        <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="i_Encoder_Change_Mode"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>i_Encoder_Enable_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="i_Encoder_Enable"/>
+        <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="i_Encoder_Enable"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>Alarm_Clock_0_o_AUD_SD</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="o_AUD_SD"/>
+        <spirit:externalPortReference spirit:portRef="o_AUD_SD"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>Alarm_Clock_0_o_AUD_PWM</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="o_AUD_PWM"/>
+        <spirit:externalPortReference spirit:portRef="o_AUD_PWM"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
