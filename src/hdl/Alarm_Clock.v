@@ -319,13 +319,15 @@ module Alarm_Clock
     );
     
     wire w_Alarm_PM;
-    Alarm_Time
+    Time
     #(
         .START_MINUTES          (0),
         .START_HOURS            (0)
     ) U_Alarm_Time (
         .i_Clk_5MHz             (w_Clk_5MHz),
+        .i_Clk_100Hz_Pulse      (1'b0),
         .i_Reset                (i_Reset),
+        .i_Enable_Count         (1'b0),
         .i_Seconds_1st_Digit_Inc(w_Alarm_Seconds_1st_Digit_Inc),
         .i_Seconds_1st_Digit_Dec(w_Alarm_Seconds_1st_Digit_Dec),
         .i_Seconds_2nd_Digit_Inc(w_Alarm_Seconds_2nd_Digit_Inc),
@@ -338,7 +340,7 @@ module Alarm_Clock
         .i_Hours_1st_Digit_Dec  (w_Alarm_Hours_1st_Digit_Dec),
         .i_Hours_2nd_Digit_Inc  (w_Alarm_Hours_2nd_Digit_Inc),
         .i_Hours_2nd_Digit_Dec  (w_Alarm_Hours_2nd_Digit_Dec),
-        .o_Alarm_Time           (w_Alarm_Time),
+        .o_Time                 (w_Alarm_Time),
         .o_PM                   (w_Alarm_PM)
     );
     

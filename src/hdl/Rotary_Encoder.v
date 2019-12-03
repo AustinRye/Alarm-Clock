@@ -129,18 +129,18 @@ module Rotary_Encoder
     end
     
     always @(posedge i_Clk) begin
-        r_Seconds_2nd_Digit_Inc = 0;
-        r_Seconds_2nd_Digit_Dec = 0;
-        r_Seconds_1st_Digit_Inc = 0;
-        r_Seconds_1st_Digit_Dec = 0;
-        r_Minutes_2nd_Digit_Inc = 0;
-        r_Minutes_2nd_Digit_Dec = 0;
-        r_Minutes_1st_Digit_Inc = 0;
-        r_Minutes_1st_Digit_Dec = 0;
-        r_Hours_2nd_Digit_Inc = 0;
-        r_Hours_2nd_Digit_Dec = 0;
-        r_Hours_1st_Digit_Inc = 0;
-        r_Hours_1st_Digit_Dec = 0;
+        r_Seconds_2nd_Digit_Inc <= 0;
+        r_Seconds_2nd_Digit_Dec <= 0;
+        r_Seconds_1st_Digit_Inc <= 0;
+        r_Seconds_1st_Digit_Dec <= 0;
+        r_Minutes_2nd_Digit_Inc <= 0;
+        r_Minutes_2nd_Digit_Dec <= 0;
+        r_Minutes_1st_Digit_Inc <= 0;
+        r_Minutes_1st_Digit_Dec <= 0;
+        r_Hours_2nd_Digit_Inc <= 0;
+        r_Hours_2nd_Digit_Dec <= 0;
+        r_Hours_1st_Digit_Inc <= 0;
+        r_Hours_1st_Digit_Dec <= 0;
         if (i_Encoder_Enable & r_Change_Num) begin
             if (i_Encoder_A_Pulse) begin
                 if (~i_Encoder_B_Debounced) begin
