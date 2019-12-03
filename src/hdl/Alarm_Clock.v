@@ -175,16 +175,17 @@ module Alarm_Clock
     );
     
     wire w_Alarm_PM;
-    Alarm_Time
+    Time
     #(
         .START_MINUTES  (0),
         .START_HOURS    (0)
     ) U_Alarm_Time (
         .i_Clk_5MHz     (w_Clk_5MHz),
+        .i_Clk_1Hz_Pulse(1'b0),
         .i_Reset        (i_Reset),
         .i_Minutes_Inc  (w_Alarm_Minutes_Inc),
         .i_Hours_Inc    (w_Alarm_Hours_Inc),
-        .o_Alarm_Time   (w_Alarm_Time),
+        .o_Time         (w_Alarm_Time),
         .o_PM           (w_Alarm_PM)
     );
     
