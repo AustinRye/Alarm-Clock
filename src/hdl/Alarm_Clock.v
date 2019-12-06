@@ -14,10 +14,13 @@ module Alarm_Clock
         input i_Encoder_A,
         input i_Encoder_B,
         input i_Alarm_Enable,
+        input i_Alarm_Game_Enable,
+        input [9:0] i_Alarm_Game_Switches,
         output [6:0] o_Segments,
         output [7:0] o_Anodes,
         output o_Alarm_Enabled,
         output o_Alarm_On,
+        output [9:0] o_Alarm_Game_LEDs,
         output o_AUD_SD,
         output o_AUD_PWM,
         output o_PM
@@ -238,6 +241,8 @@ module Alarm_Clock
     wire w_Display_Sel;
     wire w_Turn_Alarm_On;
     wire w_Alarm_Enabled;
+    wire w_Alarm_Game_Win;
+    wire w_Alarm_Game_On;
     Master_Controller U_Master_Controller
     (
         .i_Clk                          (w_Clk_5MHz),
@@ -259,6 +264,8 @@ module Alarm_Clock
         .i_Alarm_Enable                 (i_Alarm_Enable),
         .i_Time                         (w_Time),
         .i_Alarm_Time                   (w_Alarm_Time),
+        .i_Alarm_Game_Enable            (i_Alarm_Game_Enable),
+        .i_Alarm_Game_Win               (w_Alarm_Game_Win),
         .o_Enable_Count                 (w_Enable_Count),
         .o_Time_Seconds_1st_Digit_Inc   (w_Time_Seconds_1st_Digit_Inc),
         .o_Time_Seconds_1st_Digit_Dec   (w_Time_Seconds_1st_Digit_Dec),
@@ -286,7 +293,8 @@ module Alarm_Clock
         .o_Alarm_Hours_2nd_Digit_Dec    (w_Alarm_Hours_2nd_Digit_Dec),
         .o_Display_Sel                  (w_Display_Sel),
         .o_Alarm_On                     (w_Turn_Alarm_On),
-        .o_Alarm_Enabled                (w_Alarm_Enabled)
+        .o_Alarm_Enabled                (w_Alarm_Enabled),
+        .o_Alarm_Game_On                (w_Alarm_Game_On)
     );
     
     //////////////////////////////////////////////////////////////////////////////
@@ -366,6 +374,19 @@ module Alarm_Clock
         .o_AUD_PWM      (w_AUD_PWM)
     );
     
+    wire [9:0] w_Alarm_Game_LEDs;
+    Alarm_Game
+    #(
+        .LED_NUM                (10)
+    ) U_Alarm_Game (
+        .i_Clk                  (w_Clk_5MHz),
+        .i_Reset                (i_Reset),
+        .i_Alarm_Game_On        (w_Alarm_Game_On),
+        .i_Alarm_Game_Switches  (i_Alarm_Game_Switches),
+        .o_Alarm_Game_LEDs      (w_Alarm_Game_LEDs),
+        .o_Alarm_Game_Win       (w_Alarm_Game_Win)
+    );
+    
     //////////////////////////////////////////////////////////////////////////////
     // Seven Segment Display Controllers
     //////////////////////////////////////////////////////////////////////////////
@@ -419,6 +440,7 @@ module Alarm_Clock
     assign o_Anodes = w_Anodes;
     assign o_Alarm_Enabled = w_Alarm_Enabled;
     assign o_Alarm_On = w_Alarm_On;
+    assign o_Alarm_Game_LEDs = w_Alarm_Game_LEDs;
     assign o_AUD_SD = w_AUD_SD;
     assign o_AUD_PWM = w_AUD_PWM;
     

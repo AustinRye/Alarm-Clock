@@ -25,6 +25,8 @@ module Master_Controller
         input i_Alarm_Enable,
         input [31:0] i_Time,
         input [31:0] i_Alarm_Time,
+        input i_Alarm_Game_Enable,
+        input i_Alarm_Game_Win,
         output o_Enable_Count,
         output o_Time_Seconds_1st_Digit_Inc,
         output o_Time_Seconds_1st_Digit_Dec,
@@ -52,7 +54,8 @@ module Master_Controller
         output o_Alarm_Hours_2nd_Digit_Dec,
         output o_Display_Sel,
         output o_Alarm_On,
-        output o_Alarm_Enabled
+        output o_Alarm_Enabled,
+        output o_Alarm_Game_On
     );
     
     //////////////////////////////////////////////////////////////////////////////
@@ -193,6 +196,7 @@ module Master_Controller
 //    //////////////////////////////////////////////////////////////////////////////
     
     reg r_Alarm_On;
+    reg r_Alarm_Game_On;
     
     reg r_Alarm_State, r_Alarm_Next_State;
     parameter OFF = 0, ON = 1;
@@ -204,7 +208,7 @@ module Master_Controller
             r_Alarm_State <= r_Alarm_Next_State;
     end
     
-    always @(r_Alarm_State or i_Alarm_Enable) begin
+    always @(r_Alarm_State or i_Alarm_Enable or i_Alarm_Game_Win) begin
         case (r_Alarm_State)
             OFF:
                 begin
@@ -215,7 +219,7 @@ module Master_Controller
                 end
             ON:
                 begin
-                    if (i_Reset | ~i_Alarm_Enable)
+                    if (i_Reset | ~i_Alarm_Enable | i_Alarm_Game_Win)
                         r_Alarm_Next_State <= OFF;
                     else
                         r_Alarm_Next_State <= ON;
@@ -228,18 +232,19 @@ module Master_Controller
     end
     
     always @(r_Alarm_State) begin
+        r_Alarm_On <= 0;
+        r_Alarm_Game_On <= 0;
         case (r_Alarm_State)
             OFF:
                 begin
                     r_Alarm_On <= 0;
+                    r_Alarm_Game_On <= 0;
                 end
             ON:
                 begin
                     r_Alarm_On <= 1;
-                end
-            default:
-                begin
-                    r_Alarm_On <= 0;
+                    if (i_Alarm_Game_Enable)
+                        r_Alarm_Game_On <= 1;
                 end
         endcase
     end
@@ -272,5 +277,6 @@ module Master_Controller
     assign o_Display_Sel = r_Display_Sel;
     assign o_Alarm_On = r_Alarm_On;
     assign o_Alarm_Enabled = i_Alarm_Enable;
+    assign o_Alarm_Game_On = r_Alarm_Game_On;
     
 endmodule
