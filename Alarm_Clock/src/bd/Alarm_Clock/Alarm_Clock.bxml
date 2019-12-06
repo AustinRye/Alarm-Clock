@@ -2,9 +2,9 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="Alarm_Clock" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1575397980"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1575397980"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1575397980"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1575597085"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1575597085"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1575597085"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\Alarm_Clock_microblaze_0_0\Alarm_Clock_microblaze_0_0.xci" Type="IP">
         <Instance HierarchyPath="microblaze_0"/>
@@ -55,6 +55,7 @@
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip\Alarm_Clock_microblaze_0_axi_periph_0\Alarm_Clock_microblaze_0_axi_periph_0.xci" Type="IP">
+        <Instance HierarchyPath="microblaze_0_axi_periph"/>
         <Properties IsEditable="false" IsVisible="false" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -142,6 +143,7 @@
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip\Alarm_Clock_axi_mem_intercon_0\Alarm_Clock_axi_mem_intercon_0.xci" Type="IP">
+        <Instance HierarchyPath="axi_mem_intercon"/>
         <Properties IsEditable="false" IsVisible="false" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -167,13 +169,6 @@
       <File Name="ip\Alarm_Clock_xbar_1\Alarm_Clock_xbar_1.xci" Type="IP">
         <Instance HierarchyPath="microblaze_0_axi_periph/xbar"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="hdl\Alarm_Clock.v" Type="Verilog">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
@@ -206,6 +201,13 @@
       <File Name="ip\Alarm_Clock_auto_us_1\Alarm_Clock_auto_us_1.xci" Type="IP">
         <Instance HierarchyPath="axi_mem_intercon/s01_couplers/auto_us"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="hdl\Alarm_Clock.v" Type="Verilog">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>

@@ -1,10 +1,10 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
--- Date        : Tue Nov 26 13:29:07 2019
+-- Date        : Tue Nov 26 13:29:03 2019
 -- Host        : LAPTOP-CKAMQSCQ running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub
---               D:/School/ELEC_3500/Lab_9/Alarm-Clock_v3/Alarm_Clock/src/bd/Alarm_Clock/ip/Alarm_Clock_microblaze_0_0/Alarm_Clock_microblaze_0_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top Alarm_Clock_microblaze_0_0 -prefix
+--               Alarm_Clock_microblaze_0_0_ Alarm_Clock_microblaze_0_0_stub.vhdl
 -- Design      : Alarm_Clock_microblaze_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a100tcsg324-1

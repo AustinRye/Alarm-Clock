@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 03 13:32:57 2019" VIVADOVERSION="2016.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec 05 20:51:20 2019" VIVADOVERSION="2016.3">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="Alarm_Clock" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -117,6 +117,21 @@
         <CONNECTION INSTANCE="Alarm_Clock_0" PORT="o_AUD_PWM"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="O" LEFT="9" NAME="o_Alarm_Game_LEDs" RIGHT="0" SIGIS="undef" SIGNAME="Alarm_Clock_0_o_Alarm_Game_LEDs">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Alarm_Clock_0" PORT="o_Alarm_Game_LEDs"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="i_Alarm_Game_Enable" SIGIS="undef" SIGNAME="External_Ports_i_Alarm_Game_Enable">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Alarm_Clock_0" PORT="i_Alarm_Game_Enable"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="9" NAME="i_Alarm_Game_Switches" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_i_Alarm_Game_Switches">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Alarm_Clock_0" PORT="i_Alarm_Game_Switches"/>
+      </CONNECTIONS>
+    </PORT>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES>
@@ -231,6 +246,16 @@
             <CONNECTION INSTANCE="External_Ports" PORT="i_Alarm_Enable"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" NAME="i_Alarm_Game_Enable" SIGIS="undef" SIGNAME="External_Ports_i_Alarm_Game_Enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i_Alarm_Game_Enable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="9" NAME="i_Alarm_Game_Switches" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_i_Alarm_Game_Switches">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i_Alarm_Game_Switches"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" LEFT="6" NAME="o_Segments" RIGHT="0" SIGIS="undef" SIGNAME="Alarm_Clock_0_o_Segments">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="o_Segments"/>
@@ -249,6 +274,11 @@
         <PORT DIR="O" NAME="o_Alarm_On" SIGIS="undef" SIGNAME="Alarm_Clock_0_o_Alarm_On">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="o_Alarm_On"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="9" NAME="o_Alarm_Game_LEDs" RIGHT="0" SIGIS="undef" SIGNAME="Alarm_Clock_0_o_Alarm_Game_LEDs">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="o_Alarm_Game_LEDs"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="o_AUD_SD" SIGIS="undef" SIGNAME="Alarm_Clock_0_o_AUD_SD">

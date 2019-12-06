@@ -1,7 +1,7 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
--- Date        : Tue Dec 03 13:33:52 2019
+-- Date        : Thu Dec 05 20:52:34 2019
 -- Host        : LAPTOP-CKAMQSCQ running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               D:/School/ELEC_3500/Lab_9/Alarm-Clock_v3/Alarm_Clock/src/bd/Alarm_Clock/ip/Alarm_Clock_Alarm_Clock_0_1/Alarm_Clock_Alarm_Clock_0_1_sim_netlist.vhdl
@@ -55,12 +55,12 @@ end Alarm_Clock_Alarm_Clock_0_1_BCD_To_7Segment;
 architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_BCD_To_7Segment is
   signal r_Hex_Encoding : STD_LOGIC_VECTOR ( 6 downto 0 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \r_Hex_Encoding[0]_i_1\ : label is "soft_lutpair41";
-  attribute SOFT_HLUTNM of \r_Hex_Encoding[1]_i_1\ : label is "soft_lutpair41";
-  attribute SOFT_HLUTNM of \r_Hex_Encoding[2]_i_1\ : label is "soft_lutpair42";
-  attribute SOFT_HLUTNM of \r_Hex_Encoding[3]_i_1\ : label is "soft_lutpair42";
-  attribute SOFT_HLUTNM of \r_Hex_Encoding[4]_i_1\ : label is "soft_lutpair43";
-  attribute SOFT_HLUTNM of \r_Hex_Encoding[5]_i_1\ : label is "soft_lutpair43";
+  attribute SOFT_HLUTNM of \r_Hex_Encoding[0]_i_1\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \r_Hex_Encoding[1]_i_1\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \r_Hex_Encoding[2]_i_1\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \r_Hex_Encoding[3]_i_1\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \r_Hex_Encoding[4]_i_1\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \r_Hex_Encoding[5]_i_1\ : label is "soft_lutpair48";
 begin
 \r_Hex_Encoding[0]_i_1\: unisim.vcomponents.LUT4
     generic map(
@@ -288,8 +288,8 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Clock_Divider is
   signal \NLW_r_Counter_reg[31]_i_2__3_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_r_Counter_reg[31]_i_2__3_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \r_Counter[0]_i_1__3\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \r_Counter[31]_i_4__3\ : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of \r_Counter[0]_i_1__3\ : label is "soft_lutpair31";
+  attribute SOFT_HLUTNM of \r_Counter[31]_i_4__3\ : label is "soft_lutpair31";
 begin
   r_Clk <= \^r_clk\;
 \r_Clk_i_1__3\: unisim.vcomponents.LUT5
@@ -1300,8 +1300,8 @@ architecture STRUCTURE of \Alarm_Clock_Alarm_Clock_0_1_Clock_Divider__parameteri
   signal \NLW_r_Counter_reg[31]_i_2_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_r_Counter_reg[31]_i_2_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \r_Counter[0]_i_1\ : label is "soft_lutpair27";
-  attribute SOFT_HLUTNM of \r_Counter[31]_i_4\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \r_Counter[0]_i_1\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of \r_Counter[31]_i_4\ : label is "soft_lutpair32";
 begin
   w_Clk_5MHz <= \^w_clk_5mhz\;
 r_Clk_i_1: unisim.vcomponents.LUT5
@@ -2337,8 +2337,8 @@ architecture STRUCTURE of \Alarm_Clock_Alarm_Clock_0_1_Clock_Divider__parameteri
   signal \NLW_r_Counter_reg[31]_i_2__0_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_r_Counter_reg[31]_i_2__0_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \r_Counter[0]_i_1__0\ : label is "soft_lutpair31";
-  attribute SOFT_HLUTNM of \r_Counter[31]_i_4__0\ : label is "soft_lutpair31";
+  attribute SOFT_HLUTNM of \r_Counter[0]_i_1__0\ : label is "soft_lutpair36";
+  attribute SOFT_HLUTNM of \r_Counter[31]_i_4__0\ : label is "soft_lutpair36";
 begin
   w_Clk_1KHz <= \^w_clk_1khz\;
 \r_Clk_i_1__0\: unisim.vcomponents.LUT5
@@ -3381,8 +3381,8 @@ architecture STRUCTURE of \Alarm_Clock_Alarm_Clock_0_1_Clock_Divider__parameteri
   signal \NLW_r_Counter_reg[31]_i_2__1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_r_Counter_reg[31]_i_2__1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \r_Counter[0]_i_1__1\ : label is "soft_lutpair28";
-  attribute SOFT_HLUTNM of \r_Counter[31]_i_4__1\ : label is "soft_lutpair28";
+  attribute SOFT_HLUTNM of \r_Counter[0]_i_1__1\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \r_Counter[31]_i_4__1\ : label is "soft_lutpair33";
 begin
   w_Clk_100Hz <= \^w_clk_100hz\;
 \r_Clk_i_1__1\: unisim.vcomponents.LUT5
@@ -4416,8 +4416,8 @@ architecture STRUCTURE of \Alarm_Clock_Alarm_Clock_0_1_Clock_Divider__parameteri
   signal \NLW_r_Counter_reg[31]_i_2__2_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_r_Counter_reg[31]_i_2__2_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \r_Counter[0]_i_1__2\ : label is "soft_lutpair29";
-  attribute SOFT_HLUTNM of \r_Counter[31]_i_4__2\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \r_Counter[0]_i_1__2\ : label is "soft_lutpair34";
+  attribute SOFT_HLUTNM of \r_Counter[31]_i_4__2\ : label is "soft_lutpair34";
 begin
   CLK <= \^clk\;
 \r_Clk_i_1__2\: unisim.vcomponents.LUT5
@@ -5451,8 +5451,8 @@ architecture STRUCTURE of \Alarm_Clock_Alarm_Clock_0_1_Clock_Divider__parameteri
   signal \NLW_r_Counter_reg[31]_i_2__5_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_r_Counter_reg[31]_i_2__5_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \r_Counter[0]_i_1__5\ : label is "soft_lutpair30";
-  attribute SOFT_HLUTNM of \r_Counter[31]_i_4__5\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \r_Counter[0]_i_1__5\ : label is "soft_lutpair35";
+  attribute SOFT_HLUTNM of \r_Counter[31]_i_4__5\ : label is "soft_lutpair35";
 begin
   w_Clk_1Hz <= \^w_clk_1hz\;
 \r_Clk_i_1__5\: unisim.vcomponents.LUT5
@@ -6486,8 +6486,8 @@ architecture STRUCTURE of \Alarm_Clock_Alarm_Clock_0_1_Clock_Divider__parameteri
   signal \NLW_r_Counter_reg[31]_i_2__4_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_r_Counter_reg[31]_i_2__4_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \r_Counter[0]_i_1__4\ : label is "soft_lutpair44";
-  attribute SOFT_HLUTNM of \r_Counter[31]_i_4__4\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \r_Counter[0]_i_1__4\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \r_Counter[31]_i_4__4\ : label is "soft_lutpair49";
 begin
   \r_BCD_Num_Sel_reg[3]\ <= \^r_bcd_num_sel_reg[3]\;
 \r_Clk_i_1__4\: unisim.vcomponents.LUT5
@@ -7601,6 +7601,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity Alarm_Clock_Alarm_Clock_0_1_Master_Controller is
   port (
     w_Turn_Alarm_On : out STD_LOGIC;
+    CO : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_Count_reg[15]\ : out STD_LOGIC;
     DI : out STD_LOGIC_VECTOR ( 1 downto 0 );
     p_1_out0 : out STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -7691,7 +7692,9 @@ entity Alarm_Clock_Alarm_Clock_0_1_Master_Controller is
     \r_Count_reg[3]_4\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_Count_reg[3]_5\ : out STD_LOGIC;
     r_Alarm_On_reg : out STD_LOGIC;
+    r_Alarm_State_reg_0 : out STD_LOGIC;
     \r_Count_reg[3]_6\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    r_Alarm_Next_State : in STD_LOGIC;
     w_Clk_5MHz : in STD_LOGIC;
     w_Reset_Control : in STD_LOGIC;
     S : in STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -7720,7 +7723,7 @@ entity Alarm_Clock_Alarm_Clock_0_1_Master_Controller is
     w_Seconds_2nd_Digit_Dec : in STD_LOGIC;
     r_Prev_Signal_9 : in STD_LOGIC;
     r_Count2 : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    CO : in STD_LOGIC_VECTOR ( 0 to 0 );
+    \r_Count_reg[22]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     w_Time_Stamp : in STD_LOGIC_VECTOR ( 4 downto 0 );
     r_Minutes_1st_Digit_Inc_reg : in STD_LOGIC_VECTOR ( 0 to 0 );
     r_Minutes_1st_Digit_Inc_reg_0 : in STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -7767,15 +7770,15 @@ entity Alarm_Clock_Alarm_Clock_0_1_Master_Controller is
     \r_Count_reg[11]_3\ : in STD_LOGIC_VECTOR ( 1 downto 0 );
     \r_Count_reg[19]_20\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
     \r_Count_reg[19]_21\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    \r_Count_reg[22]\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
     \r_Count_reg[22]_0\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    \r_Count_reg[22]_1\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
     r_Prev_Signal_10 : in STD_LOGIC;
     w_Minutes_1st_Digit_Inc : in STD_LOGIC;
     r_Prev_Signal_11 : in STD_LOGIC;
     w_Minutes_1st_Digit_Dec : in STD_LOGIC;
-    \r_Count_reg[22]_1\ : in STD_LOGIC;
+    \r_Count_reg[22]_2\ : in STD_LOGIC;
     \r_Count_reg[5]\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    \r_Count_reg[22]_2\ : in STD_LOGIC_VECTOR ( 0 to 0 );
+    \r_Count_reg[22]_3\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \r_Count_reg[5]_0\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
     \slv_reg3_reg[8]_1\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
     \slv_reg3_reg[6]\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -7811,9 +7814,9 @@ entity Alarm_Clock_Alarm_Clock_0_1_Master_Controller is
     \r_Count_reg[9]_0\ : in STD_LOGIC_VECTOR ( 1 downto 0 );
     \r_Count_reg[17]\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
     \r_Count_reg[17]_0\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    \r_Count_reg[22]_3\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
     \r_Count_reg[22]_4\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    \r_Count_reg[22]_5\ : in STD_LOGIC;
+    \r_Count_reg[22]_5\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    \r_Count_reg[22]_6\ : in STD_LOGIC;
     r_Prev_Signal_12 : in STD_LOGIC;
     w_Clk_100Hz : in STD_LOGIC;
     i_Change_Alarm : in STD_LOGIC;
@@ -7831,8 +7834,6 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Master_Controller is
   signal \^o\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \^p_1_out0\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \^p_1_out0_0\ : STD_LOGIC_VECTOR ( 20 downto 0 );
-  signal r_Alarm_Next_State : STD_LOGIC;
-  signal r_Alarm_Next_State1 : STD_LOGIC;
   signal \r_Alarm_Next_State1_carry__0_n_0\ : STD_LOGIC;
   signal \r_Alarm_Next_State1_carry__0_n_1\ : STD_LOGIC;
   signal \r_Alarm_Next_State1_carry__0_n_2\ : STD_LOGIC;
@@ -8502,7 +8503,7 @@ r_Alarm_Next_State1_carry: unisim.vcomponents.CARRY4
      port map (
       CI => \r_Alarm_Next_State1_carry__0_n_0\,
       CO(3) => \NLW_r_Alarm_Next_State1_carry__1_CO_UNCONNECTED\(3),
-      CO(2) => r_Alarm_Next_State1,
+      CO(2) => CO(0),
       CO(1) => \r_Alarm_Next_State1_carry__1_n_2\,
       CO(0) => \r_Alarm_Next_State1_carry__1_n_3\,
       CYINIT => '0',
@@ -8520,18 +8521,16 @@ r_Alarm_On_i_1: unisim.vcomponents.LUT2
       I1 => o_Alarm_On,
       O => r_Alarm_On_reg
     );
-r_Alarm_State_i_1: unisim.vcomponents.LUT6
+r_Alarm_State_i_2: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"000000000000EEE0"
+      INIT => X"FFF1"
     )
         port map (
       I0 => i_Alarm_Enable,
       I1 => Q(3),
-      I2 => \^w_turn_alarm_on\,
-      I3 => r_Alarm_Next_State1,
-      I4 => Q(0),
-      I5 => i_Reset,
-      O => r_Alarm_Next_State
+      I2 => i_Reset,
+      I3 => Q(0),
+      O => r_Alarm_State_reg_0
     );
 r_Alarm_State_reg: unisim.vcomponents.FDCE
      port map (
@@ -10784,7 +10783,7 @@ r_Alarm_State_reg: unisim.vcomponents.FDCE
     )
         port map (
       I0 => \^p_1_out0\(0),
-      I1 => CO(0),
+      I1 => \r_Count_reg[22]\(0),
       I2 => \^r_count_reg[7]_0\(0),
       I3 => w_Time_Stamp(1),
       I4 => r_Count2(0),
@@ -10797,7 +10796,7 @@ r_Alarm_State_reg: unisim.vcomponents.FDCE
     )
         port map (
       I0 => \r_Count_reg[5]\(0),
-      I1 => \r_Count_reg[22]_2\(0),
+      I1 => \r_Count_reg[22]_3\(0),
       I2 => \^r_count_reg[3]_2\(0),
       I3 => \^r_count_reg[7]_4\(0),
       I4 => \^p_1_out0_0\(0),
@@ -10810,7 +10809,7 @@ r_Alarm_State_reg: unisim.vcomponents.FDCE
         port map (
       I0 => \^r_count_reg[3]_1\(0),
       I1 => \r_Count_reg[5]_0\(0),
-      I2 => \r_Count_reg[22]_5\,
+      I2 => \r_Count_reg[22]_6\,
       I3 => \^r_count_reg[7]_4\(1),
       I4 => \r_Count_reg[5]\(1),
       I5 => \^p_1_out0_0\(1),
@@ -10825,7 +10824,7 @@ r_Alarm_State_reg: unisim.vcomponents.FDCE
       I1 => w_Time_Stamp(2),
       I2 => \^p_1_out0\(1),
       I3 => \^o\(1),
-      I4 => \r_Count_reg[22]_1\,
+      I4 => \r_Count_reg[22]_2\,
       I5 => r_Count2(1),
       O => \r_Count_reg[3]_0\(0)
     );
@@ -11094,7 +11093,7 @@ r_Alarm_State_reg: unisim.vcomponents.FDCE
     )
         port map (
       I0 => \^p_1_out0\(2),
-      I1 => CO(0),
+      I1 => \r_Count_reg[22]\(0),
       I2 => \^r_count_reg[7]_0\(0),
       I3 => w_Time_Stamp(3),
       I4 => r_Count2(2),
@@ -11107,7 +11106,7 @@ r_Alarm_State_reg: unisim.vcomponents.FDCE
     )
         port map (
       I0 => \^p_1_out0_0\(2),
-      I1 => \r_Count_reg[22]_2\(0),
+      I1 => \r_Count_reg[22]_3\(0),
       I2 => \^r_count_reg[3]_2\(0),
       I3 => \r_Count_reg[5]\(2),
       I4 => \r_Count_reg[5]_0\(1),
@@ -11120,7 +11119,7 @@ r_Alarm_State_reg: unisim.vcomponents.FDCE
     )
         port map (
       I0 => \^p_1_out0\(1),
-      I1 => CO(0),
+      I1 => \r_Count_reg[22]\(0),
       I2 => \^r_count_reg[7]_0\(0),
       I3 => w_Time_Stamp(2),
       I4 => r_Count2(1),
@@ -11136,7 +11135,7 @@ r_Alarm_State_reg: unisim.vcomponents.FDCE
       I1 => w_Time_Stamp(4),
       I2 => \^p_1_out0\(3),
       I3 => \^o\(3),
-      I4 => \r_Count_reg[22]_1\,
+      I4 => \r_Count_reg[22]_2\,
       I5 => r_Count2(3),
       O => \r_Count_reg[7]_2\(1)
     );
@@ -11149,7 +11148,7 @@ r_Alarm_State_reg: unisim.vcomponents.FDCE
       I1 => \r_Count_reg[5]\(3),
       I2 => \^p_1_out0_0\(3),
       I3 => \^r_count_reg[7]_4\(3),
-      I4 => \r_Count_reg[22]_5\,
+      I4 => \r_Count_reg[22]_6\,
       I5 => \r_Count_reg[5]_0\(2),
       O => \r_Count_reg[7]_7\(0)
     );
@@ -11162,7 +11161,7 @@ r_Alarm_State_reg: unisim.vcomponents.FDCE
       I1 => w_Time_Stamp(3),
       I2 => \^p_1_out0\(2),
       I3 => \^o\(2),
-      I4 => \r_Count_reg[22]_1\,
+      I4 => \r_Count_reg[22]_2\,
       I5 => r_Count2(2),
       O => \r_Count_reg[7]_2\(0)
     );
@@ -11514,10 +11513,10 @@ r_Alarm_State_reg: unisim.vcomponents.FDCE
       CO(0) => \r_Count_reg[19]_i_10_n_3\,
       CYINIT => '0',
       DI(3) => '0',
-      DI(2 downto 0) => \r_Count_reg[22]\(2 downto 0),
+      DI(2 downto 0) => \r_Count_reg[22]_0\(2 downto 0),
       O(3 downto 0) => \NLW_r_Count_reg[19]_i_10_O_UNCONNECTED\(3 downto 0),
       S(3) => '0',
-      S(2 downto 0) => \r_Count_reg[22]_0\(2 downto 0)
+      S(2 downto 0) => \r_Count_reg[22]_1\(2 downto 0)
     );
 \r_Count_reg[19]_i_10__0\: unisim.vcomponents.CARRY4
      port map (
@@ -11528,10 +11527,10 @@ r_Alarm_State_reg: unisim.vcomponents.FDCE
       CO(0) => \r_Count_reg[19]_i_10__0_n_3\,
       CYINIT => '0',
       DI(3) => '0',
-      DI(2 downto 0) => \r_Count_reg[22]_3\(2 downto 0),
+      DI(2 downto 0) => \r_Count_reg[22]_4\(2 downto 0),
       O(3 downto 0) => \NLW_r_Count_reg[19]_i_10__0_O_UNCONNECTED\(3 downto 0),
       S(3) => '0',
-      S(2 downto 0) => \r_Count_reg[22]_4\(2 downto 0)
+      S(2 downto 0) => \r_Count_reg[22]_5\(2 downto 0)
     );
 \r_Count_reg[19]_i_13\: unisim.vcomponents.CARRY4
      port map (
@@ -13634,6 +13633,263 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
+entity Alarm_Clock_Alarm_Clock_0_1_Randomizer is
+  port (
+    \out\ : out STD_LOGIC_VECTOR ( 9 downto 0 );
+    w_Clk_5MHz : in STD_LOGIC
+  );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Alarm_Clock_Alarm_Clock_0_1_Randomizer : entity is "Randomizer";
+end Alarm_Clock_Alarm_Clock_0_1_Randomizer;
+
+architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Randomizer is
+  signal \^out\ : STD_LOGIC_VECTOR ( 9 downto 0 );
+  signal p_0_in : STD_LOGIC_VECTOR ( 9 downto 0 );
+  signal \r_Random_Num[9]_i_2_n_0\ : STD_LOGIC;
+  attribute SOFT_HLUTNM : string;
+  attribute SOFT_HLUTNM of \r_Random_Num[1]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \r_Random_Num[2]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \r_Random_Num[3]_i_1\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \r_Random_Num[4]_i_1\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \r_Random_Num[6]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \r_Random_Num[7]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \r_Random_Num[8]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \r_Random_Num[9]_i_1\ : label is "soft_lutpair1";
+begin
+  \out\(9 downto 0) <= \^out\(9 downto 0);
+\r_Random_Num[0]_i_1\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => \^out\(0),
+      O => p_0_in(0)
+    );
+\r_Random_Num[1]_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \^out\(0),
+      I1 => \^out\(1),
+      O => p_0_in(1)
+    );
+\r_Random_Num[2]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"78"
+    )
+        port map (
+      I0 => \^out\(0),
+      I1 => \^out\(1),
+      I2 => \^out\(2),
+      O => p_0_in(2)
+    );
+\r_Random_Num[3]_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"7F80"
+    )
+        port map (
+      I0 => \^out\(1),
+      I1 => \^out\(0),
+      I2 => \^out\(2),
+      I3 => \^out\(3),
+      O => p_0_in(3)
+    );
+\r_Random_Num[4]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"7FFF8000"
+    )
+        port map (
+      I0 => \^out\(2),
+      I1 => \^out\(0),
+      I2 => \^out\(1),
+      I3 => \^out\(3),
+      I4 => \^out\(4),
+      O => p_0_in(4)
+    );
+\r_Random_Num[5]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"7FFFFFFF80000000"
+    )
+        port map (
+      I0 => \^out\(3),
+      I1 => \^out\(1),
+      I2 => \^out\(0),
+      I3 => \^out\(2),
+      I4 => \^out\(4),
+      I5 => \^out\(5),
+      O => p_0_in(5)
+    );
+\r_Random_Num[6]_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \r_Random_Num[9]_i_2_n_0\,
+      I1 => \^out\(6),
+      O => p_0_in(6)
+    );
+\r_Random_Num[7]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"78"
+    )
+        port map (
+      I0 => \r_Random_Num[9]_i_2_n_0\,
+      I1 => \^out\(6),
+      I2 => \^out\(7),
+      O => p_0_in(7)
+    );
+\r_Random_Num[8]_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"7F80"
+    )
+        port map (
+      I0 => \^out\(6),
+      I1 => \r_Random_Num[9]_i_2_n_0\,
+      I2 => \^out\(7),
+      I3 => \^out\(8),
+      O => p_0_in(8)
+    );
+\r_Random_Num[9]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"7FFF8000"
+    )
+        port map (
+      I0 => \^out\(7),
+      I1 => \r_Random_Num[9]_i_2_n_0\,
+      I2 => \^out\(6),
+      I3 => \^out\(8),
+      I4 => \^out\(9),
+      O => p_0_in(9)
+    );
+\r_Random_Num[9]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"8000000000000000"
+    )
+        port map (
+      I0 => \^out\(5),
+      I1 => \^out\(3),
+      I2 => \^out\(1),
+      I3 => \^out\(0),
+      I4 => \^out\(2),
+      I5 => \^out\(4),
+      O => \r_Random_Num[9]_i_2_n_0\
+    );
+\r_Random_Num_reg[0]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => w_Clk_5MHz,
+      CE => '1',
+      D => p_0_in(0),
+      Q => \^out\(0),
+      R => '0'
+    );
+\r_Random_Num_reg[1]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => w_Clk_5MHz,
+      CE => '1',
+      D => p_0_in(1),
+      Q => \^out\(1),
+      R => '0'
+    );
+\r_Random_Num_reg[2]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => w_Clk_5MHz,
+      CE => '1',
+      D => p_0_in(2),
+      Q => \^out\(2),
+      R => '0'
+    );
+\r_Random_Num_reg[3]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => w_Clk_5MHz,
+      CE => '1',
+      D => p_0_in(3),
+      Q => \^out\(3),
+      R => '0'
+    );
+\r_Random_Num_reg[4]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => w_Clk_5MHz,
+      CE => '1',
+      D => p_0_in(4),
+      Q => \^out\(4),
+      R => '0'
+    );
+\r_Random_Num_reg[5]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => w_Clk_5MHz,
+      CE => '1',
+      D => p_0_in(5),
+      Q => \^out\(5),
+      R => '0'
+    );
+\r_Random_Num_reg[6]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => w_Clk_5MHz,
+      CE => '1',
+      D => p_0_in(6),
+      Q => \^out\(6),
+      R => '0'
+    );
+\r_Random_Num_reg[7]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => w_Clk_5MHz,
+      CE => '1',
+      D => p_0_in(7),
+      Q => \^out\(7),
+      R => '0'
+    );
+\r_Random_Num_reg[8]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => w_Clk_5MHz,
+      CE => '1',
+      D => p_0_in(8),
+      Q => \^out\(8),
+      R => '0'
+    );
+\r_Random_Num_reg[9]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => w_Clk_5MHz,
+      CE => '1',
+      D => p_0_in(9),
+      Q => \^out\(9),
+      R => '0'
+    );
+end STRUCTURE;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+library UNISIM;
+use UNISIM.VCOMPONENTS.ALL;
 entity Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder is
   port (
     w_Seconds_1st_Digit_Inc : out STD_LOGIC;
@@ -13775,24 +14031,24 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder is
   signal \^w_seconds_2nd_digit_dec\ : STD_LOGIC;
   signal \^w_seconds_2nd_digit_inc\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \r_BCD_Num[11]_i_2\ : label is "soft_lutpair38";
-  attribute SOFT_HLUTNM of \r_BCD_Num[15]_i_2\ : label is "soft_lutpair35";
-  attribute SOFT_HLUTNM of \r_BCD_Num[19]_i_2\ : label is "soft_lutpair40";
-  attribute SOFT_HLUTNM of \r_BCD_Num[23]_i_2\ : label is "soft_lutpair39";
-  attribute SOFT_HLUTNM of \r_BCD_Num[27]_i_2\ : label is "soft_lutpair38";
-  attribute SOFT_HLUTNM of \r_BCD_Num[31]_i_2\ : label is "soft_lutpair35";
-  attribute SOFT_HLUTNM of \r_BCD_Num[3]_i_2\ : label is "soft_lutpair40";
-  attribute SOFT_HLUTNM of \r_BCD_Num[7]_i_2\ : label is "soft_lutpair39";
-  attribute SOFT_HLUTNM of \r_Digit_Sel[1]_i_1\ : label is "soft_lutpair33";
-  attribute SOFT_HLUTNM of \r_Digit_Sel[2]_i_1\ : label is "soft_lutpair33";
-  attribute SOFT_HLUTNM of \r_Digit_Sel[5]_i_2\ : label is "soft_lutpair32";
-  attribute SOFT_HLUTNM of \r_Digit_Sel[7]_i_3\ : label is "soft_lutpair32";
-  attribute SOFT_HLUTNM of r_Hours_1st_Digit_Inc_i_1 : label is "soft_lutpair34";
-  attribute SOFT_HLUTNM of r_Hours_2nd_Digit_Inc_i_1 : label is "soft_lutpair37";
-  attribute SOFT_HLUTNM of r_Minutes_1st_Digit_Inc_i_1 : label is "soft_lutpair37";
-  attribute SOFT_HLUTNM of r_Minutes_2nd_Digit_Inc_i_1 : label is "soft_lutpair36";
-  attribute SOFT_HLUTNM of r_Seconds_1st_Digit_Inc_i_2 : label is "soft_lutpair36";
-  attribute SOFT_HLUTNM of r_Seconds_2nd_Digit_Inc_i_1 : label is "soft_lutpair34";
+  attribute SOFT_HLUTNM of \r_BCD_Num[11]_i_2\ : label is "soft_lutpair43";
+  attribute SOFT_HLUTNM of \r_BCD_Num[15]_i_2\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \r_BCD_Num[19]_i_2\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \r_BCD_Num[23]_i_2\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \r_BCD_Num[27]_i_2\ : label is "soft_lutpair43";
+  attribute SOFT_HLUTNM of \r_BCD_Num[31]_i_2\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \r_BCD_Num[3]_i_2\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \r_BCD_Num[7]_i_2\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \r_Digit_Sel[1]_i_1\ : label is "soft_lutpair38";
+  attribute SOFT_HLUTNM of \r_Digit_Sel[2]_i_1\ : label is "soft_lutpair38";
+  attribute SOFT_HLUTNM of \r_Digit_Sel[5]_i_2\ : label is "soft_lutpair37";
+  attribute SOFT_HLUTNM of \r_Digit_Sel[7]_i_3\ : label is "soft_lutpair37";
+  attribute SOFT_HLUTNM of r_Hours_1st_Digit_Inc_i_1 : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of r_Hours_2nd_Digit_Inc_i_1 : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of r_Minutes_1st_Digit_Inc_i_1 : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of r_Minutes_2nd_Digit_Inc_i_1 : label is "soft_lutpair41";
+  attribute SOFT_HLUTNM of r_Seconds_1st_Digit_Inc_i_2 : label is "soft_lutpair41";
+  attribute SOFT_HLUTNM of r_Seconds_2nd_Digit_Inc_i_1 : label is "soft_lutpair39";
 begin
   \r_BCD_Num_reg[11]\ <= \^r_bcd_num_reg[11]\;
   \r_BCD_Num_reg[15]\ <= \^r_bcd_num_reg[15]\;
@@ -14447,14 +14703,14 @@ begin
     );
 \r_Digit_Sel[2]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"99ECCC66"
+      INIT => X"CFF3380C"
     )
         port map (
-      I0 => w_Encoder_B_Debounced,
-      I1 => w_Blink_Segment_Num(2),
-      I2 => \r_Digit_Sel[3]_i_2_n_0\,
-      I3 => w_Blink_Segment_Num(0),
-      I4 => w_Blink_Segment_Num(1),
+      I0 => \r_Digit_Sel[3]_i_2_n_0\,
+      I1 => w_Encoder_B_Debounced,
+      I2 => w_Blink_Segment_Num(0),
+      I3 => w_Blink_Segment_Num(1),
+      I4 => w_Blink_Segment_Num(2),
       O => \r_Digit_Sel[2]_i_1_n_0\
     );
 \r_Digit_Sel[3]_i_1\: unisim.vcomponents.LUT6
@@ -19488,8 +19744,8 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Seven_Segment_Display_Refr
   signal \NLW_r_Segment_Count_reg[31]_i_2_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_r_Segment_Count_reg[31]_i_2_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \r_Segment_Count[0]_i_1\ : label is "soft_lutpair45";
-  attribute SOFT_HLUTNM of \r_Segment_Count[31]_i_13\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \r_Segment_Count[0]_i_1\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \r_Segment_Count[31]_i_13\ : label is "soft_lutpair50";
 begin
   Q(0) <= \^q\(0);
   o_Anodes(7 downto 0) <= \^o_anodes\(7 downto 0);
@@ -20192,8 +20448,8 @@ r_BCD_Num_Sel1_carry_i_6: unisim.vcomponents.LUT2
       INIT => X"E"
     )
         port map (
-      I0 => \r_Segment_Count_reg_n_0_[13]\,
-      I1 => \r_Segment_Count_reg_n_0_[12]\,
+      I0 => \r_Segment_Count_reg_n_0_[11]\,
+      I1 => \r_Segment_Count_reg_n_0_[10]\,
       O => \r_Segment_Count[31]_i_10_n_0\
     );
 \r_Segment_Count[31]_i_11\: unisim.vcomponents.LUT2
@@ -20201,8 +20457,8 @@ r_BCD_Num_Sel1_carry_i_6: unisim.vcomponents.LUT2
       INIT => X"E"
     )
         port map (
-      I0 => \r_Segment_Count_reg_n_0_[11]\,
-      I1 => \r_Segment_Count_reg_n_0_[10]\,
+      I0 => \r_Segment_Count_reg_n_0_[13]\,
+      I1 => \r_Segment_Count_reg_n_0_[12]\,
       O => \r_Segment_Count[31]_i_11_n_0\
     );
 \r_Segment_Count[31]_i_12\: unisim.vcomponents.LUT6
@@ -20252,12 +20508,12 @@ r_BCD_Num_Sel1_carry_i_6: unisim.vcomponents.LUT2
       INIT => X"FFFFFFFFFFFFFFFE"
     )
         port map (
-      I0 => \r_Segment_Count_reg_n_0_[15]\,
-      I1 => \r_Segment_Count_reg_n_0_[14]\,
-      I2 => \r_Segment_Count[31]_i_10_n_0\,
-      I3 => \r_Segment_Count[31]_i_11_n_0\,
-      I4 => \r_Segment_Count_reg_n_0_[9]\,
-      I5 => \r_Segment_Count_reg_n_0_[8]\,
+      I0 => \r_Segment_Count[31]_i_10_n_0\,
+      I1 => \r_Segment_Count_reg_n_0_[9]\,
+      I2 => \r_Segment_Count_reg_n_0_[8]\,
+      I3 => \r_Segment_Count_reg_n_0_[15]\,
+      I4 => \r_Segment_Count_reg_n_0_[14]\,
+      I5 => \r_Segment_Count[31]_i_11_n_0\,
       O => \r_Segment_Count[31]_i_3_n_0\
     );
 \r_Segment_Count[31]_i_4\: unisim.vcomponents.LUT4
@@ -21190,8 +21446,8 @@ entity Alarm_Clock_Alarm_Clock_0_1_Time_Counter is
     \r_Count_reg[3]_6\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \r_Count_reg[23]_101\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
     \slv_reg3_reg[5]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
-    w_Alarm_Time : in STD_LOGIC_VECTOR ( 25 downto 0 );
     \r_Count_reg[23]_102\ : in STD_LOGIC;
+    w_Alarm_Time : in STD_LOGIC_VECTOR ( 25 downto 0 );
     \r_Digit_Sel_reg[1]\ : in STD_LOGIC;
     \slv_reg3_reg[1]_0\ : in STD_LOGIC;
     \r_Count_reg[23]_103\ : in STD_LOGIC;
@@ -21284,7 +21540,7 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Time_Counter is
   signal o_PM_INST_0_i_9_n_0 : STD_LOGIC;
   signal p_3_in : STD_LOGIC_VECTOR ( 9 to 9 );
   signal r_Alarm_Next_State1_carry_i_10_n_0 : STD_LOGIC;
-  signal r_Alarm_Next_State1_carry_i_12_n_0 : STD_LOGIC;
+  signal r_Alarm_Next_State1_carry_i_11_n_0 : STD_LOGIC;
   signal \r_BCD_Num[10]_i_10_n_0\ : STD_LOGIC;
   signal \r_BCD_Num[10]_i_11_n_0\ : STD_LOGIC;
   signal \r_BCD_Num[10]_i_19_n_0\ : STD_LOGIC;
@@ -23527,14 +23783,14 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Time_Counter is
   attribute HLUTNM of o_PM_INST_0_i_109 : label is "lutpair58";
   attribute HLUTNM of o_PM_INST_0_i_110 : label is "lutpair57";
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \r_BCD_Num[15]_i_65\ : label is "soft_lutpair46";
-  attribute SOFT_HLUTNM of \r_BCD_Num[15]_i_66\ : label is "soft_lutpair46";
-  attribute SOFT_HLUTNM of \r_BCD_Num[16]_i_114\ : label is "soft_lutpair56";
-  attribute SOFT_HLUTNM of \r_BCD_Num[16]_i_115\ : label is "soft_lutpair56";
-  attribute SOFT_HLUTNM of \r_BCD_Num[16]_i_119\ : label is "soft_lutpair58";
-  attribute SOFT_HLUTNM of \r_BCD_Num[16]_i_121\ : label is "soft_lutpair59";
-  attribute SOFT_HLUTNM of \r_BCD_Num[16]_i_122\ : label is "soft_lutpair59";
-  attribute SOFT_HLUTNM of \r_BCD_Num[16]_i_123\ : label is "soft_lutpair58";
+  attribute SOFT_HLUTNM of \r_BCD_Num[15]_i_65\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \r_BCD_Num[15]_i_66\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \r_BCD_Num[16]_i_114\ : label is "soft_lutpair61";
+  attribute SOFT_HLUTNM of \r_BCD_Num[16]_i_115\ : label is "soft_lutpair61";
+  attribute SOFT_HLUTNM of \r_BCD_Num[16]_i_119\ : label is "soft_lutpair63";
+  attribute SOFT_HLUTNM of \r_BCD_Num[16]_i_121\ : label is "soft_lutpair64";
+  attribute SOFT_HLUTNM of \r_BCD_Num[16]_i_122\ : label is "soft_lutpair64";
+  attribute SOFT_HLUTNM of \r_BCD_Num[16]_i_123\ : label is "soft_lutpair63";
   attribute HLUTNM of \r_BCD_Num[16]_i_140\ : label is "lutpair40";
   attribute HLUTNM of \r_BCD_Num[16]_i_141\ : label is "lutpair39";
   attribute HLUTNM of \r_BCD_Num[16]_i_142\ : label is "lutpair38";
@@ -23599,7 +23855,7 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Time_Counter is
   attribute HLUTNM of \r_BCD_Num[31]_i_670\ : label is "lutpair325";
   attribute HLUTNM of \r_BCD_Num[31]_i_673\ : label is "lutpair139";
   attribute HLUTNM of \r_BCD_Num[31]_i_674\ : label is "lutpair325";
-  attribute SOFT_HLUTNM of \r_BCD_Num[6]_i_13\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \r_BCD_Num[6]_i_13\ : label is "soft_lutpair53";
   attribute HLUTNM of \r_BCD_Num[6]_i_171\ : label is "lutpair33";
   attribute HLUTNM of \r_BCD_Num[6]_i_172\ : label is "lutpair32";
   attribute HLUTNM of \r_BCD_Num[6]_i_173\ : label is "lutpair31";
@@ -23626,24 +23882,24 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Time_Counter is
   attribute HLUTNM of \r_BCD_Num[6]_i_290\ : label is "lutpair36";
   attribute HLUTNM of \r_BCD_Num[6]_i_291\ : label is "lutpair35";
   attribute HLUTNM of \r_BCD_Num[6]_i_292\ : label is "lutpair34";
-  attribute SOFT_HLUTNM of \r_BCD_Num[6]_i_315\ : label is "soft_lutpair57";
+  attribute SOFT_HLUTNM of \r_BCD_Num[6]_i_315\ : label is "soft_lutpair62";
   attribute HLUTNM of \r_BCD_Num[6]_i_353\ : label is "lutpair326";
   attribute HLUTNM of \r_BCD_Num[6]_i_357\ : label is "lutpair10";
   attribute HLUTNM of \r_BCD_Num[6]_i_358\ : label is "lutpair9";
   attribute HLUTNM of \r_BCD_Num[6]_i_359\ : label is "lutpair8";
-  attribute SOFT_HLUTNM of \r_BCD_Num[6]_i_387\ : label is "soft_lutpair61";
-  attribute SOFT_HLUTNM of \r_BCD_Num[6]_i_388\ : label is "soft_lutpair61";
-  attribute SOFT_HLUTNM of \r_BCD_Num[6]_i_389\ : label is "soft_lutpair60";
+  attribute SOFT_HLUTNM of \r_BCD_Num[6]_i_387\ : label is "soft_lutpair66";
+  attribute SOFT_HLUTNM of \r_BCD_Num[6]_i_388\ : label is "soft_lutpair66";
+  attribute SOFT_HLUTNM of \r_BCD_Num[6]_i_389\ : label is "soft_lutpair65";
   attribute HLUTNM of \r_BCD_Num[6]_i_402\ : label is "lutpair40";
   attribute HLUTNM of \r_BCD_Num[6]_i_403\ : label is "lutpair39";
   attribute HLUTNM of \r_BCD_Num[6]_i_404\ : label is "lutpair38";
   attribute HLUTNM of \r_BCD_Num[6]_i_433\ : label is "lutpair320";
-  attribute SOFT_HLUTNM of \r_BCD_Num[6]_i_440\ : label is "soft_lutpair57";
-  attribute SOFT_HLUTNM of \r_BCD_Num[6]_i_443\ : label is "soft_lutpair60";
+  attribute SOFT_HLUTNM of \r_BCD_Num[6]_i_440\ : label is "soft_lutpair62";
+  attribute SOFT_HLUTNM of \r_BCD_Num[6]_i_443\ : label is "soft_lutpair65";
   attribute HLUTNM of \r_BCD_Num[6]_i_449\ : label is "lutpair23";
-  attribute SOFT_HLUTNM of \r_BCD_Num[7]_i_13\ : label is "soft_lutpair48";
-  attribute SOFT_HLUTNM of \r_BCD_Num[7]_i_88\ : label is "soft_lutpair47";
-  attribute SOFT_HLUTNM of \r_BCD_Num[7]_i_89\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \r_BCD_Num[7]_i_13\ : label is "soft_lutpair53";
+  attribute SOFT_HLUTNM of \r_BCD_Num[7]_i_88\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \r_BCD_Num[7]_i_89\ : label is "soft_lutpair52";
   attribute HLUTNM of \r_BCD_Num[8]_i_100\ : label is "lutpair42";
   attribute HLUTNM of \r_BCD_Num[8]_i_104\ : label is "lutpair43";
   attribute HLUTNM of \r_BCD_Num[8]_i_106\ : label is "lutpair13";
@@ -23675,17 +23931,17 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Time_Counter is
   attribute HLUTNM of \r_BCD_Num[8]_i_84\ : label is "lutpair27";
   attribute HLUTNM of \r_BCD_Num[8]_i_85\ : label is "lutpair26";
   attribute HLUTNM of \r_BCD_Num[8]_i_86\ : label is "lutpair25";
-  attribute SOFT_HLUTNM of \r_Count[11]_i_10\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \r_Count[15]_i_10\ : label is "soft_lutpair54";
-  attribute SOFT_HLUTNM of \r_Count[15]_i_12\ : label is "soft_lutpair54";
-  attribute SOFT_HLUTNM of \r_Count[15]_i_14\ : label is "soft_lutpair55";
-  attribute SOFT_HLUTNM of \r_Count[15]_i_15\ : label is "soft_lutpair55";
-  attribute SOFT_HLUTNM of \r_Count[19]_i_12\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \r_Count[19]_i_19\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \r_Count[19]_i_20\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \r_Count[23]_i_108\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \r_Count[23]_i_109\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \r_Count[23]_i_145\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \r_Count[11]_i_10\ : label is "soft_lutpair56";
+  attribute SOFT_HLUTNM of \r_Count[15]_i_10\ : label is "soft_lutpair59";
+  attribute SOFT_HLUTNM of \r_Count[15]_i_12\ : label is "soft_lutpair59";
+  attribute SOFT_HLUTNM of \r_Count[15]_i_14\ : label is "soft_lutpair60";
+  attribute SOFT_HLUTNM of \r_Count[15]_i_15\ : label is "soft_lutpair60";
+  attribute SOFT_HLUTNM of \r_Count[19]_i_12\ : label is "soft_lutpair56";
+  attribute SOFT_HLUTNM of \r_Count[19]_i_19\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \r_Count[19]_i_20\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \r_Count[23]_i_108\ : label is "soft_lutpair55";
+  attribute SOFT_HLUTNM of \r_Count[23]_i_109\ : label is "soft_lutpair58";
+  attribute SOFT_HLUTNM of \r_Count[23]_i_145\ : label is "soft_lutpair57";
   attribute HLUTNM of \r_Count[23]_i_156\ : label is "lutpair6";
   attribute HLUTNM of \r_Count[23]_i_164\ : label is "lutpair5";
   attribute HLUTNM of \r_Count[23]_i_165\ : label is "lutpair4";
@@ -23700,9 +23956,9 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Time_Counter is
   attribute HLUTNM of \r_Count[23]_i_175\ : label is "lutpair2";
   attribute HLUTNM of \r_Count[23]_i_176\ : label is "lutpair1";
   attribute HLUTNM of \r_Count[23]_i_177\ : label is "lutpair0";
-  attribute SOFT_HLUTNM of \r_Count[23]_i_18\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \r_Count[23]_i_19\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \r_Count[23]_i_23\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \r_Count[23]_i_18\ : label is "soft_lutpair58";
+  attribute SOFT_HLUTNM of \r_Count[23]_i_19\ : label is "soft_lutpair55";
+  attribute SOFT_HLUTNM of \r_Count[23]_i_23\ : label is "soft_lutpair57";
   attribute HLUTNM of \r_Count[23]_i_3\ : label is "lutpair7";
   attribute HLUTNM of \r_Count[23]_i_8\ : label is "lutpair7";
   attribute METHODOLOGY_DRC_VIOS : string;
@@ -24475,12 +24731,12 @@ o_PM_INST_0_i_93: unisim.vcomponents.LUT3
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => \^r_bcd_num_reg[31]\(8),
-      I1 => w_Alarm_Time(13),
-      I2 => w_Time(16),
-      I3 => w_Alarm_Time(14),
-      I4 => \r_Count_reg[23]_102\,
-      I5 => \^r_bcd_num_reg[17]\,
+      I0 => \^r_bcd_num_reg[17]\,
+      I1 => \r_Count_reg[23]_102\,
+      I2 => \^r_bcd_num_reg[31]\(8),
+      I3 => w_Alarm_Time(13),
+      I4 => w_Alarm_Time(14),
+      I5 => w_Time(16),
       O => r_Alarm_State_reg(1)
     );
 \r_Alarm_Next_State1_carry__0_i_4\: unisim.vcomponents.LUT6
@@ -24535,12 +24791,12 @@ o_PM_INST_0_i_93: unisim.vcomponents.LUT3
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => \^r_bcd_num_reg[31]\(14),
-      I1 => w_Alarm_Time(22),
-      I2 => w_Time(24),
-      I3 => w_Alarm_Time(20),
-      I4 => w_Alarm_Time(21),
-      I5 => \^r_bcd_num_reg[31]\(13),
+      I0 => w_Time(24),
+      I1 => w_Alarm_Time(20),
+      I2 => \^r_bcd_num_reg[31]\(13),
+      I3 => w_Alarm_Time(21),
+      I4 => w_Alarm_Time(22),
+      I5 => \^r_bcd_num_reg[31]\(14),
       O => r_Alarm_State_reg_1(0)
     );
 \r_Alarm_Next_State1_carry__1_i_4\: unisim.vcomponents.LUT3
@@ -24558,31 +24814,31 @@ r_Alarm_Next_State1_carry_i_1: unisim.vcomponents.LUT6
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => \^r_bcd_num_reg[31]\(4),
-      I1 => w_Alarm_Time(9),
-      I2 => w_Time(9),
-      I3 => w_Alarm_Time(7),
-      I4 => w_Alarm_Time(8),
-      I5 => w_Time(10),
+      I0 => w_Time(9),
+      I1 => w_Alarm_Time(7),
+      I2 => w_Time(10),
+      I3 => w_Alarm_Time(8),
+      I4 => w_Alarm_Time(9),
+      I5 => \^r_bcd_num_reg[31]\(4),
       O => r_Alarm_State_reg_0(3)
     );
 r_Alarm_Next_State1_carry_i_10: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => \^axi_rdata_reg[3]\(0),
-      I1 => \r_Count_reg[0]_2\(0),
-      O => r_Alarm_Next_State1_carry_i_10_n_0
-    );
-r_Alarm_Next_State1_carry_i_12: unisim.vcomponents.LUT2
     generic map(
       INIT => X"9"
     )
         port map (
       I0 => \^axi_rdata_reg[3]\(2),
       I1 => \r_BCD_Num[7]_i_11_n_0\,
-      O => r_Alarm_Next_State1_carry_i_12_n_0
+      O => r_Alarm_Next_State1_carry_i_10_n_0
+    );
+r_Alarm_Next_State1_carry_i_11: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \^axi_rdata_reg[3]\(0),
+      I1 => \r_Count_reg[0]_2\(0),
+      O => r_Alarm_Next_State1_carry_i_11_n_0
     );
 r_Alarm_Next_State1_carry_i_2: unisim.vcomponents.LUT6
     generic map(
@@ -24612,15 +24868,15 @@ r_Alarm_Next_State1_carry_i_3: unisim.vcomponents.LUT6
     );
 r_Alarm_Next_State1_carry_i_4: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"1004401001400401"
+      INIT => X"0009060009000009"
     )
         port map (
       I0 => r_Alarm_Next_State1_carry_i_10_n_0,
-      I1 => w_Alarm_Time(0),
-      I2 => w_Alarm_Time(1),
-      I3 => \^axi_rdata_reg[3]\(1),
-      I4 => \^r_bcd_num_reg[31]\(2),
-      I5 => r_Alarm_Next_State1_carry_i_12_n_0,
+      I1 => w_Alarm_Time(1),
+      I2 => r_Alarm_Next_State1_carry_i_11_n_0,
+      I3 => w_Alarm_Time(0),
+      I4 => \^axi_rdata_reg[3]\(1),
+      I5 => \^r_bcd_num_reg[31]\(2),
       O => r_Alarm_State_reg_0(0)
     );
 r_Alarm_Next_State1_carry_i_5: unisim.vcomponents.LUT6
@@ -41697,7 +41953,7 @@ entity Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18 is
     \r_Digit_Sel_reg[0]_0\ : in STD_LOGIC;
     i_Reset : in STD_LOGIC;
     axi_araddr : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    o_Alarm_Enabled : in STD_LOGIC;
+    \slv_reg3_reg[3]\ : in STD_LOGIC;
     o_Alarm_On : in STD_LOGIC;
     w_Clk_5MHz : in STD_LOGIC
   );
@@ -44009,22 +44265,22 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18 is
   attribute HLUTNM of o_PM_INST_0_i_119 : label is "lutpair220";
   attribute HLUTNM of o_PM_INST_0_i_120 : label is "lutpair219";
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \r_BCD_Num[12]_i_24\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \r_BCD_Num[12]_i_29\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \r_BCD_Num[12]_i_24\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \r_BCD_Num[12]_i_29\ : label is "soft_lutpair28";
   attribute HLUTNM of \r_BCD_Num[12]_i_30\ : label is "lutpair198";
   attribute HLUTNM of \r_BCD_Num[12]_i_31\ : label is "lutpair197";
   attribute HLUTNM of \r_BCD_Num[12]_i_32\ : label is "lutpair196";
   attribute HLUTNM of \r_BCD_Num[12]_i_33\ : label is "lutpair195";
   attribute HLUTNM of \r_BCD_Num[12]_i_40\ : label is "lutpair185";
   attribute HLUTNM of \r_BCD_Num[12]_i_41\ : label is "lutpair184";
-  attribute SOFT_HLUTNM of \r_BCD_Num[15]_i_60\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \r_BCD_Num[15]_i_61\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \r_BCD_Num[18]_i_49\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \r_BCD_Num[18]_i_50\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \r_BCD_Num[18]_i_51\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \r_BCD_Num[15]_i_60\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \r_BCD_Num[15]_i_61\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \r_BCD_Num[18]_i_49\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \r_BCD_Num[18]_i_50\ : label is "soft_lutpair28";
+  attribute SOFT_HLUTNM of \r_BCD_Num[18]_i_51\ : label is "soft_lutpair25";
   attribute HLUTNM of \r_BCD_Num[21]_i_102\ : label is "lutpair317";
   attribute HLUTNM of \r_BCD_Num[21]_i_103\ : label is "lutpair316";
-  attribute SOFT_HLUTNM of \r_BCD_Num[21]_i_119\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \r_BCD_Num[21]_i_119\ : label is "soft_lutpair25";
   attribute HLUTNM of \r_BCD_Num[21]_i_136\ : label is "lutpair202";
   attribute HLUTNM of \r_BCD_Num[21]_i_137\ : label is "lutpair201";
   attribute HLUTNM of \r_BCD_Num[21]_i_138\ : label is "lutpair200";
@@ -44079,16 +44335,16 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18 is
   attribute HLUTNM of \r_BCD_Num[31]_i_645\ : label is "lutpair335";
   attribute HLUTNM of \r_BCD_Num[31]_i_648\ : label is "lutpair296";
   attribute HLUTNM of \r_BCD_Num[31]_i_649\ : label is "lutpair335";
-  attribute SOFT_HLUTNM of \r_BCD_Num[5]_i_118\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \r_BCD_Num[5]_i_119\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \r_BCD_Num[5]_i_120\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \r_BCD_Num[5]_i_118\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \r_BCD_Num[5]_i_119\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \r_BCD_Num[5]_i_120\ : label is "soft_lutpair30";
   attribute HLUTNM of \r_BCD_Num[5]_i_133\ : label is "lutpair202";
   attribute HLUTNM of \r_BCD_Num[5]_i_134\ : label is "lutpair201";
   attribute HLUTNM of \r_BCD_Num[5]_i_135\ : label is "lutpair200";
-  attribute SOFT_HLUTNM of \r_BCD_Num[5]_i_147\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \r_BCD_Num[5]_i_150\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \r_BCD_Num[5]_i_147\ : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of \r_BCD_Num[5]_i_150\ : label is "soft_lutpair29";
   attribute HLUTNM of \r_BCD_Num[5]_i_156\ : label is "lutpair185";
-  attribute SOFT_HLUTNM of \r_BCD_Num[5]_i_91\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \r_BCD_Num[5]_i_91\ : label is "soft_lutpair26";
   attribute HLUTNM of \r_BCD_Num[6]_i_129\ : label is "lutpair195";
   attribute HLUTNM of \r_BCD_Num[6]_i_130\ : label is "lutpair194";
   attribute HLUTNM of \r_BCD_Num[6]_i_131\ : label is "lutpair193";
@@ -44120,10 +44376,10 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18 is
   attribute HLUTNM of \r_BCD_Num[6]_i_336\ : label is "lutpair171";
   attribute HLUTNM of \r_BCD_Num[6]_i_337\ : label is "lutpair170";
   attribute HLUTNM of \r_BCD_Num[6]_i_419\ : label is "lutpair328";
-  attribute SOFT_HLUTNM of \r_BCD_Num[6]_i_7\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \r_BCD_Num[7]_i_83\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \r_BCD_Num[7]_i_84\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \r_BCD_Num[7]_i_9\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \r_BCD_Num[6]_i_7\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \r_BCD_Num[7]_i_83\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \r_BCD_Num[7]_i_84\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \r_BCD_Num[7]_i_9\ : label is "soft_lutpair16";
   attribute HLUTNM of \r_BCD_Num[9]_i_100\ : label is "lutpair180";
   attribute HLUTNM of \r_BCD_Num[9]_i_105\ : label is "lutpair179";
   attribute HLUTNM of \r_BCD_Num[9]_i_106\ : label is "lutpair178";
@@ -44151,17 +44407,17 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18 is
   attribute HLUTNM of \r_BCD_Num[9]_i_97\ : label is "lutpair183";
   attribute HLUTNM of \r_BCD_Num[9]_i_98\ : label is "lutpair182";
   attribute HLUTNM of \r_BCD_Num[9]_i_99\ : label is "lutpair181";
-  attribute SOFT_HLUTNM of \r_Count[15]_i_12__0\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \r_Count[15]_i_14__0\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \r_Count[15]_i_17__0\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \r_Count[15]_i_18__0\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \r_Count[19]_i_12__0\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \r_Count[19]_i_16\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \r_Count[19]_i_17\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \r_Count[19]_i_18__0\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \r_Count[23]_i_105__0\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \r_Count[23]_i_106__0\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \r_Count[23]_i_142__0\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \r_Count[15]_i_12__0\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \r_Count[15]_i_14__0\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \r_Count[15]_i_17__0\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \r_Count[15]_i_18__0\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \r_Count[19]_i_12__0\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \r_Count[19]_i_16\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \r_Count[19]_i_17\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \r_Count[19]_i_18__0\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \r_Count[23]_i_105__0\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \r_Count[23]_i_106__0\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \r_Count[23]_i_142__0\ : label is "soft_lutpair23";
   attribute HLUTNM of \r_Count[23]_i_153__0\ : label is "lutpair168";
   attribute HLUTNM of \r_Count[23]_i_161__0\ : label is "lutpair167";
   attribute HLUTNM of \r_Count[23]_i_162__0\ : label is "lutpair166";
@@ -44176,10 +44432,10 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18 is
   attribute HLUTNM of \r_Count[23]_i_172\ : label is "lutpair164";
   attribute HLUTNM of \r_Count[23]_i_173__0\ : label is "lutpair163";
   attribute HLUTNM of \r_Count[23]_i_174__0\ : label is "lutpair327";
-  attribute SOFT_HLUTNM of \r_Count[23]_i_17__0\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \r_Count[23]_i_18__0\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \r_Count[23]_i_17__0\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \r_Count[23]_i_18__0\ : label is "soft_lutpair21";
   attribute HLUTNM of \r_Count[23]_i_2\ : label is "lutpair169";
-  attribute SOFT_HLUTNM of \r_Count[23]_i_22__0\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \r_Count[23]_i_22__0\ : label is "soft_lutpair23";
   attribute HLUTNM of \r_Count[23]_i_7__0\ : label is "lutpair169";
   attribute METHODOLOGY_DRC_VIOS : string;
   attribute METHODOLOGY_DRC_VIOS of \r_Count_reg[11]_i_1__0\ : label is "{SYNTH-8 {cell *THIS*}}";
@@ -44392,13 +44648,13 @@ begin
     );
 \axi_rdata[1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"AFA0CFCFAFA0C0C0"
+      INIT => X"A0AFCFCFA0AFC0C0"
     )
         port map (
       I0 => Q(1),
       I1 => w_Alarm_Time_Stamp(1),
       I2 => axi_araddr(0),
-      I3 => o_Alarm_Enabled,
+      I3 => \slv_reg3_reg[3]\,
       I4 => axi_araddr(1),
       I5 => w_Time_Stamp(1),
       O => \axi_rdata_reg[23]\(1)
@@ -45208,7 +45464,7 @@ o_PM_INST_0_i_99: unisim.vcomponents.LUT5
       I3 => w_Time(3),
       O => r_Alarm_State_reg(0)
     );
-r_Alarm_Next_State1_carry_i_11: unisim.vcomponents.LUT6
+r_Alarm_Next_State1_carry_i_12: unisim.vcomponents.LUT6
     generic map(
       INIT => X"E14B581A581AD287"
     )
@@ -62463,14 +62719,14 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Tone_Select is
   signal \NLW_r_Clock_Counter0_inferred__0/i__carry__2_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_r_Clock_Counter_reg[28]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \r_Constant_Select[10]_i_1\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \r_Constant_Select[11]_i_1\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \r_Constant_Select[12]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \r_Constant_Select[13]_i_1\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \r_Constant_Select[14]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \r_Constant_Select[15]_i_1\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \r_Constant_Select[6]_i_1\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \r_Constant_Select[8]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \r_Constant_Select[10]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \r_Constant_Select[11]_i_1\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \r_Constant_Select[12]_i_1\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \r_Constant_Select[13]_i_1\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \r_Constant_Select[14]_i_1\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \r_Constant_Select[15]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \r_Constant_Select[6]_i_1\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \r_Constant_Select[8]_i_1\ : label is "soft_lutpair6";
 begin
   o_AUD_PWM <= \^o_aud_pwm\;
 \i__carry__0_i_1\: unisim.vcomponents.LUT4
@@ -63702,6 +63958,296 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
+entity Alarm_Clock_Alarm_Clock_0_1_Alarm_Game is
+  port (
+    r_Alarm_Next_State : out STD_LOGIC;
+    i_Alarm_Game_Switches : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    CO : in STD_LOGIC_VECTOR ( 0 to 0 );
+    w_Turn_Alarm_On : in STD_LOGIC;
+    \slv_reg3_reg[3]\ : in STD_LOGIC;
+    i_Alarm_Game_Enable : in STD_LOGIC;
+    w_Clk_5MHz : in STD_LOGIC;
+    w_Reset_Control : in STD_LOGIC
+  );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of Alarm_Clock_Alarm_Clock_0_1_Alarm_Game : entity is "Alarm_Game";
+end Alarm_Clock_Alarm_Clock_0_1_Alarm_Game;
+
+architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Alarm_Game is
+  signal r_Alarm_Game_State : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal \r_Alarm_Game_State[0]_i_1_n_0\ : STD_LOGIC;
+  signal \r_Alarm_Game_State[1]_i_1_n_0\ : STD_LOGIC;
+  signal r_Alarm_Game_Win0_carry_i_1_n_0 : STD_LOGIC;
+  signal r_Alarm_Game_Win0_carry_i_2_n_0 : STD_LOGIC;
+  signal r_Alarm_Game_Win0_carry_i_3_n_0 : STD_LOGIC;
+  signal r_Alarm_Game_Win0_carry_i_4_n_0 : STD_LOGIC;
+  signal r_Alarm_Game_Win0_carry_n_0 : STD_LOGIC;
+  signal r_Alarm_Game_Win0_carry_n_1 : STD_LOGIC;
+  signal r_Alarm_Game_Win0_carry_n_2 : STD_LOGIC;
+  signal r_Alarm_Game_Win0_carry_n_3 : STD_LOGIC;
+  signal r_Puzzle_Code : STD_LOGIC_VECTOR ( 9 downto 0 );
+  signal \r_Puzzle_Code_reg[9]_i_1_n_0\ : STD_LOGIC;
+  signal w_Random_Num : STD_LOGIC_VECTOR ( 9 downto 0 );
+  signal NLW_r_Alarm_Game_Win0_carry_O_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
+  attribute SOFT_HLUTNM : string;
+  attribute SOFT_HLUTNM of \r_Alarm_Game_State[0]_i_1\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \r_Alarm_Game_State[1]_i_1\ : label is "soft_lutpair4";
+  attribute XILINX_LEGACY_PRIM : string;
+  attribute XILINX_LEGACY_PRIM of \r_Puzzle_Code_reg[0]\ : label is "LD";
+  attribute XILINX_LEGACY_PRIM of \r_Puzzle_Code_reg[1]\ : label is "LD";
+  attribute XILINX_LEGACY_PRIM of \r_Puzzle_Code_reg[2]\ : label is "LD";
+  attribute XILINX_LEGACY_PRIM of \r_Puzzle_Code_reg[3]\ : label is "LD";
+  attribute XILINX_LEGACY_PRIM of \r_Puzzle_Code_reg[4]\ : label is "LD";
+  attribute XILINX_LEGACY_PRIM of \r_Puzzle_Code_reg[5]\ : label is "LD";
+  attribute XILINX_LEGACY_PRIM of \r_Puzzle_Code_reg[6]\ : label is "LD";
+  attribute XILINX_LEGACY_PRIM of \r_Puzzle_Code_reg[7]\ : label is "LD";
+  attribute XILINX_LEGACY_PRIM of \r_Puzzle_Code_reg[8]\ : label is "LD";
+  attribute XILINX_LEGACY_PRIM of \r_Puzzle_Code_reg[9]\ : label is "LD";
+begin
+U_Randomizer: entity work.Alarm_Clock_Alarm_Clock_0_1_Randomizer
+     port map (
+      \out\(9 downto 0) => w_Random_Num(9 downto 0),
+      w_Clk_5MHz => w_Clk_5MHz
+    );
+\r_Alarm_Game_State[0]_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"0008"
+    )
+        port map (
+      I0 => w_Turn_Alarm_On,
+      I1 => i_Alarm_Game_Enable,
+      I2 => r_Alarm_Game_State(0),
+      I3 => r_Alarm_Game_State(1),
+      O => \r_Alarm_Game_State[0]_i_1_n_0\
+    );
+\r_Alarm_Game_State[1]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00800880"
+    )
+        port map (
+      I0 => w_Turn_Alarm_On,
+      I1 => i_Alarm_Game_Enable,
+      I2 => r_Alarm_Game_State(0),
+      I3 => r_Alarm_Game_State(1),
+      I4 => r_Alarm_Game_Win0_carry_n_0,
+      O => \r_Alarm_Game_State[1]_i_1_n_0\
+    );
+\r_Alarm_Game_State_reg[0]\: unisim.vcomponents.FDCE
+     port map (
+      C => w_Clk_5MHz,
+      CE => '1',
+      CLR => w_Reset_Control,
+      D => \r_Alarm_Game_State[0]_i_1_n_0\,
+      Q => r_Alarm_Game_State(0)
+    );
+\r_Alarm_Game_State_reg[1]\: unisim.vcomponents.FDCE
+     port map (
+      C => w_Clk_5MHz,
+      CE => '1',
+      CLR => w_Reset_Control,
+      D => \r_Alarm_Game_State[1]_i_1_n_0\,
+      Q => r_Alarm_Game_State(1)
+    );
+r_Alarm_Game_Win0_carry: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => r_Alarm_Game_Win0_carry_n_0,
+      CO(2) => r_Alarm_Game_Win0_carry_n_1,
+      CO(1) => r_Alarm_Game_Win0_carry_n_2,
+      CO(0) => r_Alarm_Game_Win0_carry_n_3,
+      CYINIT => '1',
+      DI(3 downto 0) => B"0000",
+      O(3 downto 0) => NLW_r_Alarm_Game_Win0_carry_O_UNCONNECTED(3 downto 0),
+      S(3) => r_Alarm_Game_Win0_carry_i_1_n_0,
+      S(2) => r_Alarm_Game_Win0_carry_i_2_n_0,
+      S(1) => r_Alarm_Game_Win0_carry_i_3_n_0,
+      S(0) => r_Alarm_Game_Win0_carry_i_4_n_0
+    );
+r_Alarm_Game_Win0_carry_i_1: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"9"
+    )
+        port map (
+      I0 => r_Puzzle_Code(9),
+      I1 => i_Alarm_Game_Switches(9),
+      O => r_Alarm_Game_Win0_carry_i_1_n_0
+    );
+r_Alarm_Game_Win0_carry_i_2: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"9009000000009009"
+    )
+        port map (
+      I0 => i_Alarm_Game_Switches(6),
+      I1 => r_Puzzle_Code(6),
+      I2 => i_Alarm_Game_Switches(7),
+      I3 => r_Puzzle_Code(7),
+      I4 => r_Puzzle_Code(8),
+      I5 => i_Alarm_Game_Switches(8),
+      O => r_Alarm_Game_Win0_carry_i_2_n_0
+    );
+r_Alarm_Game_Win0_carry_i_3: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"9009000000009009"
+    )
+        port map (
+      I0 => i_Alarm_Game_Switches(5),
+      I1 => r_Puzzle_Code(5),
+      I2 => i_Alarm_Game_Switches(3),
+      I3 => r_Puzzle_Code(3),
+      I4 => r_Puzzle_Code(4),
+      I5 => i_Alarm_Game_Switches(4),
+      O => r_Alarm_Game_Win0_carry_i_3_n_0
+    );
+r_Alarm_Game_Win0_carry_i_4: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"9009000000009009"
+    )
+        port map (
+      I0 => i_Alarm_Game_Switches(1),
+      I1 => r_Puzzle_Code(1),
+      I2 => i_Alarm_Game_Switches(0),
+      I3 => r_Puzzle_Code(0),
+      I4 => r_Puzzle_Code(2),
+      I5 => i_Alarm_Game_Switches(2),
+      O => r_Alarm_Game_Win0_carry_i_4_n_0
+    );
+r_Alarm_State_i_1: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"00000000EE2EEEEE"
+    )
+        port map (
+      I0 => CO(0),
+      I1 => w_Turn_Alarm_On,
+      I2 => r_Alarm_Game_Win0_carry_n_0,
+      I3 => r_Alarm_Game_State(0),
+      I4 => r_Alarm_Game_State(1),
+      I5 => \slv_reg3_reg[3]\,
+      O => r_Alarm_Next_State
+    );
+\r_Puzzle_Code_reg[0]\: unisim.vcomponents.LDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      CLR => '0',
+      D => w_Random_Num(0),
+      G => \r_Puzzle_Code_reg[9]_i_1_n_0\,
+      GE => '1',
+      Q => r_Puzzle_Code(0)
+    );
+\r_Puzzle_Code_reg[1]\: unisim.vcomponents.LDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      CLR => '0',
+      D => w_Random_Num(1),
+      G => \r_Puzzle_Code_reg[9]_i_1_n_0\,
+      GE => '1',
+      Q => r_Puzzle_Code(1)
+    );
+\r_Puzzle_Code_reg[2]\: unisim.vcomponents.LDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      CLR => '0',
+      D => w_Random_Num(2),
+      G => \r_Puzzle_Code_reg[9]_i_1_n_0\,
+      GE => '1',
+      Q => r_Puzzle_Code(2)
+    );
+\r_Puzzle_Code_reg[3]\: unisim.vcomponents.LDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      CLR => '0',
+      D => w_Random_Num(3),
+      G => \r_Puzzle_Code_reg[9]_i_1_n_0\,
+      GE => '1',
+      Q => r_Puzzle_Code(3)
+    );
+\r_Puzzle_Code_reg[4]\: unisim.vcomponents.LDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      CLR => '0',
+      D => w_Random_Num(4),
+      G => \r_Puzzle_Code_reg[9]_i_1_n_0\,
+      GE => '1',
+      Q => r_Puzzle_Code(4)
+    );
+\r_Puzzle_Code_reg[5]\: unisim.vcomponents.LDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      CLR => '0',
+      D => w_Random_Num(5),
+      G => \r_Puzzle_Code_reg[9]_i_1_n_0\,
+      GE => '1',
+      Q => r_Puzzle_Code(5)
+    );
+\r_Puzzle_Code_reg[6]\: unisim.vcomponents.LDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      CLR => '0',
+      D => w_Random_Num(6),
+      G => \r_Puzzle_Code_reg[9]_i_1_n_0\,
+      GE => '1',
+      Q => r_Puzzle_Code(6)
+    );
+\r_Puzzle_Code_reg[7]\: unisim.vcomponents.LDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      CLR => '0',
+      D => w_Random_Num(7),
+      G => \r_Puzzle_Code_reg[9]_i_1_n_0\,
+      GE => '1',
+      Q => r_Puzzle_Code(7)
+    );
+\r_Puzzle_Code_reg[8]\: unisim.vcomponents.LDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      CLR => '0',
+      D => w_Random_Num(8),
+      G => \r_Puzzle_Code_reg[9]_i_1_n_0\,
+      GE => '1',
+      Q => r_Puzzle_Code(8)
+    );
+\r_Puzzle_Code_reg[9]\: unisim.vcomponents.LDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      CLR => '0',
+      D => w_Random_Num(9),
+      G => \r_Puzzle_Code_reg[9]_i_1_n_0\,
+      GE => '1',
+      Q => r_Puzzle_Code(9)
+    );
+\r_Puzzle_Code_reg[9]_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"2"
+    )
+        port map (
+      I0 => r_Alarm_Game_State(0),
+      I1 => r_Alarm_Game_State(1),
+      O => \r_Puzzle_Code_reg[9]_i_1_n_0\
+    );
+end STRUCTURE;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+library UNISIM;
+use UNISIM.VCOMPONENTS.ALL;
 entity Alarm_Clock_Alarm_Clock_0_1_Alarm_Sound is
   port (
     o_AUD_PWM : out STD_LOGIC;
@@ -63714,7 +64260,7 @@ entity Alarm_Clock_Alarm_Clock_0_1_Alarm_Sound is
 end Alarm_Clock_Alarm_Clock_0_1_Alarm_Sound;
 
 architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Alarm_Sound is
-  signal p_0_in : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal \p_0_in__0\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \r_Play_Sound[7]_i_1_n_0\ : STD_LOGIC;
   signal \r_Play_Sound[7]_i_3_n_0\ : STD_LOGIC;
   signal \r_Play_Sound_reg__0\ : STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -63727,18 +64273,18 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Alarm_Sound is
   signal \r_Select_Note_reg_n_0_[1]\ : STD_LOGIC;
   signal \r_Select_Note_reg_n_0_[2]\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \r_Play_Sound[0]_i_1\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \r_Play_Sound[1]_i_1\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \r_Play_Sound[2]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \r_Play_Sound[3]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \r_Play_Sound[4]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \r_Play_Sound[6]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \r_Play_Sound[7]_i_2\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \r_Play_Sound[7]_i_3\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \r_Select_Note[0]_i_2\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \r_Select_Note[1]_i_3\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \r_Select_Note[2]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \r_Select_Note[2]_i_2\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \r_Play_Sound[0]_i_1\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \r_Play_Sound[1]_i_1\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \r_Play_Sound[2]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \r_Play_Sound[3]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \r_Play_Sound[4]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \r_Play_Sound[6]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \r_Play_Sound[7]_i_2\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \r_Play_Sound[7]_i_3\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \r_Select_Note[0]_i_2\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \r_Select_Note[1]_i_3\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \r_Select_Note[2]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \r_Select_Note[2]_i_2\ : label is "soft_lutpair13";
 begin
 U_Tone_Select: entity work.Alarm_Clock_Alarm_Clock_0_1_Tone_Select
      port map (
@@ -63755,7 +64301,7 @@ U_Tone_Select: entity work.Alarm_Clock_Alarm_Clock_0_1_Tone_Select
     )
         port map (
       I0 => \r_Play_Sound_reg__0\(0),
-      O => p_0_in(0)
+      O => \p_0_in__0\(0)
     );
 \r_Play_Sound[1]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -63764,7 +64310,7 @@ U_Tone_Select: entity work.Alarm_Clock_Alarm_Clock_0_1_Tone_Select
         port map (
       I0 => \r_Play_Sound_reg__0\(0),
       I1 => \r_Play_Sound_reg__0\(1),
-      O => p_0_in(1)
+      O => \p_0_in__0\(1)
     );
 \r_Play_Sound[2]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -63774,7 +64320,7 @@ U_Tone_Select: entity work.Alarm_Clock_Alarm_Clock_0_1_Tone_Select
       I0 => \r_Play_Sound_reg__0\(2),
       I1 => \r_Play_Sound_reg__0\(0),
       I2 => \r_Play_Sound_reg__0\(1),
-      O => p_0_in(2)
+      O => \p_0_in__0\(2)
     );
 \r_Play_Sound[3]_i_1\: unisim.vcomponents.LUT4
     generic map(
@@ -63785,7 +64331,7 @@ U_Tone_Select: entity work.Alarm_Clock_Alarm_Clock_0_1_Tone_Select
       I1 => \r_Play_Sound_reg__0\(1),
       I2 => \r_Play_Sound_reg__0\(0),
       I3 => \r_Play_Sound_reg__0\(2),
-      O => p_0_in(3)
+      O => \p_0_in__0\(3)
     );
 \r_Play_Sound[4]_i_1\: unisim.vcomponents.LUT5
     generic map(
@@ -63797,7 +64343,7 @@ U_Tone_Select: entity work.Alarm_Clock_Alarm_Clock_0_1_Tone_Select
       I2 => \r_Play_Sound_reg__0\(1),
       I3 => \r_Play_Sound_reg__0\(3),
       I4 => \r_Play_Sound_reg__0\(4),
-      O => p_0_in(4)
+      O => \p_0_in__0\(4)
     );
 \r_Play_Sound[5]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -63810,7 +64356,7 @@ U_Tone_Select: entity work.Alarm_Clock_Alarm_Clock_0_1_Tone_Select
       I3 => \r_Play_Sound_reg__0\(1),
       I4 => \r_Play_Sound_reg__0\(3),
       I5 => \r_Play_Sound_reg__0\(4),
-      O => p_0_in(5)
+      O => \p_0_in__0\(5)
     );
 \r_Play_Sound[6]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -63820,7 +64366,7 @@ U_Tone_Select: entity work.Alarm_Clock_Alarm_Clock_0_1_Tone_Select
       I0 => \r_Play_Sound_reg__0\(6),
       I1 => \r_Play_Sound[7]_i_3_n_0\,
       I2 => \r_Play_Sound_reg__0\(5),
-      O => p_0_in(6)
+      O => \p_0_in__0\(6)
     );
 \r_Play_Sound[7]_i_1\: unisim.vcomponents.LUT5
     generic map(
@@ -63843,7 +64389,7 @@ U_Tone_Select: entity work.Alarm_Clock_Alarm_Clock_0_1_Tone_Select
       I1 => \r_Play_Sound_reg__0\(5),
       I2 => \r_Play_Sound[7]_i_3_n_0\,
       I3 => \r_Play_Sound_reg__0\(6),
-      O => p_0_in(7)
+      O => \p_0_in__0\(7)
     );
 \r_Play_Sound[7]_i_3\: unisim.vcomponents.LUT5
     generic map(
@@ -63861,7 +64407,7 @@ U_Tone_Select: entity work.Alarm_Clock_Alarm_Clock_0_1_Tone_Select
      port map (
       C => CLK,
       CE => '1',
-      D => p_0_in(0),
+      D => \p_0_in__0\(0),
       Q => \r_Play_Sound_reg__0\(0),
       R => \r_Play_Sound[7]_i_1_n_0\
     );
@@ -63869,7 +64415,7 @@ U_Tone_Select: entity work.Alarm_Clock_Alarm_Clock_0_1_Tone_Select
      port map (
       C => CLK,
       CE => '1',
-      D => p_0_in(1),
+      D => \p_0_in__0\(1),
       Q => \r_Play_Sound_reg__0\(1),
       R => \r_Play_Sound[7]_i_1_n_0\
     );
@@ -63877,7 +64423,7 @@ U_Tone_Select: entity work.Alarm_Clock_Alarm_Clock_0_1_Tone_Select
      port map (
       C => CLK,
       CE => '1',
-      D => p_0_in(2),
+      D => \p_0_in__0\(2),
       Q => \r_Play_Sound_reg__0\(2),
       R => \r_Play_Sound[7]_i_1_n_0\
     );
@@ -63885,7 +64431,7 @@ U_Tone_Select: entity work.Alarm_Clock_Alarm_Clock_0_1_Tone_Select
      port map (
       C => CLK,
       CE => '1',
-      D => p_0_in(3),
+      D => \p_0_in__0\(3),
       Q => \r_Play_Sound_reg__0\(3),
       R => \r_Play_Sound[7]_i_1_n_0\
     );
@@ -63893,7 +64439,7 @@ U_Tone_Select: entity work.Alarm_Clock_Alarm_Clock_0_1_Tone_Select
      port map (
       C => CLK,
       CE => '1',
-      D => p_0_in(4),
+      D => \p_0_in__0\(4),
       Q => \r_Play_Sound_reg__0\(4),
       R => \r_Play_Sound[7]_i_1_n_0\
     );
@@ -63901,7 +64447,7 @@ U_Tone_Select: entity work.Alarm_Clock_Alarm_Clock_0_1_Tone_Select
      port map (
       C => CLK,
       CE => '1',
-      D => p_0_in(5),
+      D => \p_0_in__0\(5),
       Q => \r_Play_Sound_reg__0\(5),
       R => \r_Play_Sound[7]_i_1_n_0\
     );
@@ -63909,7 +64455,7 @@ U_Tone_Select: entity work.Alarm_Clock_Alarm_Clock_0_1_Tone_Select
      port map (
       C => CLK,
       CE => '1',
-      D => p_0_in(6),
+      D => \p_0_in__0\(6),
       Q => \r_Play_Sound_reg__0\(6),
       R => \r_Play_Sound[7]_i_1_n_0\
     );
@@ -63917,7 +64463,7 @@ U_Tone_Select: entity work.Alarm_Clock_Alarm_Clock_0_1_Tone_Select
      port map (
       C => CLK,
       CE => '1',
-      D => p_0_in(7),
+      D => \p_0_in__0\(7),
       Q => \r_Play_Sound_reg__0\(7),
       R => \r_Play_Sound[7]_i_1_n_0\
     );
@@ -64401,7 +64947,7 @@ entity Alarm_Clock_Alarm_Clock_0_1_Time is
     \r_Digit_Sel_reg[0]_0\ : in STD_LOGIC;
     i_Reset : in STD_LOGIC;
     axi_araddr : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    o_Alarm_Enabled : in STD_LOGIC;
+    \slv_reg3_reg[3]\ : in STD_LOGIC;
     o_Alarm_On : in STD_LOGIC;
     w_Clk_5MHz : in STD_LOGIC
   );
@@ -64425,7 +64971,6 @@ U_Time_Counter: entity work.Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
       \axi_rdata_reg[5]\(3 downto 0) => \axi_rdata_reg[5]\(4 downto 1),
       i_Change_Alarm => i_Change_Alarm,
       i_Reset => i_Reset,
-      o_Alarm_Enabled => o_Alarm_Enabled,
       o_Alarm_On => o_Alarm_On,
       p_1_out0(20 downto 0) => p_1_out0(20 downto 0),
       r_Alarm_State_reg(0) => r_Alarm_State_reg(0),
@@ -64728,6 +65273,7 @@ U_Time_Counter: entity work.Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
       r_Seconds_2nd_Digit_Inc_reg(3 downto 0) => r_Seconds_2nd_Digit_Inc_reg(3 downto 0),
       \r_Time_State_reg[1]\(3 downto 0) => \r_Time_State_reg[1]\(3 downto 0),
       \slv_reg3_reg[1]\ => \slv_reg3_reg[1]\,
+      \slv_reg3_reg[3]\ => \slv_reg3_reg[3]\,
       \slv_reg3_reg[5]\(0) => \slv_reg3_reg[5]\(0),
       \slv_reg3_reg[6]\(0) => \slv_reg3_reg[6]\(0),
       w_Alarm_Time(27 downto 0) => w_Alarm_Time(27 downto 0),
@@ -64744,7 +65290,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity Alarm_Clock_Alarm_Clock_0_1_Time_17 is
   port (
     \r_Count_reg[23]\ : out STD_LOGIC_VECTOR ( 17 downto 0 );
-    CO : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \r_Count_reg[3]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     w_Time_Stamp : out STD_LOGIC_VECTOR ( 23 downto 0 );
     \r_Count_reg[15]\ : out STD_LOGIC;
     \r_Count_reg[7]\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -64781,10 +65327,10 @@ entity Alarm_Clock_Alarm_Clock_0_1_Time_17 is
     \r_BCD_Num_reg[24]_1\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
     \r_BCD_Num_reg[30]_0\ : out STD_LOGIC_VECTOR ( 2 downto 0 );
     \r_BCD_Num_reg[30]_1\ : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    \r_BCD_Num_reg[30]_2\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    CO : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_BCD_Num_reg[31]_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \r_BCD_Num_reg[30]_2\ : out STD_LOGIC_VECTOR ( 2 downto 0 );
     \r_BCD_Num_reg[30]_3\ : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    \r_BCD_Num_reg[30]_4\ : out STD_LOGIC_VECTOR ( 2 downto 0 );
     \r_BCD_Num_reg[8]_2\ : out STD_LOGIC_VECTOR ( 2 downto 0 );
     \r_BCD_Num_reg[8]_3\ : out STD_LOGIC_VECTOR ( 2 downto 0 );
     \r_BCD_Num_reg[24]_2\ : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -64793,13 +65339,13 @@ entity Alarm_Clock_Alarm_Clock_0_1_Time_17 is
     \r_BCD_Num_reg[24]_5\ : out STD_LOGIC_VECTOR ( 2 downto 0 );
     \r_BCD_Num_reg[24]_6\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_BCD_Num_reg[24]_7\ : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    \r_BCD_Num_reg[30]_5\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \r_BCD_Num_reg[30]_6\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    \r_BCD_Num_reg[30]_7\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \r_BCD_Num_reg[30]_4\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \r_BCD_Num_reg[30]_5\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    \r_BCD_Num_reg[30]_6\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_BCD_Num_reg[31]_2\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \r_BCD_Num_reg[30]_8\ : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    \r_BCD_Num_reg[30]_9\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \r_BCD_Num_reg[30]_10\ : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    \r_BCD_Num_reg[30]_7\ : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    \r_BCD_Num_reg[30]_8\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \r_BCD_Num_reg[30]_9\ : out STD_LOGIC_VECTOR ( 2 downto 0 );
     \r_BCD_Num_reg[31]_3\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_BCD_Num_reg[31]_4\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_BCD_Num_reg[31]_5\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -64831,19 +65377,19 @@ entity Alarm_Clock_Alarm_Clock_0_1_Time_17 is
     \r_BCD_Num_reg[31]_8\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_BCD_Num_reg[31]_9\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_BCD_Num_reg[31]_10\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \r_BCD_Num_reg[30]_10\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_BCD_Num_reg[30]_11\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \r_BCD_Num_reg[30]_12\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_BCD_Num_reg[31]_11\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
     \r_BCD_Num_reg[31]_12\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \r_BCD_Num_reg[30]_13\ : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    \r_BCD_Num_reg[30]_14\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    \r_BCD_Num_reg[30]_12\ : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    \r_BCD_Num_reg[30]_13\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
     \r_BCD_Num_reg[31]_13\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_BCD_Num_reg[31]_14\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_BCD_Num_reg[31]_15\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_BCD_Num_reg[31]_16\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_BCD_Num_reg[31]_17\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_BCD_Num_reg[31]_18\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \r_BCD_Num_reg[30]_15\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \r_BCD_Num_reg[30]_14\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_BCD_Num_reg[31]_19\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_BCD_Num_reg[31]_20\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
     \r_BCD_Num_reg[31]_21\ : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -64852,7 +65398,7 @@ entity Alarm_Clock_Alarm_Clock_0_1_Time_17 is
     \r_BCD_Num_reg[31]_24\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_BCD_Num_reg[31]_25\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_BCD_Num_reg[31]_26\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \r_BCD_Num_reg[30]_16\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \r_BCD_Num_reg[30]_15\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \r_BCD_Num_reg[31]_27\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
     \r_BCD_Num_reg[31]_28\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
     \r_BCD_Num_reg[31]_29\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -64906,7 +65452,7 @@ entity Alarm_Clock_Alarm_Clock_0_1_Time_17 is
     \r_Count_reg[0]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     r_Prev_Signal_reg : in STD_LOGIC_VECTOR ( 0 to 0 );
     \r_Count_reg[2]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
-    \r_Count_reg[3]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
+    \r_Count_reg[3]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \r_Count_reg[4]\ : in STD_LOGIC_VECTOR ( 1 downto 0 );
     \r_Count_reg[5]\ : in STD_LOGIC_VECTOR ( 1 downto 0 );
     r_Prev_Signal_reg_0 : in STD_LOGIC;
@@ -64953,11 +65499,11 @@ entity Alarm_Clock_Alarm_Clock_0_1_Time_17 is
     \r_Count_reg[20]_2\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
     \r_Count_reg[20]_3\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
     \r_Count_reg[8]_1\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    \r_Count_reg[3]_0\ : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    \r_Count_reg[3]_1\ : in STD_LOGIC_VECTOR ( 1 downto 0 );
     \r_Count_reg[23]_24\ : in STD_LOGIC;
     \r_Count_reg[23]_25\ : in STD_LOGIC;
     \r_Count_reg[23]_26\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    \r_Count_reg[3]_1\ : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    \r_Count_reg[3]_2\ : in STD_LOGIC_VECTOR ( 1 downto 0 );
     \r_Count_reg[23]_27\ : in STD_LOGIC;
     \r_Count_reg[23]_28\ : in STD_LOGIC;
     \r_Count_reg[4]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 );
@@ -64972,8 +65518,8 @@ entity Alarm_Clock_Alarm_Clock_0_1_Time_17 is
     \r_Count_reg[23]_36\ : in STD_LOGIC;
     \r_Count_reg[4]_1\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \r_Count_reg[1]\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    \r_Count_reg[3]_2\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    \r_Count_reg[3]_3\ : in STD_LOGIC_VECTOR ( 0 to 0 );
+    \r_Count_reg[3]_3\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    \r_Count_reg[3]_4\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \r_Count_reg[23]_37\ : in STD_LOGIC_VECTOR ( 1 downto 0 );
     \r_Count_reg[23]_38\ : in STD_LOGIC_VECTOR ( 1 downto 0 );
     \r_Count_reg[23]_39\ : in STD_LOGIC_VECTOR ( 0 to 0 );
@@ -65040,12 +65586,12 @@ entity Alarm_Clock_Alarm_Clock_0_1_Time_17 is
     \r_Count_reg[4]_2\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \r_Count_reg[0]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \r_Count_reg[1]_0\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    \r_Count_reg[3]_4\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    \r_Count_reg[3]_5\ : in STD_LOGIC_VECTOR ( 0 to 0 );
+    \r_Count_reg[3]_5\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    \r_Count_reg[3]_6\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \r_Count_reg[23]_99\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
     \slv_reg3_reg[5]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
-    w_Alarm_Time : in STD_LOGIC_VECTOR ( 25 downto 0 );
     \r_Count_reg[23]_100\ : in STD_LOGIC;
+    w_Alarm_Time : in STD_LOGIC_VECTOR ( 25 downto 0 );
     \r_Digit_Sel_reg[1]\ : in STD_LOGIC;
     \slv_reg3_reg[1]_0\ : in STD_LOGIC;
     \r_Count_reg[23]_101\ : in STD_LOGIC;
@@ -65067,7 +65613,7 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Time_17 is
 begin
 U_Time_Counter: entity work.Alarm_Clock_Alarm_Clock_0_1_Time_Counter
      port map (
-      CO(0) => CO(0),
+      CO(0) => \r_Count_reg[3]\(0),
       DI(3 downto 0) => w_Time_Stamp(7 downto 4),
       O(3 downto 0) => O(3 downto 0),
       Q(0) => Q(0),
@@ -65143,21 +65689,21 @@ U_Time_Counter: entity work.Alarm_Clock_Alarm_Clock_0_1_Time_Counter
       \r_BCD_Num_reg[30]\(2 downto 0) => \r_BCD_Num_reg[30]\(2 downto 0),
       \r_BCD_Num_reg[30]_0\(2 downto 0) => \r_BCD_Num_reg[30]_0\(2 downto 0),
       \r_BCD_Num_reg[30]_1\(2 downto 0) => \r_BCD_Num_reg[30]_1\(2 downto 0),
-      \r_BCD_Num_reg[30]_10\(2 downto 0) => \r_BCD_Num_reg[30]_10\(2 downto 0),
-      \r_BCD_Num_reg[30]_11\(0) => \r_BCD_Num_reg[30]_11\(0),
-      \r_BCD_Num_reg[30]_12\(0) => \r_BCD_Num_reg[30]_12\(0),
-      \r_BCD_Num_reg[30]_13\(2 downto 0) => \r_BCD_Num_reg[30]_13\(2 downto 0),
-      \r_BCD_Num_reg[30]_14\(3 downto 0) => \r_BCD_Num_reg[30]_14\(3 downto 0),
-      \r_BCD_Num_reg[30]_15\(0) => \r_BCD_Num_reg[30]_15\(0),
-      \r_BCD_Num_reg[30]_16\(0) => \r_BCD_Num_reg[30]_16\(0),
-      \r_BCD_Num_reg[30]_2\(0) => \r_BCD_Num_reg[30]_2\(0),
-      \r_BCD_Num_reg[30]_3\(2 downto 0) => \r_BCD_Num_reg[30]_3\(2 downto 0),
-      \r_BCD_Num_reg[30]_4\(2 downto 0) => \r_BCD_Num_reg[30]_4\(2 downto 0),
-      \r_BCD_Num_reg[30]_5\(0) => \r_BCD_Num_reg[30]_5\(0),
-      \r_BCD_Num_reg[30]_6\(1 downto 0) => \r_BCD_Num_reg[30]_6\(1 downto 0),
-      \r_BCD_Num_reg[30]_7\(0) => \r_BCD_Num_reg[30]_7\(0),
-      \r_BCD_Num_reg[30]_8\(2 downto 0) => \r_BCD_Num_reg[30]_8\(2 downto 0),
-      \r_BCD_Num_reg[30]_9\(0) => \r_BCD_Num_reg[30]_9\(0),
+      \r_BCD_Num_reg[30]_10\(2 downto 0) => \r_BCD_Num_reg[30]_9\(2 downto 0),
+      \r_BCD_Num_reg[30]_11\(0) => \r_BCD_Num_reg[30]_10\(0),
+      \r_BCD_Num_reg[30]_12\(0) => \r_BCD_Num_reg[30]_11\(0),
+      \r_BCD_Num_reg[30]_13\(2 downto 0) => \r_BCD_Num_reg[30]_12\(2 downto 0),
+      \r_BCD_Num_reg[30]_14\(3 downto 0) => \r_BCD_Num_reg[30]_13\(3 downto 0),
+      \r_BCD_Num_reg[30]_15\(0) => \r_BCD_Num_reg[30]_14\(0),
+      \r_BCD_Num_reg[30]_16\(0) => \r_BCD_Num_reg[30]_15\(0),
+      \r_BCD_Num_reg[30]_2\(0) => CO(0),
+      \r_BCD_Num_reg[30]_3\(2 downto 0) => \r_BCD_Num_reg[30]_2\(2 downto 0),
+      \r_BCD_Num_reg[30]_4\(2 downto 0) => \r_BCD_Num_reg[30]_3\(2 downto 0),
+      \r_BCD_Num_reg[30]_5\(0) => \r_BCD_Num_reg[30]_4\(0),
+      \r_BCD_Num_reg[30]_6\(1 downto 0) => \r_BCD_Num_reg[30]_5\(1 downto 0),
+      \r_BCD_Num_reg[30]_7\(0) => \r_BCD_Num_reg[30]_6\(0),
+      \r_BCD_Num_reg[30]_8\(2 downto 0) => \r_BCD_Num_reg[30]_7\(2 downto 0),
+      \r_BCD_Num_reg[30]_9\(0) => \r_BCD_Num_reg[30]_8\(0),
       \r_BCD_Num_reg[31]\(19 downto 0) => \r_BCD_Num_reg[31]\(19 downto 0),
       \r_BCD_Num_reg[31]_0\(3 downto 0) => \r_BCD_Num_reg[31]_0\(3 downto 0),
       \r_BCD_Num_reg[31]_1\(0) => \r_BCD_Num_reg[31]_1\(0),
@@ -65350,13 +65896,13 @@ U_Time_Counter: entity work.Alarm_Clock_Alarm_Clock_0_1_Time_Counter
       \r_Count_reg[23]_98\(2 downto 0) => \r_Count_reg[23]_96\(2 downto 0),
       \r_Count_reg[23]_99\(0) => \r_Count_reg[23]_97\(0),
       \r_Count_reg[2]_0\(0) => \r_Count_reg[2]\(0),
-      \r_Count_reg[3]_0\(0) => \r_Count_reg[3]\(0),
-      \r_Count_reg[3]_1\(1 downto 0) => \r_Count_reg[3]_0\(1 downto 0),
-      \r_Count_reg[3]_2\(1 downto 0) => \r_Count_reg[3]_1\(1 downto 0),
-      \r_Count_reg[3]_3\(2 downto 0) => \r_Count_reg[3]_2\(2 downto 0),
-      \r_Count_reg[3]_4\(0) => \r_Count_reg[3]_3\(0),
-      \r_Count_reg[3]_5\(3 downto 0) => \r_Count_reg[3]_4\(3 downto 0),
-      \r_Count_reg[3]_6\(0) => \r_Count_reg[3]_5\(0),
+      \r_Count_reg[3]_0\(0) => \r_Count_reg[3]_0\(0),
+      \r_Count_reg[3]_1\(1 downto 0) => \r_Count_reg[3]_1\(1 downto 0),
+      \r_Count_reg[3]_2\(1 downto 0) => \r_Count_reg[3]_2\(1 downto 0),
+      \r_Count_reg[3]_3\(2 downto 0) => \r_Count_reg[3]_3\(2 downto 0),
+      \r_Count_reg[3]_4\(0) => \r_Count_reg[3]_4\(0),
+      \r_Count_reg[3]_5\(3 downto 0) => \r_Count_reg[3]_5\(3 downto 0),
+      \r_Count_reg[3]_6\(0) => \r_Count_reg[3]_6\(0),
       \r_Count_reg[4]_0\(1 downto 0) => \r_Count_reg[4]\(1 downto 0),
       \r_Count_reg[4]_1\(0) => \r_Count_reg[4]_0\(0),
       \r_Count_reg[4]_2\(0) => \r_Count_reg[4]_1\(0),
@@ -65864,10 +66410,12 @@ entity Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock is
     i_Encoder_B : in STD_LOGIC;
     i_Change_Alarm : in STD_LOGIC;
     i_Reset : in STD_LOGIC;
+    i_Alarm_Game_Switches : in STD_LOGIC_VECTOR ( 9 downto 0 );
     i_Alarm_Enable : in STD_LOGIC;
     i_Encoder_Enable : in STD_LOGIC;
     axi_araddr : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    o_Alarm_Enabled : in STD_LOGIC
+    \slv_reg3_reg[3]\ : in STD_LOGIC;
+    i_Alarm_Game_Enable : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock : entity is "Alarm_Clock";
@@ -66020,11 +66568,9 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock is
   signal U_Clock_Divider_5MHz_To_1KHz_n_1 : STD_LOGIC;
   signal U_Hours_1st_Digit_Dec_Pulse_Generator_n_1 : STD_LOGIC;
   signal U_Hours_2nd_Digit_Dec_Pulse_Generator_n_1 : STD_LOGIC;
-  signal U_Master_Controller_n_1 : STD_LOGIC;
-  signal U_Master_Controller_n_11 : STD_LOGIC;
+  signal U_Master_Controller_n_10 : STD_LOGIC;
   signal U_Master_Controller_n_12 : STD_LOGIC;
   signal U_Master_Controller_n_13 : STD_LOGIC;
-  signal U_Master_Controller_n_134 : STD_LOGIC;
   signal U_Master_Controller_n_135 : STD_LOGIC;
   signal U_Master_Controller_n_136 : STD_LOGIC;
   signal U_Master_Controller_n_137 : STD_LOGIC;
@@ -66036,14 +66582,14 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock is
   signal U_Master_Controller_n_142 : STD_LOGIC;
   signal U_Master_Controller_n_143 : STD_LOGIC;
   signal U_Master_Controller_n_144 : STD_LOGIC;
-  signal U_Master_Controller_n_146 : STD_LOGIC;
+  signal U_Master_Controller_n_145 : STD_LOGIC;
   signal U_Master_Controller_n_147 : STD_LOGIC;
   signal U_Master_Controller_n_148 : STD_LOGIC;
   signal U_Master_Controller_n_149 : STD_LOGIC;
   signal U_Master_Controller_n_15 : STD_LOGIC;
+  signal U_Master_Controller_n_150 : STD_LOGIC;
   signal U_Master_Controller_n_16 : STD_LOGIC;
   signal U_Master_Controller_n_17 : STD_LOGIC;
-  signal U_Master_Controller_n_171 : STD_LOGIC;
   signal U_Master_Controller_n_172 : STD_LOGIC;
   signal U_Master_Controller_n_173 : STD_LOGIC;
   signal U_Master_Controller_n_174 : STD_LOGIC;
@@ -66054,13 +66600,14 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock is
   signal U_Master_Controller_n_179 : STD_LOGIC;
   signal U_Master_Controller_n_18 : STD_LOGIC;
   signal U_Master_Controller_n_180 : STD_LOGIC;
-  signal U_Master_Controller_n_184 : STD_LOGIC;
+  signal U_Master_Controller_n_181 : STD_LOGIC;
   signal U_Master_Controller_n_185 : STD_LOGIC;
-  signal U_Master_Controller_n_188 : STD_LOGIC;
+  signal U_Master_Controller_n_186 : STD_LOGIC;
+  signal U_Master_Controller_n_189 : STD_LOGIC;
   signal U_Master_Controller_n_19 : STD_LOGIC;
-  signal U_Master_Controller_n_195 : STD_LOGIC;
+  signal U_Master_Controller_n_196 : STD_LOGIC;
+  signal U_Master_Controller_n_2 : STD_LOGIC;
   signal U_Master_Controller_n_20 : STD_LOGIC;
-  signal U_Master_Controller_n_201 : STD_LOGIC;
   signal U_Master_Controller_n_202 : STD_LOGIC;
   signal U_Master_Controller_n_203 : STD_LOGIC;
   signal U_Master_Controller_n_204 : STD_LOGIC;
@@ -66069,16 +66616,17 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock is
   signal U_Master_Controller_n_207 : STD_LOGIC;
   signal U_Master_Controller_n_208 : STD_LOGIC;
   signal U_Master_Controller_n_209 : STD_LOGIC;
+  signal U_Master_Controller_n_21 : STD_LOGIC;
   signal U_Master_Controller_n_210 : STD_LOGIC;
-  signal U_Master_Controller_n_213 : STD_LOGIC;
+  signal U_Master_Controller_n_211 : STD_LOGIC;
   signal U_Master_Controller_n_214 : STD_LOGIC;
   signal U_Master_Controller_n_215 : STD_LOGIC;
-  signal U_Master_Controller_n_219 : STD_LOGIC;
+  signal U_Master_Controller_n_216 : STD_LOGIC;
   signal U_Master_Controller_n_220 : STD_LOGIC;
-  signal U_Master_Controller_n_225 : STD_LOGIC;
-  signal U_Master_Controller_n_227 : STD_LOGIC;
-  signal U_Master_Controller_n_229 : STD_LOGIC;
-  signal U_Master_Controller_n_244 : STD_LOGIC;
+  signal U_Master_Controller_n_221 : STD_LOGIC;
+  signal U_Master_Controller_n_226 : STD_LOGIC;
+  signal U_Master_Controller_n_228 : STD_LOGIC;
+  signal U_Master_Controller_n_230 : STD_LOGIC;
   signal U_Master_Controller_n_245 : STD_LOGIC;
   signal U_Master_Controller_n_246 : STD_LOGIC;
   signal U_Master_Controller_n_247 : STD_LOGIC;
@@ -66094,19 +66642,20 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock is
   signal U_Master_Controller_n_257 : STD_LOGIC;
   signal U_Master_Controller_n_258 : STD_LOGIC;
   signal U_Master_Controller_n_259 : STD_LOGIC;
-  signal U_Master_Controller_n_26 : STD_LOGIC;
   signal U_Master_Controller_n_260 : STD_LOGIC;
-  signal U_Master_Controller_n_262 : STD_LOGIC;
+  signal U_Master_Controller_n_261 : STD_LOGIC;
   signal U_Master_Controller_n_263 : STD_LOGIC;
-  signal U_Master_Controller_n_271 : STD_LOGIC;
-  signal U_Master_Controller_n_273 : STD_LOGIC;
+  signal U_Master_Controller_n_264 : STD_LOGIC;
+  signal U_Master_Controller_n_27 : STD_LOGIC;
+  signal U_Master_Controller_n_272 : STD_LOGIC;
   signal U_Master_Controller_n_274 : STD_LOGIC;
   signal U_Master_Controller_n_275 : STD_LOGIC;
   signal U_Master_Controller_n_276 : STD_LOGIC;
   signal U_Master_Controller_n_277 : STD_LOGIC;
   signal U_Master_Controller_n_278 : STD_LOGIC;
-  signal U_Master_Controller_n_41 : STD_LOGIC;
-  signal U_Master_Controller_n_60 : STD_LOGIC;
+  signal U_Master_Controller_n_279 : STD_LOGIC;
+  signal U_Master_Controller_n_280 : STD_LOGIC;
+  signal U_Master_Controller_n_42 : STD_LOGIC;
   signal U_Master_Controller_n_61 : STD_LOGIC;
   signal U_Master_Controller_n_62 : STD_LOGIC;
   signal U_Master_Controller_n_63 : STD_LOGIC;
@@ -66124,16 +66673,16 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock is
   signal U_Master_Controller_n_75 : STD_LOGIC;
   signal U_Master_Controller_n_76 : STD_LOGIC;
   signal U_Master_Controller_n_77 : STD_LOGIC;
-  signal U_Master_Controller_n_8 : STD_LOGIC;
-  signal U_Master_Controller_n_86 : STD_LOGIC;
+  signal U_Master_Controller_n_78 : STD_LOGIC;
   signal U_Master_Controller_n_87 : STD_LOGIC;
   signal U_Master_Controller_n_88 : STD_LOGIC;
   signal U_Master_Controller_n_89 : STD_LOGIC;
   signal U_Master_Controller_n_9 : STD_LOGIC;
   signal U_Master_Controller_n_90 : STD_LOGIC;
   signal U_Master_Controller_n_91 : STD_LOGIC;
-  signal U_Master_Controller_n_94 : STD_LOGIC;
-  signal U_Master_Controller_n_98 : STD_LOGIC;
+  signal U_Master_Controller_n_92 : STD_LOGIC;
+  signal U_Master_Controller_n_95 : STD_LOGIC;
+  signal U_Master_Controller_n_99 : STD_LOGIC;
   signal U_Minutes_1st_Digit_Dec_Pulse_Generator_n_15 : STD_LOGIC;
   signal U_Minutes_1st_Digit_Dec_Pulse_Generator_n_16 : STD_LOGIC;
   signal U_Minutes_1st_Digit_Dec_Pulse_Generator_n_17 : STD_LOGIC;
@@ -66617,6 +67166,8 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock is
   signal U_Time_n_98 : STD_LOGIC;
   signal U_Time_n_99 : STD_LOGIC;
   signal \^o_alarm_on\ : STD_LOGIC;
+  signal r_Alarm_Next_State : STD_LOGIC;
+  signal r_Alarm_Next_State1 : STD_LOGIC;
   signal \^r_bcd_num_reg[10]\ : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal \^r_bcd_num_reg[21]\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \^r_bcd_num_reg[21]_0\ : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -66771,10 +67322,21 @@ U_1KHz_Pulse_Generator: entity work.Alarm_Clock_Alarm_Clock_0_1_Pulse_Generator_
       w_Clk_1KHz => w_Clk_1KHz,
       w_Clk_5MHz => w_Clk_5MHz
     );
+U_Alarm_Game: entity work.Alarm_Clock_Alarm_Clock_0_1_Alarm_Game
+     port map (
+      CO(0) => r_Alarm_Next_State1,
+      i_Alarm_Game_Enable => i_Alarm_Game_Enable,
+      i_Alarm_Game_Switches(9 downto 0) => i_Alarm_Game_Switches(9 downto 0),
+      r_Alarm_Next_State => r_Alarm_Next_State,
+      \slv_reg3_reg[3]\ => U_Master_Controller_n_279,
+      w_Clk_5MHz => w_Clk_5MHz,
+      w_Reset_Control => w_Reset_Control,
+      w_Turn_Alarm_On => w_Turn_Alarm_On
+    );
 U_Alarm_On: entity work.Alarm_Clock_Alarm_Clock_0_1_Alarm_On
      port map (
       o_Alarm_On => \^o_alarm_on\,
-      r_Alarm_State_reg => U_Master_Controller_n_277,
+      r_Alarm_State_reg => U_Master_Controller_n_278,
       w_Clk_1Hz => w_Clk_1Hz
     );
 U_Alarm_Sound: entity work.Alarm_Clock_Alarm_Clock_0_1_Alarm_Sound
@@ -66809,7 +67371,6 @@ U_Alarm_Time: entity work.Alarm_Clock_Alarm_Clock_0_1_Time
       \axi_rdata_reg[5]\(0) => w_Alarm_Time_Stamp(0),
       i_Change_Alarm => i_Change_Alarm,
       i_Reset => i_Reset,
-      o_Alarm_Enabled => o_Alarm_Enabled,
       o_Alarm_On => \^o_alarm_on\,
       p_1_out0(20 downto 0) => \U_Time_Counter/p_1_out0\(22 downto 2),
       r_Alarm_State_reg(0) => U_Alarm_Time_n_362,
@@ -67231,7 +67792,7 @@ U_Alarm_Time: entity work.Alarm_Clock_Alarm_Clock_0_1_Time
       \r_Count_reg[23]_97\(2 downto 0) => \r_Count_reg[23]_134\(2 downto 0),
       \r_Count_reg[23]_98\(0) => \r_Count_reg[23]_135\(0),
       \r_Count_reg[23]_99\(1 downto 0) => \r_Count_reg[23]_136\(1 downto 0),
-      \r_Count_reg[2]\(0) => U_Master_Controller_n_144,
+      \r_Count_reg[2]\(0) => U_Master_Controller_n_145,
       \r_Count_reg[3]\(3) => U_Alarm_Time_n_7,
       \r_Count_reg[3]\(2) => U_Alarm_Time_n_8,
       \r_Count_reg[3]\(1) => U_Alarm_Time_n_9,
@@ -67246,18 +67807,18 @@ U_Alarm_Time: entity work.Alarm_Clock_Alarm_Clock_0_1_Time
       \r_Count_reg[3]_2\(2) => U_Alarm_Time_n_18,
       \r_Count_reg[3]_2\(1) => U_Alarm_Time_n_19,
       \r_Count_reg[3]_2\(0) => U_Alarm_Time_n_20,
-      \r_Count_reg[3]_3\(0) => U_Master_Controller_n_273,
+      \r_Count_reg[3]_3\(0) => U_Master_Controller_n_274,
       \r_Count_reg[3]_4\(1 downto 0) => \r_Count_reg[3]_5\(1 downto 0),
       \r_Count_reg[3]_5\(1 downto 0) => \r_Count_reg[3]_6\(1 downto 0),
       \r_Count_reg[3]_6\(2 downto 0) => \r_Count_reg[3]_7\(2 downto 0),
       \r_Count_reg[3]_7\(0) => \r_Count_reg[3]_8\(0),
       \r_Count_reg[3]_8\(3 downto 0) => \r_Count_reg[3]_9\(3 downto 0),
       \r_Count_reg[3]_9\(0) => \r_Count_reg[3]_10\(0),
-      \r_Count_reg[4]\(0) => U_Master_Controller_n_225,
+      \r_Count_reg[4]\(0) => U_Master_Controller_n_226,
       \r_Count_reg[4]_0\(0) => \r_Count_reg[4]_2\(0),
       \r_Count_reg[4]_1\(0) => \r_Count_reg[4]_3\(0),
       \r_Count_reg[4]_2\(0) => \r_Count_reg[4]_4\(0),
-      \r_Count_reg[5]\(0) => U_Master_Controller_n_274,
+      \r_Count_reg[5]\(0) => U_Master_Controller_n_275,
       \r_Count_reg[7]\(0) => U_Alarm_Time_n_350,
       \r_Count_reg[7]_0\(0) => U_Alarm_Time_n_351,
       \r_Count_reg[8]\(3 downto 0) => \r_Count_reg[8]_2\(3 downto 0),
@@ -67271,29 +67832,30 @@ U_Alarm_Time: entity work.Alarm_Clock_Alarm_Clock_0_1_Time
       \r_Digit_Sel_reg[2]\ => U_Rotary_Encoder_n_58,
       \r_Digit_Sel_reg[2]_0\ => U_Rotary_Encoder_n_59,
       \r_Digit_Sel_reg[2]_1\ => U_Rotary_Encoder_n_61,
-      r_Seconds_1st_Digit_Inc_reg(3) => U_Master_Controller_n_248,
-      r_Seconds_1st_Digit_Inc_reg(2) => U_Master_Controller_n_249,
-      r_Seconds_1st_Digit_Inc_reg(1) => U_Master_Controller_n_250,
-      r_Seconds_1st_Digit_Inc_reg(0) => U_Master_Controller_n_251,
-      r_Seconds_1st_Digit_Inc_reg_0(3) => U_Master_Controller_n_252,
-      r_Seconds_1st_Digit_Inc_reg_0(2) => U_Master_Controller_n_253,
-      r_Seconds_1st_Digit_Inc_reg_0(1) => U_Master_Controller_n_254,
-      r_Seconds_1st_Digit_Inc_reg_0(0) => U_Master_Controller_n_255,
-      r_Seconds_1st_Digit_Inc_reg_1(3) => U_Master_Controller_n_256,
-      r_Seconds_1st_Digit_Inc_reg_1(2) => U_Master_Controller_n_257,
-      r_Seconds_1st_Digit_Inc_reg_1(1) => U_Master_Controller_n_258,
-      r_Seconds_1st_Digit_Inc_reg_1(0) => U_Master_Controller_n_259,
-      r_Seconds_1st_Digit_Inc_reg_2(0) => U_Master_Controller_n_260,
-      r_Seconds_2nd_Digit_Inc_reg(3) => U_Master_Controller_n_244,
-      r_Seconds_2nd_Digit_Inc_reg(2) => U_Master_Controller_n_245,
-      r_Seconds_2nd_Digit_Inc_reg(1) => U_Master_Controller_n_246,
-      r_Seconds_2nd_Digit_Inc_reg(0) => U_Master_Controller_n_247,
-      \r_Time_State_reg[1]\(3) => U_Master_Controller_n_146,
-      \r_Time_State_reg[1]\(2) => U_Master_Controller_n_147,
-      \r_Time_State_reg[1]\(1) => U_Master_Controller_n_148,
-      \r_Time_State_reg[1]\(0) => U_Master_Controller_n_149,
+      r_Seconds_1st_Digit_Inc_reg(3) => U_Master_Controller_n_249,
+      r_Seconds_1st_Digit_Inc_reg(2) => U_Master_Controller_n_250,
+      r_Seconds_1st_Digit_Inc_reg(1) => U_Master_Controller_n_251,
+      r_Seconds_1st_Digit_Inc_reg(0) => U_Master_Controller_n_252,
+      r_Seconds_1st_Digit_Inc_reg_0(3) => U_Master_Controller_n_253,
+      r_Seconds_1st_Digit_Inc_reg_0(2) => U_Master_Controller_n_254,
+      r_Seconds_1st_Digit_Inc_reg_0(1) => U_Master_Controller_n_255,
+      r_Seconds_1st_Digit_Inc_reg_0(0) => U_Master_Controller_n_256,
+      r_Seconds_1st_Digit_Inc_reg_1(3) => U_Master_Controller_n_257,
+      r_Seconds_1st_Digit_Inc_reg_1(2) => U_Master_Controller_n_258,
+      r_Seconds_1st_Digit_Inc_reg_1(1) => U_Master_Controller_n_259,
+      r_Seconds_1st_Digit_Inc_reg_1(0) => U_Master_Controller_n_260,
+      r_Seconds_1st_Digit_Inc_reg_2(0) => U_Master_Controller_n_261,
+      r_Seconds_2nd_Digit_Inc_reg(3) => U_Master_Controller_n_245,
+      r_Seconds_2nd_Digit_Inc_reg(2) => U_Master_Controller_n_246,
+      r_Seconds_2nd_Digit_Inc_reg(1) => U_Master_Controller_n_247,
+      r_Seconds_2nd_Digit_Inc_reg(0) => U_Master_Controller_n_248,
+      \r_Time_State_reg[1]\(3) => U_Master_Controller_n_147,
+      \r_Time_State_reg[1]\(2) => U_Master_Controller_n_148,
+      \r_Time_State_reg[1]\(1) => U_Master_Controller_n_149,
+      \r_Time_State_reg[1]\(0) => U_Master_Controller_n_150,
       \slv_reg3_reg[1]\ => U_Seven_Segment_Digit_Blinker_n_280,
-      \slv_reg3_reg[5]\(0) => U_Master_Controller_n_204,
+      \slv_reg3_reg[3]\ => \slv_reg3_reg[3]\,
+      \slv_reg3_reg[5]\(0) => U_Master_Controller_n_205,
       \slv_reg3_reg[6]\(0) => \U_Time_Counter/C\(2),
       w_Alarm_Time(27 downto 17) => w_Alarm_Time(31 downto 21),
       w_Alarm_Time(16 downto 15) => w_Alarm_Time(19 downto 18),
@@ -67375,7 +67937,7 @@ U_Hours_1st_Digit_Dec_Pulse_Generator: entity work.Alarm_Clock_Alarm_Clock_0_1_P
       Q(0) => Q(13),
       S(0) => U_Hours_1st_Digit_Dec_Pulse_Generator_n_1,
       r_Prev_Signal => r_Prev_Signal_3,
-      \slv_reg3_reg[1]\ => U_Master_Controller_n_143,
+      \slv_reg3_reg[1]\ => U_Master_Controller_n_144,
       w_Clk_5MHz => w_Clk_5MHz,
       w_Hours_1st_Digit_Dec => w_Hours_1st_Digit_Dec
     );
@@ -67390,7 +67952,7 @@ U_Hours_2nd_Digit_Dec_Pulse_Generator: entity work.Alarm_Clock_Alarm_Clock_0_1_P
       Q(0) => Q(15),
       S(0) => U_Hours_2nd_Digit_Dec_Pulse_Generator_n_1,
       r_Prev_Signal => r_Prev_Signal_5,
-      \slv_reg3_reg[1]\ => U_Master_Controller_n_143,
+      \slv_reg3_reg[1]\ => U_Master_Controller_n_144,
       w_Clk_5MHz => w_Clk_5MHz,
       w_Hours_2nd_Digit_Dec => w_Hours_2nd_Digit_Dec
     );
@@ -67402,12 +67964,12 @@ U_Hours_2nd_Digit_Inc_Pulse_Generator: entity work.Alarm_Clock_Alarm_Clock_0_1_P
     );
 U_Master_Controller: entity work.Alarm_Clock_Alarm_Clock_0_1_Master_Controller
      port map (
-      CO(0) => U_Time_n_18,
+      CO(0) => r_Alarm_Next_State1,
       DI(1 downto 0) => DI(1 downto 0),
-      O(3) => U_Master_Controller_n_11,
-      O(2) => U_Master_Controller_n_12,
-      O(1) => U_Master_Controller_n_13,
-      O(0) => U_Master_Controller_n_14,
+      O(3) => U_Master_Controller_n_12,
+      O(2) => U_Master_Controller_n_13,
+      O(1) => U_Master_Controller_n_14,
+      O(0) => U_Master_Controller_n_15,
       Q(15 downto 0) => Q(15 downto 0),
       S(3) => U_Time_n_371,
       S(2) => U_Time_n_372,
@@ -67420,72 +67982,74 @@ U_Master_Controller: entity work.Alarm_Clock_Alarm_Clock_0_1_Master_Controller
       o_Alarm_On => \^o_alarm_on\,
       p_1_out0(3 downto 0) => \U_Time_Counter/p_1_out0_9\(5 downto 2),
       p_1_out0_0(20 downto 0) => \U_Time_Counter/p_1_out0\(22 downto 2),
-      r_Alarm_On_reg => U_Master_Controller_n_277,
+      r_Alarm_Next_State => r_Alarm_Next_State,
+      r_Alarm_On_reg => U_Master_Controller_n_278,
+      r_Alarm_State_reg_0 => U_Master_Controller_n_279,
       r_Count2(3 downto 0) => \U_Time_Counter/r_Count2_19\(5 downto 2),
-      \r_Count_reg[11]\(3) => U_Master_Controller_n_60,
-      \r_Count_reg[11]\(2) => U_Master_Controller_n_61,
-      \r_Count_reg[11]\(1) => U_Master_Controller_n_62,
-      \r_Count_reg[11]\(0) => U_Master_Controller_n_63,
+      \r_Count_reg[11]\(3) => U_Master_Controller_n_61,
+      \r_Count_reg[11]\(2) => U_Master_Controller_n_62,
+      \r_Count_reg[11]\(1) => U_Master_Controller_n_63,
+      \r_Count_reg[11]\(0) => U_Master_Controller_n_64,
       \r_Count_reg[11]_0\(2 downto 0) => \^o\(2 downto 0),
-      \r_Count_reg[11]_1\(3) => U_Master_Controller_n_244,
-      \r_Count_reg[11]_1\(2) => U_Master_Controller_n_245,
-      \r_Count_reg[11]_1\(1) => U_Master_Controller_n_246,
-      \r_Count_reg[11]_1\(0) => U_Master_Controller_n_247,
+      \r_Count_reg[11]_1\(3) => U_Master_Controller_n_245,
+      \r_Count_reg[11]_1\(2) => U_Master_Controller_n_246,
+      \r_Count_reg[11]_1\(1) => U_Master_Controller_n_247,
+      \r_Count_reg[11]_1\(0) => U_Master_Controller_n_248,
       \r_Count_reg[11]_2\(1 downto 0) => \r_Count_reg[11]_1\(1 downto 0),
       \r_Count_reg[11]_3\(1 downto 0) => \r_Count_reg[11]_2\(1 downto 0),
-      \r_Count_reg[15]\ => U_Master_Controller_n_1,
-      \r_Count_reg[15]_0\(2) => U_Master_Controller_n_16,
-      \r_Count_reg[15]_0\(1) => U_Master_Controller_n_17,
-      \r_Count_reg[15]_0\(0) => U_Master_Controller_n_18,
+      \r_Count_reg[15]\ => U_Master_Controller_n_2,
+      \r_Count_reg[15]_0\(2) => U_Master_Controller_n_17,
+      \r_Count_reg[15]_0\(1) => U_Master_Controller_n_18,
+      \r_Count_reg[15]_0\(0) => U_Master_Controller_n_19,
       \r_Count_reg[15]_1\(2 downto 0) => \^r_count_reg[15]_0\(3 downto 1),
-      \r_Count_reg[15]_10\(2) => U_Master_Controller_n_178,
-      \r_Count_reg[15]_10\(1) => U_Master_Controller_n_179,
-      \r_Count_reg[15]_10\(0) => U_Master_Controller_n_180,
-      \r_Count_reg[15]_11\(1) => U_Master_Controller_n_185,
+      \r_Count_reg[15]_10\(2) => U_Master_Controller_n_179,
+      \r_Count_reg[15]_10\(1) => U_Master_Controller_n_180,
+      \r_Count_reg[15]_10\(0) => U_Master_Controller_n_181,
+      \r_Count_reg[15]_11\(1) => U_Master_Controller_n_186,
       \r_Count_reg[15]_11\(0) => \^r_count_reg[15]_1\(1),
       \r_Count_reg[15]_12\(3) => \^r_count_reg[15]_2\(0),
-      \r_Count_reg[15]_12\(2) => U_Master_Controller_n_188,
+      \r_Count_reg[15]_12\(2) => U_Master_Controller_n_189,
       \r_Count_reg[15]_12\(1 downto 0) => \^r_count_reg[11]_0\(1 downto 0),
       \r_Count_reg[15]_13\(3 downto 2) => \^r_count_reg[23]_19\(5 downto 4),
       \r_Count_reg[15]_13\(1) => \U_Time_Counter/C\(10),
       \r_Count_reg[15]_13\(0) => \^r_count_reg[23]_19\(3),
-      \r_Count_reg[15]_14\(3) => U_Master_Controller_n_201,
-      \r_Count_reg[15]_14\(2) => U_Master_Controller_n_202,
-      \r_Count_reg[15]_14\(1) => U_Master_Controller_n_203,
-      \r_Count_reg[15]_14\(0) => U_Master_Controller_n_204,
+      \r_Count_reg[15]_14\(3) => U_Master_Controller_n_202,
+      \r_Count_reg[15]_14\(2) => U_Master_Controller_n_203,
+      \r_Count_reg[15]_14\(1) => U_Master_Controller_n_204,
+      \r_Count_reg[15]_14\(0) => U_Master_Controller_n_205,
       \r_Count_reg[15]_15\(3) => \^r_count_reg[23]_21\(2),
       \r_Count_reg[15]_15\(2) => \U_Time_Counter/C__0\(7),
       \r_Count_reg[15]_15\(1 downto 0) => \^r_count_reg[23]_21\(1 downto 0),
       \r_Count_reg[15]_16\(0) => \^r_count_reg[15]_1\(0),
-      \r_Count_reg[15]_17\(0) => U_Master_Controller_n_227,
-      \r_Count_reg[15]_18\(0) => U_Master_Controller_n_229,
-      \r_Count_reg[15]_19\(3) => U_Master_Controller_n_248,
-      \r_Count_reg[15]_19\(2) => U_Master_Controller_n_249,
-      \r_Count_reg[15]_19\(1) => U_Master_Controller_n_250,
-      \r_Count_reg[15]_19\(0) => U_Master_Controller_n_251,
+      \r_Count_reg[15]_17\(0) => U_Master_Controller_n_228,
+      \r_Count_reg[15]_18\(0) => U_Master_Controller_n_230,
+      \r_Count_reg[15]_19\(3) => U_Master_Controller_n_249,
+      \r_Count_reg[15]_19\(2) => U_Master_Controller_n_250,
+      \r_Count_reg[15]_19\(1) => U_Master_Controller_n_251,
+      \r_Count_reg[15]_19\(0) => U_Master_Controller_n_252,
       \r_Count_reg[15]_2\(0) => \U_Time_Counter/C_7\(10),
-      \r_Count_reg[15]_3\(3) => U_Master_Controller_n_64,
-      \r_Count_reg[15]_3\(2) => U_Master_Controller_n_65,
-      \r_Count_reg[15]_3\(1) => U_Master_Controller_n_66,
-      \r_Count_reg[15]_3\(0) => U_Master_Controller_n_67,
-      \r_Count_reg[15]_4\(3) => U_Master_Controller_n_86,
-      \r_Count_reg[15]_4\(2) => U_Master_Controller_n_87,
-      \r_Count_reg[15]_4\(1) => U_Master_Controller_n_88,
-      \r_Count_reg[15]_4\(0) => U_Master_Controller_n_89,
+      \r_Count_reg[15]_3\(3) => U_Master_Controller_n_65,
+      \r_Count_reg[15]_3\(2) => U_Master_Controller_n_66,
+      \r_Count_reg[15]_3\(1) => U_Master_Controller_n_67,
+      \r_Count_reg[15]_3\(0) => U_Master_Controller_n_68,
+      \r_Count_reg[15]_4\(3) => U_Master_Controller_n_87,
+      \r_Count_reg[15]_4\(2) => U_Master_Controller_n_88,
+      \r_Count_reg[15]_4\(1) => U_Master_Controller_n_89,
+      \r_Count_reg[15]_4\(0) => U_Master_Controller_n_90,
       \r_Count_reg[15]_5\(3 downto 0) => \^r_count_reg[15]\(3 downto 0),
-      \r_Count_reg[15]_6\(2) => U_Master_Controller_n_134,
-      \r_Count_reg[15]_6\(1) => U_Master_Controller_n_135,
-      \r_Count_reg[15]_6\(0) => U_Master_Controller_n_136,
-      \r_Count_reg[15]_7\(2) => U_Master_Controller_n_137,
-      \r_Count_reg[15]_7\(1) => U_Master_Controller_n_138,
-      \r_Count_reg[15]_7\(0) => U_Master_Controller_n_139,
-      \r_Count_reg[15]_8\(3) => U_Master_Controller_n_171,
-      \r_Count_reg[15]_8\(2) => U_Master_Controller_n_172,
-      \r_Count_reg[15]_8\(1) => U_Master_Controller_n_173,
-      \r_Count_reg[15]_8\(0) => U_Master_Controller_n_174,
-      \r_Count_reg[15]_9\(2) => U_Master_Controller_n_175,
-      \r_Count_reg[15]_9\(1) => U_Master_Controller_n_176,
-      \r_Count_reg[15]_9\(0) => U_Master_Controller_n_177,
+      \r_Count_reg[15]_6\(2) => U_Master_Controller_n_135,
+      \r_Count_reg[15]_6\(1) => U_Master_Controller_n_136,
+      \r_Count_reg[15]_6\(0) => U_Master_Controller_n_137,
+      \r_Count_reg[15]_7\(2) => U_Master_Controller_n_138,
+      \r_Count_reg[15]_7\(1) => U_Master_Controller_n_139,
+      \r_Count_reg[15]_7\(0) => U_Master_Controller_n_140,
+      \r_Count_reg[15]_8\(3) => U_Master_Controller_n_172,
+      \r_Count_reg[15]_8\(2) => U_Master_Controller_n_173,
+      \r_Count_reg[15]_8\(1) => U_Master_Controller_n_174,
+      \r_Count_reg[15]_8\(0) => U_Master_Controller_n_175,
+      \r_Count_reg[15]_9\(2) => U_Master_Controller_n_176,
+      \r_Count_reg[15]_9\(1) => U_Master_Controller_n_177,
+      \r_Count_reg[15]_9\(0) => U_Master_Controller_n_178,
       \r_Count_reg[17]\(3) => U_Alarm_Time_n_11,
       \r_Count_reg[17]\(2) => U_Alarm_Time_n_12,
       \r_Count_reg[17]\(1) => U_Alarm_Time_n_13,
@@ -67494,79 +68058,80 @@ U_Master_Controller: entity work.Alarm_Clock_Alarm_Clock_0_1_Master_Controller
       \r_Count_reg[17]_0\(2) => U_Alarm_Time_n_8,
       \r_Count_reg[17]_0\(1) => U_Alarm_Time_n_9,
       \r_Count_reg[17]_0\(0) => U_Alarm_Time_n_10,
-      \r_Count_reg[19]\(1) => U_Master_Controller_n_19,
-      \r_Count_reg[19]\(0) => U_Master_Controller_n_20,
+      \r_Count_reg[19]\(1) => U_Master_Controller_n_20,
+      \r_Count_reg[19]\(0) => U_Master_Controller_n_21,
       \r_Count_reg[19]_0\(1 downto 0) => \r_Count_reg[19]_0\(1 downto 0),
-      \r_Count_reg[19]_1\(0) => U_Master_Controller_n_26,
-      \r_Count_reg[19]_10\(1) => U_Master_Controller_n_209,
-      \r_Count_reg[19]_10\(0) => U_Master_Controller_n_210,
+      \r_Count_reg[19]_1\(0) => U_Master_Controller_n_27,
+      \r_Count_reg[19]_10\(1) => U_Master_Controller_n_210,
+      \r_Count_reg[19]_10\(0) => U_Master_Controller_n_211,
       \r_Count_reg[19]_11\(3 downto 2) => \^r_count_reg[19]_7\(1 downto 0),
-      \r_Count_reg[19]_11\(1) => U_Master_Controller_n_213,
-      \r_Count_reg[19]_11\(0) => U_Master_Controller_n_214,
-      \r_Count_reg[19]_12\(0) => U_Master_Controller_n_215,
+      \r_Count_reg[19]_11\(1) => U_Master_Controller_n_214,
+      \r_Count_reg[19]_11\(0) => U_Master_Controller_n_215,
+      \r_Count_reg[19]_12\(0) => U_Master_Controller_n_216,
       \r_Count_reg[19]_13\(3 downto 1) => \^r_count_reg[19]_8\(2 downto 0),
-      \r_Count_reg[19]_13\(0) => U_Master_Controller_n_219,
-      \r_Count_reg[19]_14\(0) => U_Master_Controller_n_220,
-      \r_Count_reg[19]_15\(3) => U_Master_Controller_n_252,
-      \r_Count_reg[19]_15\(2) => U_Master_Controller_n_253,
-      \r_Count_reg[19]_15\(1) => U_Master_Controller_n_254,
-      \r_Count_reg[19]_15\(0) => U_Master_Controller_n_255,
+      \r_Count_reg[19]_13\(0) => U_Master_Controller_n_220,
+      \r_Count_reg[19]_14\(0) => U_Master_Controller_n_221,
+      \r_Count_reg[19]_15\(3) => U_Master_Controller_n_253,
+      \r_Count_reg[19]_15\(2) => U_Master_Controller_n_254,
+      \r_Count_reg[19]_15\(1) => U_Master_Controller_n_255,
+      \r_Count_reg[19]_15\(0) => U_Master_Controller_n_256,
       \r_Count_reg[19]_16\(1) => \^r_count_reg[19]_5\(0),
-      \r_Count_reg[19]_16\(0) => U_Master_Controller_n_262,
-      \r_Count_reg[19]_17\(0) => U_Master_Controller_n_263,
+      \r_Count_reg[19]_16\(0) => U_Master_Controller_n_263,
+      \r_Count_reg[19]_17\(0) => U_Master_Controller_n_264,
       \r_Count_reg[19]_18\(3 downto 0) => \r_Count_reg[19]_6\(3 downto 0),
-      \r_Count_reg[19]_19\(0) => U_Master_Controller_n_271,
+      \r_Count_reg[19]_19\(0) => U_Master_Controller_n_272,
       \r_Count_reg[19]_2\(3 downto 0) => \r_Count_reg[19]_1\(3 downto 0),
       \r_Count_reg[19]_20\(3 downto 0) => \r_Count_reg[19]_9\(3 downto 0),
       \r_Count_reg[19]_21\(3 downto 0) => \r_Count_reg[19]_10\(3 downto 0),
-      \r_Count_reg[19]_3\(3) => U_Master_Controller_n_68,
-      \r_Count_reg[19]_3\(2) => U_Master_Controller_n_69,
-      \r_Count_reg[19]_3\(1) => U_Master_Controller_n_70,
-      \r_Count_reg[19]_3\(0) => U_Master_Controller_n_71,
-      \r_Count_reg[19]_4\(3) => U_Master_Controller_n_77,
+      \r_Count_reg[19]_3\(3) => U_Master_Controller_n_69,
+      \r_Count_reg[19]_3\(2) => U_Master_Controller_n_70,
+      \r_Count_reg[19]_3\(1) => U_Master_Controller_n_71,
+      \r_Count_reg[19]_3\(0) => U_Master_Controller_n_72,
+      \r_Count_reg[19]_4\(3) => U_Master_Controller_n_78,
       \r_Count_reg[19]_4\(2 downto 0) => \r_Count_reg[19]_2\(2 downto 0),
-      \r_Count_reg[19]_5\(1) => U_Master_Controller_n_90,
-      \r_Count_reg[19]_5\(0) => U_Master_Controller_n_91,
+      \r_Count_reg[19]_5\(1) => U_Master_Controller_n_91,
+      \r_Count_reg[19]_5\(0) => U_Master_Controller_n_92,
       \r_Count_reg[19]_6\(3 downto 0) => \^r_count_reg[19]\(3 downto 0),
-      \r_Count_reg[19]_7\(3) => U_Master_Controller_n_195,
+      \r_Count_reg[19]_7\(3) => U_Master_Controller_n_196,
       \r_Count_reg[19]_7\(2 downto 0) => \^r_count_reg[19]_4\(2 downto 0),
       \r_Count_reg[19]_8\(1 downto 0) => \r_Count_reg[19]_3\(1 downto 0),
-      \r_Count_reg[19]_9\(3) => U_Master_Controller_n_205,
-      \r_Count_reg[19]_9\(2) => U_Master_Controller_n_206,
-      \r_Count_reg[19]_9\(1) => U_Master_Controller_n_207,
-      \r_Count_reg[19]_9\(0) => U_Master_Controller_n_208,
-      \r_Count_reg[22]\(2 downto 0) => \r_Count_reg[22]\(2 downto 0),
-      \r_Count_reg[22]_0\(2 downto 0) => \r_Count_reg[22]_0\(2 downto 0),
-      \r_Count_reg[22]_1\ => U_Time_n_43,
-      \r_Count_reg[22]_2\(0) => U_Alarm_Time_n_21,
-      \r_Count_reg[22]_3\(2) => U_Alarm_Time_n_18,
-      \r_Count_reg[22]_3\(1) => U_Alarm_Time_n_19,
-      \r_Count_reg[22]_3\(0) => U_Alarm_Time_n_20,
-      \r_Count_reg[22]_4\(2) => U_Alarm_Time_n_15,
-      \r_Count_reg[22]_4\(1) => U_Alarm_Time_n_16,
-      \r_Count_reg[22]_4\(0) => U_Alarm_Time_n_17,
-      \r_Count_reg[22]_5\ => U_Alarm_Time_n_27,
+      \r_Count_reg[19]_9\(3) => U_Master_Controller_n_206,
+      \r_Count_reg[19]_9\(2) => U_Master_Controller_n_207,
+      \r_Count_reg[19]_9\(1) => U_Master_Controller_n_208,
+      \r_Count_reg[19]_9\(0) => U_Master_Controller_n_209,
+      \r_Count_reg[22]\(0) => U_Time_n_18,
+      \r_Count_reg[22]_0\(2 downto 0) => \r_Count_reg[22]\(2 downto 0),
+      \r_Count_reg[22]_1\(2 downto 0) => \r_Count_reg[22]_0\(2 downto 0),
+      \r_Count_reg[22]_2\ => U_Time_n_43,
+      \r_Count_reg[22]_3\(0) => U_Alarm_Time_n_21,
+      \r_Count_reg[22]_4\(2) => U_Alarm_Time_n_18,
+      \r_Count_reg[22]_4\(1) => U_Alarm_Time_n_19,
+      \r_Count_reg[22]_4\(0) => U_Alarm_Time_n_20,
+      \r_Count_reg[22]_5\(2) => U_Alarm_Time_n_15,
+      \r_Count_reg[22]_5\(1) => U_Alarm_Time_n_16,
+      \r_Count_reg[22]_5\(0) => U_Alarm_Time_n_17,
+      \r_Count_reg[22]_6\ => U_Alarm_Time_n_27,
       \r_Count_reg[23]\(2 downto 0) => \r_Count_reg[23]_2\(2 downto 0),
       \r_Count_reg[23]_0\(0) => \r_Count_reg[23]_3\(0),
       \r_Count_reg[23]_1\(3 downto 0) => \r_Count_reg[23]_4\(3 downto 0),
       \r_Count_reg[23]_10\(3 downto 1) => \r_Count_reg[23]_10\(2 downto 0),
-      \r_Count_reg[23]_10\(0) => U_Master_Controller_n_98,
+      \r_Count_reg[23]_10\(0) => U_Master_Controller_n_99,
       \r_Count_reg[23]_11\(2 downto 0) => \r_Count_reg[23]_11\(2 downto 0),
       \r_Count_reg[23]_12\(13 downto 0) => \^r_count_reg[23]_12\(16 downto 3),
       \r_Count_reg[23]_13\(3 downto 0) => \^r_count_reg[23]_0\(3 downto 0),
       \r_Count_reg[23]_14\(1 downto 0) => \^r_count_reg[23]_1\(1 downto 0),
       \r_Count_reg[23]_15\(0) => \r_Count_reg[23]_13\(0),
       \r_Count_reg[23]_16\(3 downto 1) => \^r_count_reg[23]_14\(2 downto 0),
-      \r_Count_reg[23]_16\(0) => U_Master_Controller_n_184,
+      \r_Count_reg[23]_16\(0) => U_Master_Controller_n_185,
       \r_Count_reg[23]_17\(0) => \r_Count_reg[23]_15\(0),
       \r_Count_reg[23]_18\(12 downto 3) => \^r_count_reg[23]_19\(15 downto 6),
       \r_Count_reg[23]_18\(2 downto 0) => \^r_count_reg[23]_19\(2 downto 0),
-      \r_Count_reg[23]_19\(3) => U_Master_Controller_n_256,
-      \r_Count_reg[23]_19\(2) => U_Master_Controller_n_257,
-      \r_Count_reg[23]_19\(1) => U_Master_Controller_n_258,
-      \r_Count_reg[23]_19\(0) => U_Master_Controller_n_259,
+      \r_Count_reg[23]_19\(3) => U_Master_Controller_n_257,
+      \r_Count_reg[23]_19\(2) => U_Master_Controller_n_258,
+      \r_Count_reg[23]_19\(1) => U_Master_Controller_n_259,
+      \r_Count_reg[23]_19\(0) => U_Master_Controller_n_260,
       \r_Count_reg[23]_2\(0) => \r_Count_reg[23]_5\(0),
-      \r_Count_reg[23]_20\(0) => U_Master_Controller_n_260,
+      \r_Count_reg[23]_20\(0) => U_Master_Controller_n_261,
       \r_Count_reg[23]_21\(2 downto 0) => \^r_count_reg[23]_20\(2 downto 0),
       \r_Count_reg[23]_22\(0) => \r_Count_reg[23]_22\(0),
       \r_Count_reg[23]_23\(3) => U_Time_n_367,
@@ -67578,39 +68143,39 @@ U_Master_Controller: entity work.Alarm_Clock_Alarm_Clock_0_1_Master_Controller
       \r_Count_reg[23]_24\(0) => U_Time_n_379,
       \r_Count_reg[23]_3\(0) => \r_Count_reg[23]_6\(0),
       \r_Count_reg[23]_4\(16 downto 0) => \r_Count_reg[23]_7\(16 downto 0),
-      \r_Count_reg[23]_5\(3) => U_Master_Controller_n_72,
-      \r_Count_reg[23]_5\(2) => U_Master_Controller_n_73,
-      \r_Count_reg[23]_5\(1) => U_Master_Controller_n_74,
-      \r_Count_reg[23]_5\(0) => U_Master_Controller_n_75,
-      \r_Count_reg[23]_6\(0) => U_Master_Controller_n_76,
+      \r_Count_reg[23]_5\(3) => U_Master_Controller_n_73,
+      \r_Count_reg[23]_5\(2) => U_Master_Controller_n_74,
+      \r_Count_reg[23]_5\(1) => U_Master_Controller_n_75,
+      \r_Count_reg[23]_5\(0) => U_Master_Controller_n_76,
+      \r_Count_reg[23]_6\(0) => U_Master_Controller_n_77,
       \r_Count_reg[23]_7\(0) => CO(0),
       \r_Count_reg[23]_8\(3 downto 0) => \r_Count_reg[23]_8\(3 downto 0),
       \r_Count_reg[23]_9\(2 downto 1) => \r_Count_reg[23]_9\(1 downto 0),
-      \r_Count_reg[23]_9\(0) => U_Master_Controller_n_94,
-      \r_Count_reg[3]\(0) => U_Master_Controller_n_15,
-      \r_Count_reg[3]_0\(0) => U_Master_Controller_n_140,
-      \r_Count_reg[3]_1\(0) => U_Master_Controller_n_144,
+      \r_Count_reg[23]_9\(0) => U_Master_Controller_n_95,
+      \r_Count_reg[3]\(0) => U_Master_Controller_n_16,
+      \r_Count_reg[3]_0\(0) => U_Master_Controller_n_141,
+      \r_Count_reg[3]_1\(0) => U_Master_Controller_n_145,
       \r_Count_reg[3]_2\(0) => \U_Time_Counter/r_Count1\,
-      \r_Count_reg[3]_3\(0) => U_Master_Controller_n_273,
-      \r_Count_reg[3]_4\(0) => U_Master_Controller_n_275,
-      \r_Count_reg[3]_5\ => U_Master_Controller_n_276,
-      \r_Count_reg[3]_6\(0) => U_Master_Controller_n_278,
+      \r_Count_reg[3]_3\(0) => U_Master_Controller_n_274,
+      \r_Count_reg[3]_4\(0) => U_Master_Controller_n_276,
+      \r_Count_reg[3]_5\ => U_Master_Controller_n_277,
+      \r_Count_reg[3]_6\(0) => U_Master_Controller_n_280,
       \r_Count_reg[5]\(3 downto 0) => w_Alarm_Time_Stamp(5 downto 2),
       \r_Count_reg[5]_0\(2 downto 0) => \U_Time_Counter/r_Count2\(5 downto 3),
-      \r_Count_reg[7]\(1) => U_Master_Controller_n_8,
-      \r_Count_reg[7]\(0) => U_Master_Controller_n_9,
+      \r_Count_reg[7]\(1) => U_Master_Controller_n_9,
+      \r_Count_reg[7]\(0) => U_Master_Controller_n_10,
       \r_Count_reg[7]_0\(0) => \U_Time_Counter/r_Count1_8\,
-      \r_Count_reg[7]_1\(0) => U_Master_Controller_n_41,
-      \r_Count_reg[7]_2\(1) => U_Master_Controller_n_141,
-      \r_Count_reg[7]_2\(0) => U_Master_Controller_n_142,
-      \r_Count_reg[7]_3\ => U_Master_Controller_n_143,
-      \r_Count_reg[7]_4\(3) => U_Master_Controller_n_146,
-      \r_Count_reg[7]_4\(2) => U_Master_Controller_n_147,
-      \r_Count_reg[7]_4\(1) => U_Master_Controller_n_148,
-      \r_Count_reg[7]_4\(0) => U_Master_Controller_n_149,
-      \r_Count_reg[7]_5\(0) => U_Master_Controller_n_225,
+      \r_Count_reg[7]_1\(0) => U_Master_Controller_n_42,
+      \r_Count_reg[7]_2\(1) => U_Master_Controller_n_142,
+      \r_Count_reg[7]_2\(0) => U_Master_Controller_n_143,
+      \r_Count_reg[7]_3\ => U_Master_Controller_n_144,
+      \r_Count_reg[7]_4\(3) => U_Master_Controller_n_147,
+      \r_Count_reg[7]_4\(2) => U_Master_Controller_n_148,
+      \r_Count_reg[7]_4\(1) => U_Master_Controller_n_149,
+      \r_Count_reg[7]_4\(0) => U_Master_Controller_n_150,
+      \r_Count_reg[7]_5\(0) => U_Master_Controller_n_226,
       \r_Count_reg[7]_6\(0) => \U_Time_Counter/C\(2),
-      \r_Count_reg[7]_7\(0) => U_Master_Controller_n_274,
+      \r_Count_reg[7]_7\(0) => U_Master_Controller_n_275,
       \r_Count_reg[9]\(1) => U_Alarm_Time_n_5,
       \r_Count_reg[9]\(0) => U_Alarm_Time_n_6,
       \r_Count_reg[9]_0\(1) => U_Alarm_Time_n_0,
@@ -67754,38 +68319,38 @@ U_Minutes_1st_Digit_Dec_Pulse_Generator: entity work.Alarm_Clock_Alarm_Clock_0_1
       \r_Count_reg[15]\(1) => U_Minutes_1st_Digit_Dec_Pulse_Generator_n_16,
       \r_Count_reg[15]\(0) => U_Minutes_1st_Digit_Dec_Pulse_Generator_n_17,
       \r_Count_reg[23]\(13 downto 0) => \^r_count_reg[23]_21\(16 downto 3),
-      r_Minutes_1st_Digit_Dec_reg(0) => U_Master_Controller_n_271,
-      r_Minutes_1st_Digit_Dec_reg_0(3) => U_Master_Controller_n_205,
-      r_Minutes_1st_Digit_Dec_reg_0(2) => U_Master_Controller_n_206,
-      r_Minutes_1st_Digit_Dec_reg_0(1) => U_Master_Controller_n_207,
-      r_Minutes_1st_Digit_Dec_reg_0(0) => U_Master_Controller_n_208,
+      r_Minutes_1st_Digit_Dec_reg(0) => U_Master_Controller_n_272,
+      r_Minutes_1st_Digit_Dec_reg_0(3) => U_Master_Controller_n_206,
+      r_Minutes_1st_Digit_Dec_reg_0(2) => U_Master_Controller_n_207,
+      r_Minutes_1st_Digit_Dec_reg_0(1) => U_Master_Controller_n_208,
+      r_Minutes_1st_Digit_Dec_reg_0(0) => U_Master_Controller_n_209,
       r_Minutes_2nd_Digit_Dec_reg(3 downto 2) => \^r_count_reg[19]_7\(1 downto 0),
-      r_Minutes_2nd_Digit_Dec_reg(1) => U_Master_Controller_n_213,
-      r_Minutes_2nd_Digit_Dec_reg(0) => U_Master_Controller_n_214,
+      r_Minutes_2nd_Digit_Dec_reg(1) => U_Master_Controller_n_214,
+      r_Minutes_2nd_Digit_Dec_reg(0) => U_Master_Controller_n_215,
       r_Minutes_2nd_Digit_Dec_reg_0(0) => r_Minutes_2nd_Digit_Dec_reg_1(0),
       r_Minutes_2nd_Digit_Dec_reg_1(3 downto 1) => \^r_count_reg[19]_8\(2 downto 0),
-      r_Minutes_2nd_Digit_Dec_reg_1(0) => U_Master_Controller_n_219,
+      r_Minutes_2nd_Digit_Dec_reg_1(0) => U_Master_Controller_n_220,
       r_Minutes_2nd_Digit_Dec_reg_2(2 downto 0) => r_Minutes_2nd_Digit_Dec_reg_2(2 downto 0),
-      r_Minutes_2nd_Digit_Dec_reg_3(0) => U_Master_Controller_n_215,
-      r_Minutes_2nd_Digit_Dec_reg_4(0) => U_Master_Controller_n_220,
+      r_Minutes_2nd_Digit_Dec_reg_3(0) => U_Master_Controller_n_216,
+      r_Minutes_2nd_Digit_Dec_reg_4(0) => U_Master_Controller_n_221,
       r_Prev_Signal => r_Prev_Signal_10,
       \slv_reg3_reg[15]\(0) => \^r_count_reg[23]_20\(0),
       \slv_reg3_reg[15]_0\(1 downto 0) => \slv_reg3_reg[15]_1\(1 downto 0),
-      \slv_reg3_reg[1]\ => U_Master_Controller_n_143,
-      \slv_reg3_reg[5]\(2) => U_Master_Controller_n_201,
-      \slv_reg3_reg[5]\(1) => U_Master_Controller_n_202,
-      \slv_reg3_reg[5]\(0) => U_Master_Controller_n_203,
-      \slv_reg3_reg[5]_0\(1) => U_Master_Controller_n_209,
-      \slv_reg3_reg[5]_0\(0) => U_Master_Controller_n_210,
+      \slv_reg3_reg[1]\ => U_Master_Controller_n_144,
+      \slv_reg3_reg[5]\(2) => U_Master_Controller_n_202,
+      \slv_reg3_reg[5]\(1) => U_Master_Controller_n_203,
+      \slv_reg3_reg[5]\(0) => U_Master_Controller_n_204,
+      \slv_reg3_reg[5]_0\(1) => U_Master_Controller_n_210,
+      \slv_reg3_reg[5]_0\(0) => U_Master_Controller_n_211,
       w_Clk_5MHz => w_Clk_5MHz,
       w_Minutes_1st_Digit_Dec => w_Minutes_1st_Digit_Dec
     );
 U_Minutes_1st_Digit_Inc_Pulse_Generator: entity work.Alarm_Clock_Alarm_Clock_0_1_Pulse_Generator_10
      port map (
-      DI(3) => U_Master_Controller_n_175,
-      DI(2) => U_Master_Controller_n_176,
-      DI(1) => U_Master_Controller_n_177,
-      DI(0) => U_Master_Controller_n_171,
+      DI(3) => U_Master_Controller_n_176,
+      DI(2) => U_Master_Controller_n_177,
+      DI(1) => U_Master_Controller_n_178,
+      DI(0) => U_Master_Controller_n_172,
       Q(0) => Q(8),
       \r_Count_reg[15]\(3 downto 0) => \^r_count_reg[15]_3\(3 downto 0),
       \r_Count_reg[15]_0\(2 downto 0) => \^r_count_reg[15]_2\(3 downto 1),
@@ -67798,21 +68363,21 @@ U_Minutes_1st_Digit_Inc_Pulse_Generator: entity work.Alarm_Clock_Alarm_Clock_0_1
       r_Hours_1st_Digit_Inc_reg(3) => \^r_count_reg[15]_1\(1),
       r_Hours_1st_Digit_Inc_reg(2) => \slv_reg3_reg[10]\(0),
       r_Hours_1st_Digit_Inc_reg(1) => \^r_count_reg[15]_1\(0),
-      r_Hours_1st_Digit_Inc_reg(0) => U_Master_Controller_n_178,
-      r_Hours_1st_Digit_Inc_reg_0(0) => U_Master_Controller_n_185,
-      r_Minutes_1st_Digit_Inc_reg(0) => U_Master_Controller_n_229,
+      r_Hours_1st_Digit_Inc_reg(0) => U_Master_Controller_n_179,
+      r_Hours_1st_Digit_Inc_reg_0(0) => U_Master_Controller_n_186,
+      r_Minutes_1st_Digit_Inc_reg(0) => U_Master_Controller_n_230,
       r_Prev_Signal => r_Prev_Signal_11,
       \slv_reg3_reg[10]\(0) => \slv_reg3_reg[10]_0\(0),
-      \slv_reg3_reg[10]_0\(0) => U_Master_Controller_n_227,
-      \slv_reg3_reg[12]\(2) => U_Master_Controller_n_172,
-      \slv_reg3_reg[12]\(1) => U_Master_Controller_n_173,
-      \slv_reg3_reg[12]\(0) => U_Master_Controller_n_174,
-      \slv_reg3_reg[12]_0\(1) => U_Master_Controller_n_179,
-      \slv_reg3_reg[12]_0\(0) => U_Master_Controller_n_180,
+      \slv_reg3_reg[10]_0\(0) => U_Master_Controller_n_228,
+      \slv_reg3_reg[12]\(2) => U_Master_Controller_n_173,
+      \slv_reg3_reg[12]\(1) => U_Master_Controller_n_174,
+      \slv_reg3_reg[12]\(0) => U_Master_Controller_n_175,
+      \slv_reg3_reg[12]_0\(1) => U_Master_Controller_n_180,
+      \slv_reg3_reg[12]_0\(0) => U_Master_Controller_n_181,
       \slv_reg3_reg[14]\(3 downto 1) => \^r_count_reg[23]_14\(2 downto 0),
-      \slv_reg3_reg[14]\(0) => U_Master_Controller_n_184,
+      \slv_reg3_reg[14]\(0) => U_Master_Controller_n_185,
       \slv_reg3_reg[14]_0\(2 downto 0) => \slv_reg3_reg[14]\(2 downto 0),
-      \slv_reg3_reg[1]\ => U_Master_Controller_n_143,
+      \slv_reg3_reg[1]\ => U_Master_Controller_n_144,
       w_Clk_5MHz => w_Clk_5MHz,
       w_Minutes_1st_Digit_Inc => w_Minutes_1st_Digit_Inc
     );
@@ -67823,13 +68388,13 @@ U_Minutes_2nd_Digit_Dec_Pulse_Generator: entity work.Alarm_Clock_Alarm_Clock_0_1
       \r_Count_reg[19]_0\(2) => U_Minutes_2nd_Digit_Dec_Pulse_Generator_n_2,
       \r_Count_reg[19]_0\(1) => U_Minutes_2nd_Digit_Dec_Pulse_Generator_n_3,
       \r_Count_reg[19]_0\(0) => U_Minutes_2nd_Digit_Dec_Pulse_Generator_n_4,
-      r_Hours_1st_Digit_Dec_reg(1) => U_Master_Controller_n_195,
+      r_Hours_1st_Digit_Dec_reg(1) => U_Master_Controller_n_196,
       r_Hours_1st_Digit_Dec_reg(0) => \^r_count_reg[19]_4\(2),
-      r_Hours_1st_Digit_Dec_reg_0(0) => U_Master_Controller_n_263,
+      r_Hours_1st_Digit_Dec_reg_0(0) => U_Master_Controller_n_264,
       r_Hours_1st_Digit_Dec_reg_1(1) => \^r_count_reg[19]_5\(0),
-      r_Hours_1st_Digit_Dec_reg_1(0) => U_Master_Controller_n_262,
+      r_Hours_1st_Digit_Dec_reg_1(0) => U_Master_Controller_n_263,
       r_Prev_Signal => r_Prev_Signal_12,
-      \slv_reg3_reg[1]\ => U_Master_Controller_n_143,
+      \slv_reg3_reg[1]\ => U_Master_Controller_n_144,
       w_Clk_5MHz => w_Clk_5MHz,
       w_Minutes_2nd_Digit_Dec => w_Minutes_2nd_Digit_Dec
     );
@@ -67901,10 +68466,10 @@ U_Rotary_Encoder: entity work.Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
       \r_Count_reg[23]_5\ => U_Alarm_Time_n_349,
       \r_Count_reg[23]_6\ => U_Time_n_365,
       \r_Count_reg[7]\(0) => U_Rotary_Encoder_n_33,
-      r_Hours_1st_Digit_Dec_reg_0(0) => U_Master_Controller_n_77,
-      r_Hours_1st_Digit_Inc_reg_0(0) => U_Master_Controller_n_26,
-      r_Minutes_2nd_Digit_Dec_reg_0(0) => U_Master_Controller_n_94,
-      r_Minutes_2nd_Digit_Dec_reg_1(0) => U_Master_Controller_n_98,
+      r_Hours_1st_Digit_Dec_reg_0(0) => U_Master_Controller_n_78,
+      r_Hours_1st_Digit_Inc_reg_0(0) => U_Master_Controller_n_27,
+      r_Minutes_2nd_Digit_Dec_reg_0(0) => U_Master_Controller_n_95,
+      r_Minutes_2nd_Digit_Dec_reg_1(0) => U_Master_Controller_n_99,
       r_Prev_Signal => r_Prev_Signal_11,
       r_Prev_Signal_0 => r_Prev_Signal_18,
       r_Prev_Signal_1 => r_Prev_Signal_16,
@@ -67914,24 +68479,24 @@ U_Rotary_Encoder: entity work.Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
       r_Prev_Signal_5 => r_Prev_Signal_1,
       r_Prev_Signal_6 => r_Prev_Signal_2,
       r_Seconds_2nd_Digit_Inc_reg_0(0) => \U_Time_Counter/C_7\(10),
-      \r_Time_State_reg[0]\(2) => U_Master_Controller_n_16,
-      \r_Time_State_reg[0]\(1) => U_Master_Controller_n_17,
-      \r_Time_State_reg[0]\(0) => U_Master_Controller_n_18,
-      \r_Time_State_reg[0]_0\(0) => U_Master_Controller_n_41,
-      \slv_reg3_reg[12]\(1) => U_Master_Controller_n_19,
-      \slv_reg3_reg[12]\(0) => U_Master_Controller_n_20,
-      \slv_reg3_reg[1]\ => U_Master_Controller_n_1,
-      \slv_reg3_reg[5]\(2) => U_Master_Controller_n_86,
-      \slv_reg3_reg[5]\(1) => U_Master_Controller_n_87,
-      \slv_reg3_reg[5]\(0) => U_Master_Controller_n_88,
-      \slv_reg3_reg[5]_0\(1) => U_Master_Controller_n_90,
-      \slv_reg3_reg[5]_0\(0) => U_Master_Controller_n_91,
-      \slv_reg3_reg[8]\(2) => U_Master_Controller_n_134,
-      \slv_reg3_reg[8]\(1) => U_Master_Controller_n_135,
-      \slv_reg3_reg[8]\(0) => U_Master_Controller_n_136,
-      \slv_reg3_reg[9]\(2) => U_Master_Controller_n_137,
-      \slv_reg3_reg[9]\(1) => U_Master_Controller_n_138,
-      \slv_reg3_reg[9]\(0) => U_Master_Controller_n_139,
+      \r_Time_State_reg[0]\(2) => U_Master_Controller_n_17,
+      \r_Time_State_reg[0]\(1) => U_Master_Controller_n_18,
+      \r_Time_State_reg[0]\(0) => U_Master_Controller_n_19,
+      \r_Time_State_reg[0]_0\(0) => U_Master_Controller_n_42,
+      \slv_reg3_reg[12]\(1) => U_Master_Controller_n_20,
+      \slv_reg3_reg[12]\(0) => U_Master_Controller_n_21,
+      \slv_reg3_reg[1]\ => U_Master_Controller_n_2,
+      \slv_reg3_reg[5]\(2) => U_Master_Controller_n_87,
+      \slv_reg3_reg[5]\(1) => U_Master_Controller_n_88,
+      \slv_reg3_reg[5]\(0) => U_Master_Controller_n_89,
+      \slv_reg3_reg[5]_0\(1) => U_Master_Controller_n_91,
+      \slv_reg3_reg[5]_0\(0) => U_Master_Controller_n_92,
+      \slv_reg3_reg[8]\(2) => U_Master_Controller_n_135,
+      \slv_reg3_reg[8]\(1) => U_Master_Controller_n_136,
+      \slv_reg3_reg[8]\(0) => U_Master_Controller_n_137,
+      \slv_reg3_reg[9]\(2) => U_Master_Controller_n_138,
+      \slv_reg3_reg[9]\(1) => U_Master_Controller_n_139,
+      \slv_reg3_reg[9]\(0) => U_Master_Controller_n_140,
       w_Alarm_Time(16 downto 14) => w_Alarm_Time(31 downto 29),
       w_Alarm_Time(13 downto 11) => w_Alarm_Time(27 downto 25),
       w_Alarm_Time(10 downto 9) => w_Alarm_Time(23 downto 22),
@@ -67982,7 +68547,7 @@ U_Seconds_1st_Digit_Inc_Pulse_Generator: entity work.Alarm_Clock_Alarm_Clock_0_1
       r_Seconds_2nd_Digit_Inc_reg(2) => \^r_count_reg[23]_19\(4),
       r_Seconds_2nd_Digit_Inc_reg(1) => \U_Time_Counter/C\(10),
       r_Seconds_2nd_Digit_Inc_reg(0) => \^r_count_reg[23]_19\(3),
-      \slv_reg3_reg[1]\ => U_Master_Controller_n_143,
+      \slv_reg3_reg[1]\ => U_Master_Controller_n_144,
       w_Clk_5MHz => w_Clk_5MHz,
       w_Seconds_1st_Digit_Inc => w_Seconds_1st_Digit_Inc
     );
@@ -67995,7 +68560,7 @@ U_Seconds_2nd_Digit_Dec_Pulse_Generator: entity work.Alarm_Clock_Alarm_Clock_0_1
       r_Minutes_1st_Digit_Dec_reg(1) => \U_Time_Counter/C__0\(7),
       r_Minutes_1st_Digit_Dec_reg(0) => \^r_count_reg[23]_21\(1),
       r_Prev_Signal => r_Prev_Signal_17,
-      \slv_reg3_reg[1]\ => U_Master_Controller_n_143,
+      \slv_reg3_reg[1]\ => U_Master_Controller_n_144,
       w_Clk_5MHz => w_Clk_5MHz,
       w_Seconds_2nd_Digit_Dec => w_Seconds_2nd_Digit_Dec
     );
@@ -68006,11 +68571,11 @@ U_Seconds_2nd_Digit_Inc_Pulse_Generator: entity work.Alarm_Clock_Alarm_Clock_0_1
       \r_Count_reg[11]\(0) => U_Seconds_2nd_Digit_Inc_Pulse_Generator_n_2,
       \r_Count_reg[11]_0\(0) => U_Seconds_2nd_Digit_Inc_Pulse_Generator_n_3,
       r_Minutes_1st_Digit_Inc_reg(3) => \^r_count_reg[15]_2\(0),
-      r_Minutes_1st_Digit_Inc_reg(2) => U_Master_Controller_n_188,
+      r_Minutes_1st_Digit_Inc_reg(2) => U_Master_Controller_n_189,
       r_Minutes_1st_Digit_Inc_reg(1 downto 0) => \^r_count_reg[11]_0\(1 downto 0),
       r_Prev_Signal => r_Prev_Signal_18,
       r_Seconds_2nd_Digit_Inc_reg(0) => \^r_count_reg[23]_19\(0),
-      \slv_reg3_reg[1]\ => U_Master_Controller_n_143,
+      \slv_reg3_reg[1]\ => U_Master_Controller_n_144,
       w_Clk_5MHz => w_Clk_5MHz,
       w_Seconds_2nd_Digit_Inc => w_Seconds_2nd_Digit_Inc
     );
@@ -68586,13 +69151,13 @@ U_Seven_Segment_Display_Driver: entity work.Alarm_Clock_Alarm_Clock_0_1_Seven_Se
     );
 U_Time: entity work.Alarm_Clock_Alarm_Clock_0_1_Time_17
      port map (
-      CO(0) => U_Time_n_18,
+      CO(0) => \^r_bcd_num_reg[30]\(0),
       DI(1) => U_Seven_Segment_Digit_Blinker_n_0,
       DI(0) => U_Seven_Segment_Digit_Blinker_n_1,
-      O(3) => U_Master_Controller_n_11,
-      O(2) => U_Master_Controller_n_12,
-      O(1) => U_Master_Controller_n_13,
-      O(0) => U_Master_Controller_n_14,
+      O(3) => U_Master_Controller_n_12,
+      O(2) => U_Master_Controller_n_13,
+      O(1) => U_Master_Controller_n_14,
+      O(0) => U_Master_Controller_n_15,
       Q(0) => Q(1),
       S(1) => U_Seven_Segment_Digit_Blinker_n_9,
       S(0) => U_Seven_Segment_Digit_Blinker_n_10,
@@ -68694,35 +69259,34 @@ U_Time: entity work.Alarm_Clock_Alarm_Clock_0_1_Time_17
       \r_BCD_Num_reg[30]_1\(2) => U_Time_n_147,
       \r_BCD_Num_reg[30]_1\(1) => U_Time_n_148,
       \r_BCD_Num_reg[30]_1\(0) => U_Time_n_149,
-      \r_BCD_Num_reg[30]_10\(2) => U_Time_n_185,
-      \r_BCD_Num_reg[30]_10\(1) => U_Time_n_186,
-      \r_BCD_Num_reg[30]_10\(0) => U_Time_n_187,
-      \r_BCD_Num_reg[30]_11\(0) => U_Time_n_243,
-      \r_BCD_Num_reg[30]_12\(0) => \^r_bcd_num_reg[30]_0\(0),
-      \r_BCD_Num_reg[30]_13\(2) => U_Time_n_248,
-      \r_BCD_Num_reg[30]_13\(1) => U_Time_n_249,
-      \r_BCD_Num_reg[30]_13\(0) => U_Time_n_250,
-      \r_BCD_Num_reg[30]_14\(3) => U_Time_n_251,
-      \r_BCD_Num_reg[30]_14\(2) => U_Time_n_252,
-      \r_BCD_Num_reg[30]_14\(1) => U_Time_n_253,
-      \r_BCD_Num_reg[30]_14\(0) => U_Time_n_254,
-      \r_BCD_Num_reg[30]_15\(0) => U_Time_n_261,
-      \r_BCD_Num_reg[30]_16\(0) => U_Time_n_274,
-      \r_BCD_Num_reg[30]_2\(0) => \^r_bcd_num_reg[30]\(0),
-      \r_BCD_Num_reg[30]_3\(2) => U_Time_n_152,
-      \r_BCD_Num_reg[30]_3\(1) => U_Time_n_153,
-      \r_BCD_Num_reg[30]_3\(0) => U_Time_n_154,
-      \r_BCD_Num_reg[30]_4\(2) => U_Time_n_155,
-      \r_BCD_Num_reg[30]_4\(1) => U_Time_n_156,
-      \r_BCD_Num_reg[30]_4\(0) => U_Time_n_157,
-      \r_BCD_Num_reg[30]_5\(0) => \^r_bcd_num_reg[30]_1\(0),
-      \r_BCD_Num_reg[30]_6\(1) => U_Time_n_177,
-      \r_BCD_Num_reg[30]_6\(0) => U_Time_n_178,
-      \r_BCD_Num_reg[30]_7\(0) => U_Time_n_179,
-      \r_BCD_Num_reg[30]_8\(2) => U_Time_n_181,
-      \r_BCD_Num_reg[30]_8\(1) => U_Time_n_182,
-      \r_BCD_Num_reg[30]_8\(0) => U_Time_n_183,
-      \r_BCD_Num_reg[30]_9\(0) => U_Time_n_184,
+      \r_BCD_Num_reg[30]_10\(0) => U_Time_n_243,
+      \r_BCD_Num_reg[30]_11\(0) => \^r_bcd_num_reg[30]_0\(0),
+      \r_BCD_Num_reg[30]_12\(2) => U_Time_n_248,
+      \r_BCD_Num_reg[30]_12\(1) => U_Time_n_249,
+      \r_BCD_Num_reg[30]_12\(0) => U_Time_n_250,
+      \r_BCD_Num_reg[30]_13\(3) => U_Time_n_251,
+      \r_BCD_Num_reg[30]_13\(2) => U_Time_n_252,
+      \r_BCD_Num_reg[30]_13\(1) => U_Time_n_253,
+      \r_BCD_Num_reg[30]_13\(0) => U_Time_n_254,
+      \r_BCD_Num_reg[30]_14\(0) => U_Time_n_261,
+      \r_BCD_Num_reg[30]_15\(0) => U_Time_n_274,
+      \r_BCD_Num_reg[30]_2\(2) => U_Time_n_152,
+      \r_BCD_Num_reg[30]_2\(1) => U_Time_n_153,
+      \r_BCD_Num_reg[30]_2\(0) => U_Time_n_154,
+      \r_BCD_Num_reg[30]_3\(2) => U_Time_n_155,
+      \r_BCD_Num_reg[30]_3\(1) => U_Time_n_156,
+      \r_BCD_Num_reg[30]_3\(0) => U_Time_n_157,
+      \r_BCD_Num_reg[30]_4\(0) => \^r_bcd_num_reg[30]_1\(0),
+      \r_BCD_Num_reg[30]_5\(1) => U_Time_n_177,
+      \r_BCD_Num_reg[30]_5\(0) => U_Time_n_178,
+      \r_BCD_Num_reg[30]_6\(0) => U_Time_n_179,
+      \r_BCD_Num_reg[30]_7\(2) => U_Time_n_181,
+      \r_BCD_Num_reg[30]_7\(1) => U_Time_n_182,
+      \r_BCD_Num_reg[30]_7\(0) => U_Time_n_183,
+      \r_BCD_Num_reg[30]_8\(0) => U_Time_n_184,
+      \r_BCD_Num_reg[30]_9\(2) => U_Time_n_185,
+      \r_BCD_Num_reg[30]_9\(1) => U_Time_n_186,
+      \r_BCD_Num_reg[30]_9\(0) => U_Time_n_187,
       \r_BCD_Num_reg[31]\(19 downto 13) => w_Time(31 downto 25),
       \r_BCD_Num_reg[31]\(12 downto 11) => w_Time(23 downto 22),
       \r_BCD_Num_reg[31]\(10 downto 9) => w_Time(19 downto 18),
@@ -68819,7 +69383,7 @@ U_Time: entity work.Alarm_Clock_Alarm_Clock_0_1_Time_17
       \r_BCD_Num_reg[8]_4\(1 downto 0) => \r_BCD_Num_reg[8]_3\(1 downto 0),
       \r_BCD_Num_reg[8]_5\(3 downto 0) => \r_BCD_Num_reg[8]_4\(3 downto 0),
       \r_BCD_Num_reg[8]_6\(1 downto 0) => \r_BCD_Num_reg[8]_5\(1 downto 0),
-      \r_Count_reg[0]\(0) => U_Master_Controller_n_278,
+      \r_Count_reg[0]\(0) => U_Master_Controller_n_280,
       \r_Count_reg[0]_0\(0) => \r_Count_reg[0]\(0),
       \r_Count_reg[0]_1\(0) => w_Alarm_Time_Stamp(0),
       \r_Count_reg[12]\(3 downto 0) => \r_Count_reg[12]\(3 downto 0),
@@ -69035,21 +69599,22 @@ U_Time: entity work.Alarm_Clock_Alarm_Clock_0_1_Time_17
       \r_Count_reg[23]_99\(2) => U_Seven_Segment_Digit_Blinker_n_81,
       \r_Count_reg[23]_99\(1) => U_Seven_Segment_Digit_Blinker_n_82,
       \r_Count_reg[23]_99\(0) => U_Seven_Segment_Digit_Blinker_n_83,
-      \r_Count_reg[2]\(0) => U_Master_Controller_n_15,
-      \r_Count_reg[3]\(0) => U_Master_Controller_n_140,
-      \r_Count_reg[3]_0\(1 downto 0) => \r_Count_reg[3]\(1 downto 0),
-      \r_Count_reg[3]_1\(1 downto 0) => \r_Count_reg[3]_0\(1 downto 0),
-      \r_Count_reg[3]_2\(2 downto 0) => \r_Count_reg[3]_1\(2 downto 0),
-      \r_Count_reg[3]_3\(0) => \r_Count_reg[3]_2\(0),
-      \r_Count_reg[3]_4\(3 downto 0) => \r_Count_reg[3]_3\(3 downto 0),
-      \r_Count_reg[3]_5\(0) => \r_Count_reg[3]_4\(0),
-      \r_Count_reg[4]\(1) => U_Master_Controller_n_8,
-      \r_Count_reg[4]\(0) => U_Master_Controller_n_9,
+      \r_Count_reg[2]\(0) => U_Master_Controller_n_16,
+      \r_Count_reg[3]\(0) => U_Time_n_18,
+      \r_Count_reg[3]_0\(0) => U_Master_Controller_n_141,
+      \r_Count_reg[3]_1\(1 downto 0) => \r_Count_reg[3]\(1 downto 0),
+      \r_Count_reg[3]_2\(1 downto 0) => \r_Count_reg[3]_0\(1 downto 0),
+      \r_Count_reg[3]_3\(2 downto 0) => \r_Count_reg[3]_1\(2 downto 0),
+      \r_Count_reg[3]_4\(0) => \r_Count_reg[3]_2\(0),
+      \r_Count_reg[3]_5\(3 downto 0) => \r_Count_reg[3]_3\(3 downto 0),
+      \r_Count_reg[3]_6\(0) => \r_Count_reg[3]_4\(0),
+      \r_Count_reg[4]\(1) => U_Master_Controller_n_9,
+      \r_Count_reg[4]\(0) => U_Master_Controller_n_10,
       \r_Count_reg[4]_0\(0) => \r_Count_reg[4]\(0),
       \r_Count_reg[4]_1\(0) => \r_Count_reg[4]_0\(0),
       \r_Count_reg[4]_2\(0) => \r_Count_reg[4]_1\(0),
-      \r_Count_reg[5]\(1) => U_Master_Controller_n_141,
-      \r_Count_reg[5]\(0) => U_Master_Controller_n_142,
+      \r_Count_reg[5]\(1) => U_Master_Controller_n_142,
+      \r_Count_reg[5]\(0) => U_Master_Controller_n_143,
       \r_Count_reg[7]\(3 downto 0) => \U_Time_Counter/r_Count2_19\(5 downto 2),
       \r_Count_reg[7]_0\(0) => U_Time_n_366,
       \r_Count_reg[8]\(3 downto 0) => \r_Count_reg[8]\(3 downto 0),
@@ -69062,30 +69627,30 @@ U_Time: entity work.Alarm_Clock_Alarm_Clock_0_1_Time_17
       r_Minutes_1st_Digit_Dec_reg_0(3 downto 0) => \^r_count_reg[23]_0\(3 downto 0),
       r_Minutes_1st_Digit_Dec_reg_1(1 downto 0) => \^r_count_reg[23]_1\(1 downto 0),
       r_Prev_Signal => r_Prev_Signal,
-      r_Prev_Signal_reg(0) => U_Master_Controller_n_275,
-      r_Prev_Signal_reg_0 => U_Master_Controller_n_276,
-      r_Seconds_1st_Digit_Inc_reg(3) => U_Master_Controller_n_64,
-      r_Seconds_1st_Digit_Inc_reg(2) => U_Master_Controller_n_65,
-      r_Seconds_1st_Digit_Inc_reg(1) => U_Master_Controller_n_66,
-      r_Seconds_1st_Digit_Inc_reg(0) => U_Master_Controller_n_67,
-      r_Seconds_1st_Digit_Inc_reg_0(3) => U_Master_Controller_n_68,
-      r_Seconds_1st_Digit_Inc_reg_0(2) => U_Master_Controller_n_69,
-      r_Seconds_1st_Digit_Inc_reg_0(1) => U_Master_Controller_n_70,
-      r_Seconds_1st_Digit_Inc_reg_0(0) => U_Master_Controller_n_71,
-      r_Seconds_1st_Digit_Inc_reg_1(3) => U_Master_Controller_n_72,
-      r_Seconds_1st_Digit_Inc_reg_1(2) => U_Master_Controller_n_73,
-      r_Seconds_1st_Digit_Inc_reg_1(1) => U_Master_Controller_n_74,
-      r_Seconds_1st_Digit_Inc_reg_1(0) => U_Master_Controller_n_75,
-      r_Seconds_1st_Digit_Inc_reg_2(0) => U_Master_Controller_n_76,
+      r_Prev_Signal_reg(0) => U_Master_Controller_n_276,
+      r_Prev_Signal_reg_0 => U_Master_Controller_n_277,
+      r_Seconds_1st_Digit_Inc_reg(3) => U_Master_Controller_n_65,
+      r_Seconds_1st_Digit_Inc_reg(2) => U_Master_Controller_n_66,
+      r_Seconds_1st_Digit_Inc_reg(1) => U_Master_Controller_n_67,
+      r_Seconds_1st_Digit_Inc_reg(0) => U_Master_Controller_n_68,
+      r_Seconds_1st_Digit_Inc_reg_0(3) => U_Master_Controller_n_69,
+      r_Seconds_1st_Digit_Inc_reg_0(2) => U_Master_Controller_n_70,
+      r_Seconds_1st_Digit_Inc_reg_0(1) => U_Master_Controller_n_71,
+      r_Seconds_1st_Digit_Inc_reg_0(0) => U_Master_Controller_n_72,
+      r_Seconds_1st_Digit_Inc_reg_1(3) => U_Master_Controller_n_73,
+      r_Seconds_1st_Digit_Inc_reg_1(2) => U_Master_Controller_n_74,
+      r_Seconds_1st_Digit_Inc_reg_1(1) => U_Master_Controller_n_75,
+      r_Seconds_1st_Digit_Inc_reg_1(0) => U_Master_Controller_n_76,
+      r_Seconds_1st_Digit_Inc_reg_2(0) => U_Master_Controller_n_77,
       r_Seconds_2nd_Digit_Dec_reg(2 downto 0) => \^o\(2 downto 0),
       r_Seconds_2nd_Digit_Dec_reg_0(3 downto 0) => \^r_count_reg[15]\(3 downto 0),
-      r_Seconds_2nd_Digit_Inc_reg(3) => U_Master_Controller_n_60,
-      r_Seconds_2nd_Digit_Inc_reg(2) => U_Master_Controller_n_61,
-      r_Seconds_2nd_Digit_Inc_reg(1) => U_Master_Controller_n_62,
-      r_Seconds_2nd_Digit_Inc_reg(0) => U_Master_Controller_n_63,
-      \slv_reg3_reg[1]\ => U_Master_Controller_n_1,
+      r_Seconds_2nd_Digit_Inc_reg(3) => U_Master_Controller_n_61,
+      r_Seconds_2nd_Digit_Inc_reg(2) => U_Master_Controller_n_62,
+      r_Seconds_2nd_Digit_Inc_reg(1) => U_Master_Controller_n_63,
+      r_Seconds_2nd_Digit_Inc_reg(0) => U_Master_Controller_n_64,
+      \slv_reg3_reg[1]\ => U_Master_Controller_n_2,
       \slv_reg3_reg[1]_0\ => U_Seven_Segment_Digit_Blinker_n_280,
-      \slv_reg3_reg[5]\(0) => U_Master_Controller_n_89,
+      \slv_reg3_reg[5]\(0) => U_Master_Controller_n_90,
       w_Alarm_Time(25 downto 17) => w_Alarm_Time(29 downto 21),
       w_Alarm_Time(16 downto 15) => w_Alarm_Time(19 downto 18),
       w_Alarm_Time(14 downto 4) => w_Alarm_Time(16 downto 6),
@@ -69580,12 +70145,14 @@ entity Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI is
     s00_axi_rready : in STD_LOGIC;
     i_Change_Alarm : in STD_LOGIC;
     i_Reset : in STD_LOGIC;
+    i_Alarm_Game_Switches : in STD_LOGIC_VECTOR ( 9 downto 0 );
     s00_axi_awaddr : in STD_LOGIC_VECTOR ( 1 downto 0 );
     s00_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     s00_axi_araddr : in STD_LOGIC_VECTOR ( 1 downto 0 );
     s00_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
     i_Alarm_Enable : in STD_LOGIC;
-    i_Encoder_Enable : in STD_LOGIC
+    i_Encoder_Enable : in STD_LOGIC;
+    i_Alarm_Game_Enable : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI : entity is "Alarm_Clock_v2_0_S00_AXI";
@@ -69604,9 +70171,9 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI i
   signal axi_awready0 : STD_LOGIC;
   signal axi_awready_i_1_n_0 : STD_LOGIC;
   signal axi_bvalid_i_1_n_0 : STD_LOGIC;
+  signal \axi_rdata[1]_i_2_n_0\ : STD_LOGIC;
   signal axi_rvalid_i_1_n_0 : STD_LOGIC;
   signal axi_wready0 : STD_LOGIC;
-  signal \^o_alarm_enabled\ : STD_LOGIC;
   signal p_0_in0_in : STD_LOGIC;
   signal p_0_in1_in : STD_LOGIC;
   signal p_0_in_0 : STD_LOGIC;
@@ -69652,20 +70219,21 @@ architecture STRUCTURE of Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI i
   signal w_Seconds_2nd_Digit_Dec : STD_LOGIC;
   signal w_Seconds_2nd_Digit_Inc : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of axi_arready_i_1 : label is "soft_lutpair62";
-  attribute SOFT_HLUTNM of axi_awready_i_2 : label is "soft_lutpair63";
-  attribute SOFT_HLUTNM of \axi_rdata[24]_i_1\ : label is "soft_lutpair64";
-  attribute SOFT_HLUTNM of \axi_rdata[25]_i_1\ : label is "soft_lutpair65";
-  attribute SOFT_HLUTNM of \axi_rdata[26]_i_1\ : label is "soft_lutpair66";
-  attribute SOFT_HLUTNM of \axi_rdata[27]_i_1\ : label is "soft_lutpair64";
-  attribute SOFT_HLUTNM of \axi_rdata[28]_i_1\ : label is "soft_lutpair66";
-  attribute SOFT_HLUTNM of \axi_rdata[29]_i_1\ : label is "soft_lutpair67";
-  attribute SOFT_HLUTNM of \axi_rdata[30]_i_1\ : label is "soft_lutpair67";
-  attribute SOFT_HLUTNM of \axi_rdata[31]_i_1\ : label is "soft_lutpair65";
-  attribute SOFT_HLUTNM of axi_rvalid_i_1 : label is "soft_lutpair62";
-  attribute SOFT_HLUTNM of axi_wready_i_1 : label is "soft_lutpair63";
+  attribute SOFT_HLUTNM of axi_arready_i_1 : label is "soft_lutpair67";
+  attribute SOFT_HLUTNM of axi_awready_i_2 : label is "soft_lutpair68";
+  attribute SOFT_HLUTNM of \axi_rdata[1]_i_2\ : label is "soft_lutpair73";
+  attribute SOFT_HLUTNM of \axi_rdata[24]_i_1\ : label is "soft_lutpair69";
+  attribute SOFT_HLUTNM of \axi_rdata[25]_i_1\ : label is "soft_lutpair70";
+  attribute SOFT_HLUTNM of \axi_rdata[26]_i_1\ : label is "soft_lutpair69";
+  attribute SOFT_HLUTNM of \axi_rdata[27]_i_1\ : label is "soft_lutpair70";
+  attribute SOFT_HLUTNM of \axi_rdata[28]_i_1\ : label is "soft_lutpair71";
+  attribute SOFT_HLUTNM of \axi_rdata[29]_i_1\ : label is "soft_lutpair72";
+  attribute SOFT_HLUTNM of \axi_rdata[30]_i_1\ : label is "soft_lutpair72";
+  attribute SOFT_HLUTNM of \axi_rdata[31]_i_1\ : label is "soft_lutpair71";
+  attribute SOFT_HLUTNM of axi_rvalid_i_1 : label is "soft_lutpair67";
+  attribute SOFT_HLUTNM of axi_wready_i_1 : label is "soft_lutpair68";
+  attribute SOFT_HLUTNM of o_Alarm_Enabled_INST_0 : label is "soft_lutpair73";
 begin
-  o_Alarm_Enabled <= \^o_alarm_enabled\;
   s00_axi_arready <= \^s00_axi_arready\;
   s00_axi_awready <= \^s00_axi_awready\;
   s00_axi_bvalid <= \^s00_axi_bvalid\;
@@ -69704,6 +70272,8 @@ U_Alarm_Clock: entity work.Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
       S(0) => S(0),
       axi_araddr(1 downto 0) => axi_araddr(3 downto 2),
       i_Alarm_Enable => i_Alarm_Enable,
+      i_Alarm_Game_Enable => i_Alarm_Game_Enable,
+      i_Alarm_Game_Switches(9 downto 0) => i_Alarm_Game_Switches(9 downto 0),
       i_Change_Alarm => i_Change_Alarm,
       i_Clk_100MHz => i_Clk_100MHz,
       i_Encoder_A => i_Encoder_A,
@@ -69712,7 +70282,6 @@ U_Alarm_Clock: entity work.Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
       i_Encoder_Enable => i_Encoder_Enable,
       i_Reset => i_Reset,
       o_AUD_PWM => o_AUD_PWM,
-      o_Alarm_Enabled => \^o_alarm_enabled\,
       o_Alarm_On => o_Alarm_On,
       o_Anodes(7 downto 0) => o_Anodes(7 downto 0),
       o_PM => o_PM,
@@ -70164,6 +70733,7 @@ U_Alarm_Clock: entity work.Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
       \slv_reg3_reg[15]\(3 downto 0) => \slv_reg3_reg[15]_0\(3 downto 0),
       \slv_reg3_reg[15]_0\(0) => \slv_reg3_reg[15]_1\(0),
       \slv_reg3_reg[15]_1\(1 downto 0) => \slv_reg3_reg[15]_2\(1 downto 0),
+      \slv_reg3_reg[3]\ => \axi_rdata[1]_i_2_n_0\,
       \slv_reg3_reg[8]\(3 downto 0) => \slv_reg3_reg[8]_0\(3 downto 0),
       \slv_reg3_reg[8]_0\(3 downto 0) => \slv_reg3_reg[8]_1\(3 downto 0),
       \slv_reg3_reg[8]_1\(3 downto 0) => \slv_reg3_reg[8]_2\(3 downto 0),
@@ -70334,6 +70904,15 @@ axi_bvalid_reg: unisim.vcomponents.FDRE
       D => axi_bvalid_i_1_n_0,
       Q => \^s00_axi_bvalid\,
       R => axi_awready_i_1_n_0
+    );
+\axi_rdata[1]_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => p_0_in_0,
+      I1 => i_Alarm_Enable,
+      O => \axi_rdata[1]_i_2_n_0\
     );
 \axi_rdata[24]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -70714,9 +71293,9 @@ o_Alarm_Enabled_INST_0: unisim.vcomponents.LUT2
       INIT => X"E"
     )
         port map (
-      I0 => p_0_in_0,
-      I1 => i_Alarm_Enable,
-      O => \^o_alarm_enabled\
+      I0 => i_Alarm_Enable,
+      I1 => p_0_in_0,
+      O => o_Alarm_Enabled
     );
 \slv_reg3[15]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -71523,12 +72102,14 @@ entity Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0 is
     s00_axi_rready : in STD_LOGIC;
     i_Change_Alarm : in STD_LOGIC;
     i_Reset : in STD_LOGIC;
+    i_Alarm_Game_Switches : in STD_LOGIC_VECTOR ( 9 downto 0 );
     s00_axi_awaddr : in STD_LOGIC_VECTOR ( 1 downto 0 );
     s00_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     s00_axi_araddr : in STD_LOGIC_VECTOR ( 1 downto 0 );
     s00_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
     i_Alarm_Enable : in STD_LOGIC;
-    i_Encoder_Enable : in STD_LOGIC
+    i_Encoder_Enable : in STD_LOGIC;
+    i_Alarm_Game_Enable : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0 : entity is "Alarm_Clock_v2_0";
@@ -71544,6 +72125,8 @@ Alarm_Clock_v2_0_S00_AXI_inst: entity work.Alarm_Clock_Alarm_Clock_0_1_Alarm_Clo
       O(2 downto 0) => \r_Count_reg[23]_2\(2 downto 0),
       S(0) => S(0),
       i_Alarm_Enable => i_Alarm_Enable,
+      i_Alarm_Game_Enable => i_Alarm_Game_Enable,
+      i_Alarm_Game_Switches(9 downto 0) => i_Alarm_Game_Switches(9 downto 0),
       i_Change_Alarm => i_Change_Alarm,
       i_Clk_100MHz => i_Clk_100MHz,
       i_Encoder_A => i_Encoder_A,
@@ -72044,10 +72627,13 @@ entity Alarm_Clock_Alarm_Clock_0_1 is
     i_Encoder_A : in STD_LOGIC;
     i_Encoder_B : in STD_LOGIC;
     i_Alarm_Enable : in STD_LOGIC;
+    i_Alarm_Game_Enable : in STD_LOGIC;
+    i_Alarm_Game_Switches : in STD_LOGIC_VECTOR ( 9 downto 0 );
     o_Segments : out STD_LOGIC_VECTOR ( 6 downto 0 );
     o_Anodes : out STD_LOGIC_VECTOR ( 7 downto 0 );
     o_Alarm_Enabled : out STD_LOGIC;
     o_Alarm_On : out STD_LOGIC;
+    o_Alarm_Game_LEDs : out STD_LOGIC_VECTOR ( 9 downto 0 );
     o_AUD_SD : out STD_LOGIC;
     o_AUD_PWM : out STD_LOGIC;
     o_PM : out STD_LOGIC;
@@ -73799,6 +74385,16 @@ begin
   s00_axi_bresp(0) <= \<const0>\;
   s00_axi_rresp(1) <= \<const0>\;
   s00_axi_rresp(0) <= \<const0>\;
+  o_Alarm_Game_LEDs(0) <= 'Z';
+  o_Alarm_Game_LEDs(1) <= 'Z';
+  o_Alarm_Game_LEDs(2) <= 'Z';
+  o_Alarm_Game_LEDs(3) <= 'Z';
+  o_Alarm_Game_LEDs(4) <= 'Z';
+  o_Alarm_Game_LEDs(5) <= 'Z';
+  o_Alarm_Game_LEDs(6) <= 'Z';
+  o_Alarm_Game_LEDs(7) <= 'Z';
+  o_Alarm_Game_LEDs(8) <= 'Z';
+  o_Alarm_Game_LEDs(9) <= 'Z';
 GND: unisim.vcomponents.GND
      port map (
       G => \<const0>\
@@ -73816,6 +74412,8 @@ inst: entity work.Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0
       O(0) => inst_n_81,
       S(0) => \r_Count[19]_i_84_n_0\,
       i_Alarm_Enable => i_Alarm_Enable,
+      i_Alarm_Game_Enable => i_Alarm_Game_Enable,
+      i_Alarm_Game_Switches(9 downto 0) => i_Alarm_Game_Switches(9 downto 0),
       i_Change_Alarm => i_Change_Alarm,
       i_Clk_100MHz => i_Clk_100MHz,
       i_Encoder_A => i_Encoder_A,

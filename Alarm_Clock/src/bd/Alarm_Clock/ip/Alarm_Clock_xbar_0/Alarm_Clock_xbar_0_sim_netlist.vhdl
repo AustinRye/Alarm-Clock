@@ -1,10 +1,10 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
--- Date        : Tue Nov 26 13:27:32 2019
+-- Date        : Tue Nov 26 13:27:31 2019
 -- Host        : LAPTOP-CKAMQSCQ running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               D:/School/ELEC_3500/Lab_9/Alarm-Clock_v3/Alarm_Clock/src/bd/Alarm_Clock/ip/Alarm_Clock_xbar_0/Alarm_Clock_xbar_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top Alarm_Clock_xbar_0 -prefix
+--               Alarm_Clock_xbar_0_ Alarm_Clock_xbar_0_sim_netlist.vhdl
 -- Design      : Alarm_Clock_xbar_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -67,8 +67,6 @@ entity Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_addr_arbiter is
     s_axi_arlen : in STD_LOGIC_VECTOR ( 15 downto 0 );
     \gen_master_slots[0].r_issuing_cnt_reg[3]_2\ : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_addr_arbiter : entity is "axi_crossbar_v2_1_11_addr_arbiter";
 end Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_addr_arbiter;
 
 architecture STRUCTURE of Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_addr_arbiter is
@@ -2717,8 +2715,6 @@ entity Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_decerr_slave is
     s_axi_bready : in STD_LOGIC_VECTOR ( 0 to 0 );
     aresetn_d : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_decerr_slave : entity is "axi_crossbar_v2_1_11_decerr_slave";
 end Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_decerr_slave;
 
 architecture STRUCTURE of Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_decerr_slave is
@@ -3224,8 +3220,6 @@ entity Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_si_transactor is
     \m_payload_i_reg[130]_0\ : in STD_LOGIC;
     \gen_arbiter.s_ready_i_reg[0]_1\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_si_transactor : entity is "axi_crossbar_v2_1_11_si_transactor";
 end Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_si_transactor;
 
 architecture STRUCTURE of Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_si_transactor is
@@ -3847,8 +3841,6 @@ entity Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_splitter is
     aresetn_d : in STD_LOGIC;
     aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_splitter : entity is "axi_crossbar_v2_1_11_splitter";
 end Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_splitter;
 
 architecture STRUCTURE of Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_splitter is
@@ -4061,8 +4053,6 @@ entity Alarm_Clock_xbar_0_axi_data_fifo_v2_1_9_ndeep_srl is
     \storage_data1_reg[0]_0\ : in STD_LOGIC;
     m_select_enc : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of Alarm_Clock_xbar_0_axi_data_fifo_v2_1_9_ndeep_srl : entity is "axi_data_fifo_v2_1_9_ndeep_srl";
 end Alarm_Clock_xbar_0_axi_data_fifo_v2_1_9_ndeep_srl;
 
 architecture STRUCTURE of Alarm_Clock_xbar_0_axi_data_fifo_v2_1_9_ndeep_srl is
@@ -11351,8 +11341,6 @@ entity Alarm_Clock_xbar_0_axi_data_fifo_v2_1_9_axic_reg_srl_fifo is
     \gen_axi.s_axi_wready_i_reg_0\ : in STD_LOGIC;
     m_axi_wready : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of Alarm_Clock_xbar_0_axi_data_fifo_v2_1_9_axic_reg_srl_fifo : entity is "axi_data_fifo_v2_1_9_axic_reg_srl_fifo";
 end Alarm_Clock_xbar_0_axi_data_fifo_v2_1_9_axic_reg_srl_fifo;
 
 architecture STRUCTURE of Alarm_Clock_xbar_0_axi_data_fifo_v2_1_9_axic_reg_srl_fifo is
@@ -13837,8 +13825,6 @@ entity Alarm_Clock_xbar_0_axi_register_slice_v2_1_10_axi_register_slice is
     m_axi_rdata : in STD_LOGIC_VECTOR ( 127 downto 0 );
     m_axi_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of Alarm_Clock_xbar_0_axi_register_slice_v2_1_10_axi_register_slice : entity is "axi_register_slice_v2_1_10_axi_register_slice";
 end Alarm_Clock_xbar_0_axi_register_slice_v2_1_10_axi_register_slice;
 
 architecture STRUCTURE of Alarm_Clock_xbar_0_axi_register_slice_v2_1_10_axi_register_slice is
@@ -14047,8 +14033,6 @@ entity Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_wdata_mux is
     p_0_out : in STD_LOGIC;
     SR : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_wdata_mux : entity is "axi_crossbar_v2_1_11_wdata_mux";
 end Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_wdata_mux;
 
 architecture STRUCTURE of Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_wdata_mux is
@@ -14182,8 +14166,6 @@ entity Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_wdata_router is
     \gen_axi.s_axi_wready_i_reg_0\ : in STD_LOGIC;
     m_axi_wready : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_wdata_router : entity is "axi_crossbar_v2_1_11_wdata_router";
 end Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_wdata_router;
 
 architecture STRUCTURE of Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_wdata_router is
@@ -14285,8 +14267,6 @@ entity Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_crossbar is
     s_axi_wstrb : in STD_LOGIC_VECTOR ( 15 downto 0 );
     s_axi_wdata : in STD_LOGIC_VECTOR ( 127 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_crossbar : entity is "axi_crossbar_v2_1_11_crossbar";
 end Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_crossbar;
 
 architecture STRUCTURE of Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_crossbar is
@@ -15112,8 +15092,6 @@ entity Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_axi_crossbar is
   attribute C_S_AXI_WRITE_ACCEPTANCE of Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_axi_crossbar : entity is "64'b0000000000000000000000000000001000000000000000000000000000001000";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_axi_crossbar : entity is "yes";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_axi_crossbar : entity is "axi_crossbar_v2_1_11_axi_crossbar";
   attribute P_ADDR_DECODE : integer;
   attribute P_ADDR_DECODE of Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_axi_crossbar : entity is 1;
   attribute P_AXI3 : integer;

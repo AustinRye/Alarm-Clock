@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
 // Date        : Wed Nov 20 13:41:26 2019
 // Host        : LAPTOP-CKAMQSCQ running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               d:/School/ELEC_3500/Lab_9/Alarm_Clock_v3/Alarm_Clock/src/bd/Alarm_Clock/ip/Alarm_Clock_mii_to_rmii_0_0/Alarm_Clock_mii_to_rmii_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top Alarm_Clock_mii_to_rmii_0_0 -prefix
+//               Alarm_Clock_mii_to_rmii_0_0_ Alarm_Clock_mii_to_rmii_0_0_sim_netlist.v
 // Design      : Alarm_Clock_mii_to_rmii_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -98,7 +98,6 @@ module Alarm_Clock_mii_to_rmii_0_0
         .rst_n(rst_n));
 endmodule
 
-(* ORIG_REF_NAME = "SRL_FIFO" *) 
 module Alarm_Clock_mii_to_rmii_0_0_SRL_FIFO
    (D,
     \Addr_Counters[3].FDRE_I_0 ,
@@ -399,9 +398,9 @@ module Alarm_Clock_mii_to_rmii_0_0_SRL_FIFO
 endmodule
 
 (* C_FIXED_SPEED = "1'b1" *) (* C_INCLUDE_BUF = "0" *) (* C_INSTANCE = "Alarm_Clock_mii_to_rmii_0_0" *) 
-(* C_SPEED_100 = "1'b1" *) (* ORIG_REF_NAME = "mii_to_rmii" *) (* downgradeipidentifiedwarnings = "yes" *) 
-(* hdl = "VHDL" *) (* imp_netlist = "TRUE" *) (* ip_group = "LOGICORE" *) 
-(* iptype = "IP" *) (* style = "HDL" *) 
+(* C_SPEED_100 = "1'b1" *) (* downgradeipidentifiedwarnings = "yes" *) (* hdl = "VHDL" *) 
+(* imp_netlist = "TRUE" *) (* ip_group = "LOGICORE" *) (* iptype = "IP" *) 
+(* style = "HDL" *) 
 module Alarm_Clock_mii_to_rmii_0_0_mii_to_rmii
    (rst_n,
     ref_clk,
@@ -720,7 +719,6 @@ module Alarm_Clock_mii_to_rmii_0_0_mii_to_rmii
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "rmii_rx_fixed" *) 
 module Alarm_Clock_mii_to_rmii_0_0_rmii_rx_fixed
    (SR,
     rmii2Mac_crs_i,
@@ -1072,7 +1070,6 @@ module Alarm_Clock_mii_to_rmii_0_0_rmii_rx_fixed
         .O(rmii2mac_col_reg));
 endmodule
 
-(* ORIG_REF_NAME = "rmii_tx_fixed" *) 
 module Alarm_Clock_mii_to_rmii_0_0_rmii_tx_fixed
    (Rmii2Phy_tx_en,
     \rmii2phy_txd_reg[1] ,

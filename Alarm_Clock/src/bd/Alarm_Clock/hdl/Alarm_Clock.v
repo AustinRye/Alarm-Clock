@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
-//Date        : Tue Dec 03 13:32:15 2019
+//Date        : Thu Dec 05 20:50:51 2019
 //Host        : LAPTOP-CKAMQSCQ running 64-bit major release  (build 9200)
 //Command     : generate_target Alarm_Clock.bd
 //Design      : Alarm_Clock
@@ -36,6 +36,8 @@ module Alarm_Clock
     eth_rmii_tx_en,
     eth_rmii_txd,
     i_Alarm_Enable,
+    i_Alarm_Game_Enable,
+    i_Alarm_Game_Switches,
     i_Change_Alarm,
     i_Encoder_A,
     i_Encoder_B,
@@ -45,6 +47,7 @@ module Alarm_Clock
     o_AUD_PWM,
     o_AUD_SD,
     o_Alarm_Enabled,
+    o_Alarm_Game_LEDs,
     o_Alarm_On,
     o_Anodes,
     o_PM,
@@ -78,6 +81,8 @@ module Alarm_Clock
   output eth_rmii_tx_en;
   output [1:0]eth_rmii_txd;
   input i_Alarm_Enable;
+  input i_Alarm_Game_Enable;
+  input [9:0]i_Alarm_Game_Switches;
   input i_Change_Alarm;
   input i_Encoder_A;
   input i_Encoder_B;
@@ -87,6 +92,7 @@ module Alarm_Clock
   output o_AUD_PWM;
   output o_AUD_SD;
   output o_Alarm_Enabled;
+  output [9:0]o_Alarm_Game_LEDs;
   output o_Alarm_On;
   output [7:0]o_Anodes;
   output o_PM;
@@ -99,6 +105,7 @@ module Alarm_Clock
   wire Alarm_Clock_0_o_AUD_PWM;
   wire Alarm_Clock_0_o_AUD_SD;
   wire Alarm_Clock_0_o_Alarm_Enabled;
+  wire [9:0]Alarm_Clock_0_o_Alarm_Game_LEDs;
   wire Alarm_Clock_0_o_Alarm_On;
   wire [7:0]Alarm_Clock_0_o_Anodes;
   wire Alarm_Clock_0_o_PM;
@@ -161,6 +168,8 @@ module Alarm_Clock
   wire clk_wiz_1_clk_out3;
   wire clk_wiz_1_locked;
   wire i_Alarm_Enable_1;
+  wire i_Alarm_Game_Enable_1;
+  wire [9:0]i_Alarm_Game_Switches_1;
   wire i_Change_Alarm_1;
   wire i_Encoder_A_1;
   wire i_Encoder_B_1;
@@ -405,6 +414,8 @@ module Alarm_Clock
   assign eth_rmii_tx_en = mii_to_rmii_0_RMII_PHY_M_TX_EN;
   assign eth_rmii_txd[1:0] = mii_to_rmii_0_RMII_PHY_M_TXD;
   assign i_Alarm_Enable_1 = i_Alarm_Enable;
+  assign i_Alarm_Game_Enable_1 = i_Alarm_Game_Enable;
+  assign i_Alarm_Game_Switches_1 = i_Alarm_Game_Switches[9:0];
   assign i_Change_Alarm_1 = i_Change_Alarm;
   assign i_Encoder_A_1 = i_Encoder_A;
   assign i_Encoder_B_1 = i_Encoder_B;
@@ -417,6 +428,7 @@ module Alarm_Clock
   assign o_AUD_PWM = Alarm_Clock_0_o_AUD_PWM;
   assign o_AUD_SD = Alarm_Clock_0_o_AUD_SD;
   assign o_Alarm_Enabled = Alarm_Clock_0_o_Alarm_Enabled;
+  assign o_Alarm_Game_LEDs[9:0] = Alarm_Clock_0_o_Alarm_Game_LEDs;
   assign o_Alarm_On = Alarm_Clock_0_o_Alarm_On;
   assign o_Anodes[7:0] = Alarm_Clock_0_o_Anodes;
   assign o_PM = Alarm_Clock_0_o_PM;
@@ -426,6 +438,8 @@ module Alarm_Clock
   assign usb_uart_txd = axi_uartlite_0_UART_TxD;
   Alarm_Clock_Alarm_Clock_0_1 Alarm_Clock_0
        (.i_Alarm_Enable(i_Alarm_Enable_1),
+        .i_Alarm_Game_Enable(i_Alarm_Game_Enable_1),
+        .i_Alarm_Game_Switches(i_Alarm_Game_Switches_1),
         .i_Change_Alarm(i_Change_Alarm_1),
         .i_Clk_100MHz(microblaze_0_Clk),
         .i_Encoder_A(i_Encoder_A_1),
@@ -436,6 +450,7 @@ module Alarm_Clock
         .o_AUD_PWM(Alarm_Clock_0_o_AUD_PWM),
         .o_AUD_SD(Alarm_Clock_0_o_AUD_SD),
         .o_Alarm_Enabled(Alarm_Clock_0_o_Alarm_Enabled),
+        .o_Alarm_Game_LEDs(Alarm_Clock_0_o_Alarm_Game_LEDs),
         .o_Alarm_On(Alarm_Clock_0_o_Alarm_On),
         .o_Anodes(Alarm_Clock_0_o_Anodes),
         .o_PM(Alarm_Clock_0_o_PM),

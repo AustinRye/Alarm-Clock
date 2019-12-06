@@ -1,7 +1,7 @@
 // Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
-// Date        : Tue Dec 03 13:33:52 2019
+// Date        : Thu Dec 05 20:52:33 2019
 // Host        : LAPTOP-CKAMQSCQ running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               D:/School/ELEC_3500/Lab_9/Alarm-Clock_v3/Alarm_Clock/src/bd/Alarm_Clock/ip/Alarm_Clock_Alarm_Clock_0_1/Alarm_Clock_Alarm_Clock_0_1_stub.v
@@ -16,12 +16,13 @@
 (* X_CORE_INFO = "Alarm_Clock_v2_0,Vivado 2016.3" *)
 module Alarm_Clock_Alarm_Clock_0_1(i_Clk_100MHz, i_Reset, i_Change_Alarm, 
   i_Encoder_Enable, i_Encoder_Change_Mode, i_Encoder_A, i_Encoder_B, i_Alarm_Enable, 
-  o_Segments, o_Anodes, o_Alarm_Enabled, o_Alarm_On, o_AUD_SD, o_AUD_PWM, o_PM, s00_axi_awaddr, 
-  s00_axi_awprot, s00_axi_awvalid, s00_axi_awready, s00_axi_wdata, s00_axi_wstrb, 
-  s00_axi_wvalid, s00_axi_wready, s00_axi_bresp, s00_axi_bvalid, s00_axi_bready, 
-  s00_axi_araddr, s00_axi_arprot, s00_axi_arvalid, s00_axi_arready, s00_axi_rdata, 
-  s00_axi_rresp, s00_axi_rvalid, s00_axi_rready, s00_axi_aclk, s00_axi_aresetn)
-/* synthesis syn_black_box black_box_pad_pin="i_Clk_100MHz,i_Reset,i_Change_Alarm,i_Encoder_Enable,i_Encoder_Change_Mode,i_Encoder_A,i_Encoder_B,i_Alarm_Enable,o_Segments[6:0],o_Anodes[7:0],o_Alarm_Enabled,o_Alarm_On,o_AUD_SD,o_AUD_PWM,o_PM,s00_axi_awaddr[3:0],s00_axi_awprot[2:0],s00_axi_awvalid,s00_axi_awready,s00_axi_wdata[31:0],s00_axi_wstrb[3:0],s00_axi_wvalid,s00_axi_wready,s00_axi_bresp[1:0],s00_axi_bvalid,s00_axi_bready,s00_axi_araddr[3:0],s00_axi_arprot[2:0],s00_axi_arvalid,s00_axi_arready,s00_axi_rdata[31:0],s00_axi_rresp[1:0],s00_axi_rvalid,s00_axi_rready,s00_axi_aclk,s00_axi_aresetn" */;
+  i_Alarm_Game_Enable, i_Alarm_Game_Switches, o_Segments, o_Anodes, o_Alarm_Enabled, 
+  o_Alarm_On, o_Alarm_Game_LEDs, o_AUD_SD, o_AUD_PWM, o_PM, s00_axi_awaddr, s00_axi_awprot, 
+  s00_axi_awvalid, s00_axi_awready, s00_axi_wdata, s00_axi_wstrb, s00_axi_wvalid, 
+  s00_axi_wready, s00_axi_bresp, s00_axi_bvalid, s00_axi_bready, s00_axi_araddr, 
+  s00_axi_arprot, s00_axi_arvalid, s00_axi_arready, s00_axi_rdata, s00_axi_rresp, 
+  s00_axi_rvalid, s00_axi_rready, s00_axi_aclk, s00_axi_aresetn)
+/* synthesis syn_black_box black_box_pad_pin="i_Clk_100MHz,i_Reset,i_Change_Alarm,i_Encoder_Enable,i_Encoder_Change_Mode,i_Encoder_A,i_Encoder_B,i_Alarm_Enable,i_Alarm_Game_Enable,i_Alarm_Game_Switches[9:0],o_Segments[6:0],o_Anodes[7:0],o_Alarm_Enabled,o_Alarm_On,o_Alarm_Game_LEDs[9:0],o_AUD_SD,o_AUD_PWM,o_PM,s00_axi_awaddr[3:0],s00_axi_awprot[2:0],s00_axi_awvalid,s00_axi_awready,s00_axi_wdata[31:0],s00_axi_wstrb[3:0],s00_axi_wvalid,s00_axi_wready,s00_axi_bresp[1:0],s00_axi_bvalid,s00_axi_bready,s00_axi_araddr[3:0],s00_axi_arprot[2:0],s00_axi_arvalid,s00_axi_arready,s00_axi_rdata[31:0],s00_axi_rresp[1:0],s00_axi_rvalid,s00_axi_rready,s00_axi_aclk,s00_axi_aresetn" */;
   input i_Clk_100MHz;
   input i_Reset;
   input i_Change_Alarm;
@@ -30,10 +31,13 @@ module Alarm_Clock_Alarm_Clock_0_1(i_Clk_100MHz, i_Reset, i_Change_Alarm,
   input i_Encoder_A;
   input i_Encoder_B;
   input i_Alarm_Enable;
+  input i_Alarm_Game_Enable;
+  input [9:0]i_Alarm_Game_Switches;
   output [6:0]o_Segments;
   output [7:0]o_Anodes;
   output o_Alarm_Enabled;
   output o_Alarm_On;
+  output [9:0]o_Alarm_Game_LEDs;
   output o_AUD_SD;
   output o_AUD_PWM;
   output o_PM;

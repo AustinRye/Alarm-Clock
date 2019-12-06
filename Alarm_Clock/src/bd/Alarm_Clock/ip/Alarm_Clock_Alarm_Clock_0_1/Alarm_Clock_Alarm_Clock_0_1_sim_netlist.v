@@ -1,7 +1,7 @@
 // Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
-// Date        : Tue Dec 03 13:33:52 2019
+// Date        : Thu Dec 05 20:52:33 2019
 // Host        : LAPTOP-CKAMQSCQ running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               D:/School/ELEC_3500/Lab_9/Alarm-Clock_v3/Alarm_Clock/src/bd/Alarm_Clock/ip/Alarm_Clock_Alarm_Clock_0_1/Alarm_Clock_Alarm_Clock_0_1_sim_netlist.v
@@ -23,10 +23,13 @@ module Alarm_Clock_Alarm_Clock_0_1
     i_Encoder_A,
     i_Encoder_B,
     i_Alarm_Enable,
+    i_Alarm_Game_Enable,
+    i_Alarm_Game_Switches,
     o_Segments,
     o_Anodes,
     o_Alarm_Enabled,
     o_Alarm_On,
+    o_Alarm_Game_LEDs,
     o_AUD_SD,
     o_AUD_PWM,
     o_PM,
@@ -59,10 +62,13 @@ module Alarm_Clock_Alarm_Clock_0_1
   input i_Encoder_A;
   input i_Encoder_B;
   input i_Alarm_Enable;
+  input i_Alarm_Game_Enable;
+  input [9:0]i_Alarm_Game_Switches;
   output [6:0]o_Segments;
   output [7:0]o_Anodes;
   output o_Alarm_Enabled;
   output o_Alarm_On;
+  output [9:0]o_Alarm_Game_LEDs;
   output o_AUD_SD;
   output o_AUD_PWM;
   output o_PM;
@@ -97,6 +103,8 @@ module Alarm_Clock_Alarm_Clock_0_1
   wire [22:6]\Alarm_Clock_v2_0_S00_AXI_inst/U_Alarm_Clock/U_Time/U_Time_Counter/p_1_out0 ;
   wire [23:6]\Alarm_Clock_v2_0_S00_AXI_inst/U_Alarm_Clock/U_Time/U_Time_Counter/r_Count2 ;
   wire i_Alarm_Enable;
+  wire i_Alarm_Game_Enable;
+  wire [9:0]i_Alarm_Game_Switches;
   wire i_Change_Alarm;
   wire i_Clk_100MHz;
   wire i_Encoder_A;
@@ -1540,6 +1548,8 @@ module Alarm_Clock_Alarm_Clock_0_1
         .O(inst_n_81),
         .S(\r_Count[19]_i_84_n_0 ),
         .i_Alarm_Enable(i_Alarm_Enable),
+        .i_Alarm_Game_Enable(i_Alarm_Game_Enable),
+        .i_Alarm_Game_Switches(i_Alarm_Game_Switches),
         .i_Change_Alarm(i_Change_Alarm),
         .i_Clk_100MHz(i_Clk_100MHz),
         .i_Encoder_A(i_Encoder_A),
@@ -7890,10 +7900,12 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
     i_Encoder_B,
     i_Change_Alarm,
     i_Reset,
+    i_Alarm_Game_Switches,
     i_Alarm_Enable,
     i_Encoder_Enable,
     axi_araddr,
-    o_Alarm_Enabled);
+    \slv_reg3_reg[3] ,
+    i_Alarm_Game_Enable);
   output o_AUD_PWM;
   output o_Alarm_On;
   output [1:0]DI;
@@ -8360,10 +8372,12 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
   input i_Encoder_B;
   input i_Change_Alarm;
   input i_Reset;
+  input [9:0]i_Alarm_Game_Switches;
   input i_Alarm_Enable;
   input i_Encoder_Enable;
   input [1:0]axi_araddr;
-  input o_Alarm_Enabled;
+  input \slv_reg3_reg[3] ;
+  input i_Alarm_Game_Enable;
 
   wire [0:0]CO;
   wire [23:0]D;
@@ -8516,11 +8530,9 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
   wire U_Clock_Divider_5MHz_To_1KHz_n_1;
   wire U_Hours_1st_Digit_Dec_Pulse_Generator_n_1;
   wire U_Hours_2nd_Digit_Dec_Pulse_Generator_n_1;
-  wire U_Master_Controller_n_1;
-  wire U_Master_Controller_n_11;
+  wire U_Master_Controller_n_10;
   wire U_Master_Controller_n_12;
   wire U_Master_Controller_n_13;
-  wire U_Master_Controller_n_134;
   wire U_Master_Controller_n_135;
   wire U_Master_Controller_n_136;
   wire U_Master_Controller_n_137;
@@ -8532,14 +8544,14 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
   wire U_Master_Controller_n_142;
   wire U_Master_Controller_n_143;
   wire U_Master_Controller_n_144;
-  wire U_Master_Controller_n_146;
+  wire U_Master_Controller_n_145;
   wire U_Master_Controller_n_147;
   wire U_Master_Controller_n_148;
   wire U_Master_Controller_n_149;
   wire U_Master_Controller_n_15;
+  wire U_Master_Controller_n_150;
   wire U_Master_Controller_n_16;
   wire U_Master_Controller_n_17;
-  wire U_Master_Controller_n_171;
   wire U_Master_Controller_n_172;
   wire U_Master_Controller_n_173;
   wire U_Master_Controller_n_174;
@@ -8550,13 +8562,14 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
   wire U_Master_Controller_n_179;
   wire U_Master_Controller_n_18;
   wire U_Master_Controller_n_180;
-  wire U_Master_Controller_n_184;
+  wire U_Master_Controller_n_181;
   wire U_Master_Controller_n_185;
-  wire U_Master_Controller_n_188;
+  wire U_Master_Controller_n_186;
+  wire U_Master_Controller_n_189;
   wire U_Master_Controller_n_19;
-  wire U_Master_Controller_n_195;
+  wire U_Master_Controller_n_196;
+  wire U_Master_Controller_n_2;
   wire U_Master_Controller_n_20;
-  wire U_Master_Controller_n_201;
   wire U_Master_Controller_n_202;
   wire U_Master_Controller_n_203;
   wire U_Master_Controller_n_204;
@@ -8565,16 +8578,17 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
   wire U_Master_Controller_n_207;
   wire U_Master_Controller_n_208;
   wire U_Master_Controller_n_209;
+  wire U_Master_Controller_n_21;
   wire U_Master_Controller_n_210;
-  wire U_Master_Controller_n_213;
+  wire U_Master_Controller_n_211;
   wire U_Master_Controller_n_214;
   wire U_Master_Controller_n_215;
-  wire U_Master_Controller_n_219;
+  wire U_Master_Controller_n_216;
   wire U_Master_Controller_n_220;
-  wire U_Master_Controller_n_225;
-  wire U_Master_Controller_n_227;
-  wire U_Master_Controller_n_229;
-  wire U_Master_Controller_n_244;
+  wire U_Master_Controller_n_221;
+  wire U_Master_Controller_n_226;
+  wire U_Master_Controller_n_228;
+  wire U_Master_Controller_n_230;
   wire U_Master_Controller_n_245;
   wire U_Master_Controller_n_246;
   wire U_Master_Controller_n_247;
@@ -8590,19 +8604,20 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
   wire U_Master_Controller_n_257;
   wire U_Master_Controller_n_258;
   wire U_Master_Controller_n_259;
-  wire U_Master_Controller_n_26;
   wire U_Master_Controller_n_260;
-  wire U_Master_Controller_n_262;
+  wire U_Master_Controller_n_261;
   wire U_Master_Controller_n_263;
-  wire U_Master_Controller_n_271;
-  wire U_Master_Controller_n_273;
+  wire U_Master_Controller_n_264;
+  wire U_Master_Controller_n_27;
+  wire U_Master_Controller_n_272;
   wire U_Master_Controller_n_274;
   wire U_Master_Controller_n_275;
   wire U_Master_Controller_n_276;
   wire U_Master_Controller_n_277;
   wire U_Master_Controller_n_278;
-  wire U_Master_Controller_n_41;
-  wire U_Master_Controller_n_60;
+  wire U_Master_Controller_n_279;
+  wire U_Master_Controller_n_280;
+  wire U_Master_Controller_n_42;
   wire U_Master_Controller_n_61;
   wire U_Master_Controller_n_62;
   wire U_Master_Controller_n_63;
@@ -8620,16 +8635,16 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
   wire U_Master_Controller_n_75;
   wire U_Master_Controller_n_76;
   wire U_Master_Controller_n_77;
-  wire U_Master_Controller_n_8;
-  wire U_Master_Controller_n_86;
+  wire U_Master_Controller_n_78;
   wire U_Master_Controller_n_87;
   wire U_Master_Controller_n_88;
   wire U_Master_Controller_n_89;
   wire U_Master_Controller_n_9;
   wire U_Master_Controller_n_90;
   wire U_Master_Controller_n_91;
-  wire U_Master_Controller_n_94;
-  wire U_Master_Controller_n_98;
+  wire U_Master_Controller_n_92;
+  wire U_Master_Controller_n_95;
+  wire U_Master_Controller_n_99;
   wire U_Minutes_1st_Digit_Dec_Pulse_Generator_n_15;
   wire U_Minutes_1st_Digit_Dec_Pulse_Generator_n_16;
   wire U_Minutes_1st_Digit_Dec_Pulse_Generator_n_17;
@@ -9114,6 +9129,8 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
   wire U_Time_n_99;
   wire [1:0]axi_araddr;
   wire i_Alarm_Enable;
+  wire i_Alarm_Game_Enable;
+  wire [9:0]i_Alarm_Game_Switches;
   wire i_Change_Alarm;
   wire i_Clk_100MHz;
   wire i_Encoder_A;
@@ -9122,11 +9139,12 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
   wire i_Encoder_Enable;
   wire i_Reset;
   wire o_AUD_PWM;
-  wire o_Alarm_Enabled;
   wire o_Alarm_On;
   wire [7:0]o_Anodes;
   wire o_PM;
   wire [6:0]o_Segments;
+  wire r_Alarm_Next_State;
+  wire r_Alarm_Next_State1;
   wire [2:0]\r_BCD_Num_reg[10] ;
   wire [2:0]\r_BCD_Num_reg[10]_0 ;
   wire [2:0]\r_BCD_Num_reg[12] ;
@@ -9589,6 +9607,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
   wire [3:0]\slv_reg3_reg[15] ;
   wire [0:0]\slv_reg3_reg[15]_0 ;
   wire [1:0]\slv_reg3_reg[15]_1 ;
+  wire \slv_reg3_reg[3] ;
   wire [3:0]\slv_reg3_reg[8] ;
   wire [3:0]\slv_reg3_reg[8]_0 ;
   wire [3:0]\slv_reg3_reg[8]_1 ;
@@ -9628,9 +9647,18 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
        (.r_Prev_Signal(r_Prev_Signal_0),
         .w_Clk_1KHz(w_Clk_1KHz),
         .w_Clk_5MHz(w_Clk_5MHz));
+  Alarm_Clock_Alarm_Clock_0_1_Alarm_Game U_Alarm_Game
+       (.CO(r_Alarm_Next_State1),
+        .i_Alarm_Game_Enable(i_Alarm_Game_Enable),
+        .i_Alarm_Game_Switches(i_Alarm_Game_Switches),
+        .r_Alarm_Next_State(r_Alarm_Next_State),
+        .\slv_reg3_reg[3] (U_Master_Controller_n_279),
+        .w_Clk_5MHz(w_Clk_5MHz),
+        .w_Reset_Control(w_Reset_Control),
+        .w_Turn_Alarm_On(w_Turn_Alarm_On));
   Alarm_Clock_Alarm_Clock_0_1_Alarm_On U_Alarm_On
        (.o_Alarm_On(o_Alarm_On),
-        .r_Alarm_State_reg(U_Master_Controller_n_277),
+        .r_Alarm_State_reg(U_Master_Controller_n_278),
         .w_Clk_1Hz(w_Clk_1Hz));
   Alarm_Clock_Alarm_Clock_0_1_Alarm_Sound U_Alarm_Sound
        (.CLK(U_Clock_Divider_5MHz_To_10Hz_n_0),
@@ -9649,7 +9677,6 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
         .\axi_rdata_reg[5] ({w_Alarm_Time_Stamp[5:2],w_Alarm_Time_Stamp[0]}),
         .i_Change_Alarm(i_Change_Alarm),
         .i_Reset(i_Reset),
-        .o_Alarm_Enabled(o_Alarm_Enabled),
         .o_Alarm_On(o_Alarm_On),
         .p_1_out0(\U_Time_Counter/p_1_out0 ),
         .r_Alarm_State_reg(U_Alarm_Time_n_362),
@@ -9912,23 +9939,23 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
         .\r_Count_reg[23]_97 (\r_Count_reg[23]_134 ),
         .\r_Count_reg[23]_98 (\r_Count_reg[23]_135 ),
         .\r_Count_reg[23]_99 (\r_Count_reg[23]_136 ),
-        .\r_Count_reg[2] (U_Master_Controller_n_144),
+        .\r_Count_reg[2] (U_Master_Controller_n_145),
         .\r_Count_reg[3] ({U_Alarm_Time_n_7,U_Alarm_Time_n_8,U_Alarm_Time_n_9,U_Alarm_Time_n_10}),
         .\r_Count_reg[3]_0 ({U_Alarm_Time_n_11,U_Alarm_Time_n_12,U_Alarm_Time_n_13,U_Alarm_Time_n_14}),
         .\r_Count_reg[3]_1 ({U_Alarm_Time_n_15,U_Alarm_Time_n_16,U_Alarm_Time_n_17}),
         .\r_Count_reg[3]_2 ({U_Alarm_Time_n_18,U_Alarm_Time_n_19,U_Alarm_Time_n_20}),
-        .\r_Count_reg[3]_3 (U_Master_Controller_n_273),
+        .\r_Count_reg[3]_3 (U_Master_Controller_n_274),
         .\r_Count_reg[3]_4 (\r_Count_reg[3]_5 ),
         .\r_Count_reg[3]_5 (\r_Count_reg[3]_6 ),
         .\r_Count_reg[3]_6 (\r_Count_reg[3]_7 ),
         .\r_Count_reg[3]_7 (\r_Count_reg[3]_8 ),
         .\r_Count_reg[3]_8 (\r_Count_reg[3]_9 ),
         .\r_Count_reg[3]_9 (\r_Count_reg[3]_10 ),
-        .\r_Count_reg[4] (U_Master_Controller_n_225),
+        .\r_Count_reg[4] (U_Master_Controller_n_226),
         .\r_Count_reg[4]_0 (\r_Count_reg[4]_2 ),
         .\r_Count_reg[4]_1 (\r_Count_reg[4]_3 ),
         .\r_Count_reg[4]_2 (\r_Count_reg[4]_4 ),
-        .\r_Count_reg[5] (U_Master_Controller_n_274),
+        .\r_Count_reg[5] (U_Master_Controller_n_275),
         .\r_Count_reg[7] (U_Alarm_Time_n_350),
         .\r_Count_reg[7]_0 (U_Alarm_Time_n_351),
         .\r_Count_reg[8] (\r_Count_reg[8]_2 ),
@@ -9942,14 +9969,15 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
         .\r_Digit_Sel_reg[2] (U_Rotary_Encoder_n_58),
         .\r_Digit_Sel_reg[2]_0 (U_Rotary_Encoder_n_59),
         .\r_Digit_Sel_reg[2]_1 (U_Rotary_Encoder_n_61),
-        .r_Seconds_1st_Digit_Inc_reg({U_Master_Controller_n_248,U_Master_Controller_n_249,U_Master_Controller_n_250,U_Master_Controller_n_251}),
-        .r_Seconds_1st_Digit_Inc_reg_0({U_Master_Controller_n_252,U_Master_Controller_n_253,U_Master_Controller_n_254,U_Master_Controller_n_255}),
-        .r_Seconds_1st_Digit_Inc_reg_1({U_Master_Controller_n_256,U_Master_Controller_n_257,U_Master_Controller_n_258,U_Master_Controller_n_259}),
-        .r_Seconds_1st_Digit_Inc_reg_2(U_Master_Controller_n_260),
-        .r_Seconds_2nd_Digit_Inc_reg({U_Master_Controller_n_244,U_Master_Controller_n_245,U_Master_Controller_n_246,U_Master_Controller_n_247}),
-        .\r_Time_State_reg[1] ({U_Master_Controller_n_146,U_Master_Controller_n_147,U_Master_Controller_n_148,U_Master_Controller_n_149}),
+        .r_Seconds_1st_Digit_Inc_reg({U_Master_Controller_n_249,U_Master_Controller_n_250,U_Master_Controller_n_251,U_Master_Controller_n_252}),
+        .r_Seconds_1st_Digit_Inc_reg_0({U_Master_Controller_n_253,U_Master_Controller_n_254,U_Master_Controller_n_255,U_Master_Controller_n_256}),
+        .r_Seconds_1st_Digit_Inc_reg_1({U_Master_Controller_n_257,U_Master_Controller_n_258,U_Master_Controller_n_259,U_Master_Controller_n_260}),
+        .r_Seconds_1st_Digit_Inc_reg_2(U_Master_Controller_n_261),
+        .r_Seconds_2nd_Digit_Inc_reg({U_Master_Controller_n_245,U_Master_Controller_n_246,U_Master_Controller_n_247,U_Master_Controller_n_248}),
+        .\r_Time_State_reg[1] ({U_Master_Controller_n_147,U_Master_Controller_n_148,U_Master_Controller_n_149,U_Master_Controller_n_150}),
         .\slv_reg3_reg[1] (U_Seven_Segment_Digit_Blinker_n_280),
-        .\slv_reg3_reg[5] (U_Master_Controller_n_204),
+        .\slv_reg3_reg[3] (\slv_reg3_reg[3] ),
+        .\slv_reg3_reg[5] (U_Master_Controller_n_205),
         .\slv_reg3_reg[6] (\U_Time_Counter/C [2]),
         .w_Alarm_Time({w_Alarm_Time[31:21],w_Alarm_Time[19:18],w_Alarm_Time[16:6],w_Alarm_Time[4:1]}),
         .w_Clk_5MHz(w_Clk_5MHz),
@@ -10001,7 +10029,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
        (.Q(Q[13]),
         .S(U_Hours_1st_Digit_Dec_Pulse_Generator_n_1),
         .r_Prev_Signal(r_Prev_Signal_3),
-        .\slv_reg3_reg[1] (U_Master_Controller_n_143),
+        .\slv_reg3_reg[1] (U_Master_Controller_n_144),
         .w_Clk_5MHz(w_Clk_5MHz),
         .w_Hours_1st_Digit_Dec(w_Hours_1st_Digit_Dec));
   Alarm_Clock_Alarm_Clock_0_1_Pulse_Generator_6 U_Hours_1st_Digit_Inc_Pulse_Generator
@@ -10012,7 +10040,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
        (.Q(Q[15]),
         .S(U_Hours_2nd_Digit_Dec_Pulse_Generator_n_1),
         .r_Prev_Signal(r_Prev_Signal_5),
-        .\slv_reg3_reg[1] (U_Master_Controller_n_143),
+        .\slv_reg3_reg[1] (U_Master_Controller_n_144),
         .w_Clk_5MHz(w_Clk_5MHz),
         .w_Hours_2nd_Digit_Dec(w_Hours_2nd_Digit_Dec));
   Alarm_Clock_Alarm_Clock_0_1_Pulse_Generator_8 U_Hours_2nd_Digit_Inc_Pulse_Generator
@@ -10020,9 +10048,9 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
         .r_Prev_Signal(r_Prev_Signal_6),
         .w_Clk_5MHz(w_Clk_5MHz));
   Alarm_Clock_Alarm_Clock_0_1_Master_Controller U_Master_Controller
-       (.CO(U_Time_n_18),
+       (.CO(r_Alarm_Next_State1),
         .DI(DI),
-        .O({U_Master_Controller_n_11,U_Master_Controller_n_12,U_Master_Controller_n_13,U_Master_Controller_n_14}),
+        .O({U_Master_Controller_n_12,U_Master_Controller_n_13,U_Master_Controller_n_14,U_Master_Controller_n_15}),
         .Q(Q[15:0]),
         .S({U_Time_n_371,U_Time_n_372,U_Time_n_373,U_Time_n_374}),
         .i_Alarm_Enable(i_Alarm_Enable),
@@ -10032,111 +10060,114 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
         .o_Alarm_On(o_Alarm_On),
         .p_1_out0(\U_Time_Counter/p_1_out0_9 ),
         .p_1_out0_0(\U_Time_Counter/p_1_out0 ),
-        .r_Alarm_On_reg(U_Master_Controller_n_277),
+        .r_Alarm_Next_State(r_Alarm_Next_State),
+        .r_Alarm_On_reg(U_Master_Controller_n_278),
+        .r_Alarm_State_reg_0(U_Master_Controller_n_279),
         .r_Count2(\U_Time_Counter/r_Count2_19 ),
-        .\r_Count_reg[11] ({U_Master_Controller_n_60,U_Master_Controller_n_61,U_Master_Controller_n_62,U_Master_Controller_n_63}),
+        .\r_Count_reg[11] ({U_Master_Controller_n_61,U_Master_Controller_n_62,U_Master_Controller_n_63,U_Master_Controller_n_64}),
         .\r_Count_reg[11]_0 (O),
-        .\r_Count_reg[11]_1 ({U_Master_Controller_n_244,U_Master_Controller_n_245,U_Master_Controller_n_246,U_Master_Controller_n_247}),
+        .\r_Count_reg[11]_1 ({U_Master_Controller_n_245,U_Master_Controller_n_246,U_Master_Controller_n_247,U_Master_Controller_n_248}),
         .\r_Count_reg[11]_2 (\r_Count_reg[11]_1 ),
         .\r_Count_reg[11]_3 (\r_Count_reg[11]_2 ),
-        .\r_Count_reg[15] (U_Master_Controller_n_1),
-        .\r_Count_reg[15]_0 ({U_Master_Controller_n_16,U_Master_Controller_n_17,U_Master_Controller_n_18}),
+        .\r_Count_reg[15] (U_Master_Controller_n_2),
+        .\r_Count_reg[15]_0 ({U_Master_Controller_n_17,U_Master_Controller_n_18,U_Master_Controller_n_19}),
         .\r_Count_reg[15]_1 (\r_Count_reg[15]_0 [3:1]),
-        .\r_Count_reg[15]_10 ({U_Master_Controller_n_178,U_Master_Controller_n_179,U_Master_Controller_n_180}),
-        .\r_Count_reg[15]_11 ({U_Master_Controller_n_185,\r_Count_reg[15]_1 [1]}),
-        .\r_Count_reg[15]_12 ({\r_Count_reg[15]_2 [0],U_Master_Controller_n_188,\r_Count_reg[11]_0 }),
+        .\r_Count_reg[15]_10 ({U_Master_Controller_n_179,U_Master_Controller_n_180,U_Master_Controller_n_181}),
+        .\r_Count_reg[15]_11 ({U_Master_Controller_n_186,\r_Count_reg[15]_1 [1]}),
+        .\r_Count_reg[15]_12 ({\r_Count_reg[15]_2 [0],U_Master_Controller_n_189,\r_Count_reg[11]_0 }),
         .\r_Count_reg[15]_13 ({\r_Count_reg[23]_19 [5:4],\U_Time_Counter/C [10],\r_Count_reg[23]_19 [3]}),
-        .\r_Count_reg[15]_14 ({U_Master_Controller_n_201,U_Master_Controller_n_202,U_Master_Controller_n_203,U_Master_Controller_n_204}),
+        .\r_Count_reg[15]_14 ({U_Master_Controller_n_202,U_Master_Controller_n_203,U_Master_Controller_n_204,U_Master_Controller_n_205}),
         .\r_Count_reg[15]_15 ({\r_Count_reg[23]_21 [2],\U_Time_Counter/C__0 ,\r_Count_reg[23]_21 [1:0]}),
         .\r_Count_reg[15]_16 (\r_Count_reg[15]_1 [0]),
-        .\r_Count_reg[15]_17 (U_Master_Controller_n_227),
-        .\r_Count_reg[15]_18 (U_Master_Controller_n_229),
-        .\r_Count_reg[15]_19 ({U_Master_Controller_n_248,U_Master_Controller_n_249,U_Master_Controller_n_250,U_Master_Controller_n_251}),
+        .\r_Count_reg[15]_17 (U_Master_Controller_n_228),
+        .\r_Count_reg[15]_18 (U_Master_Controller_n_230),
+        .\r_Count_reg[15]_19 ({U_Master_Controller_n_249,U_Master_Controller_n_250,U_Master_Controller_n_251,U_Master_Controller_n_252}),
         .\r_Count_reg[15]_2 (\U_Time_Counter/C_7 ),
-        .\r_Count_reg[15]_3 ({U_Master_Controller_n_64,U_Master_Controller_n_65,U_Master_Controller_n_66,U_Master_Controller_n_67}),
-        .\r_Count_reg[15]_4 ({U_Master_Controller_n_86,U_Master_Controller_n_87,U_Master_Controller_n_88,U_Master_Controller_n_89}),
+        .\r_Count_reg[15]_3 ({U_Master_Controller_n_65,U_Master_Controller_n_66,U_Master_Controller_n_67,U_Master_Controller_n_68}),
+        .\r_Count_reg[15]_4 ({U_Master_Controller_n_87,U_Master_Controller_n_88,U_Master_Controller_n_89,U_Master_Controller_n_90}),
         .\r_Count_reg[15]_5 (\r_Count_reg[15] ),
-        .\r_Count_reg[15]_6 ({U_Master_Controller_n_134,U_Master_Controller_n_135,U_Master_Controller_n_136}),
-        .\r_Count_reg[15]_7 ({U_Master_Controller_n_137,U_Master_Controller_n_138,U_Master_Controller_n_139}),
-        .\r_Count_reg[15]_8 ({U_Master_Controller_n_171,U_Master_Controller_n_172,U_Master_Controller_n_173,U_Master_Controller_n_174}),
-        .\r_Count_reg[15]_9 ({U_Master_Controller_n_175,U_Master_Controller_n_176,U_Master_Controller_n_177}),
+        .\r_Count_reg[15]_6 ({U_Master_Controller_n_135,U_Master_Controller_n_136,U_Master_Controller_n_137}),
+        .\r_Count_reg[15]_7 ({U_Master_Controller_n_138,U_Master_Controller_n_139,U_Master_Controller_n_140}),
+        .\r_Count_reg[15]_8 ({U_Master_Controller_n_172,U_Master_Controller_n_173,U_Master_Controller_n_174,U_Master_Controller_n_175}),
+        .\r_Count_reg[15]_9 ({U_Master_Controller_n_176,U_Master_Controller_n_177,U_Master_Controller_n_178}),
         .\r_Count_reg[17] ({U_Alarm_Time_n_11,U_Alarm_Time_n_12,U_Alarm_Time_n_13,U_Alarm_Time_n_14}),
         .\r_Count_reg[17]_0 ({U_Alarm_Time_n_7,U_Alarm_Time_n_8,U_Alarm_Time_n_9,U_Alarm_Time_n_10}),
-        .\r_Count_reg[19] ({U_Master_Controller_n_19,U_Master_Controller_n_20}),
+        .\r_Count_reg[19] ({U_Master_Controller_n_20,U_Master_Controller_n_21}),
         .\r_Count_reg[19]_0 (\r_Count_reg[19]_0 ),
-        .\r_Count_reg[19]_1 (U_Master_Controller_n_26),
-        .\r_Count_reg[19]_10 ({U_Master_Controller_n_209,U_Master_Controller_n_210}),
-        .\r_Count_reg[19]_11 ({\r_Count_reg[19]_7 ,U_Master_Controller_n_213,U_Master_Controller_n_214}),
-        .\r_Count_reg[19]_12 (U_Master_Controller_n_215),
-        .\r_Count_reg[19]_13 ({\r_Count_reg[19]_8 ,U_Master_Controller_n_219}),
-        .\r_Count_reg[19]_14 (U_Master_Controller_n_220),
-        .\r_Count_reg[19]_15 ({U_Master_Controller_n_252,U_Master_Controller_n_253,U_Master_Controller_n_254,U_Master_Controller_n_255}),
-        .\r_Count_reg[19]_16 ({\r_Count_reg[19]_5 ,U_Master_Controller_n_262}),
-        .\r_Count_reg[19]_17 (U_Master_Controller_n_263),
+        .\r_Count_reg[19]_1 (U_Master_Controller_n_27),
+        .\r_Count_reg[19]_10 ({U_Master_Controller_n_210,U_Master_Controller_n_211}),
+        .\r_Count_reg[19]_11 ({\r_Count_reg[19]_7 ,U_Master_Controller_n_214,U_Master_Controller_n_215}),
+        .\r_Count_reg[19]_12 (U_Master_Controller_n_216),
+        .\r_Count_reg[19]_13 ({\r_Count_reg[19]_8 ,U_Master_Controller_n_220}),
+        .\r_Count_reg[19]_14 (U_Master_Controller_n_221),
+        .\r_Count_reg[19]_15 ({U_Master_Controller_n_253,U_Master_Controller_n_254,U_Master_Controller_n_255,U_Master_Controller_n_256}),
+        .\r_Count_reg[19]_16 ({\r_Count_reg[19]_5 ,U_Master_Controller_n_263}),
+        .\r_Count_reg[19]_17 (U_Master_Controller_n_264),
         .\r_Count_reg[19]_18 (\r_Count_reg[19]_6 ),
-        .\r_Count_reg[19]_19 (U_Master_Controller_n_271),
+        .\r_Count_reg[19]_19 (U_Master_Controller_n_272),
         .\r_Count_reg[19]_2 (\r_Count_reg[19]_1 ),
         .\r_Count_reg[19]_20 (\r_Count_reg[19]_9 ),
         .\r_Count_reg[19]_21 (\r_Count_reg[19]_10 ),
-        .\r_Count_reg[19]_3 ({U_Master_Controller_n_68,U_Master_Controller_n_69,U_Master_Controller_n_70,U_Master_Controller_n_71}),
-        .\r_Count_reg[19]_4 ({U_Master_Controller_n_77,\r_Count_reg[19]_2 }),
-        .\r_Count_reg[19]_5 ({U_Master_Controller_n_90,U_Master_Controller_n_91}),
+        .\r_Count_reg[19]_3 ({U_Master_Controller_n_69,U_Master_Controller_n_70,U_Master_Controller_n_71,U_Master_Controller_n_72}),
+        .\r_Count_reg[19]_4 ({U_Master_Controller_n_78,\r_Count_reg[19]_2 }),
+        .\r_Count_reg[19]_5 ({U_Master_Controller_n_91,U_Master_Controller_n_92}),
         .\r_Count_reg[19]_6 (\r_Count_reg[19] ),
-        .\r_Count_reg[19]_7 ({U_Master_Controller_n_195,\r_Count_reg[19]_4 }),
+        .\r_Count_reg[19]_7 ({U_Master_Controller_n_196,\r_Count_reg[19]_4 }),
         .\r_Count_reg[19]_8 (\r_Count_reg[19]_3 ),
-        .\r_Count_reg[19]_9 ({U_Master_Controller_n_205,U_Master_Controller_n_206,U_Master_Controller_n_207,U_Master_Controller_n_208}),
-        .\r_Count_reg[22] (\r_Count_reg[22] ),
-        .\r_Count_reg[22]_0 (\r_Count_reg[22]_0 ),
-        .\r_Count_reg[22]_1 (U_Time_n_43),
-        .\r_Count_reg[22]_2 (U_Alarm_Time_n_21),
-        .\r_Count_reg[22]_3 ({U_Alarm_Time_n_18,U_Alarm_Time_n_19,U_Alarm_Time_n_20}),
-        .\r_Count_reg[22]_4 ({U_Alarm_Time_n_15,U_Alarm_Time_n_16,U_Alarm_Time_n_17}),
-        .\r_Count_reg[22]_5 (U_Alarm_Time_n_27),
+        .\r_Count_reg[19]_9 ({U_Master_Controller_n_206,U_Master_Controller_n_207,U_Master_Controller_n_208,U_Master_Controller_n_209}),
+        .\r_Count_reg[22] (U_Time_n_18),
+        .\r_Count_reg[22]_0 (\r_Count_reg[22] ),
+        .\r_Count_reg[22]_1 (\r_Count_reg[22]_0 ),
+        .\r_Count_reg[22]_2 (U_Time_n_43),
+        .\r_Count_reg[22]_3 (U_Alarm_Time_n_21),
+        .\r_Count_reg[22]_4 ({U_Alarm_Time_n_18,U_Alarm_Time_n_19,U_Alarm_Time_n_20}),
+        .\r_Count_reg[22]_5 ({U_Alarm_Time_n_15,U_Alarm_Time_n_16,U_Alarm_Time_n_17}),
+        .\r_Count_reg[22]_6 (U_Alarm_Time_n_27),
         .\r_Count_reg[23] (\r_Count_reg[23]_2 ),
         .\r_Count_reg[23]_0 (\r_Count_reg[23]_3 ),
         .\r_Count_reg[23]_1 (\r_Count_reg[23]_4 ),
-        .\r_Count_reg[23]_10 ({\r_Count_reg[23]_10 ,U_Master_Controller_n_98}),
+        .\r_Count_reg[23]_10 ({\r_Count_reg[23]_10 ,U_Master_Controller_n_99}),
         .\r_Count_reg[23]_11 (\r_Count_reg[23]_11 ),
         .\r_Count_reg[23]_12 (\r_Count_reg[23]_12 [16:3]),
         .\r_Count_reg[23]_13 (\r_Count_reg[23]_0 ),
         .\r_Count_reg[23]_14 (\r_Count_reg[23]_1 ),
         .\r_Count_reg[23]_15 (\r_Count_reg[23]_13 ),
-        .\r_Count_reg[23]_16 ({\r_Count_reg[23]_14 ,U_Master_Controller_n_184}),
+        .\r_Count_reg[23]_16 ({\r_Count_reg[23]_14 ,U_Master_Controller_n_185}),
         .\r_Count_reg[23]_17 (\r_Count_reg[23]_15 ),
         .\r_Count_reg[23]_18 ({\r_Count_reg[23]_19 [15:6],\r_Count_reg[23]_19 [2:0]}),
-        .\r_Count_reg[23]_19 ({U_Master_Controller_n_256,U_Master_Controller_n_257,U_Master_Controller_n_258,U_Master_Controller_n_259}),
+        .\r_Count_reg[23]_19 ({U_Master_Controller_n_257,U_Master_Controller_n_258,U_Master_Controller_n_259,U_Master_Controller_n_260}),
         .\r_Count_reg[23]_2 (\r_Count_reg[23]_5 ),
-        .\r_Count_reg[23]_20 (U_Master_Controller_n_260),
+        .\r_Count_reg[23]_20 (U_Master_Controller_n_261),
         .\r_Count_reg[23]_21 (\r_Count_reg[23]_20 ),
         .\r_Count_reg[23]_22 (\r_Count_reg[23]_22 ),
         .\r_Count_reg[23]_23 ({U_Time_n_367,U_Time_n_368,U_Time_n_369,U_Time_n_370}),
         .\r_Count_reg[23]_24 ({U_Alarm_Time_n_362,U_Time_n_378,U_Time_n_379}),
         .\r_Count_reg[23]_3 (\r_Count_reg[23]_6 ),
         .\r_Count_reg[23]_4 (\r_Count_reg[23]_7 ),
-        .\r_Count_reg[23]_5 ({U_Master_Controller_n_72,U_Master_Controller_n_73,U_Master_Controller_n_74,U_Master_Controller_n_75}),
-        .\r_Count_reg[23]_6 (U_Master_Controller_n_76),
+        .\r_Count_reg[23]_5 ({U_Master_Controller_n_73,U_Master_Controller_n_74,U_Master_Controller_n_75,U_Master_Controller_n_76}),
+        .\r_Count_reg[23]_6 (U_Master_Controller_n_77),
         .\r_Count_reg[23]_7 (CO),
         .\r_Count_reg[23]_8 (\r_Count_reg[23]_8 ),
-        .\r_Count_reg[23]_9 ({\r_Count_reg[23]_9 ,U_Master_Controller_n_94}),
-        .\r_Count_reg[3] (U_Master_Controller_n_15),
-        .\r_Count_reg[3]_0 (U_Master_Controller_n_140),
-        .\r_Count_reg[3]_1 (U_Master_Controller_n_144),
+        .\r_Count_reg[23]_9 ({\r_Count_reg[23]_9 ,U_Master_Controller_n_95}),
+        .\r_Count_reg[3] (U_Master_Controller_n_16),
+        .\r_Count_reg[3]_0 (U_Master_Controller_n_141),
+        .\r_Count_reg[3]_1 (U_Master_Controller_n_145),
         .\r_Count_reg[3]_2 (\U_Time_Counter/r_Count1 ),
-        .\r_Count_reg[3]_3 (U_Master_Controller_n_273),
-        .\r_Count_reg[3]_4 (U_Master_Controller_n_275),
-        .\r_Count_reg[3]_5 (U_Master_Controller_n_276),
-        .\r_Count_reg[3]_6 (U_Master_Controller_n_278),
+        .\r_Count_reg[3]_3 (U_Master_Controller_n_274),
+        .\r_Count_reg[3]_4 (U_Master_Controller_n_276),
+        .\r_Count_reg[3]_5 (U_Master_Controller_n_277),
+        .\r_Count_reg[3]_6 (U_Master_Controller_n_280),
         .\r_Count_reg[5] (w_Alarm_Time_Stamp[5:2]),
         .\r_Count_reg[5]_0 (\U_Time_Counter/r_Count2 ),
-        .\r_Count_reg[7] ({U_Master_Controller_n_8,U_Master_Controller_n_9}),
+        .\r_Count_reg[7] ({U_Master_Controller_n_9,U_Master_Controller_n_10}),
         .\r_Count_reg[7]_0 (\U_Time_Counter/r_Count1_8 ),
-        .\r_Count_reg[7]_1 (U_Master_Controller_n_41),
-        .\r_Count_reg[7]_2 ({U_Master_Controller_n_141,U_Master_Controller_n_142}),
-        .\r_Count_reg[7]_3 (U_Master_Controller_n_143),
-        .\r_Count_reg[7]_4 ({U_Master_Controller_n_146,U_Master_Controller_n_147,U_Master_Controller_n_148,U_Master_Controller_n_149}),
-        .\r_Count_reg[7]_5 (U_Master_Controller_n_225),
+        .\r_Count_reg[7]_1 (U_Master_Controller_n_42),
+        .\r_Count_reg[7]_2 ({U_Master_Controller_n_142,U_Master_Controller_n_143}),
+        .\r_Count_reg[7]_3 (U_Master_Controller_n_144),
+        .\r_Count_reg[7]_4 ({U_Master_Controller_n_147,U_Master_Controller_n_148,U_Master_Controller_n_149,U_Master_Controller_n_150}),
+        .\r_Count_reg[7]_5 (U_Master_Controller_n_226),
         .\r_Count_reg[7]_6 (\U_Time_Counter/C [2]),
-        .\r_Count_reg[7]_7 (U_Master_Controller_n_274),
+        .\r_Count_reg[7]_7 (U_Master_Controller_n_275),
         .\r_Count_reg[9] ({U_Alarm_Time_n_5,U_Alarm_Time_n_6}),
         .\r_Count_reg[9]_0 ({U_Alarm_Time_n_0,U_Alarm_Time_n_1}),
         .r_Hours_1st_Digit_Dec_reg(r_Hours_1st_Digit_Dec_reg),
@@ -10245,24 +10276,24 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
        (.Q(Q[9]),
         .\r_Count_reg[15] ({U_Minutes_1st_Digit_Dec_Pulse_Generator_n_15,U_Minutes_1st_Digit_Dec_Pulse_Generator_n_16,U_Minutes_1st_Digit_Dec_Pulse_Generator_n_17}),
         .\r_Count_reg[23] (\r_Count_reg[23]_21 [16:3]),
-        .r_Minutes_1st_Digit_Dec_reg(U_Master_Controller_n_271),
-        .r_Minutes_1st_Digit_Dec_reg_0({U_Master_Controller_n_205,U_Master_Controller_n_206,U_Master_Controller_n_207,U_Master_Controller_n_208}),
-        .r_Minutes_2nd_Digit_Dec_reg({\r_Count_reg[19]_7 ,U_Master_Controller_n_213,U_Master_Controller_n_214}),
+        .r_Minutes_1st_Digit_Dec_reg(U_Master_Controller_n_272),
+        .r_Minutes_1st_Digit_Dec_reg_0({U_Master_Controller_n_206,U_Master_Controller_n_207,U_Master_Controller_n_208,U_Master_Controller_n_209}),
+        .r_Minutes_2nd_Digit_Dec_reg({\r_Count_reg[19]_7 ,U_Master_Controller_n_214,U_Master_Controller_n_215}),
         .r_Minutes_2nd_Digit_Dec_reg_0(r_Minutes_2nd_Digit_Dec_reg_1),
-        .r_Minutes_2nd_Digit_Dec_reg_1({\r_Count_reg[19]_8 ,U_Master_Controller_n_219}),
+        .r_Minutes_2nd_Digit_Dec_reg_1({\r_Count_reg[19]_8 ,U_Master_Controller_n_220}),
         .r_Minutes_2nd_Digit_Dec_reg_2(r_Minutes_2nd_Digit_Dec_reg_2),
-        .r_Minutes_2nd_Digit_Dec_reg_3(U_Master_Controller_n_215),
-        .r_Minutes_2nd_Digit_Dec_reg_4(U_Master_Controller_n_220),
+        .r_Minutes_2nd_Digit_Dec_reg_3(U_Master_Controller_n_216),
+        .r_Minutes_2nd_Digit_Dec_reg_4(U_Master_Controller_n_221),
         .r_Prev_Signal(r_Prev_Signal_10),
         .\slv_reg3_reg[15] (\r_Count_reg[23]_20 [0]),
         .\slv_reg3_reg[15]_0 (\slv_reg3_reg[15]_1 ),
-        .\slv_reg3_reg[1] (U_Master_Controller_n_143),
-        .\slv_reg3_reg[5] ({U_Master_Controller_n_201,U_Master_Controller_n_202,U_Master_Controller_n_203}),
-        .\slv_reg3_reg[5]_0 ({U_Master_Controller_n_209,U_Master_Controller_n_210}),
+        .\slv_reg3_reg[1] (U_Master_Controller_n_144),
+        .\slv_reg3_reg[5] ({U_Master_Controller_n_202,U_Master_Controller_n_203,U_Master_Controller_n_204}),
+        .\slv_reg3_reg[5]_0 ({U_Master_Controller_n_210,U_Master_Controller_n_211}),
         .w_Clk_5MHz(w_Clk_5MHz),
         .w_Minutes_1st_Digit_Dec(w_Minutes_1st_Digit_Dec));
   Alarm_Clock_Alarm_Clock_0_1_Pulse_Generator_10 U_Minutes_1st_Digit_Inc_Pulse_Generator
-       (.DI({U_Master_Controller_n_175,U_Master_Controller_n_176,U_Master_Controller_n_177,U_Master_Controller_n_171}),
+       (.DI({U_Master_Controller_n_176,U_Master_Controller_n_177,U_Master_Controller_n_178,U_Master_Controller_n_172}),
         .Q(Q[8]),
         .\r_Count_reg[15] (\r_Count_reg[15]_3 ),
         .\r_Count_reg[15]_0 (\r_Count_reg[15]_2 [3:1]),
@@ -10270,28 +10301,28 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
         .\r_Count_reg[23] (\r_Count_reg[23]_16 ),
         .\r_Count_reg[23]_0 (\r_Count_reg[23]_17 ),
         .\r_Count_reg[23]_1 (\r_Count_reg[23]_18 ),
-        .r_Hours_1st_Digit_Inc_reg({\r_Count_reg[15]_1 [1],\slv_reg3_reg[10] ,\r_Count_reg[15]_1 [0],U_Master_Controller_n_178}),
-        .r_Hours_1st_Digit_Inc_reg_0(U_Master_Controller_n_185),
-        .r_Minutes_1st_Digit_Inc_reg(U_Master_Controller_n_229),
+        .r_Hours_1st_Digit_Inc_reg({\r_Count_reg[15]_1 [1],\slv_reg3_reg[10] ,\r_Count_reg[15]_1 [0],U_Master_Controller_n_179}),
+        .r_Hours_1st_Digit_Inc_reg_0(U_Master_Controller_n_186),
+        .r_Minutes_1st_Digit_Inc_reg(U_Master_Controller_n_230),
         .r_Prev_Signal(r_Prev_Signal_11),
         .\slv_reg3_reg[10] (\slv_reg3_reg[10]_0 ),
-        .\slv_reg3_reg[10]_0 (U_Master_Controller_n_227),
-        .\slv_reg3_reg[12] ({U_Master_Controller_n_172,U_Master_Controller_n_173,U_Master_Controller_n_174}),
-        .\slv_reg3_reg[12]_0 ({U_Master_Controller_n_179,U_Master_Controller_n_180}),
-        .\slv_reg3_reg[14] ({\r_Count_reg[23]_14 ,U_Master_Controller_n_184}),
+        .\slv_reg3_reg[10]_0 (U_Master_Controller_n_228),
+        .\slv_reg3_reg[12] ({U_Master_Controller_n_173,U_Master_Controller_n_174,U_Master_Controller_n_175}),
+        .\slv_reg3_reg[12]_0 ({U_Master_Controller_n_180,U_Master_Controller_n_181}),
+        .\slv_reg3_reg[14] ({\r_Count_reg[23]_14 ,U_Master_Controller_n_185}),
         .\slv_reg3_reg[14]_0 (\slv_reg3_reg[14] ),
-        .\slv_reg3_reg[1] (U_Master_Controller_n_143),
+        .\slv_reg3_reg[1] (U_Master_Controller_n_144),
         .w_Clk_5MHz(w_Clk_5MHz),
         .w_Minutes_1st_Digit_Inc(w_Minutes_1st_Digit_Inc));
   Alarm_Clock_Alarm_Clock_0_1_Pulse_Generator_11 U_Minutes_2nd_Digit_Dec_Pulse_Generator
        (.Q(Q[11]),
         .\r_Count_reg[19] (U_Minutes_2nd_Digit_Dec_Pulse_Generator_n_1),
         .\r_Count_reg[19]_0 ({U_Minutes_2nd_Digit_Dec_Pulse_Generator_n_2,U_Minutes_2nd_Digit_Dec_Pulse_Generator_n_3,U_Minutes_2nd_Digit_Dec_Pulse_Generator_n_4}),
-        .r_Hours_1st_Digit_Dec_reg({U_Master_Controller_n_195,\r_Count_reg[19]_4 [2]}),
-        .r_Hours_1st_Digit_Dec_reg_0(U_Master_Controller_n_263),
-        .r_Hours_1st_Digit_Dec_reg_1({\r_Count_reg[19]_5 ,U_Master_Controller_n_262}),
+        .r_Hours_1st_Digit_Dec_reg({U_Master_Controller_n_196,\r_Count_reg[19]_4 [2]}),
+        .r_Hours_1st_Digit_Dec_reg_0(U_Master_Controller_n_264),
+        .r_Hours_1st_Digit_Dec_reg_1({\r_Count_reg[19]_5 ,U_Master_Controller_n_263}),
         .r_Prev_Signal(r_Prev_Signal_12),
-        .\slv_reg3_reg[1] (U_Master_Controller_n_143),
+        .\slv_reg3_reg[1] (U_Master_Controller_n_144),
         .w_Clk_5MHz(w_Clk_5MHz),
         .w_Minutes_2nd_Digit_Dec(w_Minutes_2nd_Digit_Dec));
   Alarm_Clock_Alarm_Clock_0_1_Pulse_Generator_12 U_Minutes_2nd_Digit_Inc_Pulse_Generator
@@ -10332,10 +10363,10 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
         .\r_Count_reg[23]_5 (U_Alarm_Time_n_349),
         .\r_Count_reg[23]_6 (U_Time_n_365),
         .\r_Count_reg[7] (U_Rotary_Encoder_n_33),
-        .r_Hours_1st_Digit_Dec_reg_0(U_Master_Controller_n_77),
-        .r_Hours_1st_Digit_Inc_reg_0(U_Master_Controller_n_26),
-        .r_Minutes_2nd_Digit_Dec_reg_0(U_Master_Controller_n_94),
-        .r_Minutes_2nd_Digit_Dec_reg_1(U_Master_Controller_n_98),
+        .r_Hours_1st_Digit_Dec_reg_0(U_Master_Controller_n_78),
+        .r_Hours_1st_Digit_Inc_reg_0(U_Master_Controller_n_27),
+        .r_Minutes_2nd_Digit_Dec_reg_0(U_Master_Controller_n_95),
+        .r_Minutes_2nd_Digit_Dec_reg_1(U_Master_Controller_n_99),
         .r_Prev_Signal(r_Prev_Signal_11),
         .r_Prev_Signal_0(r_Prev_Signal_18),
         .r_Prev_Signal_1(r_Prev_Signal_16),
@@ -10345,14 +10376,14 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
         .r_Prev_Signal_5(r_Prev_Signal_1),
         .r_Prev_Signal_6(r_Prev_Signal_2),
         .r_Seconds_2nd_Digit_Inc_reg_0(\U_Time_Counter/C_7 ),
-        .\r_Time_State_reg[0] ({U_Master_Controller_n_16,U_Master_Controller_n_17,U_Master_Controller_n_18}),
-        .\r_Time_State_reg[0]_0 (U_Master_Controller_n_41),
-        .\slv_reg3_reg[12] ({U_Master_Controller_n_19,U_Master_Controller_n_20}),
-        .\slv_reg3_reg[1] (U_Master_Controller_n_1),
-        .\slv_reg3_reg[5] ({U_Master_Controller_n_86,U_Master_Controller_n_87,U_Master_Controller_n_88}),
-        .\slv_reg3_reg[5]_0 ({U_Master_Controller_n_90,U_Master_Controller_n_91}),
-        .\slv_reg3_reg[8] ({U_Master_Controller_n_134,U_Master_Controller_n_135,U_Master_Controller_n_136}),
-        .\slv_reg3_reg[9] ({U_Master_Controller_n_137,U_Master_Controller_n_138,U_Master_Controller_n_139}),
+        .\r_Time_State_reg[0] ({U_Master_Controller_n_17,U_Master_Controller_n_18,U_Master_Controller_n_19}),
+        .\r_Time_State_reg[0]_0 (U_Master_Controller_n_42),
+        .\slv_reg3_reg[12] ({U_Master_Controller_n_20,U_Master_Controller_n_21}),
+        .\slv_reg3_reg[1] (U_Master_Controller_n_2),
+        .\slv_reg3_reg[5] ({U_Master_Controller_n_87,U_Master_Controller_n_88,U_Master_Controller_n_89}),
+        .\slv_reg3_reg[5]_0 ({U_Master_Controller_n_91,U_Master_Controller_n_92}),
+        .\slv_reg3_reg[8] ({U_Master_Controller_n_135,U_Master_Controller_n_136,U_Master_Controller_n_137}),
+        .\slv_reg3_reg[9] ({U_Master_Controller_n_138,U_Master_Controller_n_139,U_Master_Controller_n_140}),
         .w_Alarm_Time({w_Alarm_Time[31:29],w_Alarm_Time[27:25],w_Alarm_Time[23:22],w_Alarm_Time[19:18],w_Alarm_Time[15:13],w_Alarm_Time[11],w_Alarm_Time[7],w_Alarm_Time[3:2]}),
         .w_Clk_1Hz(w_Clk_1Hz),
         .w_Clk_5MHz(w_Clk_5MHz),
@@ -10382,7 +10413,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
         .\r_Count_reg[15] ({U_Seconds_1st_Digit_Inc_Pulse_Generator_n_1,U_Seconds_1st_Digit_Inc_Pulse_Generator_n_2}),
         .r_Prev_Signal(r_Prev_Signal_16),
         .r_Seconds_2nd_Digit_Inc_reg({\r_Count_reg[23]_19 [4],\U_Time_Counter/C [10],\r_Count_reg[23]_19 [3]}),
-        .\slv_reg3_reg[1] (U_Master_Controller_n_143),
+        .\slv_reg3_reg[1] (U_Master_Controller_n_144),
         .w_Clk_5MHz(w_Clk_5MHz),
         .w_Seconds_1st_Digit_Inc(w_Seconds_1st_Digit_Inc));
   Alarm_Clock_Alarm_Clock_0_1_Pulse_Generator_15 U_Seconds_2nd_Digit_Dec_Pulse_Generator
@@ -10390,17 +10421,17 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
         .\r_Count_reg[11] ({U_Seconds_2nd_Digit_Dec_Pulse_Generator_n_1,U_Seconds_2nd_Digit_Dec_Pulse_Generator_n_2}),
         .r_Minutes_1st_Digit_Dec_reg({\r_Count_reg[23]_21 [2],\U_Time_Counter/C__0 ,\r_Count_reg[23]_21 [1]}),
         .r_Prev_Signal(r_Prev_Signal_17),
-        .\slv_reg3_reg[1] (U_Master_Controller_n_143),
+        .\slv_reg3_reg[1] (U_Master_Controller_n_144),
         .w_Clk_5MHz(w_Clk_5MHz),
         .w_Seconds_2nd_Digit_Dec(w_Seconds_2nd_Digit_Dec));
   Alarm_Clock_Alarm_Clock_0_1_Pulse_Generator_16 U_Seconds_2nd_Digit_Inc_Pulse_Generator
        (.Q(Q[6]),
         .\r_Count_reg[11] ({U_Seconds_2nd_Digit_Inc_Pulse_Generator_n_1,U_Seconds_2nd_Digit_Inc_Pulse_Generator_n_2}),
         .\r_Count_reg[11]_0 (U_Seconds_2nd_Digit_Inc_Pulse_Generator_n_3),
-        .r_Minutes_1st_Digit_Inc_reg({\r_Count_reg[15]_2 [0],U_Master_Controller_n_188,\r_Count_reg[11]_0 }),
+        .r_Minutes_1st_Digit_Inc_reg({\r_Count_reg[15]_2 [0],U_Master_Controller_n_189,\r_Count_reg[11]_0 }),
         .r_Prev_Signal(r_Prev_Signal_18),
         .r_Seconds_2nd_Digit_Inc_reg(\r_Count_reg[23]_19 [0]),
-        .\slv_reg3_reg[1] (U_Master_Controller_n_143),
+        .\slv_reg3_reg[1] (U_Master_Controller_n_144),
         .w_Clk_5MHz(w_Clk_5MHz),
         .w_Seconds_2nd_Digit_Inc(w_Seconds_2nd_Digit_Inc));
   Alarm_Clock_Alarm_Clock_0_1_Seven_Segment_Digit_Blinker U_Seven_Segment_Digit_Blinker
@@ -10615,9 +10646,9 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
         .\r_Segment_Count_reg[4]_0 (U_Seven_Segment_Display_Driver_n_3),
         .w_Clk_5MHz(w_Clk_5MHz));
   Alarm_Clock_Alarm_Clock_0_1_Time_17 U_Time
-       (.CO(U_Time_n_18),
+       (.CO(\r_BCD_Num_reg[30] ),
         .DI({U_Seven_Segment_Digit_Blinker_n_0,U_Seven_Segment_Digit_Blinker_n_1}),
-        .O({U_Master_Controller_n_11,U_Master_Controller_n_12,U_Master_Controller_n_13,U_Master_Controller_n_14}),
+        .O({U_Master_Controller_n_12,U_Master_Controller_n_13,U_Master_Controller_n_14,U_Master_Controller_n_15}),
         .Q(Q[1]),
         .S({U_Seven_Segment_Digit_Blinker_n_9,U_Seven_Segment_Digit_Blinker_n_10}),
         .i_Change_Alarm(i_Change_Alarm),
@@ -10685,21 +10716,20 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
         .\r_BCD_Num_reg[30] ({U_Time_n_121,U_Time_n_122,U_Time_n_123}),
         .\r_BCD_Num_reg[30]_0 ({U_Time_n_144,U_Time_n_145,U_Time_n_146}),
         .\r_BCD_Num_reg[30]_1 ({U_Time_n_147,U_Time_n_148,U_Time_n_149}),
-        .\r_BCD_Num_reg[30]_10 ({U_Time_n_185,U_Time_n_186,U_Time_n_187}),
-        .\r_BCD_Num_reg[30]_11 (U_Time_n_243),
-        .\r_BCD_Num_reg[30]_12 (\r_BCD_Num_reg[30]_0 ),
-        .\r_BCD_Num_reg[30]_13 ({U_Time_n_248,U_Time_n_249,U_Time_n_250}),
-        .\r_BCD_Num_reg[30]_14 ({U_Time_n_251,U_Time_n_252,U_Time_n_253,U_Time_n_254}),
-        .\r_BCD_Num_reg[30]_15 (U_Time_n_261),
-        .\r_BCD_Num_reg[30]_16 (U_Time_n_274),
-        .\r_BCD_Num_reg[30]_2 (\r_BCD_Num_reg[30] ),
-        .\r_BCD_Num_reg[30]_3 ({U_Time_n_152,U_Time_n_153,U_Time_n_154}),
-        .\r_BCD_Num_reg[30]_4 ({U_Time_n_155,U_Time_n_156,U_Time_n_157}),
-        .\r_BCD_Num_reg[30]_5 (\r_BCD_Num_reg[30]_1 ),
-        .\r_BCD_Num_reg[30]_6 ({U_Time_n_177,U_Time_n_178}),
-        .\r_BCD_Num_reg[30]_7 (U_Time_n_179),
-        .\r_BCD_Num_reg[30]_8 ({U_Time_n_181,U_Time_n_182,U_Time_n_183}),
-        .\r_BCD_Num_reg[30]_9 (U_Time_n_184),
+        .\r_BCD_Num_reg[30]_10 (U_Time_n_243),
+        .\r_BCD_Num_reg[30]_11 (\r_BCD_Num_reg[30]_0 ),
+        .\r_BCD_Num_reg[30]_12 ({U_Time_n_248,U_Time_n_249,U_Time_n_250}),
+        .\r_BCD_Num_reg[30]_13 ({U_Time_n_251,U_Time_n_252,U_Time_n_253,U_Time_n_254}),
+        .\r_BCD_Num_reg[30]_14 (U_Time_n_261),
+        .\r_BCD_Num_reg[30]_15 (U_Time_n_274),
+        .\r_BCD_Num_reg[30]_2 ({U_Time_n_152,U_Time_n_153,U_Time_n_154}),
+        .\r_BCD_Num_reg[30]_3 ({U_Time_n_155,U_Time_n_156,U_Time_n_157}),
+        .\r_BCD_Num_reg[30]_4 (\r_BCD_Num_reg[30]_1 ),
+        .\r_BCD_Num_reg[30]_5 ({U_Time_n_177,U_Time_n_178}),
+        .\r_BCD_Num_reg[30]_6 (U_Time_n_179),
+        .\r_BCD_Num_reg[30]_7 ({U_Time_n_181,U_Time_n_182,U_Time_n_183}),
+        .\r_BCD_Num_reg[30]_8 (U_Time_n_184),
+        .\r_BCD_Num_reg[30]_9 ({U_Time_n_185,U_Time_n_186,U_Time_n_187}),
         .\r_BCD_Num_reg[31] ({w_Time[31:25],w_Time[23:22],w_Time[19:18],w_Time[15:11],w_Time[7],w_Time[4:2]}),
         .\r_BCD_Num_reg[31]_0 ({U_Time_n_125,U_Time_n_126,U_Time_n_127,U_Time_n_128}),
         .\r_BCD_Num_reg[31]_1 (\r_BCD_Num_reg[31] ),
@@ -10763,7 +10793,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
         .\r_BCD_Num_reg[8]_4 (\r_BCD_Num_reg[8]_3 ),
         .\r_BCD_Num_reg[8]_5 (\r_BCD_Num_reg[8]_4 ),
         .\r_BCD_Num_reg[8]_6 (\r_BCD_Num_reg[8]_5 ),
-        .\r_Count_reg[0] (U_Master_Controller_n_278),
+        .\r_Count_reg[0] (U_Master_Controller_n_280),
         .\r_Count_reg[0]_0 (\r_Count_reg[0] ),
         .\r_Count_reg[0]_1 (w_Alarm_Time_Stamp[0]),
         .\r_Count_reg[12] (\r_Count_reg[12] ),
@@ -10888,19 +10918,20 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
         .\r_Count_reg[23]_97 (\r_Count_reg[23]_78 ),
         .\r_Count_reg[23]_98 (\r_Count_reg[23]_79 ),
         .\r_Count_reg[23]_99 ({U_Seven_Segment_Digit_Blinker_n_81,U_Seven_Segment_Digit_Blinker_n_82,U_Seven_Segment_Digit_Blinker_n_83}),
-        .\r_Count_reg[2] (U_Master_Controller_n_15),
-        .\r_Count_reg[3] (U_Master_Controller_n_140),
-        .\r_Count_reg[3]_0 (\r_Count_reg[3] ),
-        .\r_Count_reg[3]_1 (\r_Count_reg[3]_0 ),
-        .\r_Count_reg[3]_2 (\r_Count_reg[3]_1 ),
-        .\r_Count_reg[3]_3 (\r_Count_reg[3]_2 ),
-        .\r_Count_reg[3]_4 (\r_Count_reg[3]_3 ),
-        .\r_Count_reg[3]_5 (\r_Count_reg[3]_4 ),
-        .\r_Count_reg[4] ({U_Master_Controller_n_8,U_Master_Controller_n_9}),
+        .\r_Count_reg[2] (U_Master_Controller_n_16),
+        .\r_Count_reg[3] (U_Time_n_18),
+        .\r_Count_reg[3]_0 (U_Master_Controller_n_141),
+        .\r_Count_reg[3]_1 (\r_Count_reg[3] ),
+        .\r_Count_reg[3]_2 (\r_Count_reg[3]_0 ),
+        .\r_Count_reg[3]_3 (\r_Count_reg[3]_1 ),
+        .\r_Count_reg[3]_4 (\r_Count_reg[3]_2 ),
+        .\r_Count_reg[3]_5 (\r_Count_reg[3]_3 ),
+        .\r_Count_reg[3]_6 (\r_Count_reg[3]_4 ),
+        .\r_Count_reg[4] ({U_Master_Controller_n_9,U_Master_Controller_n_10}),
         .\r_Count_reg[4]_0 (\r_Count_reg[4] ),
         .\r_Count_reg[4]_1 (\r_Count_reg[4]_0 ),
         .\r_Count_reg[4]_2 (\r_Count_reg[4]_1 ),
-        .\r_Count_reg[5] ({U_Master_Controller_n_141,U_Master_Controller_n_142}),
+        .\r_Count_reg[5] ({U_Master_Controller_n_142,U_Master_Controller_n_143}),
         .\r_Count_reg[7] (\U_Time_Counter/r_Count2_19 ),
         .\r_Count_reg[7]_0 (U_Time_n_366),
         .\r_Count_reg[8] (\r_Count_reg[8] ),
@@ -10913,18 +10944,18 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock
         .r_Minutes_1st_Digit_Dec_reg_0(\r_Count_reg[23]_0 ),
         .r_Minutes_1st_Digit_Dec_reg_1(\r_Count_reg[23]_1 ),
         .r_Prev_Signal(r_Prev_Signal),
-        .r_Prev_Signal_reg(U_Master_Controller_n_275),
-        .r_Prev_Signal_reg_0(U_Master_Controller_n_276),
-        .r_Seconds_1st_Digit_Inc_reg({U_Master_Controller_n_64,U_Master_Controller_n_65,U_Master_Controller_n_66,U_Master_Controller_n_67}),
-        .r_Seconds_1st_Digit_Inc_reg_0({U_Master_Controller_n_68,U_Master_Controller_n_69,U_Master_Controller_n_70,U_Master_Controller_n_71}),
-        .r_Seconds_1st_Digit_Inc_reg_1({U_Master_Controller_n_72,U_Master_Controller_n_73,U_Master_Controller_n_74,U_Master_Controller_n_75}),
-        .r_Seconds_1st_Digit_Inc_reg_2(U_Master_Controller_n_76),
+        .r_Prev_Signal_reg(U_Master_Controller_n_276),
+        .r_Prev_Signal_reg_0(U_Master_Controller_n_277),
+        .r_Seconds_1st_Digit_Inc_reg({U_Master_Controller_n_65,U_Master_Controller_n_66,U_Master_Controller_n_67,U_Master_Controller_n_68}),
+        .r_Seconds_1st_Digit_Inc_reg_0({U_Master_Controller_n_69,U_Master_Controller_n_70,U_Master_Controller_n_71,U_Master_Controller_n_72}),
+        .r_Seconds_1st_Digit_Inc_reg_1({U_Master_Controller_n_73,U_Master_Controller_n_74,U_Master_Controller_n_75,U_Master_Controller_n_76}),
+        .r_Seconds_1st_Digit_Inc_reg_2(U_Master_Controller_n_77),
         .r_Seconds_2nd_Digit_Dec_reg(O),
         .r_Seconds_2nd_Digit_Dec_reg_0(\r_Count_reg[15] ),
-        .r_Seconds_2nd_Digit_Inc_reg({U_Master_Controller_n_60,U_Master_Controller_n_61,U_Master_Controller_n_62,U_Master_Controller_n_63}),
-        .\slv_reg3_reg[1] (U_Master_Controller_n_1),
+        .r_Seconds_2nd_Digit_Inc_reg({U_Master_Controller_n_61,U_Master_Controller_n_62,U_Master_Controller_n_63,U_Master_Controller_n_64}),
+        .\slv_reg3_reg[1] (U_Master_Controller_n_2),
         .\slv_reg3_reg[1]_0 (U_Seven_Segment_Digit_Blinker_n_280),
-        .\slv_reg3_reg[5] (U_Master_Controller_n_89),
+        .\slv_reg3_reg[5] (U_Master_Controller_n_90),
         .w_Alarm_Time({w_Alarm_Time[29:21],w_Alarm_Time[19:18],w_Alarm_Time[16:6],w_Alarm_Time[4:1]}),
         .w_Clk_100Hz(w_Clk_100Hz),
         .w_Clk_5MHz(w_Clk_5MHz),
@@ -11414,12 +11445,14 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0
     s00_axi_rready,
     i_Change_Alarm,
     i_Reset,
+    i_Alarm_Game_Switches,
     s00_axi_awaddr,
     s00_axi_wdata,
     s00_axi_araddr,
     s00_axi_wstrb,
     i_Alarm_Enable,
-    i_Encoder_Enable);
+    i_Encoder_Enable,
+    i_Alarm_Game_Enable);
   output s00_axi_wready;
   output s00_axi_awready;
   output s00_axi_arready;
@@ -11900,18 +11933,22 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0
   input s00_axi_rready;
   input i_Change_Alarm;
   input i_Reset;
+  input [9:0]i_Alarm_Game_Switches;
   input [1:0]s00_axi_awaddr;
   input [31:0]s00_axi_wdata;
   input [1:0]s00_axi_araddr;
   input [3:0]s00_axi_wstrb;
   input i_Alarm_Enable;
   input i_Encoder_Enable;
+  input i_Alarm_Game_Enable;
 
   wire [0:0]CO;
   wire [2:0]DI;
   wire [0:0]O;
   wire [0:0]S;
   wire i_Alarm_Enable;
+  wire i_Alarm_Game_Enable;
+  wire [9:0]i_Alarm_Game_Switches;
   wire i_Change_Alarm;
   wire i_Clk_100MHz;
   wire i_Encoder_A;
@@ -12400,6 +12437,8 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0
         .O(\r_Count_reg[23]_2 [2:0]),
         .S(S),
         .i_Alarm_Enable(i_Alarm_Enable),
+        .i_Alarm_Game_Enable(i_Alarm_Game_Enable),
+        .i_Alarm_Game_Switches(i_Alarm_Game_Switches),
         .i_Change_Alarm(i_Change_Alarm),
         .i_Clk_100MHz(i_Clk_100MHz),
         .i_Encoder_A(i_Encoder_A),
@@ -13361,12 +13400,14 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
     s00_axi_rready,
     i_Change_Alarm,
     i_Reset,
+    i_Alarm_Game_Switches,
     s00_axi_awaddr,
     s00_axi_wdata,
     s00_axi_araddr,
     s00_axi_wstrb,
     i_Alarm_Enable,
-    i_Encoder_Enable);
+    i_Encoder_Enable,
+    i_Alarm_Game_Enable);
   output s00_axi_wready;
   output s00_axi_awready;
   output s00_axi_arready;
@@ -13845,12 +13886,14 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
   input s00_axi_rready;
   input i_Change_Alarm;
   input i_Reset;
+  input [9:0]i_Alarm_Game_Switches;
   input [1:0]s00_axi_awaddr;
   input [31:0]s00_axi_wdata;
   input [1:0]s00_axi_araddr;
   input [3:0]s00_axi_wstrb;
   input i_Alarm_Enable;
   input i_Encoder_Enable;
+  input i_Alarm_Game_Enable;
 
   wire [0:0]CO;
   wire [1:0]DI;
@@ -13868,9 +13911,12 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
   wire axi_awready0;
   wire axi_awready_i_1_n_0;
   wire axi_bvalid_i_1_n_0;
+  wire \axi_rdata[1]_i_2_n_0 ;
   wire axi_rvalid_i_1_n_0;
   wire axi_wready0;
   wire i_Alarm_Enable;
+  wire i_Alarm_Game_Enable;
+  wire [9:0]i_Alarm_Game_Switches;
   wire i_Change_Alarm;
   wire i_Clk_100MHz;
   wire i_Encoder_A;
@@ -14399,6 +14445,8 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
         .S(S),
         .axi_araddr(axi_araddr),
         .i_Alarm_Enable(i_Alarm_Enable),
+        .i_Alarm_Game_Enable(i_Alarm_Game_Enable),
+        .i_Alarm_Game_Switches(i_Alarm_Game_Switches),
         .i_Change_Alarm(i_Change_Alarm),
         .i_Clk_100MHz(i_Clk_100MHz),
         .i_Encoder_A(i_Encoder_A),
@@ -14407,7 +14455,6 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
         .i_Encoder_Enable(i_Encoder_Enable),
         .i_Reset(i_Reset),
         .o_AUD_PWM(o_AUD_PWM),
-        .o_Alarm_Enabled(o_Alarm_Enabled),
         .o_Alarm_On(o_Alarm_On),
         .o_Anodes(o_Anodes),
         .o_PM(o_PM),
@@ -14857,6 +14904,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
         .\slv_reg3_reg[15] (\slv_reg3_reg[15]_0 ),
         .\slv_reg3_reg[15]_0 (\slv_reg3_reg[15]_1 ),
         .\slv_reg3_reg[15]_1 (\slv_reg3_reg[15]_2 ),
+        .\slv_reg3_reg[3] (\axi_rdata[1]_i_2_n_0 ),
         .\slv_reg3_reg[8] (\slv_reg3_reg[8]_0 ),
         .\slv_reg3_reg[8]_0 (\slv_reg3_reg[8]_1 ),
         .\slv_reg3_reg[8]_1 (\slv_reg3_reg[8]_2 ),
@@ -14905,7 +14953,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
         .D(\axi_araddr[3]_i_1_n_0 ),
         .Q(axi_araddr[3]),
         .R(axi_awready_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair62" *) 
+  (* SOFT_HLUTNM = "soft_lutpair67" *) 
   LUT2 #(
     .INIT(4'h2)) 
     axi_arready_i_1
@@ -14955,7 +15003,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
     axi_awready_i_1
        (.I0(s00_axi_aresetn),
         .O(axi_awready_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair63" *) 
+  (* SOFT_HLUTNM = "soft_lutpair68" *) 
   LUT4 #(
     .INIT(16'h2000)) 
     axi_awready_i_2
@@ -14986,7 +15034,14 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
         .D(axi_bvalid_i_1_n_0),
         .Q(s00_axi_bvalid),
         .R(axi_awready_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair64" *) 
+  (* SOFT_HLUTNM = "soft_lutpair73" *) 
+  LUT2 #(
+    .INIT(4'h1)) 
+    \axi_rdata[1]_i_2 
+       (.I0(p_0_in_0),
+        .I1(i_Alarm_Enable),
+        .O(\axi_rdata[1]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair69" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \axi_rdata[24]_i_1 
@@ -14994,7 +15049,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
         .I1(axi_araddr[2]),
         .I2(axi_araddr[3]),
         .O(reg_data_out[24]));
-  (* SOFT_HLUTNM = "soft_lutpair65" *) 
+  (* SOFT_HLUTNM = "soft_lutpair70" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \axi_rdata[25]_i_1 
@@ -15002,7 +15057,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
         .I1(axi_araddr[2]),
         .I2(axi_araddr[3]),
         .O(reg_data_out[25]));
-  (* SOFT_HLUTNM = "soft_lutpair66" *) 
+  (* SOFT_HLUTNM = "soft_lutpair69" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \axi_rdata[26]_i_1 
@@ -15010,7 +15065,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
         .I1(axi_araddr[2]),
         .I2(axi_araddr[3]),
         .O(reg_data_out[26]));
-  (* SOFT_HLUTNM = "soft_lutpair64" *) 
+  (* SOFT_HLUTNM = "soft_lutpair70" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \axi_rdata[27]_i_1 
@@ -15018,7 +15073,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
         .I1(axi_araddr[2]),
         .I2(axi_araddr[3]),
         .O(reg_data_out[27]));
-  (* SOFT_HLUTNM = "soft_lutpair66" *) 
+  (* SOFT_HLUTNM = "soft_lutpair71" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \axi_rdata[28]_i_1 
@@ -15026,7 +15081,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
         .I1(axi_araddr[2]),
         .I2(axi_araddr[3]),
         .O(reg_data_out[28]));
-  (* SOFT_HLUTNM = "soft_lutpair67" *) 
+  (* SOFT_HLUTNM = "soft_lutpair72" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \axi_rdata[29]_i_1 
@@ -15034,7 +15089,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
         .I1(axi_araddr[2]),
         .I2(axi_araddr[3]),
         .O(reg_data_out[29]));
-  (* SOFT_HLUTNM = "soft_lutpair67" *) 
+  (* SOFT_HLUTNM = "soft_lutpair72" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \axi_rdata[30]_i_1 
@@ -15042,7 +15097,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
         .I1(axi_araddr[2]),
         .I2(axi_araddr[3]),
         .O(reg_data_out[30]));
-  (* SOFT_HLUTNM = "soft_lutpair65" *) 
+  (* SOFT_HLUTNM = "soft_lutpair71" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \axi_rdata[31]_i_1 
@@ -15242,7 +15297,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
         .D(reg_data_out[9]),
         .Q(s00_axi_rdata[9]),
         .R(axi_awready_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair62" *) 
+  (* SOFT_HLUTNM = "soft_lutpair67" *) 
   LUT4 #(
     .INIT(16'h08F8)) 
     axi_rvalid_i_1
@@ -15257,7 +15312,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
         .D(axi_rvalid_i_1_n_0),
         .Q(s00_axi_rvalid),
         .R(axi_awready_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair63" *) 
+  (* SOFT_HLUTNM = "soft_lutpair68" *) 
   LUT4 #(
     .INIT(16'h4000)) 
     axi_wready_i_1
@@ -15272,11 +15327,12 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
         .D(axi_wready0),
         .Q(s00_axi_wready),
         .R(axi_awready_i_1_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair73" *) 
   LUT2 #(
     .INIT(4'hE)) 
     o_Alarm_Enabled_INST_0
-       (.I0(p_0_in_0),
-        .I1(i_Alarm_Enable),
+       (.I0(i_Alarm_Enable),
+        .I1(p_0_in_0),
         .O(o_Alarm_Enabled));
   LUT3 #(
     .INIT(8'h40)) 
@@ -15516,6 +15572,234 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Clock_v2_0_S00_AXI
         .O(slv_reg_rden__0));
 endmodule
 
+(* ORIG_REF_NAME = "Alarm_Game" *) 
+module Alarm_Clock_Alarm_Clock_0_1_Alarm_Game
+   (r_Alarm_Next_State,
+    i_Alarm_Game_Switches,
+    CO,
+    w_Turn_Alarm_On,
+    \slv_reg3_reg[3] ,
+    i_Alarm_Game_Enable,
+    w_Clk_5MHz,
+    w_Reset_Control);
+  output r_Alarm_Next_State;
+  input [9:0]i_Alarm_Game_Switches;
+  input [0:0]CO;
+  input w_Turn_Alarm_On;
+  input \slv_reg3_reg[3] ;
+  input i_Alarm_Game_Enable;
+  input w_Clk_5MHz;
+  input w_Reset_Control;
+
+  wire [0:0]CO;
+  wire i_Alarm_Game_Enable;
+  wire [9:0]i_Alarm_Game_Switches;
+  wire [1:0]r_Alarm_Game_State;
+  wire \r_Alarm_Game_State[0]_i_1_n_0 ;
+  wire \r_Alarm_Game_State[1]_i_1_n_0 ;
+  wire r_Alarm_Game_Win0_carry_i_1_n_0;
+  wire r_Alarm_Game_Win0_carry_i_2_n_0;
+  wire r_Alarm_Game_Win0_carry_i_3_n_0;
+  wire r_Alarm_Game_Win0_carry_i_4_n_0;
+  wire r_Alarm_Game_Win0_carry_n_0;
+  wire r_Alarm_Game_Win0_carry_n_1;
+  wire r_Alarm_Game_Win0_carry_n_2;
+  wire r_Alarm_Game_Win0_carry_n_3;
+  wire r_Alarm_Next_State;
+  wire [9:0]r_Puzzle_Code;
+  wire \r_Puzzle_Code_reg[9]_i_1_n_0 ;
+  wire \slv_reg3_reg[3] ;
+  wire w_Clk_5MHz;
+  wire [9:0]w_Random_Num;
+  wire w_Reset_Control;
+  wire w_Turn_Alarm_On;
+  wire [3:0]NLW_r_Alarm_Game_Win0_carry_O_UNCONNECTED;
+
+  Alarm_Clock_Alarm_Clock_0_1_Randomizer U_Randomizer
+       (.out(w_Random_Num),
+        .w_Clk_5MHz(w_Clk_5MHz));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT4 #(
+    .INIT(16'h0008)) 
+    \r_Alarm_Game_State[0]_i_1 
+       (.I0(w_Turn_Alarm_On),
+        .I1(i_Alarm_Game_Enable),
+        .I2(r_Alarm_Game_State[0]),
+        .I3(r_Alarm_Game_State[1]),
+        .O(\r_Alarm_Game_State[0]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT5 #(
+    .INIT(32'h00800880)) 
+    \r_Alarm_Game_State[1]_i_1 
+       (.I0(w_Turn_Alarm_On),
+        .I1(i_Alarm_Game_Enable),
+        .I2(r_Alarm_Game_State[0]),
+        .I3(r_Alarm_Game_State[1]),
+        .I4(r_Alarm_Game_Win0_carry_n_0),
+        .O(\r_Alarm_Game_State[1]_i_1_n_0 ));
+  FDCE \r_Alarm_Game_State_reg[0] 
+       (.C(w_Clk_5MHz),
+        .CE(1'b1),
+        .CLR(w_Reset_Control),
+        .D(\r_Alarm_Game_State[0]_i_1_n_0 ),
+        .Q(r_Alarm_Game_State[0]));
+  FDCE \r_Alarm_Game_State_reg[1] 
+       (.C(w_Clk_5MHz),
+        .CE(1'b1),
+        .CLR(w_Reset_Control),
+        .D(\r_Alarm_Game_State[1]_i_1_n_0 ),
+        .Q(r_Alarm_Game_State[1]));
+  CARRY4 r_Alarm_Game_Win0_carry
+       (.CI(1'b0),
+        .CO({r_Alarm_Game_Win0_carry_n_0,r_Alarm_Game_Win0_carry_n_1,r_Alarm_Game_Win0_carry_n_2,r_Alarm_Game_Win0_carry_n_3}),
+        .CYINIT(1'b1),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(NLW_r_Alarm_Game_Win0_carry_O_UNCONNECTED[3:0]),
+        .S({r_Alarm_Game_Win0_carry_i_1_n_0,r_Alarm_Game_Win0_carry_i_2_n_0,r_Alarm_Game_Win0_carry_i_3_n_0,r_Alarm_Game_Win0_carry_i_4_n_0}));
+  LUT2 #(
+    .INIT(4'h9)) 
+    r_Alarm_Game_Win0_carry_i_1
+       (.I0(r_Puzzle_Code[9]),
+        .I1(i_Alarm_Game_Switches[9]),
+        .O(r_Alarm_Game_Win0_carry_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    r_Alarm_Game_Win0_carry_i_2
+       (.I0(i_Alarm_Game_Switches[6]),
+        .I1(r_Puzzle_Code[6]),
+        .I2(i_Alarm_Game_Switches[7]),
+        .I3(r_Puzzle_Code[7]),
+        .I4(r_Puzzle_Code[8]),
+        .I5(i_Alarm_Game_Switches[8]),
+        .O(r_Alarm_Game_Win0_carry_i_2_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    r_Alarm_Game_Win0_carry_i_3
+       (.I0(i_Alarm_Game_Switches[5]),
+        .I1(r_Puzzle_Code[5]),
+        .I2(i_Alarm_Game_Switches[3]),
+        .I3(r_Puzzle_Code[3]),
+        .I4(r_Puzzle_Code[4]),
+        .I5(i_Alarm_Game_Switches[4]),
+        .O(r_Alarm_Game_Win0_carry_i_3_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    r_Alarm_Game_Win0_carry_i_4
+       (.I0(i_Alarm_Game_Switches[1]),
+        .I1(r_Puzzle_Code[1]),
+        .I2(i_Alarm_Game_Switches[0]),
+        .I3(r_Puzzle_Code[0]),
+        .I4(r_Puzzle_Code[2]),
+        .I5(i_Alarm_Game_Switches[2]),
+        .O(r_Alarm_Game_Win0_carry_i_4_n_0));
+  LUT6 #(
+    .INIT(64'h00000000EE2EEEEE)) 
+    r_Alarm_State_i_1
+       (.I0(CO),
+        .I1(w_Turn_Alarm_On),
+        .I2(r_Alarm_Game_Win0_carry_n_0),
+        .I3(r_Alarm_Game_State[0]),
+        .I4(r_Alarm_Game_State[1]),
+        .I5(\slv_reg3_reg[3] ),
+        .O(r_Alarm_Next_State));
+  (* XILINX_LEGACY_PRIM = "LD" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \r_Puzzle_Code_reg[0] 
+       (.CLR(1'b0),
+        .D(w_Random_Num[0]),
+        .G(\r_Puzzle_Code_reg[9]_i_1_n_0 ),
+        .GE(1'b1),
+        .Q(r_Puzzle_Code[0]));
+  (* XILINX_LEGACY_PRIM = "LD" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \r_Puzzle_Code_reg[1] 
+       (.CLR(1'b0),
+        .D(w_Random_Num[1]),
+        .G(\r_Puzzle_Code_reg[9]_i_1_n_0 ),
+        .GE(1'b1),
+        .Q(r_Puzzle_Code[1]));
+  (* XILINX_LEGACY_PRIM = "LD" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \r_Puzzle_Code_reg[2] 
+       (.CLR(1'b0),
+        .D(w_Random_Num[2]),
+        .G(\r_Puzzle_Code_reg[9]_i_1_n_0 ),
+        .GE(1'b1),
+        .Q(r_Puzzle_Code[2]));
+  (* XILINX_LEGACY_PRIM = "LD" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \r_Puzzle_Code_reg[3] 
+       (.CLR(1'b0),
+        .D(w_Random_Num[3]),
+        .G(\r_Puzzle_Code_reg[9]_i_1_n_0 ),
+        .GE(1'b1),
+        .Q(r_Puzzle_Code[3]));
+  (* XILINX_LEGACY_PRIM = "LD" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \r_Puzzle_Code_reg[4] 
+       (.CLR(1'b0),
+        .D(w_Random_Num[4]),
+        .G(\r_Puzzle_Code_reg[9]_i_1_n_0 ),
+        .GE(1'b1),
+        .Q(r_Puzzle_Code[4]));
+  (* XILINX_LEGACY_PRIM = "LD" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \r_Puzzle_Code_reg[5] 
+       (.CLR(1'b0),
+        .D(w_Random_Num[5]),
+        .G(\r_Puzzle_Code_reg[9]_i_1_n_0 ),
+        .GE(1'b1),
+        .Q(r_Puzzle_Code[5]));
+  (* XILINX_LEGACY_PRIM = "LD" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \r_Puzzle_Code_reg[6] 
+       (.CLR(1'b0),
+        .D(w_Random_Num[6]),
+        .G(\r_Puzzle_Code_reg[9]_i_1_n_0 ),
+        .GE(1'b1),
+        .Q(r_Puzzle_Code[6]));
+  (* XILINX_LEGACY_PRIM = "LD" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \r_Puzzle_Code_reg[7] 
+       (.CLR(1'b0),
+        .D(w_Random_Num[7]),
+        .G(\r_Puzzle_Code_reg[9]_i_1_n_0 ),
+        .GE(1'b1),
+        .Q(r_Puzzle_Code[7]));
+  (* XILINX_LEGACY_PRIM = "LD" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \r_Puzzle_Code_reg[8] 
+       (.CLR(1'b0),
+        .D(w_Random_Num[8]),
+        .G(\r_Puzzle_Code_reg[9]_i_1_n_0 ),
+        .GE(1'b1),
+        .Q(r_Puzzle_Code[8]));
+  (* XILINX_LEGACY_PRIM = "LD" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \r_Puzzle_Code_reg[9] 
+       (.CLR(1'b0),
+        .D(w_Random_Num[9]),
+        .G(\r_Puzzle_Code_reg[9]_i_1_n_0 ),
+        .GE(1'b1),
+        .Q(r_Puzzle_Code[9]));
+  LUT2 #(
+    .INIT(4'h2)) 
+    \r_Puzzle_Code_reg[9]_i_1 
+       (.I0(r_Alarm_Game_State[0]),
+        .I1(r_Alarm_Game_State[1]),
+        .O(\r_Puzzle_Code_reg[9]_i_1_n_0 ));
+endmodule
+
 (* ORIG_REF_NAME = "Alarm_On" *) 
 module Alarm_Clock_Alarm_Clock_0_1_Alarm_On
    (o_Alarm_On,
@@ -15552,7 +15836,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Sound
 
   wire CLK;
   wire o_AUD_PWM;
-  wire [7:0]p_0_in;
+  wire [7:0]p_0_in__0;
   wire r_Clk;
   wire \r_Play_Sound[7]_i_1_n_0 ;
   wire \r_Play_Sound[7]_i_3_n_0 ;
@@ -15572,28 +15856,28 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Sound
         .o_AUD_PWM(o_AUD_PWM),
         .r_Clk(r_Clk),
         .w_Turn_Alarm_On(w_Turn_Alarm_On));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \r_Play_Sound[0]_i_1 
        (.I0(r_Play_Sound_reg__0[0]),
-        .O(p_0_in[0]));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+        .O(p_0_in__0[0]));
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \r_Play_Sound[1]_i_1 
        (.I0(r_Play_Sound_reg__0[0]),
         .I1(r_Play_Sound_reg__0[1]),
-        .O(p_0_in[1]));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+        .O(p_0_in__0[1]));
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT3 #(
     .INIT(8'h6A)) 
     \r_Play_Sound[2]_i_1 
        (.I0(r_Play_Sound_reg__0[2]),
         .I1(r_Play_Sound_reg__0[0]),
         .I2(r_Play_Sound_reg__0[1]),
-        .O(p_0_in[2]));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+        .O(p_0_in__0[2]));
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
     \r_Play_Sound[3]_i_1 
@@ -15601,8 +15885,8 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Sound
         .I1(r_Play_Sound_reg__0[1]),
         .I2(r_Play_Sound_reg__0[0]),
         .I3(r_Play_Sound_reg__0[2]),
-        .O(p_0_in[3]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+        .O(p_0_in__0[3]));
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \r_Play_Sound[4]_i_1 
@@ -15611,7 +15895,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Sound
         .I2(r_Play_Sound_reg__0[1]),
         .I3(r_Play_Sound_reg__0[3]),
         .I4(r_Play_Sound_reg__0[4]),
-        .O(p_0_in[4]));
+        .O(p_0_in__0[4]));
   LUT6 #(
     .INIT(64'h6AAAAAAAAAAAAAAA)) 
     \r_Play_Sound[5]_i_1 
@@ -15621,15 +15905,15 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Sound
         .I3(r_Play_Sound_reg__0[1]),
         .I4(r_Play_Sound_reg__0[3]),
         .I5(r_Play_Sound_reg__0[4]),
-        .O(p_0_in[5]));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+        .O(p_0_in__0[5]));
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT3 #(
     .INIT(8'h6A)) 
     \r_Play_Sound[6]_i_1 
        (.I0(r_Play_Sound_reg__0[6]),
         .I1(\r_Play_Sound[7]_i_3_n_0 ),
         .I2(r_Play_Sound_reg__0[5]),
-        .O(p_0_in[6]));
+        .O(p_0_in__0[6]));
   LUT5 #(
     .INIT(32'hFF80FFFF)) 
     \r_Play_Sound[7]_i_1 
@@ -15639,7 +15923,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Sound
         .I3(r_Play_Sound_reg__0[7]),
         .I4(w_Turn_Alarm_On),
         .O(\r_Play_Sound[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
     \r_Play_Sound[7]_i_2 
@@ -15647,8 +15931,8 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Sound
         .I1(r_Play_Sound_reg__0[5]),
         .I2(\r_Play_Sound[7]_i_3_n_0 ),
         .I3(r_Play_Sound_reg__0[6]),
-        .O(p_0_in[7]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+        .O(p_0_in__0[7]));
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT5 #(
     .INIT(32'h80000000)) 
     \r_Play_Sound[7]_i_3 
@@ -15661,49 +15945,49 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Sound
   FDRE \r_Play_Sound_reg[0] 
        (.C(CLK),
         .CE(1'b1),
-        .D(p_0_in[0]),
+        .D(p_0_in__0[0]),
         .Q(r_Play_Sound_reg__0[0]),
         .R(\r_Play_Sound[7]_i_1_n_0 ));
   FDRE \r_Play_Sound_reg[1] 
        (.C(CLK),
         .CE(1'b1),
-        .D(p_0_in[1]),
+        .D(p_0_in__0[1]),
         .Q(r_Play_Sound_reg__0[1]),
         .R(\r_Play_Sound[7]_i_1_n_0 ));
   FDRE \r_Play_Sound_reg[2] 
        (.C(CLK),
         .CE(1'b1),
-        .D(p_0_in[2]),
+        .D(p_0_in__0[2]),
         .Q(r_Play_Sound_reg__0[2]),
         .R(\r_Play_Sound[7]_i_1_n_0 ));
   FDRE \r_Play_Sound_reg[3] 
        (.C(CLK),
         .CE(1'b1),
-        .D(p_0_in[3]),
+        .D(p_0_in__0[3]),
         .Q(r_Play_Sound_reg__0[3]),
         .R(\r_Play_Sound[7]_i_1_n_0 ));
   FDRE \r_Play_Sound_reg[4] 
        (.C(CLK),
         .CE(1'b1),
-        .D(p_0_in[4]),
+        .D(p_0_in__0[4]),
         .Q(r_Play_Sound_reg__0[4]),
         .R(\r_Play_Sound[7]_i_1_n_0 ));
   FDRE \r_Play_Sound_reg[5] 
        (.C(CLK),
         .CE(1'b1),
-        .D(p_0_in[5]),
+        .D(p_0_in__0[5]),
         .Q(r_Play_Sound_reg__0[5]),
         .R(\r_Play_Sound[7]_i_1_n_0 ));
   FDRE \r_Play_Sound_reg[6] 
        (.C(CLK),
         .CE(1'b1),
-        .D(p_0_in[6]),
+        .D(p_0_in__0[6]),
         .Q(r_Play_Sound_reg__0[6]),
         .R(\r_Play_Sound[7]_i_1_n_0 ));
   FDRE \r_Play_Sound_reg[7] 
        (.C(CLK),
         .CE(1'b1),
-        .D(p_0_in[7]),
+        .D(p_0_in__0[7]),
         .Q(r_Play_Sound_reg__0[7]),
         .R(\r_Play_Sound[7]_i_1_n_0 ));
   LUT6 #(
@@ -15716,7 +16000,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Sound
         .I4(\r_Select_Note[0]_i_2_n_0 ),
         .I5(r_Play_Sound_reg__0[0]),
         .O(r_Select_Note__0[0]));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \r_Select_Note[0]_i_2 
@@ -15740,7 +16024,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Sound
        (.I0(r_Play_Sound_reg__0[2]),
         .I1(r_Play_Sound_reg__0[3]),
         .O(\r_Select_Note[1]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT3 #(
     .INIT(8'h04)) 
     \r_Select_Note[1]_i_3 
@@ -15748,7 +16032,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Sound
         .I1(r_Play_Sound_reg__0[5]),
         .I2(r_Play_Sound_reg__0[0]),
         .O(\r_Select_Note[1]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \r_Select_Note[2]_i_1 
@@ -15758,7 +16042,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Alarm_Sound
         .I3(r_Play_Sound_reg__0[1]),
         .I4(\r_Select_Note[2]_i_2_n_0 ),
         .O(r_Select_Note__0[2]));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT4 #(
     .INIT(16'hFFFD)) 
     \r_Select_Note[2]_i_2 
@@ -15801,7 +16085,7 @@ module Alarm_Clock_Alarm_Clock_0_1_BCD_To_7Segment
   wire [6:0]r_Hex_Encoding;
   wire w_Clk_5MHz;
 
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT4 #(
     .INIT(16'h6AA5)) 
     \r_Hex_Encoding[0]_i_1 
@@ -15810,7 +16094,7 @@ module Alarm_Clock_Alarm_Clock_0_1_BCD_To_7Segment
         .I2(Q[2]),
         .I3(Q[1]),
         .O(r_Hex_Encoding[0]));
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT4 #(
     .INIT(16'hF9B8)) 
     \r_Hex_Encoding[1]_i_1 
@@ -15819,7 +16103,7 @@ module Alarm_Clock_Alarm_Clock_0_1_BCD_To_7Segment
         .I2(Q[1]),
         .I3(Q[0]),
         .O(r_Hex_Encoding[1]));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT4 #(
     .INIT(16'hFFB8)) 
     \r_Hex_Encoding[2]_i_1 
@@ -15828,7 +16112,7 @@ module Alarm_Clock_Alarm_Clock_0_1_BCD_To_7Segment
         .I2(Q[2]),
         .I3(Q[0]),
         .O(r_Hex_Encoding[2]));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT4 #(
     .INIT(16'hEA9C)) 
     \r_Hex_Encoding[3]_i_1 
@@ -15837,7 +16121,7 @@ module Alarm_Clock_Alarm_Clock_0_1_BCD_To_7Segment
         .I2(Q[0]),
         .I3(Q[1]),
         .O(r_Hex_Encoding[3]));
-  (* SOFT_HLUTNM = "soft_lutpair43" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT4 #(
     .INIT(16'hAAB0)) 
     \r_Hex_Encoding[4]_i_1 
@@ -15846,7 +16130,7 @@ module Alarm_Clock_Alarm_Clock_0_1_BCD_To_7Segment
         .I2(Q[1]),
         .I3(Q[2]),
         .O(r_Hex_Encoding[4]));
-  (* SOFT_HLUTNM = "soft_lutpair43" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT4 #(
     .INIT(16'hACE8)) 
     \r_Hex_Encoding[5]_i_1 
@@ -16010,7 +16294,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Clock_Divider
         .D(r_Clk_i_1__3_n_0),
         .Q(r_Clk),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \r_Counter[0]_i_1__3 
@@ -16165,7 +16449,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Clock_Divider
         .I3(r_Counter[9]),
         .I4(\r_Counter[31]_i_10__3_n_0 ),
         .O(\r_Counter[31]_i_3__3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT5 #(
     .INIT(32'hFFFFFEFF)) 
     \r_Counter[31]_i_4__3 
@@ -16726,7 +17010,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Clock_Divider__parameterized0
         .D(r_Clk_i_1_n_0),
         .Q(w_Clk_5MHz),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \r_Counter[0]_i_1 
@@ -16881,7 +17165,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Clock_Divider__parameterized0
         .I3(\r_Counter_reg_n_0_[9] ),
         .I4(\r_Counter[31]_i_10_n_0 ),
         .O(\r_Counter[31]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT5 #(
     .INIT(32'hFFFFFBFF)) 
     \r_Counter[31]_i_4 
@@ -17448,7 +17732,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Clock_Divider__parameterized1
         .D(r_Clk_i_1__0_n_0),
         .Q(w_Clk_1KHz),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \r_Counter[0]_i_1__0 
@@ -17603,7 +17887,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Clock_Divider__parameterized1
         .I3(\r_Counter_reg_n_0_[8] ),
         .I4(\r_Counter[31]_i_10__0_n_0 ),
         .O(\r_Counter[31]_i_3__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT5 #(
     .INIT(32'hFFFFEFFF)) 
     \r_Counter[31]_i_4__0 
@@ -18170,7 +18454,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Clock_Divider__parameterized2
         .D(r_Clk_i_1__1_n_0),
         .Q(w_Clk_100Hz),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \r_Counter[0]_i_1__1 
@@ -18325,7 +18609,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Clock_Divider__parameterized2
         .I3(\r_Counter_reg_n_0_[8] ),
         .I4(\r_Counter[31]_i_10__1_n_0 ),
         .O(\r_Counter[31]_i_3__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT5 #(
     .INIT(32'hFFFFBFFF)) 
     \r_Counter[31]_i_4__1 
@@ -18886,7 +19170,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Clock_Divider__parameterized3
         .D(r_Clk_i_1__2_n_0),
         .Q(CLK),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \r_Counter[0]_i_1__2 
@@ -19041,7 +19325,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Clock_Divider__parameterized3
         .I3(\r_Counter_reg_n_0_[9] ),
         .I4(\r_Counter[31]_i_10__2_n_0 ),
         .O(\r_Counter[31]_i_3__2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT5 #(
     .INIT(32'hFFFF7FFF)) 
     \r_Counter[31]_i_4__2 
@@ -19602,7 +19886,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Clock_Divider__parameterized4
         .D(r_Clk_i_1__5_n_0),
         .Q(w_Clk_1Hz),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \r_Counter[0]_i_1__5 
@@ -19757,7 +20041,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Clock_Divider__parameterized4
         .I3(\r_Counter_reg_n_0_[8] ),
         .I4(\r_Counter[31]_i_10__5_n_0 ),
         .O(\r_Counter[31]_i_3__5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT5 #(
     .INIT(32'hFFFF7FFF)) 
     \r_Counter[31]_i_4__5 
@@ -20318,7 +20602,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Clock_Divider__parameterized5
         .D(r_Clk_i_1__4_n_0),
         .Q(\r_BCD_Num_Sel_reg[3] ),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair44" *) 
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \r_Counter[0]_i_1__4 
@@ -20473,7 +20757,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Clock_Divider__parameterized5
         .I3(\r_Counter_reg_n_0_[9] ),
         .I4(\r_Counter[31]_i_10__4_n_0 ),
         .O(\r_Counter[31]_i_3__4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair44" *) 
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT5 #(
     .INIT(32'hFFFFBFFF)) 
     \r_Counter[31]_i_4__4 
@@ -21048,6 +21332,7 @@ endmodule
 (* ORIG_REF_NAME = "Master_Controller" *) 
 module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
    (w_Turn_Alarm_On,
+    CO,
     \r_Count_reg[15] ,
     DI,
     p_1_out0,
@@ -21138,7 +21423,9 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
     \r_Count_reg[3]_4 ,
     \r_Count_reg[3]_5 ,
     r_Alarm_On_reg,
+    r_Alarm_State_reg_0,
     \r_Count_reg[3]_6 ,
+    r_Alarm_Next_State,
     w_Clk_5MHz,
     w_Reset_Control,
     S,
@@ -21167,7 +21454,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
     w_Seconds_2nd_Digit_Dec,
     r_Prev_Signal_9,
     r_Count2,
-    CO,
+    \r_Count_reg[22] ,
     w_Time_Stamp,
     r_Minutes_1st_Digit_Inc_reg,
     r_Minutes_1st_Digit_Inc_reg_0,
@@ -21214,15 +21501,15 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
     \r_Count_reg[11]_3 ,
     \r_Count_reg[19]_20 ,
     \r_Count_reg[19]_21 ,
-    \r_Count_reg[22] ,
     \r_Count_reg[22]_0 ,
+    \r_Count_reg[22]_1 ,
     r_Prev_Signal_10,
     w_Minutes_1st_Digit_Inc,
     r_Prev_Signal_11,
     w_Minutes_1st_Digit_Dec,
-    \r_Count_reg[22]_1 ,
-    \r_Count_reg[5] ,
     \r_Count_reg[22]_2 ,
+    \r_Count_reg[5] ,
+    \r_Count_reg[22]_3 ,
     \r_Count_reg[5]_0 ,
     \slv_reg3_reg[8]_1 ,
     \slv_reg3_reg[6] ,
@@ -21258,9 +21545,9 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
     \r_Count_reg[9]_0 ,
     \r_Count_reg[17] ,
     \r_Count_reg[17]_0 ,
-    \r_Count_reg[22]_3 ,
     \r_Count_reg[22]_4 ,
     \r_Count_reg[22]_5 ,
+    \r_Count_reg[22]_6 ,
     r_Prev_Signal_12,
     w_Clk_100Hz,
     i_Change_Alarm,
@@ -21269,6 +21556,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
     i_Reset,
     i_Encoder_Enable);
   output w_Turn_Alarm_On;
+  output [0:0]CO;
   output \r_Count_reg[15] ;
   output [1:0]DI;
   output [3:0]p_1_out0;
@@ -21359,7 +21647,9 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
   output [0:0]\r_Count_reg[3]_4 ;
   output \r_Count_reg[3]_5 ;
   output r_Alarm_On_reg;
+  output r_Alarm_State_reg_0;
   output [0:0]\r_Count_reg[3]_6 ;
+  input r_Alarm_Next_State;
   input w_Clk_5MHz;
   input w_Reset_Control;
   input [3:0]S;
@@ -21388,7 +21678,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
   input w_Seconds_2nd_Digit_Dec;
   input r_Prev_Signal_9;
   input [3:0]r_Count2;
-  input [0:0]CO;
+  input [0:0]\r_Count_reg[22] ;
   input [4:0]w_Time_Stamp;
   input [0:0]r_Minutes_1st_Digit_Inc_reg;
   input [1:0]r_Minutes_1st_Digit_Inc_reg_0;
@@ -21435,15 +21725,15 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
   input [1:0]\r_Count_reg[11]_3 ;
   input [3:0]\r_Count_reg[19]_20 ;
   input [3:0]\r_Count_reg[19]_21 ;
-  input [2:0]\r_Count_reg[22] ;
   input [2:0]\r_Count_reg[22]_0 ;
+  input [2:0]\r_Count_reg[22]_1 ;
   input r_Prev_Signal_10;
   input w_Minutes_1st_Digit_Inc;
   input r_Prev_Signal_11;
   input w_Minutes_1st_Digit_Dec;
-  input \r_Count_reg[22]_1 ;
+  input \r_Count_reg[22]_2 ;
   input [3:0]\r_Count_reg[5] ;
-  input [0:0]\r_Count_reg[22]_2 ;
+  input [0:0]\r_Count_reg[22]_3 ;
   input [2:0]\r_Count_reg[5]_0 ;
   input [2:0]\slv_reg3_reg[8]_1 ;
   input [2:0]\slv_reg3_reg[6] ;
@@ -21479,9 +21769,9 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
   input [1:0]\r_Count_reg[9]_0 ;
   input [3:0]\r_Count_reg[17] ;
   input [3:0]\r_Count_reg[17]_0 ;
-  input [2:0]\r_Count_reg[22]_3 ;
   input [2:0]\r_Count_reg[22]_4 ;
-  input \r_Count_reg[22]_5 ;
+  input [2:0]\r_Count_reg[22]_5 ;
+  input \r_Count_reg[22]_6 ;
   input r_Prev_Signal_12;
   input w_Clk_100Hz;
   input i_Change_Alarm;
@@ -21503,7 +21793,6 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
   wire [3:0]p_1_out0;
   wire [20:0]p_1_out0_0;
   wire r_Alarm_Next_State;
-  wire r_Alarm_Next_State1;
   wire r_Alarm_Next_State1_carry__0_n_0;
   wire r_Alarm_Next_State1_carry__0_n_1;
   wire r_Alarm_Next_State1_carry__0_n_2;
@@ -21515,6 +21804,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
   wire r_Alarm_Next_State1_carry_n_2;
   wire r_Alarm_Next_State1_carry_n_3;
   wire r_Alarm_On_reg;
+  wire r_Alarm_State_reg_0;
   wire [3:0]r_Count2;
   wire \r_Count[11]_i_17_n_0 ;
   wire \r_Count[11]_i_21__0_n_0 ;
@@ -21898,13 +22188,14 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
   wire \r_Count_reg[19]_i_89_n_2 ;
   wire \r_Count_reg[19]_i_89_n_3 ;
   wire \r_Count_reg[19]_i_89_n_4 ;
-  wire [2:0]\r_Count_reg[22] ;
+  wire [0:0]\r_Count_reg[22] ;
   wire [2:0]\r_Count_reg[22]_0 ;
-  wire \r_Count_reg[22]_1 ;
-  wire [0:0]\r_Count_reg[22]_2 ;
-  wire [2:0]\r_Count_reg[22]_3 ;
+  wire [2:0]\r_Count_reg[22]_1 ;
+  wire \r_Count_reg[22]_2 ;
+  wire [0:0]\r_Count_reg[22]_3 ;
   wire [2:0]\r_Count_reg[22]_4 ;
-  wire \r_Count_reg[22]_5 ;
+  wire [2:0]\r_Count_reg[22]_5 ;
+  wire \r_Count_reg[22]_6 ;
   wire [2:0]\r_Count_reg[23] ;
   wire [0:0]\r_Count_reg[23]_0 ;
   wire [3:0]\r_Count_reg[23]_1 ;
@@ -22265,7 +22556,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
         .S(\r_Count_reg[23]_23 ));
   CARRY4 r_Alarm_Next_State1_carry__1
        (.CI(r_Alarm_Next_State1_carry__0_n_0),
-        .CO({NLW_r_Alarm_Next_State1_carry__1_CO_UNCONNECTED[3],r_Alarm_Next_State1,r_Alarm_Next_State1_carry__1_n_2,r_Alarm_Next_State1_carry__1_n_3}),
+        .CO({NLW_r_Alarm_Next_State1_carry__1_CO_UNCONNECTED[3],CO,r_Alarm_Next_State1_carry__1_n_2,r_Alarm_Next_State1_carry__1_n_3}),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(NLW_r_Alarm_Next_State1_carry__1_O_UNCONNECTED[3:0]),
@@ -22276,16 +22567,14 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
        (.I0(w_Turn_Alarm_On),
         .I1(o_Alarm_On),
         .O(r_Alarm_On_reg));
-  LUT6 #(
-    .INIT(64'h000000000000EEE0)) 
-    r_Alarm_State_i_1
+  LUT4 #(
+    .INIT(16'hFFF1)) 
+    r_Alarm_State_i_2
        (.I0(i_Alarm_Enable),
         .I1(Q[3]),
-        .I2(w_Turn_Alarm_On),
-        .I3(r_Alarm_Next_State1),
-        .I4(Q[0]),
-        .I5(i_Reset),
-        .O(r_Alarm_Next_State));
+        .I2(i_Reset),
+        .I3(Q[0]),
+        .O(r_Alarm_State_reg_0));
   FDCE r_Alarm_State_reg
        (.C(w_Clk_5MHz),
         .CE(1'b1),
@@ -23978,7 +24267,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
     .INIT(64'hD555C04055154000)) 
     \r_Count[3]_i_2 
        (.I0(p_1_out0[0]),
-        .I1(CO),
+        .I1(\r_Count_reg[22] ),
         .I2(\r_Count_reg[7]_0 ),
         .I3(w_Time_Stamp[1]),
         .I4(r_Count2[0]),
@@ -23988,7 +24277,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
     .INIT(32'h8000D5AA)) 
     \r_Count[3]_i_2__0 
        (.I0(\r_Count_reg[5] [0]),
-        .I1(\r_Count_reg[22]_2 ),
+        .I1(\r_Count_reg[22]_3 ),
         .I2(\r_Count_reg[3]_2 ),
         .I3(\r_Count_reg[7]_4 [0]),
         .I4(p_1_out0_0[0]),
@@ -23998,7 +24287,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
     \r_Count[3]_i_4__0 
        (.I0(\r_Count_reg[3]_1 ),
         .I1(\r_Count_reg[5]_0 [0]),
-        .I2(\r_Count_reg[22]_5 ),
+        .I2(\r_Count_reg[22]_6 ),
         .I3(\r_Count_reg[7]_4 [1]),
         .I4(\r_Count_reg[5] [1]),
         .I5(p_1_out0_0[1]),
@@ -24010,7 +24299,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
         .I1(w_Time_Stamp[2]),
         .I2(p_1_out0[1]),
         .I3(O[1]),
-        .I4(\r_Count_reg[22]_1 ),
+        .I4(\r_Count_reg[22]_2 ),
         .I5(r_Count2[1]),
         .O(\r_Count_reg[3]_0 ));
   LUT6 #(
@@ -24216,7 +24505,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
     .INIT(64'hD555C04055154000)) 
     \r_Count[7]_i_4 
        (.I0(p_1_out0[2]),
-        .I1(CO),
+        .I1(\r_Count_reg[22] ),
         .I2(\r_Count_reg[7]_0 ),
         .I3(w_Time_Stamp[3]),
         .I4(r_Count2[2]),
@@ -24226,7 +24515,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
     .INIT(64'hD555C04055154000)) 
     \r_Count[7]_i_4__0 
        (.I0(p_1_out0_0[2]),
-        .I1(\r_Count_reg[22]_2 ),
+        .I1(\r_Count_reg[22]_3 ),
         .I2(\r_Count_reg[3]_2 ),
         .I3(\r_Count_reg[5] [2]),
         .I4(\r_Count_reg[5]_0 [1]),
@@ -24236,7 +24525,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
     .INIT(64'hD555C04055154000)) 
     \r_Count[7]_i_5 
        (.I0(p_1_out0[1]),
-        .I1(CO),
+        .I1(\r_Count_reg[22] ),
         .I2(\r_Count_reg[7]_0 ),
         .I3(w_Time_Stamp[2]),
         .I4(r_Count2[1]),
@@ -24249,7 +24538,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
         .I1(w_Time_Stamp[4]),
         .I2(p_1_out0[3]),
         .I3(O[3]),
-        .I4(\r_Count_reg[22]_1 ),
+        .I4(\r_Count_reg[22]_2 ),
         .I5(r_Count2[3]),
         .O(\r_Count_reg[7]_2 [1]));
   LUT6 #(
@@ -24259,7 +24548,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
         .I1(\r_Count_reg[5] [3]),
         .I2(p_1_out0_0[3]),
         .I3(\r_Count_reg[7]_4 [3]),
-        .I4(\r_Count_reg[22]_5 ),
+        .I4(\r_Count_reg[22]_6 ),
         .I5(\r_Count_reg[5]_0 [2]),
         .O(\r_Count_reg[7]_7 ));
   LUT6 #(
@@ -24269,7 +24558,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
         .I1(w_Time_Stamp[3]),
         .I2(p_1_out0[2]),
         .I3(O[2]),
-        .I4(\r_Count_reg[22]_1 ),
+        .I4(\r_Count_reg[22]_2 ),
         .I5(r_Count2[2]),
         .O(\r_Count_reg[7]_2 [0]));
   CARRY4 \r_Count_reg[11]_i_11 
@@ -24430,16 +24719,16 @@ module Alarm_Clock_Alarm_Clock_0_1_Master_Controller
        (.CI(\r_Count_reg[19]_i_22_n_0 ),
         .CO({\NLW_r_Count_reg[19]_i_10_CO_UNCONNECTED [3],\r_Count_reg[7]_0 ,\r_Count_reg[19]_i_10_n_2 ,\r_Count_reg[19]_i_10_n_3 }),
         .CYINIT(1'b0),
-        .DI({1'b0,\r_Count_reg[22] }),
+        .DI({1'b0,\r_Count_reg[22]_0 }),
         .O(\NLW_r_Count_reg[19]_i_10_O_UNCONNECTED [3:0]),
-        .S({1'b0,\r_Count_reg[22]_0 }));
+        .S({1'b0,\r_Count_reg[22]_1 }));
   CARRY4 \r_Count_reg[19]_i_10__0 
        (.CI(\r_Count_reg[19]_i_20_n_0 ),
         .CO({\NLW_r_Count_reg[19]_i_10__0_CO_UNCONNECTED [3],\r_Count_reg[3]_2 ,\r_Count_reg[19]_i_10__0_n_2 ,\r_Count_reg[19]_i_10__0_n_3 }),
         .CYINIT(1'b0),
-        .DI({1'b0,\r_Count_reg[22]_3 }),
+        .DI({1'b0,\r_Count_reg[22]_4 }),
         .O(\NLW_r_Count_reg[19]_i_10__0_O_UNCONNECTED [3:0]),
-        .S({1'b0,\r_Count_reg[22]_4 }));
+        .S({1'b0,\r_Count_reg[22]_5 }));
   CARRY4 \r_Count_reg[19]_i_13 
        (.CI(\r_Count_reg[15]_i_11_n_0 ),
         .CO({\r_Count_reg[19]_i_13_n_0 ,\r_Count_reg[19]_i_13_n_1 ,\r_Count_reg[19]_i_13_n_2 ,\r_Count_reg[19]_i_13_n_3 }),
@@ -25896,6 +26185,193 @@ module Alarm_Clock_Alarm_Clock_0_1_Pulse_Generator_9
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "Randomizer" *) 
+module Alarm_Clock_Alarm_Clock_0_1_Randomizer
+   (out,
+    w_Clk_5MHz);
+  output [9:0]out;
+  input w_Clk_5MHz;
+
+  wire [9:0]out;
+  wire [9:0]p_0_in;
+  wire \r_Random_Num[9]_i_2_n_0 ;
+  wire w_Clk_5MHz;
+
+  LUT1 #(
+    .INIT(2'h1)) 
+    \r_Random_Num[0]_i_1 
+       (.I0(out[0]),
+        .O(p_0_in[0]));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \r_Random_Num[1]_i_1 
+       (.I0(out[0]),
+        .I1(out[1]),
+        .O(p_0_in[1]));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \r_Random_Num[2]_i_1 
+       (.I0(out[0]),
+        .I1(out[1]),
+        .I2(out[2]),
+        .O(p_0_in[2]));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \r_Random_Num[3]_i_1 
+       (.I0(out[1]),
+        .I1(out[0]),
+        .I2(out[2]),
+        .I3(out[3]),
+        .O(p_0_in[3]));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'h7FFF8000)) 
+    \r_Random_Num[4]_i_1 
+       (.I0(out[2]),
+        .I1(out[0]),
+        .I2(out[1]),
+        .I3(out[3]),
+        .I4(out[4]),
+        .O(p_0_in[4]));
+  LUT6 #(
+    .INIT(64'h7FFFFFFF80000000)) 
+    \r_Random_Num[5]_i_1 
+       (.I0(out[3]),
+        .I1(out[1]),
+        .I2(out[0]),
+        .I3(out[2]),
+        .I4(out[4]),
+        .I5(out[5]),
+        .O(p_0_in[5]));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \r_Random_Num[6]_i_1 
+       (.I0(\r_Random_Num[9]_i_2_n_0 ),
+        .I1(out[6]),
+        .O(p_0_in[6]));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \r_Random_Num[7]_i_1 
+       (.I0(\r_Random_Num[9]_i_2_n_0 ),
+        .I1(out[6]),
+        .I2(out[7]),
+        .O(p_0_in[7]));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \r_Random_Num[8]_i_1 
+       (.I0(out[6]),
+        .I1(\r_Random_Num[9]_i_2_n_0 ),
+        .I2(out[7]),
+        .I3(out[8]),
+        .O(p_0_in[8]));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT5 #(
+    .INIT(32'h7FFF8000)) 
+    \r_Random_Num[9]_i_1 
+       (.I0(out[7]),
+        .I1(\r_Random_Num[9]_i_2_n_0 ),
+        .I2(out[6]),
+        .I3(out[8]),
+        .I4(out[9]),
+        .O(p_0_in[9]));
+  LUT6 #(
+    .INIT(64'h8000000000000000)) 
+    \r_Random_Num[9]_i_2 
+       (.I0(out[5]),
+        .I1(out[3]),
+        .I2(out[1]),
+        .I3(out[0]),
+        .I4(out[2]),
+        .I5(out[4]),
+        .O(\r_Random_Num[9]_i_2_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_Random_Num_reg[0] 
+       (.C(w_Clk_5MHz),
+        .CE(1'b1),
+        .D(p_0_in[0]),
+        .Q(out[0]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_Random_Num_reg[1] 
+       (.C(w_Clk_5MHz),
+        .CE(1'b1),
+        .D(p_0_in[1]),
+        .Q(out[1]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_Random_Num_reg[2] 
+       (.C(w_Clk_5MHz),
+        .CE(1'b1),
+        .D(p_0_in[2]),
+        .Q(out[2]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_Random_Num_reg[3] 
+       (.C(w_Clk_5MHz),
+        .CE(1'b1),
+        .D(p_0_in[3]),
+        .Q(out[3]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_Random_Num_reg[4] 
+       (.C(w_Clk_5MHz),
+        .CE(1'b1),
+        .D(p_0_in[4]),
+        .Q(out[4]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_Random_Num_reg[5] 
+       (.C(w_Clk_5MHz),
+        .CE(1'b1),
+        .D(p_0_in[5]),
+        .Q(out[5]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_Random_Num_reg[6] 
+       (.C(w_Clk_5MHz),
+        .CE(1'b1),
+        .D(p_0_in[6]),
+        .Q(out[6]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_Random_Num_reg[7] 
+       (.C(w_Clk_5MHz),
+        .CE(1'b1),
+        .D(p_0_in[7]),
+        .Q(out[7]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_Random_Num_reg[8] 
+       (.C(w_Clk_5MHz),
+        .CE(1'b1),
+        .D(p_0_in[8]),
+        .Q(out[8]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_Random_Num_reg[9] 
+       (.C(w_Clk_5MHz),
+        .CE(1'b1),
+        .D(p_0_in[9]),
+        .Q(out[9]),
+        .R(1'b0));
+endmodule
+
 (* ORIG_REF_NAME = "Rotary_Encoder" *) 
 module Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
    (w_Seconds_1st_Digit_Inc,
@@ -26171,7 +26647,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
         .I3(Q[0]),
         .I4(w_Time[3]),
         .O(D[4]));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT4 #(
     .INIT(16'h0002)) 
     \r_BCD_Num[11]_i_2 
@@ -26207,7 +26683,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
         .I3(Q[0]),
         .I4(w_Time[6]),
         .O(D[7]));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT4 #(
     .INIT(16'h0008)) 
     \r_BCD_Num[15]_i_2 
@@ -26243,7 +26719,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
         .I3(Q[0]),
         .I4(w_Time[8]),
         .O(D[10]));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT4 #(
     .INIT(16'h0002)) 
     \r_BCD_Num[19]_i_2 
@@ -26270,7 +26746,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
         .I3(Q[0]),
         .I4(w_Time[10]),
         .O(D[12]));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT4 #(
     .INIT(16'h0020)) 
     \r_BCD_Num[23]_i_2 
@@ -26306,7 +26782,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
         .I3(Q[0]),
         .I4(w_Time[13]),
         .O(D[15]));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT4 #(
     .INIT(16'h0400)) 
     \r_BCD_Num[27]_i_2 
@@ -26351,7 +26827,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
         .I3(Q[0]),
         .I4(w_Time[16]),
         .O(D[18]));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT4 #(
     .INIT(16'h0080)) 
     \r_BCD_Num[31]_i_2 
@@ -26377,7 +26853,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
         .I3(Q[0]),
         .I4(w_Time[1]),
         .O(D[1]));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT4 #(
     .INIT(16'h0001)) 
     \r_BCD_Num[3]_i_2 
@@ -26404,7 +26880,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
         .I3(Q[0]),
         .I4(w_Time[2]),
         .O(D[3]));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT4 #(
     .INIT(16'h0002)) 
     \r_BCD_Num[7]_i_2 
@@ -26621,7 +27097,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
     \r_Digit_Sel[0]_i_1 
        (.I0(w_Blink_Segment_Num[0]),
         .O(\r_Digit_Sel[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT5 #(
     .INIT(32'hF80F2FF0)) 
     \r_Digit_Sel[1]_i_1 
@@ -26631,15 +27107,15 @@ module Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
         .I3(w_Blink_Segment_Num[1]),
         .I4(w_Blink_Segment_Num[0]),
         .O(\r_Digit_Sel[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT5 #(
-    .INIT(32'h99ECCC66)) 
+    .INIT(32'hCFF3380C)) 
     \r_Digit_Sel[2]_i_1 
-       (.I0(w_Encoder_B_Debounced),
-        .I1(w_Blink_Segment_Num[2]),
-        .I2(\r_Digit_Sel[3]_i_2_n_0 ),
-        .I3(w_Blink_Segment_Num[0]),
-        .I4(w_Blink_Segment_Num[1]),
+       (.I0(\r_Digit_Sel[3]_i_2_n_0 ),
+        .I1(w_Encoder_B_Debounced),
+        .I2(w_Blink_Segment_Num[0]),
+        .I3(w_Blink_Segment_Num[1]),
+        .I4(w_Blink_Segment_Num[2]),
         .O(\r_Digit_Sel[2]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h8CCCCCC69CCCCCC6)) 
@@ -26680,7 +27156,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
         .I4(\r_Digit_Sel[5]_i_2_n_0 ),
         .I5(r_Digit_Sel[4]),
         .O(\r_Digit_Sel[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT3 #(
     .INIT(8'h7F)) 
     \r_Digit_Sel[5]_i_2 
@@ -26717,7 +27193,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
         .I4(\r_Digit_Sel[7]_i_4_n_0 ),
         .I5(r_Digit_Sel[6]),
         .O(\r_Digit_Sel[7]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \r_Digit_Sel[7]_i_3 
@@ -26807,7 +27283,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
         .D(r_Hours_1st_Digit_Inc_i_1_n_0),
         .Q(w_Hours_1st_Digit_Dec),
         .R(r_Hours_1st_Digit_Dec));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT4 #(
     .INIT(16'h8000)) 
     r_Hours_1st_Digit_Inc_i_1
@@ -26828,7 +27304,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
         .D(r_Hours_2nd_Digit_Inc_i_1_n_0),
         .Q(w_Hours_2nd_Digit_Dec),
         .R(r_Hours_1st_Digit_Dec));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT4 #(
     .INIT(16'h0800)) 
     r_Hours_2nd_Digit_Inc_i_1
@@ -26849,7 +27325,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
         .D(r_Minutes_1st_Digit_Inc_i_1_n_0),
         .Q(w_Minutes_1st_Digit_Dec),
         .R(r_Hours_1st_Digit_Dec));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT4 #(
     .INIT(16'h0800)) 
     r_Minutes_1st_Digit_Inc_i_1
@@ -26870,7 +27346,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
         .D(r_Minutes_2nd_Digit_Inc_i_1_n_0),
         .Q(w_Minutes_2nd_Digit_Dec),
         .R(r_Hours_1st_Digit_Dec));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT4 #(
     .INIT(16'h0008)) 
     r_Minutes_2nd_Digit_Inc_i_1
@@ -26911,7 +27387,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
         .I4(r_Prev_Signal_5),
         .I5(w_Encoder_B_Debounced),
         .O(r_Seconds_1st_Digit_Inc_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT4 #(
     .INIT(16'h0080)) 
     r_Seconds_1st_Digit_Inc_i_2
@@ -26938,7 +27414,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Rotary_Encoder
         .D(r_Seconds_2nd_Digit_Inc_i_1_n_0),
         .Q(w_Seconds_2nd_Digit_Dec),
         .R(r_Hours_1st_Digit_Dec));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT4 #(
     .INIT(16'h0400)) 
     r_Seconds_2nd_Digit_Inc_i_1
@@ -31003,7 +31479,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Seven_Segment_Display_Refresh
         .D(D[3]),
         .Q(\r_Hex_Encoding_reg[0] [3]),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair45" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \r_Segment_Count[0]_i_1 
@@ -31122,14 +31598,14 @@ module Alarm_Clock_Alarm_Clock_0_1_Seven_Segment_Display_Refresh
   LUT2 #(
     .INIT(4'hE)) 
     \r_Segment_Count[31]_i_10 
-       (.I0(\r_Segment_Count_reg_n_0_[13] ),
-        .I1(\r_Segment_Count_reg_n_0_[12] ),
+       (.I0(\r_Segment_Count_reg_n_0_[11] ),
+        .I1(\r_Segment_Count_reg_n_0_[10] ),
         .O(\r_Segment_Count[31]_i_10_n_0 ));
   LUT2 #(
     .INIT(4'hE)) 
     \r_Segment_Count[31]_i_11 
-       (.I0(\r_Segment_Count_reg_n_0_[11] ),
-        .I1(\r_Segment_Count_reg_n_0_[10] ),
+       (.I0(\r_Segment_Count_reg_n_0_[13] ),
+        .I1(\r_Segment_Count_reg_n_0_[12] ),
         .O(\r_Segment_Count[31]_i_11_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFFFFFFFE)) 
@@ -31141,7 +31617,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Seven_Segment_Display_Refresh
         .I4(\r_Segment_Count[31]_i_14_n_0 ),
         .I5(\r_Segment_Count[31]_i_15_n_0 ),
         .O(\r_Segment_Count[31]_i_12_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair45" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT4 #(
     .INIT(16'hDFFF)) 
     \r_Segment_Count[31]_i_13 
@@ -31165,12 +31641,12 @@ module Alarm_Clock_Alarm_Clock_0_1_Seven_Segment_Display_Refresh
   LUT6 #(
     .INIT(64'hFFFFFFFFFFFFFFFE)) 
     \r_Segment_Count[31]_i_3 
-       (.I0(\r_Segment_Count_reg_n_0_[15] ),
-        .I1(\r_Segment_Count_reg_n_0_[14] ),
-        .I2(\r_Segment_Count[31]_i_10_n_0 ),
-        .I3(\r_Segment_Count[31]_i_11_n_0 ),
-        .I4(\r_Segment_Count_reg_n_0_[9] ),
-        .I5(\r_Segment_Count_reg_n_0_[8] ),
+       (.I0(\r_Segment_Count[31]_i_10_n_0 ),
+        .I1(\r_Segment_Count_reg_n_0_[9] ),
+        .I2(\r_Segment_Count_reg_n_0_[8] ),
+        .I3(\r_Segment_Count_reg_n_0_[15] ),
+        .I4(\r_Segment_Count_reg_n_0_[14] ),
+        .I5(\r_Segment_Count[31]_i_11_n_0 ),
         .O(\r_Segment_Count[31]_i_3_n_0 ));
   LUT4 #(
     .INIT(16'h0001)) 
@@ -31883,7 +32359,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time
     \r_Digit_Sel_reg[0]_0 ,
     i_Reset,
     axi_araddr,
-    o_Alarm_Enabled,
+    \slv_reg3_reg[3] ,
     o_Alarm_On,
     w_Clk_5MHz);
   output [1:0]S;
@@ -32202,7 +32678,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time
   input \r_Digit_Sel_reg[0]_0 ;
   input i_Reset;
   input [1:0]axi_araddr;
-  input o_Alarm_Enabled;
+  input \slv_reg3_reg[3] ;
   input o_Alarm_On;
   input w_Clk_5MHz;
 
@@ -32217,7 +32693,6 @@ module Alarm_Clock_Alarm_Clock_0_1_Time
   wire [4:0]\axi_rdata_reg[5] ;
   wire i_Change_Alarm;
   wire i_Reset;
-  wire o_Alarm_Enabled;
   wire o_Alarm_On;
   wire [20:0]p_1_out0;
   wire [0:0]r_Alarm_State_reg;
@@ -32517,6 +32992,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time
   wire [3:0]r_Seconds_2nd_Digit_Inc_reg;
   wire [3:0]\r_Time_State_reg[1] ;
   wire \slv_reg3_reg[1] ;
+  wire \slv_reg3_reg[3] ;
   wire [0:0]\slv_reg3_reg[5] ;
   wire [0:0]\slv_reg3_reg[6] ;
   wire [27:0]w_Alarm_Time;
@@ -32539,7 +33015,6 @@ module Alarm_Clock_Alarm_Clock_0_1_Time
         .\axi_rdata_reg[5] (\axi_rdata_reg[5] [4:1]),
         .i_Change_Alarm(i_Change_Alarm),
         .i_Reset(i_Reset),
-        .o_Alarm_Enabled(o_Alarm_Enabled),
         .o_Alarm_On(o_Alarm_On),
         .p_1_out0(p_1_out0),
         .r_Alarm_State_reg(r_Alarm_State_reg),
@@ -32840,6 +33315,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time
         .r_Seconds_2nd_Digit_Inc_reg(r_Seconds_2nd_Digit_Inc_reg),
         .\r_Time_State_reg[1] (\r_Time_State_reg[1] ),
         .\slv_reg3_reg[1] (\slv_reg3_reg[1] ),
+        .\slv_reg3_reg[3] (\slv_reg3_reg[3] ),
         .\slv_reg3_reg[5] (\slv_reg3_reg[5] ),
         .\slv_reg3_reg[6] (\slv_reg3_reg[6] ),
         .w_Alarm_Time(w_Alarm_Time),
@@ -32852,7 +33328,7 @@ endmodule
 (* ORIG_REF_NAME = "Time" *) 
 module Alarm_Clock_Alarm_Clock_0_1_Time_17
    (\r_Count_reg[23] ,
-    CO,
+    \r_Count_reg[3] ,
     w_Time_Stamp,
     \r_Count_reg[15] ,
     \r_Count_reg[7] ,
@@ -32889,10 +33365,10 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
     \r_BCD_Num_reg[24]_1 ,
     \r_BCD_Num_reg[30]_0 ,
     \r_BCD_Num_reg[30]_1 ,
-    \r_BCD_Num_reg[30]_2 ,
+    CO,
     \r_BCD_Num_reg[31]_1 ,
+    \r_BCD_Num_reg[30]_2 ,
     \r_BCD_Num_reg[30]_3 ,
-    \r_BCD_Num_reg[30]_4 ,
     \r_BCD_Num_reg[8]_2 ,
     \r_BCD_Num_reg[8]_3 ,
     \r_BCD_Num_reg[24]_2 ,
@@ -32901,13 +33377,13 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
     \r_BCD_Num_reg[24]_5 ,
     \r_BCD_Num_reg[24]_6 ,
     \r_BCD_Num_reg[24]_7 ,
+    \r_BCD_Num_reg[30]_4 ,
     \r_BCD_Num_reg[30]_5 ,
     \r_BCD_Num_reg[30]_6 ,
-    \r_BCD_Num_reg[30]_7 ,
     \r_BCD_Num_reg[31]_2 ,
+    \r_BCD_Num_reg[30]_7 ,
     \r_BCD_Num_reg[30]_8 ,
     \r_BCD_Num_reg[30]_9 ,
-    \r_BCD_Num_reg[30]_10 ,
     \r_BCD_Num_reg[31]_3 ,
     \r_BCD_Num_reg[31]_4 ,
     \r_BCD_Num_reg[31]_5 ,
@@ -32939,19 +33415,19 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
     \r_BCD_Num_reg[31]_8 ,
     \r_BCD_Num_reg[31]_9 ,
     \r_BCD_Num_reg[31]_10 ,
+    \r_BCD_Num_reg[30]_10 ,
     \r_BCD_Num_reg[30]_11 ,
-    \r_BCD_Num_reg[30]_12 ,
     \r_BCD_Num_reg[31]_11 ,
     \r_BCD_Num_reg[31]_12 ,
+    \r_BCD_Num_reg[30]_12 ,
     \r_BCD_Num_reg[30]_13 ,
-    \r_BCD_Num_reg[30]_14 ,
     \r_BCD_Num_reg[31]_13 ,
     \r_BCD_Num_reg[31]_14 ,
     \r_BCD_Num_reg[31]_15 ,
     \r_BCD_Num_reg[31]_16 ,
     \r_BCD_Num_reg[31]_17 ,
     \r_BCD_Num_reg[31]_18 ,
-    \r_BCD_Num_reg[30]_15 ,
+    \r_BCD_Num_reg[30]_14 ,
     \r_BCD_Num_reg[31]_19 ,
     \r_BCD_Num_reg[31]_20 ,
     \r_BCD_Num_reg[31]_21 ,
@@ -32960,7 +33436,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
     \r_BCD_Num_reg[31]_24 ,
     \r_BCD_Num_reg[31]_25 ,
     \r_BCD_Num_reg[31]_26 ,
-    \r_BCD_Num_reg[30]_16 ,
+    \r_BCD_Num_reg[30]_15 ,
     \r_BCD_Num_reg[31]_27 ,
     \r_BCD_Num_reg[31]_28 ,
     \r_BCD_Num_reg[31]_29 ,
@@ -33014,7 +33490,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
     \r_Count_reg[0] ,
     r_Prev_Signal_reg,
     \r_Count_reg[2] ,
-    \r_Count_reg[3] ,
+    \r_Count_reg[3]_0 ,
     \r_Count_reg[4] ,
     \r_Count_reg[5] ,
     r_Prev_Signal_reg_0,
@@ -33061,11 +33537,11 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
     \r_Count_reg[20]_2 ,
     \r_Count_reg[20]_3 ,
     \r_Count_reg[8]_1 ,
-    \r_Count_reg[3]_0 ,
+    \r_Count_reg[3]_1 ,
     \r_Count_reg[23]_24 ,
     \r_Count_reg[23]_25 ,
     \r_Count_reg[23]_26 ,
-    \r_Count_reg[3]_1 ,
+    \r_Count_reg[3]_2 ,
     \r_Count_reg[23]_27 ,
     \r_Count_reg[23]_28 ,
     \r_Count_reg[4]_0 ,
@@ -33080,8 +33556,8 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
     \r_Count_reg[23]_36 ,
     \r_Count_reg[4]_1 ,
     \r_Count_reg[1] ,
-    \r_Count_reg[3]_2 ,
     \r_Count_reg[3]_3 ,
+    \r_Count_reg[3]_4 ,
     \r_Count_reg[23]_37 ,
     \r_Count_reg[23]_38 ,
     \r_Count_reg[23]_39 ,
@@ -33148,12 +33624,12 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
     \r_Count_reg[4]_2 ,
     \r_Count_reg[0]_0 ,
     \r_Count_reg[1]_0 ,
-    \r_Count_reg[3]_4 ,
     \r_Count_reg[3]_5 ,
+    \r_Count_reg[3]_6 ,
     \r_Count_reg[23]_99 ,
     \slv_reg3_reg[5] ,
-    w_Alarm_Time,
     \r_Count_reg[23]_100 ,
+    w_Alarm_Time,
     \r_Digit_Sel_reg[1] ,
     \slv_reg3_reg[1]_0 ,
     \r_Count_reg[23]_101 ,
@@ -33167,7 +33643,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
     w_Clk_5MHz,
     w_Reset_Control);
   output [17:0]\r_Count_reg[23] ;
-  output [0:0]CO;
+  output [0:0]\r_Count_reg[3] ;
   output [23:0]w_Time_Stamp;
   output \r_Count_reg[15] ;
   output [3:0]\r_Count_reg[7] ;
@@ -33204,10 +33680,10 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
   output [3:0]\r_BCD_Num_reg[24]_1 ;
   output [2:0]\r_BCD_Num_reg[30]_0 ;
   output [2:0]\r_BCD_Num_reg[30]_1 ;
-  output [0:0]\r_BCD_Num_reg[30]_2 ;
+  output [0:0]CO;
   output [0:0]\r_BCD_Num_reg[31]_1 ;
+  output [2:0]\r_BCD_Num_reg[30]_2 ;
   output [2:0]\r_BCD_Num_reg[30]_3 ;
-  output [2:0]\r_BCD_Num_reg[30]_4 ;
   output [2:0]\r_BCD_Num_reg[8]_2 ;
   output [2:0]\r_BCD_Num_reg[8]_3 ;
   output [0:0]\r_BCD_Num_reg[24]_2 ;
@@ -33216,13 +33692,13 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
   output [2:0]\r_BCD_Num_reg[24]_5 ;
   output [0:0]\r_BCD_Num_reg[24]_6 ;
   output [2:0]\r_BCD_Num_reg[24]_7 ;
-  output [0:0]\r_BCD_Num_reg[30]_5 ;
-  output [1:0]\r_BCD_Num_reg[30]_6 ;
-  output [0:0]\r_BCD_Num_reg[30]_7 ;
+  output [0:0]\r_BCD_Num_reg[30]_4 ;
+  output [1:0]\r_BCD_Num_reg[30]_5 ;
+  output [0:0]\r_BCD_Num_reg[30]_6 ;
   output [0:0]\r_BCD_Num_reg[31]_2 ;
-  output [2:0]\r_BCD_Num_reg[30]_8 ;
-  output [0:0]\r_BCD_Num_reg[30]_9 ;
-  output [2:0]\r_BCD_Num_reg[30]_10 ;
+  output [2:0]\r_BCD_Num_reg[30]_7 ;
+  output [0:0]\r_BCD_Num_reg[30]_8 ;
+  output [2:0]\r_BCD_Num_reg[30]_9 ;
   output [0:0]\r_BCD_Num_reg[31]_3 ;
   output [0:0]\r_BCD_Num_reg[31]_4 ;
   output [3:0]\r_BCD_Num_reg[31]_5 ;
@@ -33254,19 +33730,19 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
   output [0:0]\r_BCD_Num_reg[31]_8 ;
   output [0:0]\r_BCD_Num_reg[31]_9 ;
   output [0:0]\r_BCD_Num_reg[31]_10 ;
+  output [0:0]\r_BCD_Num_reg[30]_10 ;
   output [0:0]\r_BCD_Num_reg[30]_11 ;
-  output [0:0]\r_BCD_Num_reg[30]_12 ;
   output [1:0]\r_BCD_Num_reg[31]_11 ;
   output [0:0]\r_BCD_Num_reg[31]_12 ;
-  output [2:0]\r_BCD_Num_reg[30]_13 ;
-  output [3:0]\r_BCD_Num_reg[30]_14 ;
+  output [2:0]\r_BCD_Num_reg[30]_12 ;
+  output [3:0]\r_BCD_Num_reg[30]_13 ;
   output [0:0]\r_BCD_Num_reg[31]_13 ;
   output [0:0]\r_BCD_Num_reg[31]_14 ;
   output [0:0]\r_BCD_Num_reg[31]_15 ;
   output [0:0]\r_BCD_Num_reg[31]_16 ;
   output [0:0]\r_BCD_Num_reg[31]_17 ;
   output [0:0]\r_BCD_Num_reg[31]_18 ;
-  output [0:0]\r_BCD_Num_reg[30]_15 ;
+  output [0:0]\r_BCD_Num_reg[30]_14 ;
   output [0:0]\r_BCD_Num_reg[31]_19 ;
   output [1:0]\r_BCD_Num_reg[31]_20 ;
   output [0:0]\r_BCD_Num_reg[31]_21 ;
@@ -33275,7 +33751,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
   output [0:0]\r_BCD_Num_reg[31]_24 ;
   output [0:0]\r_BCD_Num_reg[31]_25 ;
   output [0:0]\r_BCD_Num_reg[31]_26 ;
-  output [0:0]\r_BCD_Num_reg[30]_16 ;
+  output [0:0]\r_BCD_Num_reg[30]_15 ;
   output [3:0]\r_BCD_Num_reg[31]_27 ;
   output [3:0]\r_BCD_Num_reg[31]_28 ;
   output [3:0]\r_BCD_Num_reg[31]_29 ;
@@ -33329,7 +33805,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
   input [0:0]\r_Count_reg[0] ;
   input [0:0]r_Prev_Signal_reg;
   input [0:0]\r_Count_reg[2] ;
-  input [0:0]\r_Count_reg[3] ;
+  input [0:0]\r_Count_reg[3]_0 ;
   input [1:0]\r_Count_reg[4] ;
   input [1:0]\r_Count_reg[5] ;
   input r_Prev_Signal_reg_0;
@@ -33376,11 +33852,11 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
   input [3:0]\r_Count_reg[20]_2 ;
   input [2:0]\r_Count_reg[20]_3 ;
   input [2:0]\r_Count_reg[8]_1 ;
-  input [1:0]\r_Count_reg[3]_0 ;
+  input [1:0]\r_Count_reg[3]_1 ;
   input \r_Count_reg[23]_24 ;
   input \r_Count_reg[23]_25 ;
   input [2:0]\r_Count_reg[23]_26 ;
-  input [1:0]\r_Count_reg[3]_1 ;
+  input [1:0]\r_Count_reg[3]_2 ;
   input \r_Count_reg[23]_27 ;
   input \r_Count_reg[23]_28 ;
   input [0:0]\r_Count_reg[4]_0 ;
@@ -33395,8 +33871,8 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
   input \r_Count_reg[23]_36 ;
   input [0:0]\r_Count_reg[4]_1 ;
   input [2:0]\r_Count_reg[1] ;
-  input [2:0]\r_Count_reg[3]_2 ;
-  input [0:0]\r_Count_reg[3]_3 ;
+  input [2:0]\r_Count_reg[3]_3 ;
+  input [0:0]\r_Count_reg[3]_4 ;
   input [1:0]\r_Count_reg[23]_37 ;
   input [1:0]\r_Count_reg[23]_38 ;
   input [0:0]\r_Count_reg[23]_39 ;
@@ -33463,12 +33939,12 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
   input [0:0]\r_Count_reg[4]_2 ;
   input [0:0]\r_Count_reg[0]_0 ;
   input [3:0]\r_Count_reg[1]_0 ;
-  input [3:0]\r_Count_reg[3]_4 ;
-  input [0:0]\r_Count_reg[3]_5 ;
+  input [3:0]\r_Count_reg[3]_5 ;
+  input [0:0]\r_Count_reg[3]_6 ;
   input [2:0]\r_Count_reg[23]_99 ;
   input [0:0]\slv_reg3_reg[5] ;
-  input [25:0]w_Alarm_Time;
   input \r_Count_reg[23]_100 ;
+  input [25:0]w_Alarm_Time;
   input \r_Digit_Sel_reg[1] ;
   input \slv_reg3_reg[1]_0 ;
   input \r_Count_reg[23]_101 ;
@@ -33552,21 +34028,20 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
   wire [2:0]\r_BCD_Num_reg[30] ;
   wire [2:0]\r_BCD_Num_reg[30]_0 ;
   wire [2:0]\r_BCD_Num_reg[30]_1 ;
-  wire [2:0]\r_BCD_Num_reg[30]_10 ;
+  wire [0:0]\r_BCD_Num_reg[30]_10 ;
   wire [0:0]\r_BCD_Num_reg[30]_11 ;
-  wire [0:0]\r_BCD_Num_reg[30]_12 ;
-  wire [2:0]\r_BCD_Num_reg[30]_13 ;
-  wire [3:0]\r_BCD_Num_reg[30]_14 ;
+  wire [2:0]\r_BCD_Num_reg[30]_12 ;
+  wire [3:0]\r_BCD_Num_reg[30]_13 ;
+  wire [0:0]\r_BCD_Num_reg[30]_14 ;
   wire [0:0]\r_BCD_Num_reg[30]_15 ;
-  wire [0:0]\r_BCD_Num_reg[30]_16 ;
-  wire [0:0]\r_BCD_Num_reg[30]_2 ;
+  wire [2:0]\r_BCD_Num_reg[30]_2 ;
   wire [2:0]\r_BCD_Num_reg[30]_3 ;
-  wire [2:0]\r_BCD_Num_reg[30]_4 ;
-  wire [0:0]\r_BCD_Num_reg[30]_5 ;
-  wire [1:0]\r_BCD_Num_reg[30]_6 ;
-  wire [0:0]\r_BCD_Num_reg[30]_7 ;
-  wire [2:0]\r_BCD_Num_reg[30]_8 ;
-  wire [0:0]\r_BCD_Num_reg[30]_9 ;
+  wire [0:0]\r_BCD_Num_reg[30]_4 ;
+  wire [1:0]\r_BCD_Num_reg[30]_5 ;
+  wire [0:0]\r_BCD_Num_reg[30]_6 ;
+  wire [2:0]\r_BCD_Num_reg[30]_7 ;
+  wire [0:0]\r_BCD_Num_reg[30]_8 ;
+  wire [2:0]\r_BCD_Num_reg[30]_9 ;
   wire [19:0]\r_BCD_Num_reg[31] ;
   wire [3:0]\r_BCD_Num_reg[31]_0 ;
   wire [0:0]\r_BCD_Num_reg[31]_1 ;
@@ -33757,12 +34232,13 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
   wire [2:0]\r_Count_reg[23]_99 ;
   wire [0:0]\r_Count_reg[2] ;
   wire [0:0]\r_Count_reg[3] ;
-  wire [1:0]\r_Count_reg[3]_0 ;
+  wire [0:0]\r_Count_reg[3]_0 ;
   wire [1:0]\r_Count_reg[3]_1 ;
-  wire [2:0]\r_Count_reg[3]_2 ;
-  wire [0:0]\r_Count_reg[3]_3 ;
-  wire [3:0]\r_Count_reg[3]_4 ;
-  wire [0:0]\r_Count_reg[3]_5 ;
+  wire [1:0]\r_Count_reg[3]_2 ;
+  wire [2:0]\r_Count_reg[3]_3 ;
+  wire [0:0]\r_Count_reg[3]_4 ;
+  wire [3:0]\r_Count_reg[3]_5 ;
+  wire [0:0]\r_Count_reg[3]_6 ;
   wire [1:0]\r_Count_reg[4] ;
   wire [0:0]\r_Count_reg[4]_0 ;
   wire [0:0]\r_Count_reg[4]_1 ;
@@ -33799,7 +34275,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
   wire [23:0]w_Time_Stamp;
 
   Alarm_Clock_Alarm_Clock_0_1_Time_Counter U_Time_Counter
-       (.CO(CO),
+       (.CO(\r_Count_reg[3] ),
         .DI(w_Time_Stamp[7:4]),
         .O(O),
         .Q(Q),
@@ -33875,21 +34351,21 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
         .\r_BCD_Num_reg[30] (\r_BCD_Num_reg[30] ),
         .\r_BCD_Num_reg[30]_0 (\r_BCD_Num_reg[30]_0 ),
         .\r_BCD_Num_reg[30]_1 (\r_BCD_Num_reg[30]_1 ),
-        .\r_BCD_Num_reg[30]_10 (\r_BCD_Num_reg[30]_10 ),
-        .\r_BCD_Num_reg[30]_11 (\r_BCD_Num_reg[30]_11 ),
-        .\r_BCD_Num_reg[30]_12 (\r_BCD_Num_reg[30]_12 ),
-        .\r_BCD_Num_reg[30]_13 (\r_BCD_Num_reg[30]_13 ),
-        .\r_BCD_Num_reg[30]_14 (\r_BCD_Num_reg[30]_14 ),
-        .\r_BCD_Num_reg[30]_15 (\r_BCD_Num_reg[30]_15 ),
-        .\r_BCD_Num_reg[30]_16 (\r_BCD_Num_reg[30]_16 ),
-        .\r_BCD_Num_reg[30]_2 (\r_BCD_Num_reg[30]_2 ),
-        .\r_BCD_Num_reg[30]_3 (\r_BCD_Num_reg[30]_3 ),
-        .\r_BCD_Num_reg[30]_4 (\r_BCD_Num_reg[30]_4 ),
-        .\r_BCD_Num_reg[30]_5 (\r_BCD_Num_reg[30]_5 ),
-        .\r_BCD_Num_reg[30]_6 (\r_BCD_Num_reg[30]_6 ),
-        .\r_BCD_Num_reg[30]_7 (\r_BCD_Num_reg[30]_7 ),
-        .\r_BCD_Num_reg[30]_8 (\r_BCD_Num_reg[30]_8 ),
-        .\r_BCD_Num_reg[30]_9 (\r_BCD_Num_reg[30]_9 ),
+        .\r_BCD_Num_reg[30]_10 (\r_BCD_Num_reg[30]_9 ),
+        .\r_BCD_Num_reg[30]_11 (\r_BCD_Num_reg[30]_10 ),
+        .\r_BCD_Num_reg[30]_12 (\r_BCD_Num_reg[30]_11 ),
+        .\r_BCD_Num_reg[30]_13 (\r_BCD_Num_reg[30]_12 ),
+        .\r_BCD_Num_reg[30]_14 (\r_BCD_Num_reg[30]_13 ),
+        .\r_BCD_Num_reg[30]_15 (\r_BCD_Num_reg[30]_14 ),
+        .\r_BCD_Num_reg[30]_16 (\r_BCD_Num_reg[30]_15 ),
+        .\r_BCD_Num_reg[30]_2 (CO),
+        .\r_BCD_Num_reg[30]_3 (\r_BCD_Num_reg[30]_2 ),
+        .\r_BCD_Num_reg[30]_4 (\r_BCD_Num_reg[30]_3 ),
+        .\r_BCD_Num_reg[30]_5 (\r_BCD_Num_reg[30]_4 ),
+        .\r_BCD_Num_reg[30]_6 (\r_BCD_Num_reg[30]_5 ),
+        .\r_BCD_Num_reg[30]_7 (\r_BCD_Num_reg[30]_6 ),
+        .\r_BCD_Num_reg[30]_8 (\r_BCD_Num_reg[30]_7 ),
+        .\r_BCD_Num_reg[30]_9 (\r_BCD_Num_reg[30]_8 ),
         .\r_BCD_Num_reg[31] (\r_BCD_Num_reg[31] ),
         .\r_BCD_Num_reg[31]_0 (\r_BCD_Num_reg[31]_0 ),
         .\r_BCD_Num_reg[31]_1 (\r_BCD_Num_reg[31]_1 ),
@@ -34080,13 +34556,13 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_17
         .\r_Count_reg[23]_98 (\r_Count_reg[23]_96 ),
         .\r_Count_reg[23]_99 (\r_Count_reg[23]_97 ),
         .\r_Count_reg[2]_0 (\r_Count_reg[2] ),
-        .\r_Count_reg[3]_0 (\r_Count_reg[3] ),
-        .\r_Count_reg[3]_1 (\r_Count_reg[3]_0 ),
-        .\r_Count_reg[3]_2 (\r_Count_reg[3]_1 ),
-        .\r_Count_reg[3]_3 (\r_Count_reg[3]_2 ),
-        .\r_Count_reg[3]_4 (\r_Count_reg[3]_3 ),
-        .\r_Count_reg[3]_5 (\r_Count_reg[3]_4 ),
-        .\r_Count_reg[3]_6 (\r_Count_reg[3]_5 ),
+        .\r_Count_reg[3]_0 (\r_Count_reg[3]_0 ),
+        .\r_Count_reg[3]_1 (\r_Count_reg[3]_1 ),
+        .\r_Count_reg[3]_2 (\r_Count_reg[3]_2 ),
+        .\r_Count_reg[3]_3 (\r_Count_reg[3]_3 ),
+        .\r_Count_reg[3]_4 (\r_Count_reg[3]_4 ),
+        .\r_Count_reg[3]_5 (\r_Count_reg[3]_5 ),
+        .\r_Count_reg[3]_6 (\r_Count_reg[3]_6 ),
         .\r_Count_reg[4]_0 (\r_Count_reg[4] ),
         .\r_Count_reg[4]_1 (\r_Count_reg[4]_0 ),
         .\r_Count_reg[4]_2 (\r_Count_reg[4]_1 ),
@@ -34431,8 +34907,8 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
     \r_Count_reg[3]_6 ,
     \r_Count_reg[23]_101 ,
     \slv_reg3_reg[5] ,
-    w_Alarm_Time,
     \r_Count_reg[23]_102 ,
+    w_Alarm_Time,
     \r_Digit_Sel_reg[1] ,
     \slv_reg3_reg[1]_0 ,
     \r_Count_reg[23]_103 ,
@@ -34752,8 +35228,8 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
   input [0:0]\r_Count_reg[3]_6 ;
   input [2:0]\r_Count_reg[23]_101 ;
   input [0:0]\slv_reg3_reg[5] ;
-  input [25:0]w_Alarm_Time;
   input \r_Count_reg[23]_102 ;
+  input [25:0]w_Alarm_Time;
   input \r_Digit_Sel_reg[1] ;
   input \slv_reg3_reg[1]_0 ;
   input \r_Count_reg[23]_103 ;
@@ -34847,7 +35323,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
   wire [3:0]p_1_out0;
   wire [9:9]p_3_in;
   wire r_Alarm_Next_State1_carry_i_10_n_0;
-  wire r_Alarm_Next_State1_carry_i_12_n_0;
+  wire r_Alarm_Next_State1_carry_i_11_n_0;
   wire [3:0]r_Alarm_State_reg;
   wire [3:0]r_Alarm_State_reg_0;
   wire [1:0]r_Alarm_State_reg_1;
@@ -37798,12 +38274,12 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     r_Alarm_Next_State1_carry__0_i_3
-       (.I0(\r_BCD_Num_reg[31] [8]),
-        .I1(w_Alarm_Time[13]),
-        .I2(w_Time[16]),
-        .I3(w_Alarm_Time[14]),
-        .I4(\r_Count_reg[23]_102 ),
-        .I5(\r_BCD_Num_reg[17] ),
+       (.I0(\r_BCD_Num_reg[17] ),
+        .I1(\r_Count_reg[23]_102 ),
+        .I2(\r_BCD_Num_reg[31] [8]),
+        .I3(w_Alarm_Time[13]),
+        .I4(w_Alarm_Time[14]),
+        .I5(w_Time[16]),
         .O(r_Alarm_State_reg[1]));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
@@ -37843,12 +38319,12 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     r_Alarm_Next_State1_carry__1_i_3
-       (.I0(\r_BCD_Num_reg[31] [14]),
-        .I1(w_Alarm_Time[22]),
-        .I2(w_Time[24]),
-        .I3(w_Alarm_Time[20]),
-        .I4(w_Alarm_Time[21]),
-        .I5(\r_BCD_Num_reg[31] [13]),
+       (.I0(w_Time[24]),
+        .I1(w_Alarm_Time[20]),
+        .I2(\r_BCD_Num_reg[31] [13]),
+        .I3(w_Alarm_Time[21]),
+        .I4(w_Alarm_Time[22]),
+        .I5(\r_BCD_Num_reg[31] [14]),
         .O(r_Alarm_State_reg_1[0]));
   LUT3 #(
     .INIT(8'hB8)) 
@@ -37860,25 +38336,25 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     r_Alarm_Next_State1_carry_i_1
-       (.I0(\r_BCD_Num_reg[31] [4]),
-        .I1(w_Alarm_Time[9]),
-        .I2(w_Time[9]),
-        .I3(w_Alarm_Time[7]),
-        .I4(w_Alarm_Time[8]),
-        .I5(w_Time[10]),
+       (.I0(w_Time[9]),
+        .I1(w_Alarm_Time[7]),
+        .I2(w_Time[10]),
+        .I3(w_Alarm_Time[8]),
+        .I4(w_Alarm_Time[9]),
+        .I5(\r_BCD_Num_reg[31] [4]),
         .O(r_Alarm_State_reg_0[3]));
   LUT2 #(
-    .INIT(4'h6)) 
-    r_Alarm_Next_State1_carry_i_10
-       (.I0(\axi_rdata_reg[3] [0]),
-        .I1(\r_Count_reg[0]_2 ),
-        .O(r_Alarm_Next_State1_carry_i_10_n_0));
-  LUT2 #(
     .INIT(4'h9)) 
-    r_Alarm_Next_State1_carry_i_12
+    r_Alarm_Next_State1_carry_i_10
        (.I0(\axi_rdata_reg[3] [2]),
         .I1(\r_BCD_Num[7]_i_11_n_0 ),
-        .O(r_Alarm_Next_State1_carry_i_12_n_0));
+        .O(r_Alarm_Next_State1_carry_i_10_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    r_Alarm_Next_State1_carry_i_11
+       (.I0(\axi_rdata_reg[3] [0]),
+        .I1(\r_Count_reg[0]_2 ),
+        .O(r_Alarm_Next_State1_carry_i_11_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     r_Alarm_Next_State1_carry_i_2
@@ -37900,14 +38376,14 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I5(\r_BCD_Num_reg[5] ),
         .O(r_Alarm_State_reg_0[1]));
   LUT6 #(
-    .INIT(64'h1004401001400401)) 
+    .INIT(64'h0009060009000009)) 
     r_Alarm_Next_State1_carry_i_4
        (.I0(r_Alarm_Next_State1_carry_i_10_n_0),
-        .I1(w_Alarm_Time[0]),
-        .I2(w_Alarm_Time[1]),
-        .I3(\axi_rdata_reg[3] [1]),
-        .I4(\r_BCD_Num_reg[31] [2]),
-        .I5(r_Alarm_Next_State1_carry_i_12_n_0),
+        .I1(w_Alarm_Time[1]),
+        .I2(r_Alarm_Next_State1_carry_i_11_n_0),
+        .I3(w_Alarm_Time[0]),
+        .I4(\axi_rdata_reg[3] [1]),
+        .I5(\r_BCD_Num_reg[31] [2]),
         .O(r_Alarm_State_reg_0[0]));
   LUT6 #(
     .INIT(64'h2482AEDA5B754124)) 
@@ -39125,7 +39601,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I4(w_Seconds[13]),
         .I5(\r_BCD_Num[16]_i_47_n_0 ),
         .O(\r_BCD_Num[15]_i_64_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT5 #(
     .INIT(32'hD2BD2D42)) 
     \r_BCD_Num[15]_i_65 
@@ -39135,7 +39611,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I3(w_Seconds[13]),
         .I4(\r_BCD_Num[16]_i_47_n_0 ),
         .O(\r_BCD_Num[15]_i_65_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT5 #(
     .INIT(32'hC17CF01F)) 
     \r_BCD_Num[15]_i_66 
@@ -39224,7 +39700,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I4(\r_BCD_Num_reg[10] [2]),
         .I5(\r_Count_reg[12]_1 [2]),
         .O(\r_BCD_Num[16]_i_11_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair56" *) 
+  (* SOFT_HLUTNM = "soft_lutpair61" *) 
   LUT3 #(
     .INIT(8'h96)) 
     \r_BCD_Num[16]_i_114 
@@ -39232,7 +39708,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I1(\r_BCD_Num_reg[16]_i_106_n_0 ),
         .I2(\r_BCD_Num_reg[16]_i_108_n_6 ),
         .O(\r_BCD_Num[16]_i_114_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair56" *) 
+  (* SOFT_HLUTNM = "soft_lutpair61" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[16]_i_115 
@@ -39254,7 +39730,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I1(\r_BCD_Num_reg[16]_i_106_n_6 ),
         .I2(\r_BCD_Num_reg[8]_i_95_n_6 ),
         .O(\r_BCD_Num[16]_i_118_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair58" *) 
+  (* SOFT_HLUTNM = "soft_lutpair63" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[16]_i_119 
@@ -39279,7 +39755,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I1(\r_BCD_Num_reg[16]_i_106_n_0 ),
         .I2(\r_BCD_Num_reg[16]_i_107_n_5 ),
         .O(\r_BCD_Num[16]_i_120_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair59" *) 
+  (* SOFT_HLUTNM = "soft_lutpair64" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[16]_i_121 
@@ -39287,7 +39763,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I1(\r_BCD_Num_reg[16]_i_106_n_0 ),
         .I2(\r_BCD_Num_reg[16]_i_107_n_6 ),
         .O(\r_BCD_Num[16]_i_121_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair59" *) 
+  (* SOFT_HLUTNM = "soft_lutpair64" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[16]_i_122 
@@ -39295,7 +39771,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I1(\r_BCD_Num_reg[16]_i_106_n_0 ),
         .I2(\r_BCD_Num_reg[16]_i_107_n_7 ),
         .O(\r_BCD_Num[16]_i_122_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair58" *) 
+  (* SOFT_HLUTNM = "soft_lutpair63" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[16]_i_123 
@@ -43101,7 +43577,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I2(\r_Count_reg[20]_3 [1]),
         .I3(\axi_rdata_reg[19] [2]),
         .O(\r_BCD_Num[6]_i_112_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT3 #(
     .INIT(8'hBA)) 
     \r_BCD_Num[6]_i_13 
@@ -43810,7 +44286,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I4(\axi_rdata_reg[15] [2]),
         .I5(\r_BCD_Num[6]_i_389_n_0 ),
         .O(\r_BCD_Num[6]_i_310_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair57" *) 
+  (* SOFT_HLUTNM = "soft_lutpair62" *) 
   LUT3 #(
     .INIT(8'h96)) 
     \r_BCD_Num[6]_i_315 
@@ -44130,7 +44606,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I1(\r_BCD_Num_reg[6]_i_195_n_0 ),
         .I2(\r_BCD_Num_reg[6]_i_312_n_5 ),
         .O(\r_BCD_Num[6]_i_386_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair61" *) 
+  (* SOFT_HLUTNM = "soft_lutpair66" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[6]_i_387 
@@ -44138,7 +44614,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I1(\r_BCD_Num_reg[6]_i_195_n_0 ),
         .I2(\r_BCD_Num_reg[6]_i_312_n_6 ),
         .O(\r_BCD_Num[6]_i_387_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair61" *) 
+  (* SOFT_HLUTNM = "soft_lutpair66" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[6]_i_388 
@@ -44146,7 +44622,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I1(\r_BCD_Num_reg[6]_i_195_n_0 ),
         .I2(\r_BCD_Num_reg[6]_i_312_n_7 ),
         .O(\r_BCD_Num[6]_i_388_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair60" *) 
+  (* SOFT_HLUTNM = "soft_lutpair65" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[6]_i_389 
@@ -44428,7 +44904,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
        (.I0(\axi_rdata_reg[3] [1]),
         .I1(DI[0]),
         .O(\r_BCD_Num[6]_i_439_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair57" *) 
+  (* SOFT_HLUTNM = "soft_lutpair62" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[6]_i_440 
@@ -44450,7 +44926,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I1(\r_BCD_Num_reg[6]_i_195_n_6 ),
         .I2(\r_BCD_Num_reg[6]_i_196_n_6 ),
         .O(\r_BCD_Num[6]_i_442_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair60" *) 
+  (* SOFT_HLUTNM = "soft_lutpair65" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[6]_i_443 
@@ -44748,7 +45224,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I3(\r_Count_reg[20]_4 [2]),
         .I4(\r_Count_reg[8]_2 [1]),
         .O(\r_BCD_Num[7]_i_12_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT5 #(
     .INIT(32'hBABB8A88)) 
     \r_BCD_Num[7]_i_13 
@@ -45102,7 +45578,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I4(\axi_rdata_reg[22] [2]),
         .I5(\axi_rdata_reg[19] [3]),
         .O(\r_BCD_Num[7]_i_87_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT5 #(
     .INIT(32'hE73918C6)) 
     \r_BCD_Num[7]_i_88 
@@ -45112,7 +45588,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I3(\axi_rdata_reg[22] [2]),
         .I4(\axi_rdata_reg[19] [3]),
         .O(\r_BCD_Num[7]_i_88_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT5 #(
     .INIT(32'h94A5D6B5)) 
     \r_BCD_Num[7]_i_89 
@@ -47488,7 +47964,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .DI({\r_Count_reg[4]_1 ,\r_BCD_Num[8]_i_135_n_0 ,\r_BCD_Num[8]_i_136_n_0 ,\r_BCD_Num[8]_i_137_n_0 }),
         .O(\NLW_r_BCD_Num_reg[8]_i_96_O_UNCONNECTED [3:0]),
         .S({\r_BCD_Num[8]_i_138_n_0 ,\r_Count_reg[4]_2 ,\r_BCD_Num[8]_i_140_n_0 ,\r_BCD_Num[8]_i_141_n_0 }));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT4 #(
     .INIT(16'h2EAE)) 
     \r_Count[11]_i_10 
@@ -47617,7 +48093,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I4(\axi_rdata_reg[11] [0]),
         .I5(r_Seconds_2nd_Digit_Dec_reg[2]),
         .O(\r_Count[11]_i_9_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
+  (* SOFT_HLUTNM = "soft_lutpair59" *) 
   LUT4 #(
     .INIT(16'h4055)) 
     \r_Count[15]_i_10 
@@ -47626,7 +48102,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I2(\axi_rdata_reg[15] [1]),
         .I3(CO),
         .O(\r_Count[15]_i_10_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
+  (* SOFT_HLUTNM = "soft_lutpair59" *) 
   LUT4 #(
     .INIT(16'h6A55)) 
     \r_Count[15]_i_12 
@@ -47635,7 +48111,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I2(\axi_rdata_reg[15] [1]),
         .I3(CO),
         .O(\r_Count[15]_i_12_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  (* SOFT_HLUTNM = "soft_lutpair60" *) 
   LUT4 #(
     .INIT(16'h4055)) 
     \r_Count[15]_i_14 
@@ -47644,7 +48120,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I2(\axi_rdata_reg[11] [3]),
         .I3(CO),
         .O(\r_Count[15]_i_14_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  (* SOFT_HLUTNM = "soft_lutpair60" *) 
   LUT4 #(
     .INIT(16'h6A55)) 
     \r_Count[15]_i_15 
@@ -47803,7 +48279,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I4(CO),
         .I5(\r_Count_reg[23]_0 [12]),
         .O(\r_Count[19]_i_11_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT2 #(
     .INIT(4'h7)) 
     \r_Count[19]_i_12 
@@ -47834,7 +48310,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I2(\r_Count_reg[22]_0 ),
         .I3(CO),
         .O(\r_Count[19]_i_18_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT4 #(
     .INIT(16'h8088)) 
     \r_Count[19]_i_19 
@@ -47853,7 +48329,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I4(r_Minutes_1st_Digit_Dec_reg_0[1]),
         .I5(\r_Count[19]_i_11_n_0 ),
         .O(\r_Count[19]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT4 #(
     .INIT(16'h9CCC)) 
     \r_Count[19]_i_20 
@@ -48047,7 +48523,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I4(r_Seconds_1st_Digit_Inc_reg_0[1]),
         .I5(\axi_rdata_reg[15] [3]),
         .O(\r_Count[23]_i_107_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT3 #(
     .INIT(8'h96)) 
     \r_Count[23]_i_108 
@@ -48055,7 +48531,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I1(\axi_rdata_reg[22] [2]),
         .I2(r_Minutes_1st_Digit_Dec_reg_1[1]),
         .O(\r_Count[23]_i_108_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
+  (* SOFT_HLUTNM = "soft_lutpair58" *) 
   LUT3 #(
     .INIT(8'h96)) 
     \r_Count[23]_i_109 
@@ -48170,7 +48646,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I4(r_Seconds_1st_Digit_Inc_reg[0]),
         .I5(\axi_rdata_reg[11] [2]),
         .O(\r_Count[23]_i_144_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+  (* SOFT_HLUTNM = "soft_lutpair57" *) 
   LUT3 #(
     .INIT(8'h96)) 
     \r_Count[23]_i_145 
@@ -48389,7 +48865,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I3(w_Clk_100Hz),
         .I4(\slv_reg3_reg[1] ),
         .O(\r_Count[23]_i_177_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
+  (* SOFT_HLUTNM = "soft_lutpair58" *) 
   LUT4 #(
     .INIT(16'h80FF)) 
     \r_Count[23]_i_18 
@@ -48398,7 +48874,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I2(\axi_rdata_reg[22] [1]),
         .I3(r_Minutes_1st_Digit_Dec_reg_1[0]),
         .O(\r_Count[23]_i_18_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT4 #(
     .INIT(16'h9555)) 
     \r_Count[23]_i_19 
@@ -48433,7 +48909,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter
         .I2(\r_Count_reg[22]_0 ),
         .I3(r_Seconds_1st_Digit_Inc_reg_1[1]),
         .O(\r_Count[23]_i_22_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+  (* SOFT_HLUTNM = "soft_lutpair57" *) 
   LUT4 #(
     .INIT(16'h807F)) 
     \r_Count[23]_i_23 
@@ -49428,7 +49904,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
     \r_Digit_Sel_reg[0]_0 ,
     i_Reset,
     axi_araddr,
-    o_Alarm_Enabled,
+    \slv_reg3_reg[3] ,
     o_Alarm_On,
     w_Clk_5MHz);
   output [1:0]S;
@@ -49748,7 +50224,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
   input \r_Digit_Sel_reg[0]_0 ;
   input i_Reset;
   input [1:0]axi_araddr;
-  input o_Alarm_Enabled;
+  input \slv_reg3_reg[3] ;
   input o_Alarm_On;
   input w_Clk_5MHz;
 
@@ -49764,7 +50240,6 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
   wire [3:0]\axi_rdata_reg[5] ;
   wire i_Change_Alarm;
   wire i_Reset;
-  wire o_Alarm_Enabled;
   wire o_Alarm_On;
   wire o_PM_INST_0_i_100_n_0;
   wire o_PM_INST_0_i_101_n_0;
@@ -52106,6 +52581,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
   wire [3:0]r_Seconds_2nd_Digit_Inc_reg;
   wire [3:0]\r_Time_State_reg[1] ;
   wire \slv_reg3_reg[1] ;
+  wire \slv_reg3_reg[3] ;
   wire [0:0]\slv_reg3_reg[5] ;
   wire [0:0]\slv_reg3_reg[6] ;
   wire w_Alarm_PM;
@@ -52403,12 +52879,12 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I4(axi_araddr[1]),
         .O(\axi_rdata_reg[23] [19]));
   LUT6 #(
-    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    .INIT(64'hA0AFCFCFA0AFC0C0)) 
     \axi_rdata[1]_i_1 
        (.I0(Q[1]),
         .I1(w_Alarm_Time_Stamp[1]),
         .I2(axi_araddr[0]),
-        .I3(o_Alarm_Enabled),
+        .I3(\slv_reg3_reg[3] ),
         .I4(axi_araddr[1]),
         .I5(w_Time_Stamp[1]),
         .O(\axi_rdata_reg[23] [1]));
@@ -52982,7 +53458,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .O(r_Alarm_State_reg));
   LUT6 #(
     .INIT(64'hE14B581A581AD287)) 
-    r_Alarm_Next_State1_carry_i_11
+    r_Alarm_Next_State1_carry_i_12
        (.I0(\r_BCD_Num[4]_i_4_n_0 ),
         .I1(\axi_rdata_reg[5] [0]),
         .I2(w_Alarm_Time_Stamp[1]),
@@ -53124,7 +53600,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I4(w_Seconds_0[2]),
         .I5(\r_BCD_Num[12]_i_6_n_0 ),
         .O(w_Alarm_Time[10]));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[12]_i_24 
@@ -53146,7 +53622,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I1(\r_BCD_Num_reg[21]_i_95_n_6 ),
         .I2(\r_BCD_Num_reg[12]_i_25_n_6 ),
         .O(\r_BCD_Num[12]_i_28_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[12]_i_29 
@@ -54098,7 +54574,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I4(w_Seconds_0[4]),
         .I5(\r_BCD_Num[15]_i_22_n_0 ),
         .O(\r_BCD_Num[15]_i_6_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT5 #(
     .INIT(32'hD2BD2D42)) 
     \r_BCD_Num[15]_i_60 
@@ -54108,7 +54584,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I3(w_Seconds_0[13]),
         .I4(\r_BCD_Num[18]_i_29_n_0 ),
         .O(\r_BCD_Num[15]_i_60_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT5 #(
     .INIT(32'hC17CF01F)) 
     \r_BCD_Num[15]_i_61 
@@ -54883,7 +55359,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I4(w_Alarm_Time_Stamp[14]),
         .I5(\r_BCD_Num[18]_i_52_n_0 ),
         .O(\r_BCD_Num[18]_i_48_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[18]_i_49 
@@ -54891,7 +55367,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I1(\r_BCD_Num_reg[21]_i_95_n_0 ),
         .I2(\r_BCD_Num_reg[21]_i_96_n_5 ),
         .O(\r_BCD_Num[18]_i_49_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[18]_i_50 
@@ -54899,7 +55375,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I1(\r_BCD_Num_reg[21]_i_95_n_0 ),
         .I2(\r_BCD_Num_reg[21]_i_96_n_6 ),
         .O(\r_BCD_Num[18]_i_50_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[18]_i_51 
@@ -55050,7 +55526,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I4(\r_BCD_Num[21]_i_7_n_0 ),
         .I5(\r_BCD_Num_reg[17]_0 [0]),
         .O(\r_BCD_Num[21]_i_11_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT3 #(
     .INIT(8'h96)) 
     \r_BCD_Num[21]_i_119 
@@ -58037,7 +58513,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I1(\r_BCD_Num_reg[6]_i_153_n_0 ),
         .I2(\r_BCD_Num_reg[5]_i_88_n_5 ),
         .O(\r_BCD_Num[5]_i_117_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[5]_i_118 
@@ -58045,7 +58521,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I1(\r_BCD_Num_reg[6]_i_153_n_0 ),
         .I2(\r_BCD_Num_reg[5]_i_88_n_6 ),
         .O(\r_BCD_Num[5]_i_118_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[5]_i_119 
@@ -58053,7 +58529,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I1(\r_BCD_Num_reg[6]_i_153_n_0 ),
         .I2(\r_BCD_Num_reg[5]_i_88_n_7 ),
         .O(\r_BCD_Num[5]_i_119_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[5]_i_120 
@@ -58247,7 +58723,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I2(\r_Count_reg[8]_1 [1]),
         .I3(w_Alarm_Time_Stamp[6]),
         .O(\r_BCD_Num[5]_i_146_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[5]_i_147 
@@ -58277,7 +58753,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I2(\r_Count_reg[20]_4 [2]),
         .I3(w_Alarm_Time_Stamp[23]),
         .O(\r_BCD_Num[5]_i_15_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \r_BCD_Num[5]_i_150 
@@ -58714,7 +59190,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I4(w_Alarm_Time_Stamp[14]),
         .I5(\r_BCD_Num[5]_i_120_n_0 ),
         .O(\r_BCD_Num[5]_i_86_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT3 #(
     .INIT(8'h96)) 
     \r_BCD_Num[5]_i_91 
@@ -59603,7 +60079,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I1(\r_BCD_Num_reg[6]_i_63_n_7 ),
         .I2(\r_BCD_Num_reg[6]_i_62_n_7 ),
         .O(\r_BCD_Num[6]_i_69_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT3 #(
     .INIT(8'hBA)) 
     \r_BCD_Num[6]_i_7 
@@ -60025,7 +60501,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I4(w_Alarm_Time_Stamp[22]),
         .I5(w_Alarm_Time_Stamp[19]),
         .O(\r_BCD_Num[7]_i_82_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT5 #(
     .INIT(32'hE73918C6)) 
     \r_BCD_Num[7]_i_83 
@@ -60035,7 +60511,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I3(w_Alarm_Time_Stamp[22]),
         .I4(w_Alarm_Time_Stamp[19]),
         .O(\r_BCD_Num[7]_i_83_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT5 #(
     .INIT(32'h94A5D6B5)) 
     \r_BCD_Num[7]_i_84 
@@ -60045,7 +60521,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I3(w_Alarm_Time_Stamp[22]),
         .I4(w_Alarm_Time_Stamp[19]),
         .O(\r_BCD_Num[7]_i_84_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT5 #(
     .INIT(32'hBABB8A88)) 
     \r_BCD_Num[7]_i_9 
@@ -62795,7 +63271,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I4(w_Alarm_Time_Stamp[8]),
         .I5(p_1_out0[6]),
         .O(\r_Count[11]_i_9__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT4 #(
     .INIT(16'h4055)) 
     \r_Count[15]_i_12__0 
@@ -62804,7 +63280,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I2(w_Alarm_Time_Stamp[13]),
         .I3(CO),
         .O(\r_Count[15]_i_12__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT4 #(
     .INIT(16'h6A55)) 
     \r_Count[15]_i_14__0 
@@ -62813,7 +63289,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I2(w_Alarm_Time_Stamp[13]),
         .I3(CO),
         .O(\r_Count[15]_i_14__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT4 #(
     .INIT(16'h4055)) 
     \r_Count[15]_i_17__0 
@@ -62822,7 +63298,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I2(w_Alarm_Time_Stamp[11]),
         .I3(CO),
         .O(\r_Count[15]_i_17__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT4 #(
     .INIT(16'h6A55)) 
     \r_Count[15]_i_18__0 
@@ -63005,7 +63481,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I4(CO),
         .I5(r_Count2[18]),
         .O(\r_Count[19]_i_11__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT2 #(
     .INIT(4'h7)) 
     \r_Count[19]_i_12__0 
@@ -63028,7 +63504,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I2(\r_Count_reg[22]_0 ),
         .I3(r_Seconds_1st_Digit_Inc_reg_0[2]),
         .O(\r_Count[19]_i_15__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT4 #(
     .INIT(16'h15D5)) 
     \r_Count[19]_i_16 
@@ -63037,7 +63513,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I2(\r_Count_reg[22]_0 ),
         .I3(r_Seconds_1st_Digit_Inc_reg_0[1]),
         .O(\r_Count[19]_i_16_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT4 #(
     .INIT(16'h8088)) 
     \r_Count[19]_i_17 
@@ -63046,7 +63522,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I2(w_Alarm_Time_Stamp[17]),
         .I3(p_1_out0[15]),
         .O(\r_Count[19]_i_17_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT4 #(
     .INIT(16'h9CCC)) 
     \r_Count[19]_i_18__0 
@@ -63331,7 +63807,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I4(r_Seconds_1st_Digit_Inc_reg_0[1]),
         .I5(w_Alarm_Time_Stamp[15]),
         .O(\r_Count[23]_i_104__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT3 #(
     .INIT(8'h96)) 
     \r_Count[23]_i_105__0 
@@ -63339,7 +63815,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I1(w_Alarm_Time_Stamp[22]),
         .I2(p_1_out0[20]),
         .O(\r_Count[23]_i_105__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT3 #(
     .INIT(8'h96)) 
     \r_Count[23]_i_106__0 
@@ -63464,7 +63940,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I4(r_Seconds_1st_Digit_Inc_reg[0]),
         .I5(w_Alarm_Time_Stamp[10]),
         .O(\r_Count[23]_i_141__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT3 #(
     .INIT(8'h96)) 
     \r_Count[23]_i_142__0 
@@ -63675,7 +64151,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
     \r_Count[23]_i_175__0 
        (.I0(\axi_rdata_reg[0] ),
         .O(\r_Count[23]_i_175__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT4 #(
     .INIT(16'h80FF)) 
     \r_Count[23]_i_17__0 
@@ -63684,7 +64160,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I2(w_Alarm_Time_Stamp[21]),
         .I3(p_1_out0[19]),
         .O(\r_Count[23]_i_17__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT4 #(
     .INIT(16'h9555)) 
     \r_Count[23]_i_18__0 
@@ -63726,7 +64202,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Time_Counter_18
         .I2(\r_Count_reg[22]_0 ),
         .I3(r_Seconds_1st_Digit_Inc_reg_1[1]),
         .O(\r_Count[23]_i_21__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT4 #(
     .INIT(16'h807F)) 
     \r_Count[23]_i_22__0 
@@ -65294,7 +65770,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Tone_Select
         .D(\r_Clock_Counter_reg[8]_i_1_n_6 ),
         .Q(r_Clock_Counter_reg[9]),
         .R(r_Clock_Counter));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT3 #(
     .INIT(8'h40)) 
     \r_Constant_Select[10]_i_1 
@@ -65302,7 +65778,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Tone_Select
         .I1(Q[0]),
         .I2(Q[1]),
         .O(\r_Constant_Select[10]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT3 #(
     .INIT(8'hFB)) 
     \r_Constant_Select[11]_i_1 
@@ -65310,7 +65786,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Tone_Select
         .I1(Q[0]),
         .I2(Q[1]),
         .O(\r_Constant_Select[11]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT3 #(
     .INIT(8'h04)) 
     \r_Constant_Select[12]_i_1 
@@ -65318,7 +65794,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Tone_Select
         .I1(Q[0]),
         .I2(Q[2]),
         .O(\r_Constant_Select[12]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT3 #(
     .INIT(8'h06)) 
     \r_Constant_Select[13]_i_1 
@@ -65326,14 +65802,14 @@ module Alarm_Clock_Alarm_Clock_0_1_Tone_Select
         .I1(Q[0]),
         .I2(Q[1]),
         .O(\r_Constant_Select[13]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \r_Constant_Select[14]_i_1 
        (.I0(Q[0]),
         .I1(Q[2]),
         .O(\r_Constant_Select[14]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT3 #(
     .INIT(8'hBD)) 
     \r_Constant_Select[15]_i_1 
@@ -65341,7 +65817,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Tone_Select
         .I1(Q[0]),
         .I2(Q[1]),
         .O(\r_Constant_Select[15]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT3 #(
     .INIT(8'hF7)) 
     \r_Constant_Select[6]_i_1 
@@ -65349,7 +65825,7 @@ module Alarm_Clock_Alarm_Clock_0_1_Tone_Select
         .I1(Q[0]),
         .I2(Q[2]),
         .O(\r_Constant_Select[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT3 #(
     .INIT(8'hE3)) 
     \r_Constant_Select[8]_i_1 

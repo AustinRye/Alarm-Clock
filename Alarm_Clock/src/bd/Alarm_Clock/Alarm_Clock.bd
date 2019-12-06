@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0x60C2869655F7A5A7" bd:device="xc7a100tcsg324-1" bd:isValidated="true" bd:synthFlowMode="Hierarchical" bd:tool_version="2016.3" bd:top="Alarm_Clock" bd:version="1.00.a">
+<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0xF2791951470B0984" bd:device="xc7a100tcsg324-1" bd:isValidated="true" bd:synthFlowMode="Hierarchical" bd:tool_version="2016.3" bd:top="Alarm_Clock" bd:version="1.00.a">
 
   <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
     <spirit:vendor>xilinx.com</spirit:vendor>
@@ -408,6 +408,32 @@
           <spirit:name>o_AUD_PWM</spirit:name>
           <spirit:wire>
             <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>o_Alarm_Game_LEDs</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+            <spirit:vector>
+              <spirit:left>9</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>i_Alarm_Game_Enable</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>i_Alarm_Game_Switches</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+            <spirit:vector>
+              <spirit:left>9</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
           </spirit:wire>
         </spirit:port>
       </spirit:ports>
@@ -858,6 +884,21 @@
         <spirit:name>Alarm_Clock_0_o_AUD_PWM</spirit:name>
         <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="o_AUD_PWM"/>
         <spirit:externalPortReference spirit:portRef="o_AUD_PWM"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>Alarm_Clock_0_o_Alarm_Game_LEDs</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="o_Alarm_Game_LEDs"/>
+        <spirit:externalPortReference spirit:portRef="o_Alarm_Game_LEDs"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>i_Alarm_Game_Enable_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="i_Alarm_Game_Enable"/>
+        <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="i_Alarm_Game_Enable"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>i_Alarm_Game_Switches_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="i_Alarm_Game_Switches"/>
+        <spirit:internalPortReference spirit:componentRef="Alarm_Clock_0" spirit:portRef="i_Alarm_Game_Switches"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>

@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
-//Date        : Tue Dec 03 13:32:15 2019
+//Date        : Thu Dec 05 20:50:51 2019
 //Host        : LAPTOP-CKAMQSCQ running 64-bit major release  (build 9200)
 //Command     : generate_target Alarm_Clock_wrapper.bd
 //Design      : Alarm_Clock_wrapper
@@ -33,6 +33,8 @@ module Alarm_Clock_wrapper
     eth_rmii_tx_en,
     eth_rmii_txd,
     i_Alarm_Enable,
+    i_Alarm_Game_Enable,
+    i_Alarm_Game_Switches,
     i_Change_Alarm,
     i_Encoder_A,
     i_Encoder_B,
@@ -42,6 +44,7 @@ module Alarm_Clock_wrapper
     o_AUD_PWM,
     o_AUD_SD,
     o_Alarm_Enabled,
+    o_Alarm_Game_LEDs,
     o_Alarm_On,
     o_Anodes,
     o_PM,
@@ -73,6 +76,8 @@ module Alarm_Clock_wrapper
   output eth_rmii_tx_en;
   output [1:0]eth_rmii_txd;
   input i_Alarm_Enable;
+  input i_Alarm_Game_Enable;
+  input [9:0]i_Alarm_Game_Switches;
   input i_Change_Alarm;
   input i_Encoder_A;
   input i_Encoder_B;
@@ -82,6 +87,7 @@ module Alarm_Clock_wrapper
   output o_AUD_PWM;
   output o_AUD_SD;
   output o_Alarm_Enabled;
+  output [9:0]o_Alarm_Game_LEDs;
   output o_Alarm_On;
   output [7:0]o_Anodes;
   output o_PM;
@@ -117,6 +123,8 @@ module Alarm_Clock_wrapper
   wire eth_rmii_tx_en;
   wire [1:0]eth_rmii_txd;
   wire i_Alarm_Enable;
+  wire i_Alarm_Game_Enable;
+  wire [9:0]i_Alarm_Game_Switches;
   wire i_Change_Alarm;
   wire i_Encoder_A;
   wire i_Encoder_B;
@@ -126,6 +134,7 @@ module Alarm_Clock_wrapper
   wire o_AUD_PWM;
   wire o_AUD_SD;
   wire o_Alarm_Enabled;
+  wire [9:0]o_Alarm_Game_LEDs;
   wire o_Alarm_On;
   wire [7:0]o_Anodes;
   wire o_PM;
@@ -161,6 +170,8 @@ module Alarm_Clock_wrapper
         .eth_rmii_tx_en(eth_rmii_tx_en),
         .eth_rmii_txd(eth_rmii_txd),
         .i_Alarm_Enable(i_Alarm_Enable),
+        .i_Alarm_Game_Enable(i_Alarm_Game_Enable),
+        .i_Alarm_Game_Switches(i_Alarm_Game_Switches),
         .i_Change_Alarm(i_Change_Alarm),
         .i_Encoder_A(i_Encoder_A),
         .i_Encoder_B(i_Encoder_B),
@@ -170,6 +181,7 @@ module Alarm_Clock_wrapper
         .o_AUD_PWM(o_AUD_PWM),
         .o_AUD_SD(o_AUD_SD),
         .o_Alarm_Enabled(o_Alarm_Enabled),
+        .o_Alarm_Game_LEDs(o_Alarm_Game_LEDs),
         .o_Alarm_On(o_Alarm_On),
         .o_Anodes(o_Anodes),
         .o_PM(o_PM),

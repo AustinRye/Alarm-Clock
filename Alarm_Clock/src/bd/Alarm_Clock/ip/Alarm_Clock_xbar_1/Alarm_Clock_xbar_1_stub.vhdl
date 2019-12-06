@@ -1,10 +1,10 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
--- Date        : Wed Nov 20 14:22:05 2019
+-- Date        : Wed Nov 20 14:22:04 2019
 -- Host        : LAPTOP-CKAMQSCQ running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub
---               d:/School/ELEC_3500/Lab_9/Alarm_Clock_v3/Alarm_Clock/src/bd/Alarm_Clock/ip/Alarm_Clock_xbar_1/Alarm_Clock_xbar_1_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top Alarm_Clock_xbar_1 -prefix
+--               Alarm_Clock_xbar_1_ Alarm_Clock_xbar_1_stub.vhdl
 -- Design      : Alarm_Clock_xbar_1
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a100tcsg324-1

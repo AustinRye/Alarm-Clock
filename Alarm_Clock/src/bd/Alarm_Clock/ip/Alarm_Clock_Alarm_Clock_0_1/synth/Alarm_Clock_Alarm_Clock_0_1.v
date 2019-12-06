@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:user:Alarm_Clock:2.0
-// IP Revision: 33
+// IP Revision: 35
 
 (* X_CORE_INFO = "Alarm_Clock_v2_0,Vivado 2016.3" *)
 (* CHECK_LICENSE_TYPE = "Alarm_Clock_Alarm_Clock_0_1,Alarm_Clock_v2_0,{}" *)
-(* CORE_GENERATION_INFO = "Alarm_Clock_Alarm_Clock_0_1,Alarm_Clock_v2_0,{x_ipProduct=Vivado 2016.3,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=Alarm_Clock,x_ipVersion=2.0,x_ipCoreRevision=33,x_ipLanguage=VERILOG,x_ipSimLanguage=VERILOG,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
+(* CORE_GENERATION_INFO = "Alarm_Clock_Alarm_Clock_0_1,Alarm_Clock_v2_0,{x_ipProduct=Vivado 2016.3,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=Alarm_Clock,x_ipVersion=2.0,x_ipCoreRevision=35,x_ipLanguage=VERILOG,x_ipSimLanguage=VERILOG,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module Alarm_Clock_Alarm_Clock_0_1 (
   i_Clk_100MHz,
@@ -63,10 +63,13 @@ module Alarm_Clock_Alarm_Clock_0_1 (
   i_Encoder_A,
   i_Encoder_B,
   i_Alarm_Enable,
+  i_Alarm_Game_Enable,
+  i_Alarm_Game_Switches,
   o_Segments,
   o_Anodes,
   o_Alarm_Enabled,
   o_Alarm_On,
+  o_Alarm_Game_LEDs,
   o_AUD_SD,
   o_AUD_PWM,
   o_PM,
@@ -102,10 +105,13 @@ input wire i_Encoder_Change_Mode;
 input wire i_Encoder_A;
 input wire i_Encoder_B;
 input wire i_Alarm_Enable;
+input wire i_Alarm_Game_Enable;
+input wire [9 : 0] i_Alarm_Game_Switches;
 output wire [6 : 0] o_Segments;
 output wire [7 : 0] o_Anodes;
 output wire o_Alarm_Enabled;
 output wire o_Alarm_On;
+output wire [9 : 0] o_Alarm_Game_LEDs;
 output wire o_AUD_SD;
 output wire o_AUD_PWM;
 output wire o_PM;
@@ -164,10 +170,13 @@ input wire s00_axi_aresetn;
     .i_Encoder_A(i_Encoder_A),
     .i_Encoder_B(i_Encoder_B),
     .i_Alarm_Enable(i_Alarm_Enable),
+    .i_Alarm_Game_Enable(i_Alarm_Game_Enable),
+    .i_Alarm_Game_Switches(i_Alarm_Game_Switches),
     .o_Segments(o_Segments),
     .o_Anodes(o_Anodes),
     .o_Alarm_Enabled(o_Alarm_Enabled),
     .o_Alarm_On(o_Alarm_On),
+    .o_Alarm_Game_LEDs(o_Alarm_Game_LEDs),
     .o_AUD_SD(o_AUD_SD),
     .o_AUD_PWM(o_AUD_PWM),
     .o_PM(o_PM),

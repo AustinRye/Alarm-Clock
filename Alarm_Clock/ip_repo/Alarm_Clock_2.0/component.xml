@@ -326,7 +326,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>a0a42409</spirit:value>
+            <spirit:value>18e151ee</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -342,7 +342,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>a0a42409</spirit:value>
+            <spirit:value>18e151ee</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -495,6 +495,36 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
+        <spirit:name>i_Alarm_Game_Enable</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>i_Alarm_Game_Switches</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">9</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
         <spirit:name>o_Segments</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
@@ -548,6 +578,23 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>o_Alarm_Game_LEDs</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">9</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -938,6 +985,10 @@
     <spirit:fileSet>
       <spirit:name>xilinx_verilogsynthesis_view_fileset</spirit:name>
       <spirit:file>
+        <spirit:name>src/Randomizer.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>src/Tone_Select.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -955,6 +1006,10 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>src/BCD_To_7Segment.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/Alarm_Game.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1008,11 +1063,15 @@
       <spirit:file>
         <spirit:name>hdl/Alarm_Clock_v2_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_3f88b438</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_e675bb79</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_verilogbehavioralsimulation_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>src/Randomizer.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
       <spirit:file>
         <spirit:name>src/Tone_Select.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
@@ -1031,6 +1090,10 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>src/BCD_To_7Segment.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/Alarm_Game.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1201,8 +1264,8 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>Alarm_Clock_v2.0</xilinx:displayName>
-      <xilinx:coreRevision>33</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2019-12-03T18:31:40Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>35</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2019-12-06T01:47:10Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@3f1c623b_ARCHIVE_LOCATION">d:/School/ELEC_3500/Lab_9/Alarm_Clock_v3/MicroBlaze_Alarm_Clock/ip_repo/Alarm_Clock_2.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@548b45cb_ARCHIVE_LOCATION">d:/School/ELEC_3500/Lab_9/Alarm_Clock_v3/MicroBlaze_Alarm_Clock/ip_repo/Alarm_Clock_2.0</xilinx:tag>
@@ -1236,8 +1299,8 @@
       <xilinx:xilinxVersion>2016.3</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="dfe80439"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="493665f4"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="e1b25400"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="a51f8063"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="e88b92fd"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="8c5950e5"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="4429bb0c"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="a91bafb3"/>
     </xilinx:packagingInfo>

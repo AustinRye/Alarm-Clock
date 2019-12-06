@@ -1,10 +1,10 @@
 // Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
-// Date        : Tue Nov 26 13:27:32 2019
+// Date        : Tue Nov 26 13:27:31 2019
 // Host        : LAPTOP-CKAMQSCQ running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               D:/School/ELEC_3500/Lab_9/Alarm-Clock_v3/Alarm_Clock/src/bd/Alarm_Clock/ip/Alarm_Clock_xbar_0/Alarm_Clock_xbar_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top Alarm_Clock_xbar_0 -prefix
+//               Alarm_Clock_xbar_0_ Alarm_Clock_xbar_0_sim_netlist.v
 // Design      : Alarm_Clock_xbar_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -399,7 +399,6 @@ module Alarm_Clock_xbar_0
         .s_axi_wvalid(s_axi_wvalid));
 endmodule
 
-(* ORIG_REF_NAME = "axi_crossbar_v2_1_11_addr_arbiter" *) 
 module Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_addr_arbiter
    (SR,
     aa_mi_arvalid,
@@ -2588,13 +2587,13 @@ endmodule
 (* C_NUM_MASTER_SLOTS = "1" *) (* C_NUM_SLAVE_SLOTS = "2" *) (* C_R_REGISTER = "0" *) 
 (* C_S_AXI_ARB_PRIORITY = "64'b0000000000000000000000000000000000000000000000000000000000000000" *) (* C_S_AXI_BASE_ID = "64'b0000000000000000000000000000000100000000000000000000000000000000" *) (* C_S_AXI_READ_ACCEPTANCE = "64'b0000000000000000000000000000100000000000000000000000000000000010" *) 
 (* C_S_AXI_SINGLE_THREAD = "64'b0000000000000000000000000000000000000000000000000000000000000000" *) (* C_S_AXI_THREAD_ID_WIDTH = "64'b0000000000000000000000000000000000000000000000000000000000000000" *) (* C_S_AXI_WRITE_ACCEPTANCE = "64'b0000000000000000000000000000001000000000000000000000000000001000" *) 
-(* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "axi_crossbar_v2_1_11_axi_crossbar" *) (* P_ADDR_DECODE = "1" *) 
-(* P_AXI3 = "1" *) (* P_AXI4 = "0" *) (* P_AXILITE = "2" *) 
-(* P_AXILITE_SIZE = "3'b010" *) (* P_FAMILY = "artix7" *) (* P_INCR = "2'b01" *) 
-(* P_LEN = "8" *) (* P_LOCK = "1" *) (* P_M_AXI_ERR_MODE = "32'b00000000000000000000000000000000" *) 
-(* P_M_AXI_SUPPORTS_READ = "1'b1" *) (* P_M_AXI_SUPPORTS_WRITE = "1'b1" *) (* P_ONES = "65'b11111111111111111111111111111111111111111111111111111111111111111" *) 
-(* P_RANGE_CHECK = "1" *) (* P_S_AXI_BASE_ID = "128'b00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000" *) (* P_S_AXI_HIGH_ID = "128'b00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000" *) 
-(* P_S_AXI_SUPPORTS_READ = "2'b11" *) (* P_S_AXI_SUPPORTS_WRITE = "2'b01" *) 
+(* DowngradeIPIdentifiedWarnings = "yes" *) (* P_ADDR_DECODE = "1" *) (* P_AXI3 = "1" *) 
+(* P_AXI4 = "0" *) (* P_AXILITE = "2" *) (* P_AXILITE_SIZE = "3'b010" *) 
+(* P_FAMILY = "artix7" *) (* P_INCR = "2'b01" *) (* P_LEN = "8" *) 
+(* P_LOCK = "1" *) (* P_M_AXI_ERR_MODE = "32'b00000000000000000000000000000000" *) (* P_M_AXI_SUPPORTS_READ = "1'b1" *) 
+(* P_M_AXI_SUPPORTS_WRITE = "1'b1" *) (* P_ONES = "65'b11111111111111111111111111111111111111111111111111111111111111111" *) (* P_RANGE_CHECK = "1" *) 
+(* P_S_AXI_BASE_ID = "128'b00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000" *) (* P_S_AXI_HIGH_ID = "128'b00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000" *) (* P_S_AXI_SUPPORTS_READ = "2'b11" *) 
+(* P_S_AXI_SUPPORTS_WRITE = "2'b01" *) 
 module Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_axi_crossbar
    (aclk,
     aresetn,
@@ -3031,7 +3030,6 @@ module Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_axi_crossbar
         .s_axi_wvalid(s_axi_wvalid[0]));
 endmodule
 
-(* ORIG_REF_NAME = "axi_crossbar_v2_1_11_crossbar" *) 
 module Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_crossbar
    (E,
     m_axi_bready,
@@ -3785,7 +3783,6 @@ module Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_crossbar
         .mi_awready(mi_awready));
 endmodule
 
-(* ORIG_REF_NAME = "axi_crossbar_v2_1_11_decerr_slave" *) 
 module Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_decerr_slave
    (mi_awready,
     p_10_in,
@@ -4213,7 +4210,6 @@ module Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_decerr_slave
         .O(m_valid_i_reg));
 endmodule
 
-(* ORIG_REF_NAME = "axi_crossbar_v2_1_11_si_transactor" *) 
 module Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_si_transactor
    (active_target_enc,
     active_target_hot,
@@ -4789,7 +4785,6 @@ module Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_si_transactor__parameterized1
         .O(s_axi_rvalid));
 endmodule
 
-(* ORIG_REF_NAME = "axi_crossbar_v2_1_11_splitter" *) 
 module Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_splitter
    (\gen_single_thread.active_target_hot_reg[0] ,
     m_ready_d,
@@ -5002,7 +4997,6 @@ module Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_splitter_2
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "axi_crossbar_v2_1_11_wdata_mux" *) 
 module Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_wdata_mux
    (\storage_data1_reg[0] ,
     E,
@@ -5224,7 +5218,6 @@ module Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_wdata_mux__parameterized0
         .\storage_data1_reg[0]_1 (\storage_data1_reg[0]_0 ));
 endmodule
 
-(* ORIG_REF_NAME = "axi_crossbar_v2_1_11_wdata_router" *) 
 module Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_wdata_router
    (\gen_arbiter.m_target_hot_i_reg[1] ,
     SS,
@@ -5351,7 +5344,6 @@ module Alarm_Clock_xbar_0_axi_crossbar_v2_1_11_wdata_router
         .write_cs(write_cs));
 endmodule
 
-(* ORIG_REF_NAME = "axi_data_fifo_v2_1_9_axic_reg_srl_fifo" *) 
 module Alarm_Clock_xbar_0_axi_data_fifo_v2_1_9_axic_reg_srl_fifo
    (\gen_arbiter.m_target_hot_i_reg[1] ,
     SR,
@@ -7301,7 +7293,6 @@ module Alarm_Clock_xbar_0_axi_data_fifo_v2_1_9_axic_reg_srl_fifo__parameterized1
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "axi_data_fifo_v2_1_9_ndeep_srl" *) 
 module Alarm_Clock_xbar_0_axi_data_fifo_v2_1_9_ndeep_srl
    (\storage_data1_reg[0] ,
     push,
@@ -7543,7 +7534,6 @@ module Alarm_Clock_xbar_0_axi_data_fifo_v2_1_9_ndeep_srl__parameterized8
         .O(\storage_data1_reg[0] ));
 endmodule
 
-(* ORIG_REF_NAME = "axi_register_slice_v2_1_10_axi_register_slice" *) 
 module Alarm_Clock_xbar_0_axi_register_slice_v2_1_10_axi_register_slice
    (p_58_out,
     m_valid_i_reg,

@@ -1,0 +1,59 @@
+.round-button {
+    /* border-radius: 100%;
+    width: 100px;
+    height: 70px; */
+}
+
+.time-wrapper {
+
+    /* background: #e6e6e6; */
+    /* border-style: solid;
+    border-width: 5px;
+    border-radius: 5px; */
+}
+
+.time-box {
+    flex-grow: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.time-number-size {
+    font-size: 60px;
+}
+
+.time-colon {
+    font-size: 72px;
+    padding-top: 24px;
+    /* margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px; */
+}
+
+.time-inc-icon {
+    /* font-size: 20px; */
+    /* width: 30px; */
+}
+
+.time-dec-icon {
+    /* font-size: 20px; */
+    /* width: 30px; */
+}
+
+#pm {
+    font-size: 40px;
+}
+
+#alarmOn,
+#alarmEnabled {
+    background: grey;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+
+#alarmOn.active,
+#alarmEnabled.active {
+    background: red;
+}
